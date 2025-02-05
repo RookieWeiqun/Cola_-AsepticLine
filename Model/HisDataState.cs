@@ -14,11 +14,14 @@ using Npgsql.LegacyPostgis;
 
 namespace Cola.Model {
 
-	[JsonObject(MemberSerialization.OptIn), Table(Name = "his_data_state", DisableSyncStructure = true)]
+	[JsonObject(MemberSerialization.OptIn), Table(Name = "his_data_state", DisableSyncStructure = false)]
 	public partial class HisDataState {
 
 		[JsonProperty, Column(Name = "id", IsPrimary = true, IsIdentity = true, InsertValueSql = "nextval('his_data_state_id_seq'::regclass)")]
 		public long Id { get; set; }
+
+		[JsonProperty, Column(Name = "begin_time", DbType = "timestamptz")]
+		public DateTime? BeginTime { get; set; }
 
 		[JsonProperty, Column(Name = "data", DbType = "json")]
 		public JToken Data { get; set; }
@@ -26,11 +29,20 @@ namespace Cola.Model {
 		[JsonProperty, Column(Name = "device_id")]
 		public int? DeviceId { get; set; }
 
+		[JsonProperty, Column(Name = "duration")]
+		public int? Duration { get; set; }
+
+		[JsonProperty, Column(Name = "end_time", DbType = "timestamptz")]
+		public DateTime? EndTime { get; set; }
+
 		[JsonProperty, Column(Name = "line_id")]
 		public int? LineId { get; set; }
 
 		[JsonProperty, Column(Name = "record_time", DbType = "timestamptz", InsertValueSql = "CURRENT_TIMESTAMP")]
 		public DateTime? RecordTime { get; set; }
+
+		[JsonProperty, Column(Name = "state_id")]
+		public int? StateId { get; set; }
 
 	}
 

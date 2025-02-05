@@ -23,6 +23,9 @@ namespace Cola.Model {
 		[JsonProperty, Column(Name = "alias_name", StringLength = 50)]
 		public string AliasName { get; set; }
 
+		[JsonProperty, Column(Name = "device_id")]
+		public int? DeviceId { get; set; }
+
 		[JsonProperty, Column(Name = "line_id")]
 		public int? LineId { get; set; }
 

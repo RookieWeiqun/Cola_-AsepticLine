@@ -1,0 +1,34 @@
+
+🏔️ RBO概念                                           
+🏝️ R 需求类                                          
+🏔️ R1 业务需求  R2 需求模糊  R3 需求变更              
+🏔️                                                   
+🏝️ B 错误                                            
+🏔️ B1 业务bug B2 质量bug B3 边界bug                  
+🏔️                                                   
+🏝️ O 优化                                            
+🏔️ O1 需求优化 O2 性能优化 O3 可维护性               
+
+[Architecture] [***Service] [***Controller] [API] [DataBase]
+
+
+
+🐕🐕🐕🐕🐕🐕🐕🐕🐕
+## 版本列表
+Thank you to all our backers!
+
+
+
+### 0.0.01 [2025.01.14 09:50] 
+>1000.R1  框架搭建,基于.net 8.0 版本
+### 0.0.02 [2025.02.05 18:50]
+>999.R1  Report页面API搭建
+## Sprint-1-START [2025.01.14]
+
+
+
+
+
+
+
+

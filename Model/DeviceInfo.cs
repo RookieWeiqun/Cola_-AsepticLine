@@ -23,8 +23,8 @@ namespace Cola.Model {
 		[JsonProperty, Column(Name = "alias_name", StringLength = 50)]
 		public string AliasName { get; set; }
 
-		[JsonProperty, Column(Name = "checked")]
-		public short? Checked { get; set; }
+		[JsonProperty, Column(Name = "capacity")]
+		public int? Capacity { get; set; }
 
 		[JsonProperty, Column(Name = "device_type")]
 		public int? DeviceType { get; set; }
@@ -37,9 +37,6 @@ namespace Cola.Model {
 
 		[JsonProperty, Column(Name = "no")]
 		public short? No { get; set; }
-
-		[JsonProperty, Column(Name = "pre_mixed")]
-		public short? PreMixed { get; set; }
 
 	}
 

@@ -20,14 +20,14 @@ namespace Cola.Model {
 		[JsonProperty, Column(Name = "id", IsPrimary = true, IsIdentity = true, InsertValueSql = "nextval('recipe_detail_info_id_seq'::regclass)")]
 		public int Id { get; set; }
 
-		[JsonProperty, Column(Name = "check_para_id")]
-		public int? CheckParaId { get; set; }
-
 		[JsonProperty, Column(Name = "lower", StringLength = 50)]
 		public string Lower { get; set; }
 
 		[JsonProperty, Column(Name = "lower_inc")]
 		public short? LowerInc { get; set; }
+
+		[JsonProperty, Column(Name = "para_id")]
+		public int? ParaId { get; set; }
 
 		[JsonProperty, Column(Name = "recipe_id")]
 		public int? RecipeId { get; set; }

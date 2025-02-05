@@ -9,8 +9,8 @@ namespace Cola.Extensions
     {
         public CustomProfile()
         {
-            CreateMap<CheckItem, CheckItemDTO>()
-            .ForMember(a => a.Name, o => o.MapFrom(d => d.alias_name));
+            //CreateMap<CheckItem, CheckItemDTO>()
+            //.ForMember(a => a.Name, o => o.MapFrom(d => d.alias_name));
         }
 
     }

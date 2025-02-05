@@ -3,80 +3,92 @@
   "WorkspaceRootPath": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\controllers\\checkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:controllers\\checkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\model\\checkitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:model\\checkitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\verg.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:verg.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\__\u91CD\u65B0\u751F\u6210.bat||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:__\u91CD\u65B0\u751F\u6210.bat||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\controllers\\statecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:controllers\\statecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\model\\checkpara.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:model\\checkpara.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\model\\selfdefinnition\\statedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:model\\selfdefinnition\\statedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\model\\hisdatastate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:model\\hisdatastate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\model\\devicetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:model\\devicetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\model\\selfdefinnition\\reportdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:model\\selfdefinnition\\reportdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\model\\devicestep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:model\\devicestep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\model\\devicestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:model\\devicestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\model\\deviceinfodetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:model\\deviceinfodetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\model\\realtimedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:model\\realtimedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\model\\deviceinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:model\\deviceinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\model\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:model\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\model\\hisdatacheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:model\\hisdatacheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\extensions\\automapperconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:extensions\\automapperconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\model\\checkpara.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:model\\checkpara.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\controllers\\checkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:controllers\\checkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\model\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:model\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\extensions\\customprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:extensions\\customprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\dto\\checkitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:dto\\checkitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\extensions\\excelhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:extensions\\excelhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\nlog.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:nlog.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\__\u91CD\u65B0\u751F\u6210.bat||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:__\u91CD\u65B0\u751F\u6210.bat||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\extensions\\automapperconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:extensions\\automapperconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\dto\\checkitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:dto\\checkitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\cola.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
@@ -90,11 +102,182 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "verg.txt",
+              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\verg.txt",
+              "RelativeDocumentMoniker": "verg.txt",
+              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\verg.txt",
+              "RelativeToolTip": "verg.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-02-05T10:12:01.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HisDataState.cs",
+              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\HisDataState.cs",
+              "RelativeDocumentMoniker": "Model\\HisDataState.cs",
+              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\HisDataState.cs",
+              "RelativeToolTip": "Model\\HisDataState.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAApwBwAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T09:41:21.687Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T05:09:37.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-14T02:28:23.042Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RealtimeData.cs",
+              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\RealtimeData.cs",
+              "RelativeDocumentMoniker": "Model\\RealtimeData.cs",
+              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\RealtimeData.cs",
+              "RelativeToolTip": "Model\\RealtimeData.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAwwCMAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T00:50:21.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ReportData.cs",
+              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\SelfDefinnition\\ReportData.cs",
+              "RelativeDocumentMoniker": "Model\\SelfDefinnition\\ReportData.cs",
+              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\SelfDefinnition\\ReportData.cs",
+              "RelativeToolTip": "Model\\SelfDefinnition\\ReportData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBEAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T03:11:53.73Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAABMAAAAAAAAAAABRwC0AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-10T05:12:03.483Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StateController.cs",
+              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Controllers\\StateController.cs",
+              "RelativeDocumentMoniker": "Controllers\\StateController.cs",
+              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Controllers\\StateController.cs",
+              "RelativeToolTip": "Controllers\\StateController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAgwBsAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T07:47:57.128Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "StateData.cs",
+              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\SelfDefinnition\\StateData.cs",
+              "RelativeDocumentMoniker": "Model\\SelfDefinnition\\StateData.cs",
+              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\SelfDefinnition\\StateData.cs",
+              "RelativeToolTip": "Model\\SelfDefinnition\\StateData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T10:04:21.268Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ReportController.cs",
+              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Controllers\\ReportController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ReportController.cs",
+              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Controllers\\ReportController.cs",
+              "RelativeToolTip": "Controllers\\ReportController.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAiwBoAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T07:47:29.43Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CheckController.cs",
+              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Controllers\\CheckController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CheckController.cs",
+              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Controllers\\CheckController.cs",
+              "RelativeToolTip": "Controllers\\CheckController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAqwCoAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T02:33:25.202Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "HisDataCheck.cs",
+              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\HisDataCheck.cs",
+              "RelativeDocumentMoniker": "Model\\HisDataCheck.cs",
+              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\HisDataCheck.cs",
+              "RelativeToolTip": "Model\\HisDataCheck.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T07:12:20.929Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DeviceInfo.cs",
+              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\DeviceInfo.cs",
+              "RelativeDocumentMoniker": "Model\\DeviceInfo.cs",
+              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\DeviceInfo.cs",
+              "RelativeToolTip": "Model\\DeviceInfo.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACMAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T00:55:36.092Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CheckPara.cs",
+              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\CheckPara.cs",
+              "RelativeDocumentMoniker": "Model\\CheckPara.cs",
+              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\CheckPara.cs",
+              "RelativeToolTip": "Model\\CheckPara.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACMAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T06:24:00.145Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "__\u91CD\u65B0\u751F\u6210.bat",
               "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\__\u91CD\u65B0\u751F\u6210.bat",
               "RelativeDocumentMoniker": "__\u91CD\u65B0\u751F\u6210.bat",
@@ -106,128 +289,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DeviceType.cs",
-              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\DeviceType.cs",
-              "RelativeDocumentMoniker": "Model\\DeviceType.cs",
-              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\DeviceType.cs",
-              "RelativeToolTip": "Model\\DeviceType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAiAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "ApiResponse.cs",
+              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\ApiResponse.cs",
+              "RelativeDocumentMoniker": "Model\\ApiResponse.cs",
+              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\ApiResponse.cs",
+              "RelativeToolTip": "Model\\ApiResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T09:05:57.531Z"
+              "WhenOpened": "2025-01-13T02:51:15.251Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "DeviceStep.cs",
-              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\DeviceStep.cs",
-              "RelativeDocumentMoniker": "Model\\DeviceStep.cs",
-              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\DeviceStep.cs",
-              "RelativeToolTip": "Model\\DeviceStep.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T09:05:56.128Z"
+              "DocumentIndex": 17,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-10T05:11:59.406Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CheckPara.cs",
-              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\CheckPara.cs",
-              "RelativeDocumentMoniker": "Model\\CheckPara.cs",
-              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\CheckPara.cs",
-              "RelativeToolTip": "Model\\CheckPara.cs",
+              "DocumentIndex": 13,
+              "Title": "CustomProfile.cs",
+              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Extensions\\CustomProfile.cs",
+              "RelativeDocumentMoniker": "Extensions\\CustomProfile.cs",
+              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Extensions\\CustomProfile.cs",
+              "RelativeToolTip": "Extensions\\CustomProfile.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T09:05:00.376Z"
+              "WhenOpened": "2025-01-13T05:39:34.021Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "WeatherForecastController.cs",
-              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Controllers\\WeatherForecastController.cs",
-              "RelativeDocumentMoniker": "Controllers\\WeatherForecastController.cs",
-              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Controllers\\WeatherForecastController.cs",
-              "RelativeToolTip": "Controllers\\WeatherForecastController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA1AAAAAAAAAA==",
+              "DocumentIndex": 14,
+              "Title": "ExcelHelper.cs",
+              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Extensions\\ExcelHelper.cs",
+              "RelativeDocumentMoniker": "Extensions\\ExcelHelper.cs",
+              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Extensions\\ExcelHelper.cs",
+              "RelativeToolTip": "Extensions\\ExcelHelper.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACAAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T05:09:50.015Z"
+              "WhenOpened": "2025-01-15T05:41:05.746Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CheckController.cs",
-              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Controllers\\CheckController.cs",
-              "RelativeDocumentMoniker": "Controllers\\CheckController.cs",
-              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Controllers\\CheckController.cs",
-              "RelativeToolTip": "Controllers\\CheckController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T02:33:25.202Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CheckItem.cs",
-              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\CheckItem.cs",
-              "RelativeDocumentMoniker": "Model\\CheckItem.cs",
-              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\CheckItem.cs",
-              "RelativeToolTip": "Model\\CheckItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T02:31:06.067Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T05:09:37.312Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "DeviceState.cs",
-              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\DeviceState.cs",
-              "RelativeDocumentMoniker": "Model\\DeviceState.cs",
-              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\DeviceState.cs",
-              "RelativeToolTip": "Model\\DeviceState.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T09:05:53.54Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "DeviceInfoDetail.cs",
-              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\DeviceInfoDetail.cs",
-              "RelativeDocumentMoniker": "Model\\DeviceInfoDetail.cs",
-              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\DeviceInfoDetail.cs",
-              "RelativeToolTip": "Model\\DeviceInfoDetail.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T09:05:51.553Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "DeviceInfo.cs",
-              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\DeviceInfo.cs",
-              "RelativeDocumentMoniker": "Model\\DeviceInfo.cs",
-              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\DeviceInfo.cs",
-              "RelativeToolTip": "Model\\DeviceInfo.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T09:05:38.817Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 20,
               "Title": "AutoMapperConfig.cs",
               "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Extensions\\AutoMapperConfig.cs",
               "RelativeDocumentMoniker": "Extensions\\AutoMapperConfig.cs",
@@ -239,43 +349,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "CustomProfile.cs",
-              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Extensions\\CustomProfile.cs",
-              "RelativeDocumentMoniker": "Extensions\\CustomProfile.cs",
-              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Extensions\\CustomProfile.cs",
-              "RelativeToolTip": "Extensions\\CustomProfile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T05:39:34.021Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ApiResponse.cs",
-              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\ApiResponse.cs",
-              "RelativeDocumentMoniker": "Model\\ApiResponse.cs",
-              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\ApiResponse.cs",
-              "RelativeToolTip": "Model\\ApiResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T02:51:15.251Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "WeatherForecast.cs",
-              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\WeatherForecast.cs",
-              "RelativeDocumentMoniker": "WeatherForecast.cs",
-              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\WeatherForecast.cs",
-              "RelativeToolTip": "WeatherForecast.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T05:10:29.441Z"
+              "Title": "Dockerfile",
+              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Dockerfile",
+              "RelativeDocumentMoniker": "Dockerfile",
+              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Dockerfile",
+              "RelativeToolTip": "Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-01-16T03:17:26.59Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 21,
               "Title": "CheckItemDTO.cs",
               "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\DTO\\CheckItemDTO.cs",
               "RelativeDocumentMoniker": "DTO\\CheckItemDTO.cs",
@@ -287,19 +373,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
-              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Properties\\launchSettings.json",
-              "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAACAAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-10T05:12:03.483Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "Cola",
               "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Cola.csproj",
               "RelativeDocumentMoniker": "Cola.csproj",
@@ -307,30 +381,6 @@
               "RelativeToolTip": "Cola.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2025-01-10T05:13:32.636Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "nlog.config",
-              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\nlog.config",
-              "RelativeDocumentMoniker": "nlog.config",
-              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\nlog.config",
-              "RelativeToolTip": "nlog.config",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAABwAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-01-13T03:07:34.217Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-10T05:11:59.406Z"
             }
           ]
         }

@@ -11,24 +11,37 @@
     "EndpointName": "GetCheck"
   },
   {
-    "ContainingType": "Cola.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "api/WeatherForecast/test",
+    "ContainingType": "Cola.Controllers.ReportController",
+    "Method": "GetReportDataByInputTime",
+    "RelativePath": "api/Report",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
+    "Parameters": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Cola.WeatherForecast, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "Name": "inputTime",
+        "Type": "System.DateTime",
+        "IsRequired": false
       }
     ],
-    "EndpointName": "GetWeatherForecast"
+    "ReturnTypes": [],
+    "EndpointName": "GetReport"
+  },
+  {
+    "ContainingType": "Cola.Controllers.StateController",
+    "Method": "GetReportDataByInputTime",
+    "RelativePath": "api/State",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "deviceId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "GetState"
   }
 ]

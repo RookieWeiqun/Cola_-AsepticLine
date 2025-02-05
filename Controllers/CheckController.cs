@@ -1,5 +1,6 @@
 using AutoMapper;
 using Cola.DTO;
+using Cola.Extensions;
 using Cola.Model;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,13 +28,15 @@ namespace Cola.Controllers
             {
                 _logger.LogInformation("开始获取检查参数数据");
 
-                var data = await _fsql.Select<CheckPara>().ToListAsync();
+                var data = await _fsql.Select<HisDataCheck>().ToListAsync();
 
                 _logger.LogInformation("成功获取检查参数数据，数量：{Count}", data.Count);
 
                 //var dataDTO = _mapper.Map<IEnumerable<CheckPara>>(data);
+                //ExcelHelper.ExportToExcel(data, Directory.GetCurrentDirectory());
                 // 返回标准响应格式
-                return Ok(new ApiResponse<IEnumerable<CheckPara>>(200, data, "成功"));
+                return Ok(data);
+                //return Ok(new ApiResponse<IEnumerable<HisDataCheck>>(200, data, "成功"));
             }
             catch (Exception ex)
             {
