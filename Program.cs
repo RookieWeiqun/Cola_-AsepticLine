@@ -5,8 +5,11 @@ using NLog.Web;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddNewtonsoftJson(options =>
+    {
+        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+    });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -20,7 +23,7 @@ Func<IServiceProvider, IFreeSql> fsqlFactory = r =>
         .UseMonitorCommand(cmd => Console.WriteLine($"Sql：{cmd.CommandText}"))
         .UseAutoSyncStructure(false) //自动同步实体结构到数据库，只有CRUD时才会生成表
         .Build();
-    fsql.CodeFirst.SyncStructure<HisDataState>();
+    fsql.CodeFirst.SyncStructure<HisDataCheck>();
     return fsql;
 };
 
@@ -29,6 +32,10 @@ builder.Services.AddSingleton<IFreeSql>(fsqlFactory);
 builder.Logging.ClearProviders(); // 清除默认的日志提供程序
 builder.Host.UseNLog(); // 使用 NLog
 builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
+// 绑定 AppConfig 配置节到类
+builder.Services.Configure<AppConfig>(
+    builder.Configuration.GetSection("AppConfig")
+);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

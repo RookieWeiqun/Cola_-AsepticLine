@@ -1,23 +1,17 @@
 [
   {
     "ContainingType": "Cola.Controllers.CheckController",
-    "Method": "Get",
-    "RelativePath": "api/Check",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [],
-    "EndpointName": "GetCheck"
-  },
-  {
-    "ContainingType": "Cola.Controllers.ReportController",
-    "Method": "GetReportDataByInputTime",
-    "RelativePath": "api/Report",
+    "Method": "GetCurrentTimeCheckData",
+    "RelativePath": "api/Check/currunt",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "deviceId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
       {
         "Name": "inputTime",
         "Type": "System.DateTime",
@@ -25,7 +19,57 @@
       }
     ],
     "ReturnTypes": [],
-    "EndpointName": "GetReport"
+    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u70B9\u68C0\u6570\u636E"
+  },
+  {
+    "ContainingType": "Cola.Controllers.CheckController",
+    "Method": "GetSharpTimeCheckData",
+    "RelativePath": "api/Check/sharp",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "deviceId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "inputTime",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "\u83B7\u53D6\u6574\u70B9\u65F6\u95F4\u70B9\u68C0\u6570\u636E"
+  },
+  {
+    "ContainingType": "Cola.Controllers.ReportController",
+    "Method": "GetCurrentTimeReport",
+    "RelativePath": "api/Report/current",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "EndpointName": "GetCurrentTimeReport"
+  },
+  {
+    "ContainingType": "Cola.Controllers.ReportController",
+    "Method": "GetReportDataByInputTime",
+    "RelativePath": "api/Report/history",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "inputTime",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "GetHistoryTimeReport"
   },
   {
     "ContainingType": "Cola.Controllers.StateController",
@@ -39,9 +83,14 @@
         "Name": "deviceId",
         "Type": "System.Int32",
         "IsRequired": false
+      },
+      {
+        "Name": "inputTime",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [],
-    "EndpointName": "GetState"
+    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u7684\u4E00\u4E2A\u5B8C\u6574\u4EA7\u7A0B\u7684\u7518\u7279\u56FE\u6570\u636E"
   }
 ]

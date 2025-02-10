@@ -12,7 +12,7 @@ namespace Cola.Model
 		public int Id { get; set; }
 
 		[JsonProperty, Column(Name = "data", DbType = "json")]
-		public string Data { get; set; }
+		public JToken Data { get; set; }
 
 		[JsonProperty, Column(Name = "device_id")]
 		public int? DeviceId { get; set; }
@@ -26,6 +26,10 @@ namespace Cola.Model
 		[JsonProperty, Column(Name = "record_time", DbType = "timestamptz", InsertValueSql = "CURRENT_TIMESTAMP")]
 		public DateTime? RecordTime { get; set; }
 
-	}
+
+        [Navigate(nameof(DeviceId))]
+        public DeviceInfo DeviceInfo { get; set; }= new DeviceInfo();
+
+    }
 
 }

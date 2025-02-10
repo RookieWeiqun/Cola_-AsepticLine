@@ -36,7 +36,7 @@ namespace Cola.Model {
 		public DateTime? UpdateTime { get; set; }
 
         [Navigate(nameof(DeviceId))]
-        public DeviceInfo DeviceInfo { get; set; }
+        public DeviceInfo DeviceInfo { get; set; }= new DeviceInfo();
 
     }
 
