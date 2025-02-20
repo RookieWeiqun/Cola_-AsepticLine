@@ -33,7 +33,10 @@ namespace Cola.Controllers
 
                 // 0. 找到离当前时间最近的 update_time
                 var closestUpdateTime = await FindClosestUpdateTime(inputTime);
- 
+                if(!closestUpdateTime.HasValue)
+                {
+                    return NotFound(new ApiResponse<object>(404, null, "未找到数据"));
+                }
                 // 将本地时间转换为 UTC 时间
                 //if (closestUpdateTime.HasValue)
                 //{
@@ -118,7 +121,10 @@ namespace Cola.Controllers
                 var realtimeDatas = await _fsql.Select<RealtimeData>()
                        .Include(r => r.DeviceInfo)
                        .ToListAsync();
-
+                if (realtimeDatas.Count == 0)
+                {
+                    return NotFound(new ApiResponse<object>(404, null, "未找到数据"));
+                }
                 _logger.LogInformation("成功获取检查参数数据，数量：{Count}", realtimeDatas.Count);
 
                 // 2. 收集所有CheckPara的ID

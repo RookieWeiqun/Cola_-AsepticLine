@@ -1,0 +1,362 @@
+2025-02-11 10:07:37.2611 INFO Now listening on: https://localhost:7086 
+2025-02-11 10:07:37.2659 INFO Now listening on: http://localhost:5064 
+2025-02-11 10:07:37.3013 INFO Application started. Press Ctrl+C to shut down. 
+2025-02-11 10:07:37.3013 INFO Hosting environment: Development 
+2025-02-11 10:07:37.3013 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-02-11 10:07:37.7030 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-02-11 10:07:37.8494 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 151.9510ms 
+2025-02-11 10:07:37.8494 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-02-11 10:07:37.9054 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 52.0013ms 
+2025-02-11 10:07:37.9054 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-02-11 10:07:37.9054 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-02-11 10:07:37.9054 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-02-11 10:07:37.9054 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-02-11 10:07:37.9054 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-02-11 10:07:37.9237 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript;+charset=utf-8 13.8730ms 
+2025-02-11 10:07:37.9507 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-02-11 10:07:37.9507 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 42.9657ms 
+2025-02-11 10:07:37.9507 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-02-11 10:07:37.9507 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 43.7908ms 
+2025-02-11 10:07:37.9741 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 64.0438ms 
+2025-02-11 10:07:37.9741 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-02-11 10:07:37.9741 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 67.5406ms 
+2025-02-11 10:07:38.1051 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-02-11 10:07:38.2868 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 181.8170ms 
+2025-02-11 10:08:41.3107 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-11%2002%3A03 - - - 
+2025-02-11 10:08:41.3107 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 10:08:41.3804 INFO Route matched with {action = "GetCurrentTimeCheckData", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeCheckData(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-02-11 10:08:42.3377 INFO 开始获取设备 7 在 02/11/2025 02:03:00 的检查数据 
+2025-02-11 10:08:43.0341 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[Cola.Model.SelfDefinnition.CheckDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'. 
+2025-02-11 10:08:43.0710 INFO Executed action Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola) in 1686.8876ms 
+2025-02-11 10:08:43.0710 INFO Executed endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 10:08:43.0710 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-11%2002%3A03 - 200 1409 application/json;+charset=utf-8 1761.0645ms 
+2025-02-11 10:10:35.9819 INFO Now listening on: https://localhost:7086 
+2025-02-11 10:10:35.9870 INFO Now listening on: http://localhost:5064 
+2025-02-11 10:10:36.0296 INFO Application started. Press Ctrl+C to shut down. 
+2025-02-11 10:10:36.0296 INFO Hosting environment: Development 
+2025-02-11 10:10:36.0296 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-02-11 10:10:36.6818 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-02-11 10:10:36.8126 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 137.4187ms 
+2025-02-11 10:10:36.8186 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-02-11 10:10:36.8743 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 55.6982ms 
+2025-02-11 10:10:36.8772 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-02-11 10:10:36.8772 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-02-11 10:10:36.8772 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-02-11 10:10:36.8772 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-02-11 10:10:36.8772 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-02-11 10:10:36.8954 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript;+charset=utf-8 17.5602ms 
+2025-02-11 10:10:36.9330 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-02-11 10:10:36.9330 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-02-11 10:10:36.9330 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-02-11 10:10:36.9330 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 57.0425ms 
+2025-02-11 10:10:36.9330 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 57.2538ms 
+2025-02-11 10:10:36.9330 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 57.0424ms 
+2025-02-11 10:10:36.9497 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 66.7645ms 
+2025-02-11 10:10:37.0944 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-02-11 10:10:37.2783 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 184.3447ms 
+2025-02-11 10:11:51.5291 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-11%2002%3A08 - - - 
+2025-02-11 10:11:51.5291 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 10:11:51.5657 INFO Route matched with {action = "GetCurrentTimeCheckData", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeCheckData(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-02-11 10:11:51.8133 INFO 开始获取设备 7 在 02/11/2025 02:08:00 的检查数据 
+2025-02-11 10:12:07.2941 ERROR 获取设备 7 数据失败 | 输入时间：02/11/2025 02:08:00 System.Exception: Exception while connecting
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.TimeoutException: Timeout during connection attempt
+   at Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.<>c__DisplayClass38_0.<<Rent>g__RentAsync|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Npgsql.NpgsqlConnection.<>c__DisplayClass41_0.<<Open>g__OpenAsync|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at FreeSql.Internal.CommonProvider.DbConnectionStringPool.GetAsync()
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteReaderMultipleAsync(Int32 multipleResult, DbConnection connection, DbTransaction transaction, Func`3 fetchHandler, Action`2 schemaHandler, CommandType cmdType, String cmdText, Int32 cmdTimeout, DbParameter[] cmdParms, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at FreeSql.Internal.CommonProvider.AdoProvider.LoggerException(IObjectPool`1 pool, PrepareCommandResult pc, Exception ex, DateTime dt, StringBuilder logtxt, Boolean isThrowException)
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteReaderMultipleAsync(Int32 multipleResult, DbConnection connection, DbTransaction transaction, Func`3 fetchHandler, Action`2 schemaHandler, CommandType cmdType, String cmdText, Int32 cmdTimeout, DbParameter[] cmdParms, CancellationToken cancellationToken)
+   at FreeSql.Internal.CommonProvider.Select0Provider`2.ToListAfPrivateAsync(String sql, GetAllFieldExpressionTreeInfo af, ReadAnonymousTypeOtherInfo[] otherData, CancellationToken cancellationToken)
+   at FreeSql.Internal.CommonProvider.Select0Provider`2.ToOneAsync(CancellationToken cancellationToken)
+   at Cola.Controllers.CheckController.GetCurrentTimeCheckData(Int32 deviceId, DateTime inputTime) in D:\cwq\MyCode\Cola_ AsepticLine\Cola\Controllers\CheckController.cs:line 34
+2025-02-11 10:12:07.2941 INFO Executing ObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-11 10:12:07.3692 INFO Executed action Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola) in 15798.4747ms 
+2025-02-11 10:12:07.3692 INFO Executed endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 10:12:07.3692 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-11%2002%3A08 - 500 87 application/json;+charset=utf-8 15840.8432ms 
+2025-02-11 10:12:18.1487 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-11%2002%3A08 - - - 
+2025-02-11 10:12:18.1487 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 10:12:18.1487 INFO Route matched with {action = "GetCurrentTimeCheckData", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeCheckData(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-02-11 10:12:18.1487 INFO 开始获取设备 7 在 02/11/2025 02:08:00 的检查数据 
+2025-02-11 10:12:33.4780 ERROR 获取设备 7 数据失败 | 输入时间：02/11/2025 02:08:00 System.Exception: Exception while connecting
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.TimeoutException: Timeout during connection attempt
+   at Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.<>c__DisplayClass38_0.<<Rent>g__RentAsync|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Npgsql.NpgsqlConnection.<>c__DisplayClass41_0.<<Open>g__OpenAsync|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at FreeSql.Internal.CommonProvider.DbConnectionStringPool.GetAsync()
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteReaderMultipleAsync(Int32 multipleResult, DbConnection connection, DbTransaction transaction, Func`3 fetchHandler, Action`2 schemaHandler, CommandType cmdType, String cmdText, Int32 cmdTimeout, DbParameter[] cmdParms, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at FreeSql.Internal.CommonProvider.AdoProvider.LoggerException(IObjectPool`1 pool, PrepareCommandResult pc, Exception ex, DateTime dt, StringBuilder logtxt, Boolean isThrowException)
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteReaderMultipleAsync(Int32 multipleResult, DbConnection connection, DbTransaction transaction, Func`3 fetchHandler, Action`2 schemaHandler, CommandType cmdType, String cmdText, Int32 cmdTimeout, DbParameter[] cmdParms, CancellationToken cancellationToken)
+   at FreeSql.Internal.CommonProvider.Select0Provider`2.ToListAfPrivateAsync(String sql, GetAllFieldExpressionTreeInfo af, ReadAnonymousTypeOtherInfo[] otherData, CancellationToken cancellationToken)
+   at FreeSql.Internal.CommonProvider.Select0Provider`2.ToOneAsync(CancellationToken cancellationToken)
+   at Cola.Controllers.CheckController.GetCurrentTimeCheckData(Int32 deviceId, DateTime inputTime) in D:\cwq\MyCode\Cola_ AsepticLine\Cola\Controllers\CheckController.cs:line 34
+2025-02-11 10:12:33.4780 INFO Executing ObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-11 10:12:33.4780 INFO Executed action Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola) in 15328.0312ms 
+2025-02-11 10:12:33.4780 INFO Executed endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 10:12:33.4780 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-11%2002%3A08 - 500 87 application/json;+charset=utf-8 15329.9804ms 
+2025-02-11 10:13:29.7743 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-11%2002%3A08 - - - 
+2025-02-11 10:13:29.7743 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 10:13:29.7780 INFO Route matched with {action = "GetCurrentTimeCheckData", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeCheckData(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-02-11 10:13:33.0827 INFO 开始获取设备 7 在 02/11/2025 02:08:00 的检查数据 
+2025-02-11 10:14:34.4694 ERROR 获取设备 7 数据失败 | 输入时间：02/11/2025 02:08:00 System.Exception: Exception while connecting
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.TimeoutException: Timeout during connection attempt
+   at Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.<>c__DisplayClass38_0.<<Rent>g__RentAsync|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Npgsql.NpgsqlConnection.<>c__DisplayClass41_0.<<Open>g__OpenAsync|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at FreeSql.Internal.CommonProvider.DbConnectionStringPool.GetAsync()
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteReaderMultipleAsync(Int32 multipleResult, DbConnection connection, DbTransaction transaction, Func`3 fetchHandler, Action`2 schemaHandler, CommandType cmdType, String cmdText, Int32 cmdTimeout, DbParameter[] cmdParms, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at FreeSql.Internal.CommonProvider.AdoProvider.LoggerException(IObjectPool`1 pool, PrepareCommandResult pc, Exception ex, DateTime dt, StringBuilder logtxt, Boolean isThrowException)
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteReaderMultipleAsync(Int32 multipleResult, DbConnection connection, DbTransaction transaction, Func`3 fetchHandler, Action`2 schemaHandler, CommandType cmdType, String cmdText, Int32 cmdTimeout, DbParameter[] cmdParms, CancellationToken cancellationToken)
+   at FreeSql.Internal.CommonProvider.Select0Provider`2.ToListAfPrivateAsync(String sql, GetAllFieldExpressionTreeInfo af, ReadAnonymousTypeOtherInfo[] otherData, CancellationToken cancellationToken)
+   at FreeSql.Internal.CommonProvider.Select0Provider`2.ToOneAsync(CancellationToken cancellationToken)
+   at Cola.Controllers.CheckController.GetCurrentTimeCheckData(Int32 deviceId, DateTime inputTime) in D:\cwq\MyCode\Cola_ AsepticLine\Cola\Controllers\CheckController.cs:line 34
+2025-02-11 10:14:34.4694 INFO Executing ObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-11 10:14:34.4969 INFO Executed action Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola) in 64717.1726ms 
+2025-02-11 10:14:34.4969 INFO Executed endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 10:14:34.4969 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-11%2002%3A08 - 500 87 application/json;+charset=utf-8 64721.3040ms 
+2025-02-11 10:16:37.1449 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-11%2002%3A08 - - - 
+2025-02-11 10:16:37.1449 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 10:16:37.1449 INFO Route matched with {action = "GetCurrentTimeCheckData", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeCheckData(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-02-11 10:16:40.6551 INFO 开始获取设备 7 在 02/11/2025 02:08:00 的检查数据 
+2025-02-11 10:16:41.0715 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[Cola.Model.SelfDefinnition.CheckDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'. 
+2025-02-11 10:16:41.0804 INFO Executed action Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola) in 3930.3051ms 
+2025-02-11 10:16:41.0804 INFO Executed endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 10:16:41.0804 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-11%2002%3A08 - 200 1409 application/json;+charset=utf-8 3935.8387ms 
+2025-02-11 10:49:16.3902 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-11%2002%3A08 - - - 
+2025-02-11 10:49:16.3902 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 10:49:16.3902 INFO Route matched with {action = "GetCurrentTimeCheckData", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeCheckData(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-02-11 10:49:20.3404 INFO 开始获取设备 7 在 02/11/2025 02:08:00 的检查数据 
+2025-02-11 10:49:20.4529 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[Cola.Model.SelfDefinnition.CheckDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'. 
+2025-02-11 10:49:20.4529 INFO Executed action Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola) in 4059.4056ms 
+2025-02-11 10:49:20.4529 INFO Executed endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 10:49:20.4529 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-11%2002%3A08 - 200 1409 application/json;+charset=utf-8 4063.9493ms 
+2025-02-11 10:53:56.8514 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-11%2002%3A08 - - - 
+2025-02-11 10:53:56.8871 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 10:53:56.8871 INFO Route matched with {action = "GetCurrentTimeCheckData", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeCheckData(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-02-11 10:53:56.8871 INFO 开始获取设备 7 在 02/11/2025 02:08:00 的检查数据 
+2025-02-11 10:53:57.2075 ERROR 获取设备 7 数据失败 | 输入时间：02/11/2025 02:08:00 System.Exception: 57P01: terminating connection due to administrator command
+ ---> Npgsql.PostgresException (0x80004005): 57P01: terminating connection due to administrator command
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteReaderMultipleAsync(Int32 multipleResult, DbConnection connection, DbTransaction transaction, Func`3 fetchHandler, Action`2 schemaHandler, CommandType cmdType, String cmdText, Int32 cmdTimeout, DbParameter[] cmdParms, CancellationToken cancellationToken)
+  Exception data:
+    Severity: FATAL
+    SqlState: 57P01
+    MessageText: terminating connection due to administrator command
+    File: postgres.c
+    Line: 3315
+    Routine: ProcessInterrupts
+   --- End of inner exception stack trace ---
+   at FreeSql.Internal.CommonProvider.AdoProvider.LoggerException(IObjectPool`1 pool, PrepareCommandResult pc, Exception ex, DateTime dt, StringBuilder logtxt, Boolean isThrowException)
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteReaderMultipleAsync(Int32 multipleResult, DbConnection connection, DbTransaction transaction, Func`3 fetchHandler, Action`2 schemaHandler, CommandType cmdType, String cmdText, Int32 cmdTimeout, DbParameter[] cmdParms, CancellationToken cancellationToken)
+   at FreeSql.Internal.CommonProvider.Select0Provider`2.ToListAfPrivateAsync(String sql, GetAllFieldExpressionTreeInfo af, ReadAnonymousTypeOtherInfo[] otherData, CancellationToken cancellationToken)
+   at FreeSql.Internal.CommonProvider.Select0Provider`2.ToOneAsync(CancellationToken cancellationToken)
+   at Cola.Controllers.CheckController.GetCurrentTimeCheckData(Int32 deviceId, DateTime inputTime) in D:\cwq\MyCode\Cola_ AsepticLine\Cola\Controllers\CheckController.cs:line 34
+2025-02-11 10:53:57.2075 INFO Executing ObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-11 10:53:57.2075 INFO Executed action Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola) in 320.6548ms 
+2025-02-11 10:53:57.2075 INFO Executed endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 10:53:57.2075 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-11%2002%3A08 - 500 119 application/json;+charset=utf-8 360.4752ms 
+2025-02-11 10:54:25.1279 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-11%2002%3A08 - - - 
+2025-02-11 10:54:25.1279 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 10:54:25.1663 INFO Route matched with {action = "GetCurrentTimeCheckData", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeCheckData(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-02-11 10:54:25.1971 INFO 开始获取设备 7 在 02/11/2025 02:08:00 的检查数据 
+2025-02-11 10:54:25.2609 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[Cola.Model.SelfDefinnition.CheckDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'. 
+2025-02-11 10:54:25.2609 INFO Executed action Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola) in 94.9969ms 
+2025-02-11 10:54:25.2609 INFO Executed endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 10:54:25.2609 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-11%2002%3A08 - 200 1409 application/json;+charset=utf-8 134.2826ms 
+2025-02-11 12:47:55.6866 INFO Now listening on: https://localhost:7086 
+2025-02-11 12:47:55.6950 INFO Now listening on: http://localhost:5064 
+2025-02-11 12:47:55.7586 INFO Application started. Press Ctrl+C to shut down. 
+2025-02-11 12:47:55.7586 INFO Hosting environment: Development 
+2025-02-11 12:47:55.7586 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-02-11 12:47:58.2945 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-02-11 12:47:58.4645 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 175.0370ms 
+2025-02-11 12:47:58.4645 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-02-11 12:47:58.5289 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 58.8511ms 
+2025-02-11 12:47:58.5289 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-02-11 12:47:58.5289 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-02-11 12:47:58.5289 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-02-11 12:47:58.5289 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-02-11 12:47:58.5372 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-02-11 12:47:58.5543 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 20.4884ms 
+2025-02-11 12:47:58.6057 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-02-11 12:47:58.6057 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-02-11 12:47:58.6057 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 75.5829ms 
+2025-02-11 12:47:58.6057 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 74.5219ms 
+2025-02-11 12:47:58.6250 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-02-11 12:47:58.6250 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 91.1971ms 
+2025-02-11 12:47:58.7014 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 165.2955ms 
+2025-02-11 12:47:58.7637 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-02-11 12:47:58.7637 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 4.0578ms 
+2025-02-11 12:48:21.6234 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-11 - - - 
+2025-02-11 12:48:21.6331 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 12:48:21.6540 INFO Route matched with {action = "GetCurrentTimeCheckData", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeCheckData(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-02-11 12:48:22.7243 INFO 开始获取设备 7 在 02/11/2025 00:00:00 的检查数据 
+2025-02-11 12:48:23.3498 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[Cola.Model.SelfDefinnition.CheckDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'. 
+2025-02-11 12:48:23.4069 INFO Executed action Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola) in 1747.9621ms 
+2025-02-11 12:48:23.4069 INFO Executed endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 12:48:23.4069 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-11 - 200 1409 application/json;+charset=utf-8 1784.8504ms 
+2025-02-11 13:20:54.0189 INFO Now listening on: https://localhost:7086 
+2025-02-11 13:20:54.0189 INFO Now listening on: http://localhost:5064 
+2025-02-11 13:20:54.0522 INFO Application started. Press Ctrl+C to shut down. 
+2025-02-11 13:20:54.0522 INFO Hosting environment: Development 
+2025-02-11 13:20:54.0522 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-02-11 13:20:54.5772 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-02-11 13:20:54.6802 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 106.8815ms 
+2025-02-11 13:20:54.6850 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-02-11 13:20:54.7312 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 46.3002ms 
+2025-02-11 13:20:54.7312 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-02-11 13:20:54.7312 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-02-11 13:20:54.7312 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-02-11 13:20:54.7312 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-02-11 13:20:54.7312 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-02-11 13:20:54.7522 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 18.8325ms 
+2025-02-11 13:20:54.7853 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-02-11 13:20:54.7853 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-02-11 13:20:54.7853 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-02-11 13:20:54.7853 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 53.3209ms 
+2025-02-11 13:20:54.7853 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 53.4320ms 
+2025-02-11 13:20:54.7853 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 53.3209ms 
+2025-02-11 13:20:54.7994 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 61.8500ms 
+2025-02-11 13:20:54.9251 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-02-11 13:20:54.9251 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 2.7789ms 
+2025-02-11 13:21:01.9129 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-05%2009%3A32 - - - 
+2025-02-11 13:21:01.9182 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 13:21:01.9397 INFO Route matched with {action = "GetCurrentTimeCheckData", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeCheckData(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-02-11 13:21:02.9610 INFO 开始获取设备 7 在 02/05/2025 09:32:00 的检查数据 
+2025-02-11 13:21:18.4131 ERROR 获取设备 7 数据失败 | 输入时间：02/05/2025 09:32:00 System.Exception: Exception while connecting
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.TimeoutException: Timeout during connection attempt
+   at Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.<>c__DisplayClass38_0.<<Rent>g__RentAsync|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Npgsql.NpgsqlConnection.<>c__DisplayClass41_0.<<Open>g__OpenAsync|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at FreeSql.Internal.CommonProvider.DbConnectionStringPool.GetAsync()
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteReaderMultipleAsync(Int32 multipleResult, DbConnection connection, DbTransaction transaction, Func`3 fetchHandler, Action`2 schemaHandler, CommandType cmdType, String cmdText, Int32 cmdTimeout, DbParameter[] cmdParms, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at FreeSql.Internal.CommonProvider.AdoProvider.LoggerException(IObjectPool`1 pool, PrepareCommandResult pc, Exception ex, DateTime dt, StringBuilder logtxt, Boolean isThrowException)
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteReaderMultipleAsync(Int32 multipleResult, DbConnection connection, DbTransaction transaction, Func`3 fetchHandler, Action`2 schemaHandler, CommandType cmdType, String cmdText, Int32 cmdTimeout, DbParameter[] cmdParms, CancellationToken cancellationToken)
+   at FreeSql.Internal.CommonProvider.Select0Provider`2.ToListAfPrivateAsync(String sql, GetAllFieldExpressionTreeInfo af, ReadAnonymousTypeOtherInfo[] otherData, CancellationToken cancellationToken)
+   at FreeSql.Internal.CommonProvider.Select0Provider`2.ToOneAsync(CancellationToken cancellationToken)
+   at Cola.Controllers.CheckController.GetCurrentTimeCheckData(Int32 deviceId, DateTime inputTime) in D:\cwq\MyCode\Cola_ AsepticLine\Cola\Controllers\CheckController.cs:line 34
+2025-02-11 13:21:18.4192 INFO Executing ObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-11 13:21:18.5053 INFO Executed action Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola) in 16561.8903ms 
+2025-02-11 13:21:18.5053 INFO Executed endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 13:21:18.5053 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-05%2009%3A32 - 500 87 application/json;+charset=utf-8 16592.6698ms 
+2025-02-11 13:22:11.8067 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-05%2009%3A32 - - - 
+2025-02-11 13:22:11.8067 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 13:22:11.8067 INFO Route matched with {action = "GetCurrentTimeCheckData", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeCheckData(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-02-11 13:22:11.8067 INFO 开始获取设备 7 在 02/05/2025 09:32:00 的检查数据 
+2025-02-11 13:22:16.9062 ERROR 获取设备 7 数据失败 | 输入时间：02/05/2025 09:32:00 System.NullReferenceException: Object reference not set to an instance of an object.
+   at Cola.Controllers.CheckController.GetCurrentTimeCheckData(Int32 deviceId, DateTime inputTime) in D:\cwq\MyCode\Cola_ AsepticLine\Cola\Controllers\CheckController.cs:line 45
+2025-02-11 13:22:16.9062 INFO Executing ObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-11 13:22:16.9062 INFO Executed action Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola) in 5098.8692ms 
+2025-02-11 13:22:16.9062 INFO Executed endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 13:22:16.9062 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-05%2009%3A32 - 500 114 application/json;+charset=utf-8 5100.4338ms 
+2025-02-11 13:22:18.4875 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-05%2009%3A32 - - - 
+2025-02-11 13:22:18.4875 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 13:22:18.4875 INFO Route matched with {action = "GetCurrentTimeCheckData", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeCheckData(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-02-11 13:22:18.4875 INFO 开始获取设备 7 在 02/05/2025 09:32:00 的检查数据 
+2025-02-11 13:24:37.5403 INFO Now listening on: https://localhost:7086 
+2025-02-11 13:24:37.5403 INFO Now listening on: http://localhost:5064 
+2025-02-11 13:24:37.5778 INFO Application started. Press Ctrl+C to shut down. 
+2025-02-11 13:24:37.5778 INFO Hosting environment: Development 
+2025-02-11 13:24:37.5778 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-02-11 13:24:38.0539 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-02-11 13:24:38.1493 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 98.9606ms 
+2025-02-11 13:24:38.1574 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-02-11 13:24:38.2079 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 50.9481ms 
+2025-02-11 13:24:38.2079 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-02-11 13:24:38.2079 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-02-11 13:24:38.2079 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-02-11 13:24:38.2079 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-02-11 13:24:38.2079 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-02-11 13:24:38.2271 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 16.1532ms 
+2025-02-11 13:24:38.2654 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-02-11 13:24:38.2654 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-02-11 13:24:38.2664 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-02-11 13:24:38.2664 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 56.5493ms 
+2025-02-11 13:24:38.2664 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 56.5493ms 
+2025-02-11 13:24:38.2664 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 56.6978ms 
+2025-02-11 13:24:38.2826 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 64.9432ms 
+2025-02-11 13:24:38.4383 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-02-11 13:24:38.4411 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 3.0674ms 
+2025-02-11 13:24:46.9339 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-07%2009%3A32 - - - 
+2025-02-11 13:24:46.9339 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 13:24:46.9514 INFO Route matched with {action = "GetCurrentTimeCheckData", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeCheckData(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-02-11 13:24:47.1556 INFO 开始获取设备 7 在 02/07/2025 09:32:00 的检查数据 
+2025-02-11 13:25:02.6539 ERROR 获取设备 7 数据失败 | 输入时间：02/07/2025 09:32:00 System.Exception: Exception while connecting
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.TimeoutException: Timeout during connection attempt
+   at Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.<>c__DisplayClass38_0.<<Rent>g__RentAsync|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Npgsql.NpgsqlConnection.<>c__DisplayClass41_0.<<Open>g__OpenAsync|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at FreeSql.Internal.CommonProvider.DbConnectionStringPool.GetAsync()
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteReaderMultipleAsync(Int32 multipleResult, DbConnection connection, DbTransaction transaction, Func`3 fetchHandler, Action`2 schemaHandler, CommandType cmdType, String cmdText, Int32 cmdTimeout, DbParameter[] cmdParms, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at FreeSql.Internal.CommonProvider.AdoProvider.LoggerException(IObjectPool`1 pool, PrepareCommandResult pc, Exception ex, DateTime dt, StringBuilder logtxt, Boolean isThrowException)
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteReaderMultipleAsync(Int32 multipleResult, DbConnection connection, DbTransaction transaction, Func`3 fetchHandler, Action`2 schemaHandler, CommandType cmdType, String cmdText, Int32 cmdTimeout, DbParameter[] cmdParms, CancellationToken cancellationToken)
+   at FreeSql.Internal.CommonProvider.Select0Provider`2.ToListAfPrivateAsync(String sql, GetAllFieldExpressionTreeInfo af, ReadAnonymousTypeOtherInfo[] otherData, CancellationToken cancellationToken)
+   at FreeSql.Internal.CommonProvider.Select0Provider`2.ToOneAsync(CancellationToken cancellationToken)
+   at Cola.Controllers.CheckController.GetCurrentTimeCheckData(Int32 deviceId, DateTime inputTime) in D:\cwq\MyCode\Cola_ AsepticLine\Cola\Controllers\CheckController.cs:line 34
+2025-02-11 13:25:02.6593 INFO Executing ObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-11 13:25:02.7281 INFO Executed action Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola) in 15772.6174ms 
+2025-02-11 13:25:02.7281 INFO Executed endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 13:25:02.7281 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-07%2009%3A32 - 500 87 application/json;+charset=utf-8 15794.5353ms 
+2025-02-11 13:25:27.3503 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-07%2009%3A32 - - - 
+2025-02-11 13:25:27.3503 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 13:25:27.3503 INFO Route matched with {action = "GetCurrentTimeCheckData", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeCheckData(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-02-11 13:25:27.3503 INFO 开始获取设备 7 在 02/07/2025 09:32:00 的检查数据 
+2025-02-11 13:25:27.8138 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[Cola.Model.SelfDefinnition.CheckDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'. 
+2025-02-11 13:25:27.8302 INFO Executed action Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola) in 477.9344ms 
+2025-02-11 13:25:27.8302 INFO Executed endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 13:25:27.8302 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-07%2009%3A32 - 200 1408 application/json;+charset=utf-8 480.4840ms 
+2025-02-11 13:25:58.8018 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-07%2009%3A35 - - - 
+2025-02-11 13:25:58.8018 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 13:25:58.8018 INFO Route matched with {action = "GetCurrentTimeCheckData", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeCheckData(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-02-11 13:25:58.8018 INFO 开始获取设备 7 在 02/07/2025 09:35:00 的检查数据 
+2025-02-11 13:25:58.8355 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[Cola.Model.SelfDefinnition.CheckDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'. 
+2025-02-11 13:25:58.8355 INFO Executed action Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola) in 32.5268ms 
+2025-02-11 13:25:58.8355 INFO Executed endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 13:25:58.8355 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-07%2009%3A35 - 200 1409 application/json;+charset=utf-8 35.1860ms 
+2025-02-11 13:26:12.3076 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-07%2009%3A34 - - - 
+2025-02-11 13:26:12.3076 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 13:26:12.3076 INFO Route matched with {action = "GetCurrentTimeCheckData", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeCheckData(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-02-11 13:26:12.3076 INFO 开始获取设备 7 在 02/07/2025 09:34:00 的检查数据 
+2025-02-11 13:26:12.3584 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[Cola.Model.SelfDefinnition.CheckDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'. 
+2025-02-11 13:26:12.3584 INFO Executed action Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola) in 50.8538ms 
+2025-02-11 13:26:12.3584 INFO Executed endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData (Cola)' 
+2025-02-11 13:26:12.3584 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceId=7&inputTime=2025-02-07%2009%3A34 - 200 1409 application/json;+charset=utf-8 52.0307ms 

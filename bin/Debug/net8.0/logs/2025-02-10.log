@@ -1,0 +1,24 @@
+2025-02-10 11:05:15.0345 INFO Now listening on: https://localhost:7086 
+2025-02-10 11:05:15.0345 INFO Now listening on: http://localhost:5064 
+2025-02-10 11:05:15.0885 INFO Application started. Press Ctrl+C to shut down. 
+2025-02-10 11:05:15.0885 INFO Hosting environment: Development 
+2025-02-10 11:05:15.0885 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-02-10 11:05:15.9271 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-02-10 11:05:16.1139 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 194.2404ms 
+2025-02-10 11:05:16.1207 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-02-10 11:05:16.1940 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 73.2812ms 
+2025-02-10 11:05:16.1940 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-02-10 11:05:16.1940 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-02-10 11:05:16.1940 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-02-10 11:05:16.1974 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-02-10 11:05:16.1974 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-02-10 11:05:16.3070 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript;+charset=utf-8 103.3037ms 
+2025-02-10 11:05:16.3512 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-02-10 11:05:16.3512 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-02-10 11:05:16.3545 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 158.4854ms 
+2025-02-10 11:05:16.3545 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 159.8836ms 
+2025-02-10 11:05:16.3545 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-02-10 11:05:16.3545 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 164.9959ms 
+2025-02-10 11:05:16.4839 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 287.7822ms 
+2025-02-10 11:05:16.5306 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-02-10 11:05:16.8055 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 275.1376ms 

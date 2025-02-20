@@ -46,6 +46,10 @@ namespace Cola.Controllers
                         s.BeginTime <= inputTime)
                     .OrderByDescending(s => s.BeginTime) // 关键优化点：降序排序
                     .FirstAsync(s => s.BeginTime);
+                if (!cutoffTime.HasValue)
+                {
+                    return StatusCode(404, new ApiResponse<object>(404, null, "未找到数据"));
+                }
                 List<HisDataState> stateDatas = new List<HisDataState>();
                 // 3. 如果没有找到 StateId=666 的记录，直接返回inputTime前的所有数据
                 if (!cutoffTime.HasValue)

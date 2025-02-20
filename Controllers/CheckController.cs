@@ -34,7 +34,7 @@ namespace Cola.Controllers
                 var closestRecord = await _fsql.Select<HisDataCheck>()
                     .Where(c =>
                         c.DeviceId == deviceId &&
-                        c.RecordTime <= inputTime)
+                        c.RecordTime <= inputTime)  
                     .Include(c => c.DeviceInfo) // 加载设备信息
                     .OrderByDescending(c => c.RecordTime)
                     .FirstAsync();

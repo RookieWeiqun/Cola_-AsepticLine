@@ -62,3 +62,7 @@ D:\cwq\MyCode\Cola_ AsepticLine\Cola\bin\Debug\net8.0\runtimes\win\lib\net8.0\Sy
 D:\cwq\MyCode\Cola_ AsepticLine\Cola\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
 D:\cwq\MyCode\Cola_ AsepticLine\Cola\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\cwq\MyCode\Cola_ AsepticLine\Cola\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+D:\cwq\MyCode\Cola_ AsepticLine\Cola\bin\Debug\net8.0\Cola.staticwebassets.endpoints.json
+D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\staticwebassets\msbuild.Cola.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

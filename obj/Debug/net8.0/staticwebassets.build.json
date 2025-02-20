@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "IMPe22QiOdOzeuTIBgvXM6D602Z00Zkt7BfCVYV1yDs=",
+  "Hash": "UxKJ6iIOvTE12xtvBq0ru0+DK43NjGulZVvMSxZGqfg=",
   "Source": "Cola",
   "BasePath": "_content/Cola",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }
