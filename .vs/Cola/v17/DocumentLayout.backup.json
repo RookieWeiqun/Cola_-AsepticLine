@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\controllers\\statecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:controllers\\statecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\controllers\\statecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:controllers\\statecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Z004JV6V\\AppData\\Local\\SourceServer\\7b4a3cdbef09126260b7129ff2e9ae7fd9fd7545e23e9b3be02d2fdbaf2898a2\\Controllers\\CheckController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -28,10 +32,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\controllers\\checkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:controllers\\checkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C1750914-F285-406C-8612-6D570CCA941E}|Cola.csproj|d:\\cwq\\mycode\\cola_ asepticline\\cola\\model\\checkfaultreason.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -125,18 +125,6 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "CheckData.cs",
-              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\SelfDefinnition\\CheckData.cs",
-              "RelativeDocumentMoniker": "Model\\SelfDefinnition\\CheckData.cs",
-              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\SelfDefinnition\\CheckData.cs",
-              "RelativeToolTip": "Model\\SelfDefinnition\\CheckData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T06:50:27.546Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 9,
               "Title": "CheckPara.cs",
               "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\CheckPara.cs",
@@ -149,26 +137,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "ReportController.cs",
               "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Controllers\\ReportController.cs",
               "RelativeDocumentMoniker": "Controllers\\ReportController.cs",
               "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Controllers\\ReportController.cs",
               "RelativeToolTip": "Controllers\\ReportController.cs",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAowHgAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHgAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-23T07:47:29.43Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-10T05:09:37.312Z",
               "EditorCaption": ""
@@ -187,19 +175,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "StateController.cs",
               "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Controllers\\StateController.cs",
               "RelativeDocumentMoniker": "Controllers\\StateController.cs",
               "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Controllers\\StateController.cs",
               "RelativeToolTip": "Controllers\\StateController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAowCkAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T07:47:57.128Z"
+              "WhenOpened": "2025-01-23T07:47:57.128Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Dockerfile",
               "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Dockerfile",
               "RelativeDocumentMoniker": "Dockerfile",
@@ -224,7 +213,40 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-10T05:11:59.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CheckData.cs",
+              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\SelfDefinnition\\CheckData.cs",
+              "RelativeDocumentMoniker": "Model\\SelfDefinnition\\CheckData.cs",
+              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Model\\SelfDefinnition\\CheckData.cs",
+              "RelativeToolTip": "Model\\SelfDefinnition\\CheckData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T06:50:27.546Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "CheckController.cs",
               "DocumentMoniker": "C:\\Users\\Z004JV6V\\AppData\\Local\\SourceServer\\7b4a3cdbef09126260b7129ff2e9ae7fd9fd7545e23e9b3be02d2fdbaf2898a2\\Controllers\\CheckController.cs",
               "ToolTip": "C:\\Users\\Z004JV6V\\AppData\\Local\\SourceServer\\7b4a3cdbef09126260b7129ff2e9ae7fd9fd7545e23e9b3be02d2fdbaf2898a2\\Controllers\\CheckController.cs",
@@ -234,7 +256,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "CheckController.cs",
               "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\Controllers\\CheckController.cs",
               "RelativeDocumentMoniker": "Controllers\\CheckController.cs",
@@ -255,18 +277,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-05T10:04:21.268Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "D:\\cwq\\MyCode\\Cola_ AsepticLine\\Cola\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-10T05:11:59.406Z"
             },
             {
               "$type": "Document",
@@ -458,14 +468,6 @@
               "RelativeToolTip": "Cola.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2025-01-10T05:13:32.636Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
             }
           ]
         }
