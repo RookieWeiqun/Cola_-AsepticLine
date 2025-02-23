@@ -38,7 +38,10 @@ namespace Cola.Controllers
                     .Include(c => c.DeviceInfo) // 加载设备信息
                     .OrderByDescending(c => c.RecordTime)
                     .FirstAsync();
-
+                if (closestRecord == null)
+                {
+                    return NotFound(new ApiResponse<object>(404, null, "未找到数据"));
+                }
 
                 // ================== 第二部分：处理数据转换 ==================
                 // 1. 收集所有CheckPara的ID
@@ -63,20 +66,88 @@ namespace Cola.Controllers
                 if (closestRecord.Data != null)
                 {
                     var dataDict = (JObject)closestRecord.Data;
+                    var checkDataItem = new CheckDataItem();
                     foreach (var prop in dataDict.Properties())
                     {
                         var checkParaId = int.Parse(prop.Name);
                         if (checkParas.TryGetValue(checkParaId, out var checkPara))
                         {
-                            resultItem.Data.Add(new CheckDataItem
+                            // Assign values to CheckDataItem based on KeyName
+                            switch (checkPara.KeyName)
                             {
-                                CheckDataId = closestRecord.Id,
-                                CheckParaId = checkParaId,
-                                CheckParaAliasName = checkPara.AliasName,
-                                Value = prop.Value.ToObject<object>()
-                            });
+                                case CheckPara_KeyName.AsepticTankTopPressure:
+                                    checkDataItem.AsepticTankTopPressure = prop.Value.ToObject<float>();
+                                    break;
+                                case CheckPara_KeyName.CoolingPressureDifference:
+                                    checkDataItem.CoolingPressureDifference = prop.Value.ToObject<float>();
+                                    break;
+                                case CheckPara_KeyName.CoolingSectionPressure01:
+                                    checkDataItem.CoolingSectionPressure01 = prop.Value.ToObject<float>();
+                                    break;
+                                case CheckPara_KeyName.CoolingSectionPressure02:
+                                    checkDataItem.CoolingSectionPressure02 = prop.Value.ToObject<float>();
+                                    break;
+                                case CheckPara_KeyName.CoolingTemperature:
+                                    checkDataItem.CoolingTemperature = prop.Value.ToObject<float>();
+                                    break;
+                                case CheckPara_KeyName.CrossTemperature:
+                                    checkDataItem.CrossTemperature = prop.Value.ToObject<float>();
+                                    break;
+                                case CheckPara_KeyName.DegassingTankLiquidLevel:
+                                    checkDataItem.DegassingTankLiquidLevel = prop.Value.ToObject<float>();
+                                    break;
+                                case CheckPara_KeyName.DegassingTankPressure:
+                                    checkDataItem.DegassingTankPressure = prop.Value.ToObject<float>();
+                                    break;
+                                case CheckPara_KeyName.DegassingTankTemperature:
+                                    checkDataItem.DegassingTankTemperature = prop.Value.ToObject<float>();
+                                    break;
+                                case CheckPara_KeyName.EndTemperature:
+                                    checkDataItem.EndTemperature = prop.Value.ToObject<float>();
+                                    break;
+                                case CheckPara_KeyName.HoldingTemperature:
+                                    checkDataItem.HoldingTemperature = prop.Value.ToObject<float>();
+                                    break;
+                                case CheckPara_KeyName.IceWaterPressureDifference:
+                                    checkDataItem.IceWaterPressureDifference = prop.Value.ToObject<float>();
+                                    break;
+                                case CheckPara_KeyName.LiquidLevel:
+                                    checkDataItem.LiquidLevel = prop.Value.ToObject<float>();
+                                    break;
+                                case CheckPara_KeyName.MixerBottomPressure:
+                                    checkDataItem.MixerBottomPressure = prop.Value.ToObject<float>();
+                                    break;
+                                case CheckPara_KeyName.MixerStep:
+                                    checkDataItem.MixerStep = prop.Value.ToObject<int>();
+                                    break;
+                                case CheckPara_KeyName.MixerTopPressure:
+                                    checkDataItem.MixerTopPressure = prop.Value.ToObject<float>();
+                                    break;
+                                case CheckPara_KeyName.ProductFlowRate:
+                                    checkDataItem.ProductFlowRate = prop.Value.ToObject<float>();
+                                    break;
+                                case CheckPara_KeyName.ProductPressure:
+                                    checkDataItem.ProductPressure = prop.Value.ToObject<float>();
+                                    break;
+                                case CheckPara_KeyName.ProductTemperature:
+                                    checkDataItem.ProductTemperature = prop.Value.ToObject<float>();
+                                    break;
+                                case CheckPara_KeyName.RoomTemperature:
+                                    checkDataItem.RoomTemperature = prop.Value.ToObject<float>();
+                                    break;
+                                case CheckPara_KeyName.SterilizationTime:
+                                    checkDataItem.SterilizationTime = prop.Value.ToObject<float>();
+                                    break;
+                                case CheckPara_KeyName.Temperature:
+                                    checkDataItem.Temperature = prop.Value.ToObject<float>();
+                                    break;
+                                case CheckPara_KeyName.TowerWaterPressureDifference:
+                                    checkDataItem.TowerWaterPressureDifference = prop.Value.ToObject<float>();
+                                    break;
+                            }
                         }
                     }
+                    resultItem.Data = checkDataItem;
                 }
 
                 return Ok(new ApiResponse<CheckDataResult>(200, resultItem, "成功"));
@@ -153,20 +224,88 @@ namespace Cola.Controllers
                     if (hourlyData.Data != null)
                     {
                         var dataDict = (JObject)hourlyData.Data;
+                        var checkDataItem = new CheckDataItem();
                         foreach (var prop in dataDict.Properties())
                         {
                             var checkParaId = int.Parse(prop.Name);
                             if (checkParas.TryGetValue(checkParaId, out var checkPara))
                             {
-                                resultItem.Data.Add(new CheckDataItem
+                                // Assign values to CheckDataItem based on KeyName
+                                switch (checkPara.KeyName)
                                 {
-                                    CheckDataId = hourlyData.Id,
-                                    CheckParaId = checkParaId,
-                                    CheckParaAliasName = checkPara.AliasName,
-                                    Value = prop.Value.ToObject<object>()
-                                });
+                                    case CheckPara_KeyName.AsepticTankTopPressure:
+                                        checkDataItem.AsepticTankTopPressure = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.CoolingPressureDifference:
+                                        checkDataItem.CoolingPressureDifference = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.CoolingSectionPressure01:
+                                        checkDataItem.CoolingSectionPressure01 = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.CoolingSectionPressure02:
+                                        checkDataItem.CoolingSectionPressure02 = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.CoolingTemperature:
+                                        checkDataItem.CoolingTemperature = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.CrossTemperature:
+                                        checkDataItem.CrossTemperature = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.DegassingTankLiquidLevel:
+                                        checkDataItem.DegassingTankLiquidLevel = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.DegassingTankPressure:
+                                        checkDataItem.DegassingTankPressure = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.DegassingTankTemperature:
+                                        checkDataItem.DegassingTankTemperature = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.EndTemperature:
+                                        checkDataItem.EndTemperature = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.HoldingTemperature:
+                                        checkDataItem.HoldingTemperature = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.IceWaterPressureDifference:
+                                        checkDataItem.IceWaterPressureDifference = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.LiquidLevel:
+                                        checkDataItem.LiquidLevel = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.MixerBottomPressure:
+                                        checkDataItem.MixerBottomPressure = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.MixerStep:
+                                        checkDataItem.MixerStep = prop.Value.ToObject<int>();
+                                        break;
+                                    case CheckPara_KeyName.MixerTopPressure:
+                                        checkDataItem.MixerTopPressure = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.ProductFlowRate:
+                                        checkDataItem.ProductFlowRate = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.ProductPressure:
+                                        checkDataItem.ProductPressure = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.ProductTemperature:
+                                        checkDataItem.ProductTemperature = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.RoomTemperature:
+                                        checkDataItem.RoomTemperature = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.SterilizationTime:
+                                        checkDataItem.SterilizationTime = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.Temperature:
+                                        checkDataItem.Temperature = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.TowerWaterPressureDifference:
+                                        checkDataItem.TowerWaterPressureDifference = prop.Value.ToObject<float>();
+                                        break;
+                                }
                             }
                         }
+                        resultItem.Data = checkDataItem;
                     }
 
                     results.Add(resultItem);
