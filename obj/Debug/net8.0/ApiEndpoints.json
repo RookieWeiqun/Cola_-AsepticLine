@@ -92,5 +92,54 @@
     ],
     "ReturnTypes": [],
     "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u7684\u4E00\u4E2A\u5B8C\u6574\u4EA7\u7A0B\u7684\u7518\u7279\u56FE\u6570\u636E"
+  },
+  {
+    "ContainingType": "Cola.Controllers.StateController",
+    "Method": "GetReportDataByCurrentShift",
+    "RelativePath": "api/State/current-shift",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "deviceId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "inputTime",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "GetReportDataByCurrentShift"
+  },
+  {
+    "ContainingType": "Cola.Controllers.StateController",
+    "Method": "GetReportDataByLastNHours",
+    "RelativePath": "api/State/last-n-hours",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "deviceId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "inputTime",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "hours",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "GetReportDataByLastNHours"
   }
 ]

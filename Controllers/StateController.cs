@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 
 namespace Cola.Controllers
 {
@@ -26,7 +27,7 @@ namespace Cola.Controllers
             _appConfig = options.Value; // 获取配置实例
         }
         [HttpGet(Name = "获取当前时间的一个完整产程的甘特图数据")]
-        public async Task<IActionResult> GetReportDataByInputTime([FromQuery] int deviceId, [FromQuery] DateTime? inputTime)
+        public async Task<IActionResult> GetReportDataByInputTime([FromQuery,Required] int deviceId, [FromQuery, Required] DateTime? inputTime)
         {
             try
             {
@@ -80,20 +81,28 @@ namespace Cola.Controllers
                     .Where(c => allCheckParaIds.Contains(c.Id))
                     .ToDictionaryAsync(c => c.Id);
                 // 7. 构建结果
+                // 7.1 获取状态列表
+                var deviceStateList = await _fsql.Select<DeviceState>()
+                       .ToListAsync();
+                // 7.2 获取Device_type列表
+                var deviceTypeList = (await _fsql.Select<DeviceType>()
+                 .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
+                // 7.3 获取device_step列表
+                var deviceStepList = (await _fsql.Select<DeviceStep>()
+                    .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
                 var results = new List<StateDataResult>();
-
                 foreach (var stateData in stateDatas)
                 {
-                    var resultItem = new StateDataResult
+                    var stateDataResult = new StateDataResult
                     {
                         Id = stateData.Id,
                         DeviceId = stateData.DeviceId,
                         LineId = stateData.LineId,
-                        RecordTime = stateData.RecordTime,
+                        //RecordTime = stateData.RecordTime,
                         BeginTime = stateData.BeginTime,
                         Duration = stateData.Duration,
                         EndTime = stateData.EndTime,
-                        StateId = stateData.StateId,
+                        Status= deviceStateList.FirstOrDefault(ds=>ds.Value==stateData.StateId)?.Name
                     };
 
                     if (stateData.Data != null)
@@ -104,18 +113,269 @@ namespace Cola.Controllers
                             var checkParaId = int.Parse(prop.Name);
                             if (checkParas.TryGetValue(checkParaId, out var checkPara))
                             {
-                                resultItem.Data.Add(new StateDataItem
+                                // Assign values to ReportDataItem based on KeyName
+                                switch (checkPara.KeyName)
                                 {
-                                    StateDataId = stateData.Id,
-                                    CheckParaId = checkParaId,
-                                    CheckParaAliasName = checkPara.AliasName,
-                                    Value = prop.Value.ToObject<object>()
-                                });
+                                    case CheckPara_KeyName.Weight:
+                                        stateDataResult.Weight = prop.Value.ToObject<float>();
+                                        break;
+                                    //case CheckPara_KeyName.Status:
+                                    //    var statusValue = prop.Value.ToObject<int>();
+                                    //    var deviceState = deviceStateList.FirstOrDefault(ds => ds.Id == statusValue);
+                                    //    if (deviceState != null)
+                                    //    {
+                                    //        stateDataResult.Status = deviceState.Name;
+                                    //    }
+                                    //    break;
+                                    case CheckPara_KeyName.ProductFlowRate:
+                                        stateDataResult.ProductFlowRate = prop.Value.ToObject<int>();
+                                        break;
+                                    case CheckPara_KeyName.Formula:
+                                        stateDataResult.Formula = prop.Value.ToObject<string>();
+                                        break;
+                                    case CheckPara_KeyName.MixerStep:
+                                        var mixerStepId = prop.Value.ToObject<int>();
+                                        if (deviceStepList.TryGetValue(mixerStepId, out var mixerStepName))
+                                        {
+                                            stateDataResult.MixerStep = mixerStepName;
+                                        }
+                                        break;
+                                }
                             }
                         }
                     }
 
-                    results.Add(resultItem);
+                    results.Add(stateDataResult);
+                }
+                return Ok(new ApiResponse<IEnumerable<StateDataResult>>(200, results, "成功"));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "获取设备 {DeviceId} 数据失败", deviceId);
+                return StatusCode(500, new ApiResponse<object>(500, null, "服务器内部错误")); ;
+            }
+        }
+        [HttpGet("last-n-hours", Name = "GetReportDataByLastNHours")]
+        public async Task<IActionResult> GetReportDataByLastNHours([FromQuery, Required] int deviceId, [FromQuery, Required] DateTime? inputTime, [FromQuery, Required] int hours)
+        {
+            try
+            {
+                _logger.LogInformation("开始获取设备 {DeviceId} 的检查参数数据，最近 {Hours} 小时", deviceId, hours);
+
+                // 1. 参数校验
+                if (!inputTime.HasValue)
+                {
+                    return StatusCode(400, new ApiResponse<object>(400, null, "必须提供 inputTime 参数"));
+                }
+                if (hours <= 0)
+                {
+                    return StatusCode(400, new ApiResponse<object>(400, null, "必须提供有效的小时数"));
+                }
+
+                var endTime = inputTime.Value;
+                var startTime = endTime.AddHours(-hours);
+
+                // 2. 查询 startTime 到 endTime 之间的数据
+                var stateDatas = await _fsql.Select<HisDataState>()
+                   .Where(s =>
+                       s.DeviceId == deviceId &&
+                       s.EndTime >= startTime &&
+                       s.BeginTime <= endTime)
+                   .OrderBy(s => s.BeginTime)
+                   .ToListAsync();
+
+                // 3. 收集所有CheckPara的ID
+                var allCheckParaIds = stateDatas
+                    .Where(r => r.Data != null)
+                    .SelectMany(r => ((JObject)r.Data).Properties().Select(p => int.Parse(p.Name)))
+                    .Distinct()
+                    .ToList();
+                // 4. 批量查询CheckPara
+                var checkParas = await _fsql.Select<CheckPara>()
+                    .Where(c => allCheckParaIds.Contains(c.Id))
+                    .ToDictionaryAsync(c => c.Id);
+                // 5. 构建结果
+                // 5.1 获取状态列表
+                var deviceStateList = await _fsql.Select<DeviceState>()
+                       .ToListAsync();
+                // 5.2 获取Device_type列表
+                var deviceTypeList = (await _fsql.Select<DeviceType>()
+                 .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
+                // 5.3 获取device_step列表
+                var deviceStepList = (await _fsql.Select<DeviceStep>()
+                    .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
+                var results = new List<StateDataResult>();
+                foreach (var stateData in stateDatas)
+                {
+                    var stateDataResult = new StateDataResult
+                    {
+                        Id = stateData.Id,
+                        DeviceId = stateData.DeviceId,
+                        LineId = stateData.LineId,
+                        //RecordTime = stateData.RecordTime,
+                        BeginTime = stateData.BeginTime,
+                        Duration = stateData.Duration,
+                        EndTime = stateData.EndTime,
+                        Status = deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Name
+                    };
+
+                    if (stateData.Data != null)
+                    {
+                        var dataDict = (JObject)stateData.Data;
+                        foreach (var prop in dataDict.Properties())
+                        {
+                            var checkParaId = int.Parse(prop.Name);
+                            if (checkParas.TryGetValue(checkParaId, out var checkPara))
+                            {
+                                // Assign values to ReportDataItem based on KeyName
+                                switch (checkPara.KeyName)
+                                {
+                                    case CheckPara_KeyName.Weight:
+                                        stateDataResult.Weight = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.ProductFlowRate:
+                                        stateDataResult.ProductFlowRate = prop.Value.ToObject<int>();
+                                        break;
+                                    case CheckPara_KeyName.Formula:
+                                        stateDataResult.Formula = prop.Value.ToObject<string>();
+                                        break;
+                                    case CheckPara_KeyName.MixerStep:
+                                        var mixerStepId = prop.Value.ToObject<int>();
+                                        if (deviceStepList.TryGetValue(mixerStepId, out var mixerStepName))
+                                        {
+                                            stateDataResult.MixerStep = mixerStepName;
+                                        }
+                                        break;
+                                }
+                            }
+                        }
+                    }
+
+                    results.Add(stateDataResult);
+                }
+                return Ok(new ApiResponse<IEnumerable<StateDataResult>>(200, results, "成功"));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "获取设备 {DeviceId} 数据失败", deviceId);
+                return StatusCode(500, new ApiResponse<object>(500, null, "服务器内部错误")); ;
+            }
+        }
+
+        [HttpGet("current-shift", Name = "GetReportDataByCurrentShift")]
+        public async Task<IActionResult> GetReportDataByCurrentShift([FromQuery, Required] int deviceId, [FromQuery, Required] DateTime? inputTime)
+        {
+            try
+            {
+                _logger.LogInformation("开始获取设备 {DeviceId} 的检查参数数据，当前班次", deviceId);
+
+                // 1. 参数校验
+                if (!inputTime.HasValue)
+                {
+                    return StatusCode(400, new ApiResponse<object>(400, null, "必须提供 inputTime 参数"));
+                }
+
+                DateTime shiftStartTime;
+                DateTime shiftEndTime;
+
+                if (inputTime.Value.Hour >= 7 && inputTime.Value.Hour < 19)
+                {
+                    // Day shift: 7:00 to 19:00
+                    shiftStartTime = inputTime.Value.Date.AddHours(7);
+                    shiftEndTime = inputTime.Value.Date.AddHours(19);
+                }
+                else
+                {
+                    // Night shift: 19:00 to 7:00
+                    if (inputTime.Value.Hour >= 19)
+                    {
+                        shiftStartTime = inputTime.Value.Date.AddHours(19);
+                        shiftEndTime = inputTime.Value.Date.AddDays(1).AddHours(7);
+                    }
+                    else
+                    {
+                        shiftStartTime = inputTime.Value.Date.AddDays(-1).AddHours(19);
+                        shiftEndTime = inputTime.Value.Date.AddHours(7);
+                    }
+                }
+
+                // 2. 查询 shiftStartTime 到 inputTime 之间的数据
+                var stateDatas = await _fsql.Select<HisDataState>()
+                   .Where(s =>
+                       s.DeviceId == deviceId &&
+                       s.EndTime >= shiftStartTime &&
+                       s.BeginTime <= inputTime)
+                   .OrderBy(s => s.BeginTime)
+                   .ToListAsync();
+
+                // 3. 收集所有CheckPara的ID
+                var allCheckParaIds = stateDatas
+                    .Where(r => r.Data != null)
+                    .SelectMany(r => ((JObject)r.Data).Properties().Select(p => int.Parse(p.Name)))
+                    .Distinct()
+                    .ToList();
+                // 4. 批量查询CheckPara
+                var checkParas = await _fsql.Select<CheckPara>()
+                    .Where(c => allCheckParaIds.Contains(c.Id))
+                    .ToDictionaryAsync(c => c.Id);
+                // 5. 构建结果
+                // 5.1 获取状态列表
+                var deviceStateList = await _fsql.Select<DeviceState>()
+                       .ToListAsync();
+                // 5.2 获取Device_type列表
+                var deviceTypeList = (await _fsql.Select<DeviceType>()
+                 .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
+                // 5.3 获取device_step列表
+                var deviceStepList = (await _fsql.Select<DeviceStep>()
+                    .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
+                var results = new List<StateDataResult>();
+                foreach (var stateData in stateDatas)
+                {
+                    var stateDataResult = new StateDataResult
+                    {
+                        Id = stateData.Id,
+                        DeviceId = stateData.DeviceId,
+                        LineId = stateData.LineId,
+                        //RecordTime = stateData.RecordTime,
+                        BeginTime = stateData.BeginTime,
+                        Duration = stateData.Duration,
+                        EndTime = stateData.EndTime,
+                        Status = deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Name
+                    };
+
+                    if (stateData.Data != null)
+                    {
+                        var dataDict = (JObject)stateData.Data;
+                        foreach (var prop in dataDict.Properties())
+                        {
+                            var checkParaId = int.Parse(prop.Name);
+                            if (checkParas.TryGetValue(checkParaId, out var checkPara))
+                            {
+                                // Assign values to ReportDataItem based on KeyName
+                                switch (checkPara.KeyName)
+                                {
+                                    case CheckPara_KeyName.Weight:
+                                        stateDataResult.Weight = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.ProductFlowRate:
+                                        stateDataResult.ProductFlowRate = prop.Value.ToObject<int>();
+                                        break;
+                                    case CheckPara_KeyName.Formula:
+                                        stateDataResult.Formula = prop.Value.ToObject<string>();
+                                        break;
+                                    case CheckPara_KeyName.MixerStep:
+                                        var mixerStepId = prop.Value.ToObject<int>();
+                                        if (deviceStepList.TryGetValue(mixerStepId, out var mixerStepName))
+                                        {
+                                            stateDataResult.MixerStep = mixerStepName;
+                                        }
+                                        break;
+                                }
+                            }
+                        }
+                    }
+
+                    results.Add(stateDataResult);
                 }
                 return Ok(new ApiResponse<IEnumerable<StateDataResult>>(200, results, "成功"));
             }

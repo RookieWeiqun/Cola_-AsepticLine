@@ -1,0 +1,690 @@
+2025-02-23 09:40:25.0020 INFO Now listening on: https://localhost:7086 
+2025-02-23 09:40:25.0020 INFO Now listening on: http://localhost:5064 
+2025-02-23 09:40:25.0423 INFO Application started. Press Ctrl+C to shut down. 
+2025-02-23 09:40:25.0423 INFO Hosting environment: Development 
+2025-02-23 09:40:25.0423 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-02-23 09:40:25.5547 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-02-23 09:40:25.6610 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 111.4353ms 
+2025-02-23 09:40:25.6610 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-02-23 09:40:25.7163 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 50.1460ms 
+2025-02-23 09:40:25.7193 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-02-23 09:40:25.7193 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-02-23 09:40:25.7193 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-02-23 09:40:25.7193 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-02-23 09:40:25.7193 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-02-23 09:40:25.7356 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 15.5984ms 
+2025-02-23 09:40:25.7637 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-02-23 09:40:25.7637 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-02-23 09:40:25.7677 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 48.5228ms 
+2025-02-23 09:40:25.7677 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 48.3120ms 
+2025-02-23 09:40:25.7677 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-02-23 09:40:25.7677 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 49.9935ms 
+2025-02-23 09:40:25.7841 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 63.5452ms 
+2025-02-23 09:40:25.8961 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-02-23 09:40:25.8961 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 3.7996ms 
+2025-02-23 09:40:30.0443 INFO Request starting HTTP/2 GET https://localhost:7086/api/Report/current - - - 
+2025-02-23 09:40:30.0673 INFO Executing endpoint 'Cola.Controllers.ReportController.GetCurrentTimeReport2 (Cola)' 
+2025-02-23 09:40:30.0892 INFO Route matched with {action = "GetCurrentTimeReport2", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeReport2() on controller Cola.Controllers.ReportController (Cola). 
+2025-02-23 09:40:31.9113 INFO 开始获取检查参数数据 
+2025-02-23 09:40:32.0901 INFO 成功获取检查参数数据，数量：11 
+2025-02-23 09:40:32.1506 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.RealtimeDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 09:40:32.2393 INFO Executed action Cola.Controllers.ReportController.GetCurrentTimeReport2 (Cola) in 2145.4591ms 
+2025-02-23 09:40:32.2393 INFO Executed endpoint 'Cola.Controllers.ReportController.GetCurrentTimeReport2 (Cola)' 
+2025-02-23 09:40:32.2393 INFO Request finished HTTP/2 GET https://localhost:7086/api/Report/current - 200 3329 application/json;+charset=utf-8 2196.0645ms 
+2025-02-23 09:47:01.6024 INFO Request starting HTTP/2 GET https://localhost:7086/api/Report/current - - - 
+2025-02-23 09:47:01.6446 INFO Executing endpoint 'Cola.Controllers.ReportController.GetCurrentTimeReport2 (Cola)' 
+2025-02-23 09:47:01.6446 INFO Route matched with {action = "GetCurrentTimeReport2", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeReport2() on controller Cola.Controllers.ReportController (Cola). 
+2025-02-23 09:47:01.6446 INFO 开始获取检查参数数据 
+2025-02-23 09:47:01.6832 INFO 成功获取检查参数数据，数量：11 
+2025-02-23 09:47:01.6944 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.RealtimeDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 09:47:01.6944 INFO Executed action Cola.Controllers.ReportController.GetCurrentTimeReport2 (Cola) in 50.0815ms 
+2025-02-23 09:47:01.6944 INFO Executed endpoint 'Cola.Controllers.ReportController.GetCurrentTimeReport2 (Cola)' 
+2025-02-23 09:47:01.6944 INFO Request finished HTTP/2 GET https://localhost:7086/api/Report/current - 200 3329 application/json;+charset=utf-8 93.3814ms 
+2025-02-23 10:05:11.3652 INFO Now listening on: https://localhost:7086 
+2025-02-23 10:05:11.3652 INFO Now listening on: http://localhost:5064 
+2025-02-23 10:05:11.4148 INFO Application started. Press Ctrl+C to shut down. 
+2025-02-23 10:05:11.4148 INFO Hosting environment: Development 
+2025-02-23 10:05:11.4148 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-02-23 10:05:11.9099 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-02-23 10:05:12.0079 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 103.4901ms 
+2025-02-23 10:05:12.0079 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-02-23 10:05:12.0638 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 50.4771ms 
+2025-02-23 10:05:12.0638 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-02-23 10:05:12.0638 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-02-23 10:05:12.0638 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-02-23 10:05:12.0638 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-02-23 10:05:12.0638 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-02-23 10:05:12.0881 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 20.7862ms 
+2025-02-23 10:05:12.1181 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-02-23 10:05:12.1181 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-02-23 10:05:12.1181 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 54.2569ms 
+2025-02-23 10:05:12.1181 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 54.1317ms 
+2025-02-23 10:05:12.1181 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-02-23 10:05:12.1181 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 55.1763ms 
+2025-02-23 10:05:12.1384 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 69.3613ms 
+2025-02-23 10:05:12.2514 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-02-23 10:05:12.2514 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 3.3515ms 
+2025-02-23 10:05:15.8387 INFO Request starting HTTP/2 GET https://localhost:7086/api/Report/current - - - 
+2025-02-23 10:05:15.8541 INFO Executing endpoint 'Cola.Controllers.ReportController.GetCurrentTimeReport2 (Cola)' 
+2025-02-23 10:05:15.8692 INFO Route matched with {action = "GetCurrentTimeReport2", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeReport2() on controller Cola.Controllers.ReportController (Cola). 
+2025-02-23 10:05:16.4292 INFO 开始获取检查参数数据 
+2025-02-23 10:05:16.5616 INFO 成功获取检查参数数据，数量：11 
+2025-02-23 10:05:16.6088 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.RealtimeDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 10:05:16.6775 INFO Executed action Cola.Controllers.ReportController.GetCurrentTimeReport2 (Cola) in 804.6005ms 
+2025-02-23 10:05:16.6775 INFO Executed endpoint 'Cola.Controllers.ReportController.GetCurrentTimeReport2 (Cola)' 
+2025-02-23 10:05:16.6775 INFO Request finished HTTP/2 GET https://localhost:7086/api/Report/current - 200 3164 application/json;+charset=utf-8 839.7934ms 
+2025-02-23 10:06:05.6366 INFO Request starting HTTP/2 GET https://localhost:7086/api/Report/current - - - 
+2025-02-23 10:06:05.6458 INFO Executing endpoint 'Cola.Controllers.ReportController.GetCurrentTimeReport2 (Cola)' 
+2025-02-23 10:06:05.6458 INFO Route matched with {action = "GetCurrentTimeReport2", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeReport2() on controller Cola.Controllers.ReportController (Cola). 
+2025-02-23 10:06:05.6458 INFO 开始获取检查参数数据 
+2025-02-23 10:06:05.6618 INFO 成功获取检查参数数据，数量：11 
+2025-02-23 10:06:05.6714 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.RealtimeDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 10:06:05.6714 INFO Executed action Cola.Controllers.ReportController.GetCurrentTimeReport2 (Cola) in 25.8062ms 
+2025-02-23 10:06:05.6714 INFO Executed endpoint 'Cola.Controllers.ReportController.GetCurrentTimeReport2 (Cola)' 
+2025-02-23 10:06:05.6714 INFO Request finished HTTP/2 GET https://localhost:7086/api/Report/current - 200 3153 application/json;+charset=utf-8 37.0750ms 
+2025-02-23 10:07:40.0998 INFO Request starting HTTP/2 GET https://localhost:7086/api/Report/current - - - 
+2025-02-23 10:07:40.0998 INFO Executing endpoint 'Cola.Controllers.ReportController.GetCurrentTimeReport2 (Cola)' 
+2025-02-23 10:07:40.1095 INFO Route matched with {action = "GetCurrentTimeReport2", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeReport2() on controller Cola.Controllers.ReportController (Cola). 
+2025-02-23 10:07:40.1095 INFO 开始获取检查参数数据 
+2025-02-23 10:07:40.1095 INFO 成功获取检查参数数据，数量：11 
+2025-02-23 10:25:03.2242 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.RealtimeDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 10:25:03.2242 INFO Executed action Cola.Controllers.ReportController.GetCurrentTimeReport2 (Cola) in 1043115.4489ms 
+2025-02-23 10:25:03.2242 INFO Executed endpoint 'Cola.Controllers.ReportController.GetCurrentTimeReport2 (Cola)' 
+2025-02-23 10:25:03.2242 INFO Request finished HTTP/2 GET https://localhost:7086/api/Report/current - 200 3164 application/json;+charset=utf-8 1043125.6143ms 
+2025-02-23 10:25:10.9020 INFO Request starting HTTP/2 GET https://localhost:7086/api/Report/current - - - 
+2025-02-23 10:25:10.9020 INFO Executing endpoint 'Cola.Controllers.ReportController.GetCurrentTimeReport2 (Cola)' 
+2025-02-23 10:25:10.9020 INFO Route matched with {action = "GetCurrentTimeReport2", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeReport2() on controller Cola.Controllers.ReportController (Cola). 
+2025-02-23 10:25:10.9020 INFO 开始获取检查参数数据 
+2025-02-23 10:25:10.9110 INFO 成功获取检查参数数据，数量：11 
+2025-02-23 10:25:10.9110 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.RealtimeDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 10:25:10.9110 INFO Executed action Cola.Controllers.ReportController.GetCurrentTimeReport2 (Cola) in 17.1728ms 
+2025-02-23 10:25:10.9110 INFO Executed endpoint 'Cola.Controllers.ReportController.GetCurrentTimeReport2 (Cola)' 
+2025-02-23 10:25:10.9110 INFO Request finished HTTP/2 GET https://localhost:7086/api/Report/current - 200 3176 application/json;+charset=utf-8 18.0776ms 
+2025-02-23 10:30:51.2368 INFO Now listening on: https://localhost:7086 
+2025-02-23 10:30:51.2368 INFO Now listening on: http://localhost:5064 
+2025-02-23 10:30:51.2776 INFO Application started. Press Ctrl+C to shut down. 
+2025-02-23 10:30:51.2776 INFO Hosting environment: Development 
+2025-02-23 10:30:51.2776 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-02-23 10:30:51.7375 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-02-23 10:30:51.8273 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 94.3465ms 
+2025-02-23 10:30:51.8273 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-02-23 10:30:51.8742 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 42.4378ms 
+2025-02-23 10:30:51.8742 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-02-23 10:30:51.8742 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-02-23 10:30:51.8742 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-02-23 10:30:51.8742 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-02-23 10:30:51.8742 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-02-23 10:30:51.8965 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 19.5579ms 
+2025-02-23 10:30:51.9280 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-02-23 10:30:51.9280 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-02-23 10:30:51.9280 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 53.6903ms 
+2025-02-23 10:30:51.9280 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 53.8016ms 
+2025-02-23 10:30:51.9280 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-02-23 10:30:51.9280 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 55.8509ms 
+2025-02-23 10:30:51.9465 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 63.2324ms 
+2025-02-23 10:30:52.0551 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-02-23 10:30:52.0551 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 2.6538ms 
+2025-02-23 10:30:56.0278 INFO Request starting HTTP/2 GET https://localhost:7086/api/Report/current - - - 
+2025-02-23 10:30:56.0418 INFO Executing endpoint 'Cola.Controllers.ReportController.GetCurrentTimeReport2 (Cola)' 
+2025-02-23 10:30:56.0562 INFO Route matched with {action = "GetCurrentTimeReport2", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeReport2() on controller Cola.Controllers.ReportController (Cola). 
+2025-02-23 10:30:57.7003 INFO 开始获取检查参数数据 
+2025-02-23 10:30:57.8594 INFO 成功获取检查参数数据，数量：11 
+2025-02-23 10:30:57.9197 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.RealtimeDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 10:30:57.9974 INFO Executed action Cola.Controllers.ReportController.GetCurrentTimeReport2 (Cola) in 1936.8ms 
+2025-02-23 10:30:57.9974 INFO Executed endpoint 'Cola.Controllers.ReportController.GetCurrentTimeReport2 (Cola)' 
+2025-02-23 10:30:57.9974 INFO Request finished HTTP/2 GET https://localhost:7086/api/Report/current - 200 3228 application/json;+charset=utf-8 1971.1606ms 
+2025-02-23 10:55:54.4970 INFO Now listening on: https://localhost:7086 
+2025-02-23 10:55:54.6114 INFO Now listening on: http://localhost:5064 
+2025-02-23 10:55:54.6725 INFO Application started. Press Ctrl+C to shut down. 
+2025-02-23 10:55:54.6725 INFO Hosting environment: Development 
+2025-02-23 10:55:54.6725 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-02-23 10:55:54.8993 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-02-23 10:55:55.0694 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 175.4941ms 
+2025-02-23 10:55:55.0694 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-02-23 10:55:55.1264 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 50.6644ms 
+2025-02-23 10:55:55.1264 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-02-23 10:55:55.1264 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-02-23 10:55:55.1264 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-02-23 10:55:55.1787 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-02-23 10:55:55.1787 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-02-23 10:55:55.1787 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-02-23 10:55:55.1787 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 50.2596ms 
+2025-02-23 10:55:55.1787 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 50.3715ms 
+2025-02-23 10:55:55.1787 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 50.2347ms 
+2025-02-23 10:55:55.1787 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-02-23 10:55:55.1883 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 5.0845ms 
+2025-02-23 10:55:55.1883 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-02-23 10:55:55.2308 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 39.5386ms 
+2025-02-23 10:55:55.3684 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-02-23 10:55:55.3684 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 2.6154ms 
+2025-02-23 10:56:17.9207 INFO Request starting HTTP/2 GET https://localhost:7086/api/Report/history?inputTime=2025-02-19%2016%3A52%3A00 - - - 
+2025-02-23 10:56:17.9405 INFO Executing endpoint 'Cola.Controllers.ReportController.GetReportDataByInputTime (Cola)' 
+2025-02-23 10:56:17.9648 INFO Route matched with {action = "GetReportDataByInputTime", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByInputTime(System.Nullable`1[System.DateTime]) on controller Cola.Controllers.ReportController (Cola). 
+2025-02-23 10:56:18.5671 INFO 开始获取检查参数数据 
+2025-02-23 10:56:18.7137 INFO Latest Update Time: 02/19/2025 16:52:00 
+2025-02-23 10:56:18.8300 INFO 成功获取检查参数数据，数量：5 
+2025-02-23 10:56:18.8950 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.RealtimeDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 10:56:18.9610 INFO Executed action Cola.Controllers.ReportController.GetReportDataByInputTime (Cola) in 992.1324ms 
+2025-02-23 10:56:18.9610 INFO Executed endpoint 'Cola.Controllers.ReportController.GetReportDataByInputTime (Cola)' 
+2025-02-23 10:56:18.9610 INFO Request finished HTTP/2 GET https://localhost:7086/api/Report/history?inputTime=2025-02-19%2016%3A52%3A00 - 200 1463 application/json;+charset=utf-8 1041.2568ms 
+2025-02-23 11:51:16.5657 INFO Now listening on: https://localhost:7086 
+2025-02-23 11:51:16.5657 INFO Now listening on: http://localhost:5064 
+2025-02-23 11:51:16.6022 INFO Application started. Press Ctrl+C to shut down. 
+2025-02-23 11:51:16.6022 INFO Hosting environment: Development 
+2025-02-23 11:51:16.6022 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-02-23 11:51:20.2552 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-02-23 11:51:20.3311 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 81.3890ms 
+2025-02-23 11:51:20.3311 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-02-23 11:51:20.3759 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 40.4910ms 
+2025-02-23 11:51:20.3759 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-02-23 11:51:20.3759 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-02-23 11:51:20.3759 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-02-23 11:51:20.3759 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-02-23 11:51:20.3759 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-02-23 11:51:20.3931 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 14.2575ms 
+2025-02-23 11:51:20.4257 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-02-23 11:51:20.4257 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-02-23 11:51:20.4257 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-02-23 11:51:20.4257 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 48.5523ms 
+2025-02-23 11:51:20.4257 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 48.4282ms 
+2025-02-23 11:51:20.4257 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 48.4284ms 
+2025-02-23 11:51:20.4437 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 64.8907ms 
+2025-02-23 11:51:20.6058 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-02-23 11:51:20.6090 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 3.4853ms 
+2025-02-23 11:52:05.8863 INFO Request starting HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-02-23 - - - 
+2025-02-23 11:52:05.9078 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 11:52:05.9249 INFO Route matched with {action = "GetReportDataByInputTime", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByInputTime(Int32, System.Nullable`1[System.DateTime]) on controller Cola.Controllers.StateController (Cola). 
+2025-02-23 11:52:07.3535 INFO 开始获取设备 1 的检查参数数据,CIP为 105 
+2025-02-23 11:52:07.6498 ERROR 获取设备 1 数据失败 System.Exception: 55000: column "id" of relation "his_data_state" already has a default value
+ ---> Npgsql.PostgresException (0x80004005): 55000: column "id" of relation "his_data_state" already has a default value
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteNonQuery(DbConnection connection, DbTransaction transaction, CommandType cmdType, String cmdText, Int32 cmdTimeout, Action`1 cmdAfterHandler, DbParameter[] cmdParms)
+  Exception data:
+    Severity: ERROR
+    SqlState: 55000
+    MessageText: column "id" of relation "his_data_state" already has a default value
+    File: tablecmds.c
+    Line: 7723
+    Routine: ATExecAddIdentity
+   --- End of inner exception stack trace ---
+   at FreeSql.Internal.CommonProvider.AdoProvider.LoggerException(IObjectPool`1 pool, PrepareCommandResult pc, Exception ex, DateTime dt, StringBuilder logtxt, Boolean isThrowException)
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteNonQuery(DbConnection connection, DbTransaction transaction, CommandType cmdType, String cmdText, Int32 cmdTimeout, Action`1 cmdAfterHandler, DbParameter[] cmdParms)
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteNonQuery(CommandType cmdType, String cmdText, DbParameter[] cmdParms)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.ExecuteDDLStatements(String ddl)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(TypeSchemaAndName[] objects)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure[TEntity]()
+   at FreeSql.Internal.CommonProvider.Select0Provider`2..ctor(IFreeSql orm, CommonUtils commonUtils, CommonExpression commonExpression, Object dywhere)
+   at FreeSql.Internal.CommonProvider.Select1Provider`1..ctor(IFreeSql orm, CommonUtils commonUtils, CommonExpression commonExpression, Object dywhere)
+   at FreeSql.PostgreSQL.Curd.PostgreSQLSelect`1..ctor(IFreeSql orm, CommonUtils commonUtils, CommonExpression commonExpression, Object dywhere)
+   at FreeSql.PostgreSQL.PostgreSQLProvider`1.CreateSelectProvider[T1](Object dywhere)
+   at FreeSql.Internal.CommonProvider.BaseDbProvider.Select[T1]()
+   at Cola.Controllers.StateController.GetReportDataByInputTime(Int32 deviceId, Nullable`1 inputTime) in D:\cwq\MyCode\Cola_ AsepticLine\Cola\Controllers\StateController.cs:line 42
+2025-02-23 11:52:07.6498 INFO Executing ObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 11:52:07.7169 INFO Executed action Cola.Controllers.StateController.GetReportDataByInputTime (Cola) in 1788.4954ms 
+2025-02-23 11:52:07.7170 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 11:52:07.7170 INFO Request finished HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-02-23 - 500 58 application/json;+charset=utf-8 1831.2502ms 
+2025-02-23 11:52:14.9853 INFO Request starting HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-02-22 - - - 
+2025-02-23 11:52:14.9853 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 11:52:14.9853 INFO Route matched with {action = "GetReportDataByInputTime", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByInputTime(Int32, System.Nullable`1[System.DateTime]) on controller Cola.Controllers.StateController (Cola). 
+2025-02-23 11:52:14.9853 INFO 开始获取设备 1 的检查参数数据,CIP为 105 
+2025-02-23 11:52:15.1710 ERROR 获取设备 1 数据失败 System.Exception: 55000: column "id" of relation "his_data_state" already has a default value
+ ---> Npgsql.PostgresException (0x80004005): 55000: column "id" of relation "his_data_state" already has a default value
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteNonQuery(DbConnection connection, DbTransaction transaction, CommandType cmdType, String cmdText, Int32 cmdTimeout, Action`1 cmdAfterHandler, DbParameter[] cmdParms)
+  Exception data:
+    Severity: ERROR
+    SqlState: 55000
+    MessageText: column "id" of relation "his_data_state" already has a default value
+    File: tablecmds.c
+    Line: 7723
+    Routine: ATExecAddIdentity
+   --- End of inner exception stack trace ---
+   at FreeSql.Internal.CommonProvider.AdoProvider.LoggerException(IObjectPool`1 pool, PrepareCommandResult pc, Exception ex, DateTime dt, StringBuilder logtxt, Boolean isThrowException)
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteNonQuery(DbConnection connection, DbTransaction transaction, CommandType cmdType, String cmdText, Int32 cmdTimeout, Action`1 cmdAfterHandler, DbParameter[] cmdParms)
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteNonQuery(CommandType cmdType, String cmdText, DbParameter[] cmdParms)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.ExecuteDDLStatements(String ddl)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(TypeSchemaAndName[] objects)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure[TEntity]()
+   at FreeSql.Internal.CommonProvider.Select0Provider`2..ctor(IFreeSql orm, CommonUtils commonUtils, CommonExpression commonExpression, Object dywhere)
+   at FreeSql.Internal.CommonProvider.Select1Provider`1..ctor(IFreeSql orm, CommonUtils commonUtils, CommonExpression commonExpression, Object dywhere)
+   at FreeSql.PostgreSQL.Curd.PostgreSQLSelect`1..ctor(IFreeSql orm, CommonUtils commonUtils, CommonExpression commonExpression, Object dywhere)
+   at FreeSql.PostgreSQL.PostgreSQLProvider`1.CreateSelectProvider[T1](Object dywhere)
+   at FreeSql.Internal.CommonProvider.BaseDbProvider.Select[T1]()
+   at Cola.Controllers.StateController.GetReportDataByInputTime(Int32 deviceId, Nullable`1 inputTime) in D:\cwq\MyCode\Cola_ AsepticLine\Cola\Controllers\StateController.cs:line 42
+2025-02-23 11:52:15.1710 INFO Executing ObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 11:52:15.1710 INFO Executed action Cola.Controllers.StateController.GetReportDataByInputTime (Cola) in 184.881ms 
+2025-02-23 11:52:15.1710 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 11:52:15.1710 INFO Request finished HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-02-22 - 500 58 application/json;+charset=utf-8 186.9278ms 
+2025-02-23 11:52:30.3749 INFO Request starting HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-02-22%2010%3A00 - - - 
+2025-02-23 11:52:30.3749 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 11:52:30.3749 INFO Route matched with {action = "GetReportDataByInputTime", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByInputTime(Int32, System.Nullable`1[System.DateTime]) on controller Cola.Controllers.StateController (Cola). 
+2025-02-23 11:52:30.3749 INFO 开始获取设备 1 的检查参数数据,CIP为 105 
+2025-02-23 11:52:30.5866 ERROR 获取设备 1 数据失败 System.Exception: 55000: column "id" of relation "his_data_state" already has a default value
+ ---> Npgsql.PostgresException (0x80004005): 55000: column "id" of relation "his_data_state" already has a default value
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteNonQuery(DbConnection connection, DbTransaction transaction, CommandType cmdType, String cmdText, Int32 cmdTimeout, Action`1 cmdAfterHandler, DbParameter[] cmdParms)
+  Exception data:
+    Severity: ERROR
+    SqlState: 55000
+    MessageText: column "id" of relation "his_data_state" already has a default value
+    File: tablecmds.c
+    Line: 7723
+    Routine: ATExecAddIdentity
+   --- End of inner exception stack trace ---
+   at FreeSql.Internal.CommonProvider.AdoProvider.LoggerException(IObjectPool`1 pool, PrepareCommandResult pc, Exception ex, DateTime dt, StringBuilder logtxt, Boolean isThrowException)
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteNonQuery(DbConnection connection, DbTransaction transaction, CommandType cmdType, String cmdText, Int32 cmdTimeout, Action`1 cmdAfterHandler, DbParameter[] cmdParms)
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteNonQuery(CommandType cmdType, String cmdText, DbParameter[] cmdParms)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.ExecuteDDLStatements(String ddl)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(TypeSchemaAndName[] objects)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure[TEntity]()
+   at FreeSql.Internal.CommonProvider.Select0Provider`2..ctor(IFreeSql orm, CommonUtils commonUtils, CommonExpression commonExpression, Object dywhere)
+   at FreeSql.Internal.CommonProvider.Select1Provider`1..ctor(IFreeSql orm, CommonUtils commonUtils, CommonExpression commonExpression, Object dywhere)
+   at FreeSql.PostgreSQL.Curd.PostgreSQLSelect`1..ctor(IFreeSql orm, CommonUtils commonUtils, CommonExpression commonExpression, Object dywhere)
+   at FreeSql.PostgreSQL.PostgreSQLProvider`1.CreateSelectProvider[T1](Object dywhere)
+   at FreeSql.Internal.CommonProvider.BaseDbProvider.Select[T1]()
+   at Cola.Controllers.StateController.GetReportDataByInputTime(Int32 deviceId, Nullable`1 inputTime) in D:\cwq\MyCode\Cola_ AsepticLine\Cola\Controllers\StateController.cs:line 42
+2025-02-23 11:52:30.5866 INFO Executing ObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 11:52:30.5866 INFO Executed action Cola.Controllers.StateController.GetReportDataByInputTime (Cola) in 211.3705ms 
+2025-02-23 11:52:30.5866 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 11:52:30.5866 INFO Request finished HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-02-22%2010%3A00 - 500 58 application/json;+charset=utf-8 212.4384ms 
+2025-02-23 11:52:49.3509 INFO Request starting HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-02-22%2010%3A00 - - - 
+2025-02-23 11:52:49.3509 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 11:52:49.3509 INFO Route matched with {action = "GetReportDataByInputTime", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByInputTime(Int32, System.Nullable`1[System.DateTime]) on controller Cola.Controllers.StateController (Cola). 
+2025-02-23 11:52:49.3509 INFO 开始获取设备 1 的检查参数数据,CIP为 105 
+2025-02-23 11:52:49.5396 ERROR 获取设备 1 数据失败 System.Exception: 55000: column "id" of relation "his_data_state" already has a default value
+ ---> Npgsql.PostgresException (0x80004005): 55000: column "id" of relation "his_data_state" already has a default value
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteNonQuery(DbConnection connection, DbTransaction transaction, CommandType cmdType, String cmdText, Int32 cmdTimeout, Action`1 cmdAfterHandler, DbParameter[] cmdParms)
+  Exception data:
+    Severity: ERROR
+    SqlState: 55000
+    MessageText: column "id" of relation "his_data_state" already has a default value
+    File: tablecmds.c
+    Line: 7723
+    Routine: ATExecAddIdentity
+   --- End of inner exception stack trace ---
+   at FreeSql.Internal.CommonProvider.AdoProvider.LoggerException(IObjectPool`1 pool, PrepareCommandResult pc, Exception ex, DateTime dt, StringBuilder logtxt, Boolean isThrowException)
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteNonQuery(DbConnection connection, DbTransaction transaction, CommandType cmdType, String cmdText, Int32 cmdTimeout, Action`1 cmdAfterHandler, DbParameter[] cmdParms)
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteNonQuery(CommandType cmdType, String cmdText, DbParameter[] cmdParms)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.ExecuteDDLStatements(String ddl)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(TypeSchemaAndName[] objects)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure[TEntity]()
+   at FreeSql.Internal.CommonProvider.Select0Provider`2..ctor(IFreeSql orm, CommonUtils commonUtils, CommonExpression commonExpression, Object dywhere)
+   at FreeSql.Internal.CommonProvider.Select1Provider`1..ctor(IFreeSql orm, CommonUtils commonUtils, CommonExpression commonExpression, Object dywhere)
+   at FreeSql.PostgreSQL.Curd.PostgreSQLSelect`1..ctor(IFreeSql orm, CommonUtils commonUtils, CommonExpression commonExpression, Object dywhere)
+   at FreeSql.PostgreSQL.PostgreSQLProvider`1.CreateSelectProvider[T1](Object dywhere)
+   at FreeSql.Internal.CommonProvider.BaseDbProvider.Select[T1]()
+   at Cola.Controllers.StateController.GetReportDataByInputTime(Int32 deviceId, Nullable`1 inputTime) in D:\cwq\MyCode\Cola_ AsepticLine\Cola\Controllers\StateController.cs:line 42
+2025-02-23 11:52:49.5396 INFO Executing ObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 11:52:49.5396 INFO Executed action Cola.Controllers.StateController.GetReportDataByInputTime (Cola) in 188.399ms 
+2025-02-23 11:52:49.5396 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 11:52:49.5396 INFO Request finished HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-02-22%2010%3A00 - 500 58 application/json;+charset=utf-8 189.4308ms 
+2025-02-23 11:53:36.5090 INFO Request starting HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-02-22%2010%3A00 - - - 
+2025-02-23 11:53:36.5090 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 11:53:36.5434 INFO Route matched with {action = "GetReportDataByInputTime", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByInputTime(Int32, System.Nullable`1[System.DateTime]) on controller Cola.Controllers.StateController (Cola). 
+2025-02-23 11:53:36.5453 INFO 开始获取设备 1 的检查参数数据,CIP为 105 
+2025-02-23 11:55:51.1169 ERROR 获取设备 1 数据失败 System.Exception: 55000: column "id" of relation "his_data_state" already has a default value
+ ---> Npgsql.PostgresException (0x80004005): 55000: column "id" of relation "his_data_state" already has a default value
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteNonQuery(DbConnection connection, DbTransaction transaction, CommandType cmdType, String cmdText, Int32 cmdTimeout, Action`1 cmdAfterHandler, DbParameter[] cmdParms)
+  Exception data:
+    Severity: ERROR
+    SqlState: 55000
+    MessageText: column "id" of relation "his_data_state" already has a default value
+    File: tablecmds.c
+    Line: 7723
+    Routine: ATExecAddIdentity
+   --- End of inner exception stack trace ---
+   at FreeSql.Internal.CommonProvider.AdoProvider.LoggerException(IObjectPool`1 pool, PrepareCommandResult pc, Exception ex, DateTime dt, StringBuilder logtxt, Boolean isThrowException)
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteNonQuery(DbConnection connection, DbTransaction transaction, CommandType cmdType, String cmdText, Int32 cmdTimeout, Action`1 cmdAfterHandler, DbParameter[] cmdParms)
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteNonQuery(CommandType cmdType, String cmdText, DbParameter[] cmdParms)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.ExecuteDDLStatements(String ddl)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(TypeSchemaAndName[] objects)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure[TEntity]()
+   at FreeSql.Internal.CommonProvider.Select0Provider`2..ctor(IFreeSql orm, CommonUtils commonUtils, CommonExpression commonExpression, Object dywhere)
+   at FreeSql.Internal.CommonProvider.Select1Provider`1..ctor(IFreeSql orm, CommonUtils commonUtils, CommonExpression commonExpression, Object dywhere)
+   at FreeSql.PostgreSQL.Curd.PostgreSQLSelect`1..ctor(IFreeSql orm, CommonUtils commonUtils, CommonExpression commonExpression, Object dywhere)
+   at FreeSql.PostgreSQL.PostgreSQLProvider`1.CreateSelectProvider[T1](Object dywhere)
+   at FreeSql.Internal.CommonProvider.BaseDbProvider.Select[T1]()
+   at Cola.Controllers.StateController.GetReportDataByInputTime(Int32 deviceId, Nullable`1 inputTime) in D:\cwq\MyCode\Cola_ AsepticLine\Cola\Controllers\StateController.cs:line 42
+2025-02-23 11:55:51.1169 INFO Executing ObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 11:55:51.1245 INFO Executed action Cola.Controllers.StateController.GetReportDataByInputTime (Cola) in 134581.0308ms 
+2025-02-23 11:55:51.1245 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 11:55:51.1611 INFO Request finished HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-02-22%2010%3A00 - 500 58 application/json;+charset=utf-8 134617.3711ms 
+2025-02-23 11:55:55.0961 INFO Request starting HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-02-22%2010%3A00 - - - 
+2025-02-23 11:55:55.0961 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 11:55:55.0961 INFO Route matched with {action = "GetReportDataByInputTime", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByInputTime(Int32, System.Nullable`1[System.DateTime]) on controller Cola.Controllers.StateController (Cola). 
+2025-02-23 11:55:55.0961 INFO 开始获取设备 1 的检查参数数据,CIP为 105 
+2025-02-23 11:58:30.9943 INFO Now listening on: https://localhost:7086 
+2025-02-23 11:58:30.9990 INFO Now listening on: http://localhost:5064 
+2025-02-23 11:58:31.0321 INFO Application started. Press Ctrl+C to shut down. 
+2025-02-23 11:58:31.0321 INFO Hosting environment: Development 
+2025-02-23 11:58:31.0321 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-02-23 11:58:37.0637 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-02-23 11:58:37.1667 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 108.0647ms 
+2025-02-23 11:58:37.1709 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-02-23 11:58:37.2197 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 48.8474ms 
+2025-02-23 11:58:37.2197 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-02-23 11:58:37.2197 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-02-23 11:58:37.2197 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-02-23 11:58:37.2197 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-02-23 11:58:37.2197 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-02-23 11:58:37.2480 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 24.4071ms 
+2025-02-23 11:58:37.2768 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-02-23 11:58:37.2768 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-02-23 11:58:37.2768 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-02-23 11:58:37.2768 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 55.7154ms 
+2025-02-23 11:58:37.2768 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 55.6057ms 
+2025-02-23 11:58:37.2768 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 55.5695ms 
+2025-02-23 11:58:37.2909 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 61.5344ms 
+2025-02-23 11:58:37.4059 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-02-23 11:58:37.4059 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 3.8459ms 
+2025-02-23 11:59:01.4483 INFO Request starting HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-2-22%2010%3A00 - - - 
+2025-02-23 11:59:01.4615 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 11:59:01.4764 INFO Route matched with {action = "GetReportDataByInputTime", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByInputTime(Int32, System.Nullable`1[System.DateTime]) on controller Cola.Controllers.StateController (Cola). 
+2025-02-23 11:59:02.0635 INFO 开始获取设备 1 的检查参数数据,CIP为 105 
+2025-02-23 11:59:09.2052 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.SelfDefinnition.StateDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 11:59:09.2626 INFO Executed action Cola.Controllers.StateController.GetReportDataByInputTime (Cola) in 7782.1947ms 
+2025-02-23 11:59:09.2626 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 11:59:09.2626 INFO Request finished HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-2-22%2010%3A00 - 200 1986 application/json;+charset=utf-8 7815.4839ms 
+2025-02-23 12:03:08.1720 INFO Now listening on: https://localhost:7086 
+2025-02-23 12:03:08.2233 INFO Now listening on: http://localhost:5064 
+2025-02-23 12:03:08.2546 INFO Application started. Press Ctrl+C to shut down. 
+2025-02-23 12:03:08.2546 INFO Hosting environment: Development 
+2025-02-23 12:03:08.2546 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-02-23 12:03:09.6359 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-02-23 12:03:09.7398 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 108.6042ms 
+2025-02-23 12:03:09.7398 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-02-23 12:03:09.8062 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 60.0550ms 
+2025-02-23 12:03:09.8062 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-02-23 12:03:09.8062 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-02-23 12:03:09.8062 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-02-23 12:03:09.8062 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-02-23 12:03:09.8062 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-02-23 12:03:09.8266 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 17.2012ms 
+2025-02-23 12:03:09.8544 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-02-23 12:03:09.8544 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-02-23 12:03:09.8584 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 49.1152ms 
+2025-02-23 12:03:09.8584 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 49.2460ms 
+2025-02-23 12:03:09.8584 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-02-23 12:03:09.8584 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 50.7257ms 
+2025-02-23 12:03:09.8771 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 67.0786ms 
+2025-02-23 12:03:10.0149 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-02-23 12:03:10.0149 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 4.8956ms 
+2025-02-23 12:03:22.7178 INFO Request starting HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-02-22%2016%3A06 - - - 
+2025-02-23 12:03:22.7344 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 12:03:22.7546 INFO Route matched with {action = "GetReportDataByInputTime", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByInputTime(Int32, System.Nullable`1[System.DateTime]) on controller Cola.Controllers.StateController (Cola). 
+2025-02-23 12:03:24.2571 INFO 开始获取设备 1 的检查参数数据,CIP为 105 
+2025-02-23 12:03:24.4651 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.SelfDefinnition.StateDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 12:03:24.5328 INFO Executed action Cola.Controllers.StateController.GetReportDataByInputTime (Cola) in 1773.9854ms 
+2025-02-23 12:03:24.5328 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 12:03:24.5328 INFO Request finished HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-02-22%2016%3A06 - 200 1986 application/json;+charset=utf-8 1816.5952ms 
+2025-02-23 12:04:52.3019 INFO Request starting HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-02-21%2016%3A18 - - - 
+2025-02-23 12:04:52.3019 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 12:04:52.3019 INFO Route matched with {action = "GetReportDataByInputTime", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByInputTime(Int32, System.Nullable`1[System.DateTime]) on controller Cola.Controllers.StateController (Cola). 
+2025-02-23 12:04:52.3019 INFO 开始获取设备 1 的检查参数数据,CIP为 105 
+2025-02-23 12:04:52.3301 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.SelfDefinnition.StateDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 12:04:52.3301 INFO Executed action Cola.Controllers.StateController.GetReportDataByInputTime (Cola) in 26.847ms 
+2025-02-23 12:04:52.3301 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 12:04:52.3301 INFO Request finished HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-02-21%2016%3A18 - 200 314 application/json;+charset=utf-8 29.1876ms 
+2025-02-23 14:35:32.3413 INFO Now listening on: https://localhost:7086 
+2025-02-23 14:35:32.3457 INFO Now listening on: http://localhost:5064 
+2025-02-23 14:35:32.3786 INFO Application started. Press Ctrl+C to shut down. 
+2025-02-23 14:35:32.3786 INFO Hosting environment: Development 
+2025-02-23 14:35:32.3786 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-02-23 14:35:34.2766 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-02-23 14:35:34.3944 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 125.5340ms 
+2025-02-23 14:35:34.3944 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-02-23 14:35:34.4632 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 63.1619ms 
+2025-02-23 14:35:34.4632 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-02-23 14:35:34.4632 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-02-23 14:35:34.4632 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-02-23 14:35:34.5027 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-02-23 14:35:34.5027 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-02-23 14:35:34.5027 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 40.8667ms 
+2025-02-23 14:35:34.5027 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 41.0489ms 
+2025-02-23 14:35:34.5027 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-02-23 14:35:34.5027 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 43.4556ms 
+2025-02-23 14:35:34.5027 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-02-23 14:35:34.5149 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 4.6425ms 
+2025-02-23 14:35:34.5149 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-02-23 14:35:34.5478 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 31.2533ms 
+2025-02-23 14:35:34.7012 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-02-23 14:35:34.7057 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 4.7302ms 
+2025-02-23 14:36:20.7950 INFO Request starting HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-02-22%2016%3A06 - - - 
+2025-02-23 14:36:20.8215 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 14:36:20.8416 INFO Route matched with {action = "GetReportDataByInputTime", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByInputTime(Int32, System.Nullable`1[System.DateTime]) on controller Cola.Controllers.StateController (Cola). 
+2025-02-23 14:36:22.1725 INFO 开始获取设备 1 的检查参数数据,CIP为 105 
+2025-02-23 14:36:22.3474 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.SelfDefinnition.StateDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 14:36:22.4120 INFO Executed action Cola.Controllers.StateController.GetReportDataByInputTime (Cola) in 1566.0197ms 
+2025-02-23 14:36:22.4120 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 14:36:22.4120 INFO Request finished HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-02-22%2016%3A06 - 200 1983 application/json;+charset=utf-8 1617.9251ms 
+2025-02-23 14:39:47.8075 INFO Request starting HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-02-22%2016%3A06 - - - 
+2025-02-23 14:39:47.8131 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 14:39:47.8131 INFO Route matched with {action = "GetReportDataByInputTime", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByInputTime(Int32, System.Nullable`1[System.DateTime]) on controller Cola.Controllers.StateController (Cola). 
+2025-02-23 14:39:47.8131 INFO 开始获取设备 1 的检查参数数据,CIP为 105 
+2025-02-23 14:39:47.8365 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.SelfDefinnition.StateDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 14:39:47.8365 INFO Executed action Cola.Controllers.StateController.GetReportDataByInputTime (Cola) in 23.508ms 
+2025-02-23 14:39:47.8365 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 14:39:47.8365 INFO Request finished HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-02-22%2016%3A06 - 200 1983 application/json;+charset=utf-8 31.2146ms 
+2025-02-23 14:51:07.1648 INFO Now listening on: https://localhost:7086 
+2025-02-23 14:51:07.1648 INFO Now listening on: http://localhost:5064 
+2025-02-23 14:51:07.1980 INFO Application started. Press Ctrl+C to shut down. 
+2025-02-23 14:51:07.1980 INFO Hosting environment: Development 
+2025-02-23 14:51:07.1980 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-02-23 14:51:08.7312 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-02-23 14:51:08.8259 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 100.8378ms 
+2025-02-23 14:51:08.8330 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-02-23 14:51:08.8982 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 65.2653ms 
+2025-02-23 14:51:08.8982 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-02-23 14:51:08.8982 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-02-23 14:51:08.8982 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-02-23 14:51:08.8982 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-02-23 14:51:08.8982 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-02-23 14:51:08.9201 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 17.5944ms 
+2025-02-23 14:51:08.9545 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-02-23 14:51:08.9545 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-02-23 14:51:08.9545 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-02-23 14:51:08.9545 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 55.1134ms 
+2025-02-23 14:51:08.9545 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 54.3974ms 
+2025-02-23 14:51:08.9545 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 54.9707ms 
+2025-02-23 14:51:08.9721 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 69.1162ms 
+2025-02-23 14:51:09.1142 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-02-23 14:51:09.1142 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 4.4072ms 
+2025-02-23 14:51:20.5744 INFO Request starting HTTP/2 GET https://localhost:7086/api/State - - - 
+2025-02-23 14:51:20.5881 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 14:51:20.6043 INFO Route matched with {action = "GetReportDataByInputTime", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByInputTime(Int32, System.Nullable`1[System.DateTime]) on controller Cola.Controllers.StateController (Cola). 
+2025-02-23 14:51:21.8252 INFO 开始获取设备 0 的检查参数数据,CIP为 105 
+2025-02-23 14:51:21.8283 INFO Executing ObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 14:51:21.8891 INFO Executed action Cola.Controllers.StateController.GetReportDataByInputTime (Cola) in 1281.6497ms 
+2025-02-23 14:51:21.8892 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 14:51:21.8892 INFO Request finished HTTP/2 GET https://localhost:7086/api/State - 400 66 application/json;+charset=utf-8 1315.2316ms 
+2025-02-23 14:51:30.9999 INFO Request starting HTTP/2 GET https://localhost:7086/api/State?inputTime=2025 - - - 
+2025-02-23 14:51:30.9999 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 14:51:30.9999 INFO Route matched with {action = "GetReportDataByInputTime", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByInputTime(Int32, System.Nullable`1[System.DateTime]) on controller Cola.Controllers.StateController (Cola). 
+2025-02-23 14:51:31.0310 INFO Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'. 
+2025-02-23 14:51:31.0487 INFO Executed action Cola.Controllers.StateController.GetReportDataByInputTime (Cola) in 47.4047ms 
+2025-02-23 14:51:31.0487 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 14:51:31.0487 INFO Request finished HTTP/2 GET https://localhost:7086/api/State?inputTime=2025 - 400 250 application/problem+json;+charset=utf-8 49.0038ms 
+2025-02-23 14:52:02.5608 INFO Request starting HTTP/2 GET https://localhost:7086/api/State?inputTime=2025-2-23 - - - 
+2025-02-23 14:52:02.5660 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 14:52:02.5660 INFO Route matched with {action = "GetReportDataByInputTime", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByInputTime(Int32, System.Nullable`1[System.DateTime]) on controller Cola.Controllers.StateController (Cola). 
+2025-02-23 14:52:02.5660 INFO 开始获取设备 0 的检查参数数据,CIP为 105 
+2025-02-23 14:52:02.6626 INFO Executing ObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 14:52:02.6626 INFO Executed action Cola.Controllers.StateController.GetReportDataByInputTime (Cola) in 96.769ms 
+2025-02-23 14:52:02.6626 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 14:52:02.6626 INFO Request finished HTTP/2 GET https://localhost:7086/api/State?inputTime=2025-2-23 - 404 52 application/json;+charset=utf-8 102.7415ms 
+2025-02-23 14:52:37.7105 INFO Request starting HTTP/2 GET https://localhost:7086/api/State?inputTime=2025-2-23 - - - 
+2025-02-23 14:52:37.7105 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 14:52:37.7105 INFO Route matched with {action = "GetReportDataByInputTime", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByInputTime(Int32, System.Nullable`1[System.DateTime]) on controller Cola.Controllers.StateController (Cola). 
+2025-02-23 14:52:37.7105 INFO 开始获取设备 0 的检查参数数据,CIP为 105 
+2025-02-23 14:52:37.7207 INFO Executing ObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 14:52:37.7207 INFO Executed action Cola.Controllers.StateController.GetReportDataByInputTime (Cola) in 10.0037ms 
+2025-02-23 14:52:37.7207 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-02-23 14:52:37.7207 INFO Request finished HTTP/2 GET https://localhost:7086/api/State?inputTime=2025-2-23 - 404 52 application/json;+charset=utf-8 11.0738ms 
+2025-02-23 14:54:49.5717 INFO Now listening on: https://localhost:7086 
+2025-02-23 14:54:49.5717 INFO Now listening on: http://localhost:5064 
+2025-02-23 14:54:49.6117 INFO Application started. Press Ctrl+C to shut down. 
+2025-02-23 14:54:49.6117 INFO Hosting environment: Development 
+2025-02-23 14:54:49.6117 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-02-23 14:54:50.2757 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-02-23 14:54:50.3905 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 118.6909ms 
+2025-02-23 14:54:50.3905 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-02-23 14:54:50.4497 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 52.6772ms 
+2025-02-23 14:54:50.4532 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-02-23 14:54:50.4532 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-02-23 14:54:50.4532 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-02-23 14:54:50.4532 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-02-23 14:54:50.4532 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-02-23 14:54:50.4754 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 21.7262ms 
+2025-02-23 14:54:50.5056 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-02-23 14:54:50.5056 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-02-23 14:54:50.5056 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 55.8997ms 
+2025-02-23 14:54:50.5056 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 56.1321ms 
+2025-02-23 14:54:50.5056 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-02-23 14:54:50.5056 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 59.9863ms 
+2025-02-23 14:54:50.5285 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 74.2356ms 
+2025-02-23 14:54:50.6525 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-02-23 14:54:50.6560 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 3.6296ms 
+2025-02-23 15:09:08.6930 INFO Now listening on: https://localhost:7086 
+2025-02-23 15:09:08.6930 INFO Now listening on: http://localhost:5064 
+2025-02-23 15:09:08.7388 INFO Application started. Press Ctrl+C to shut down. 
+2025-02-23 15:09:08.7388 INFO Hosting environment: Development 
+2025-02-23 15:09:08.7388 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-02-23 15:09:09.4224 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-02-23 15:09:09.5423 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 125.7504ms 
+2025-02-23 15:09:09.5490 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-02-23 15:09:09.6164 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 67.3897ms 
+2025-02-23 15:09:09.6164 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-02-23 15:09:09.6164 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-02-23 15:09:09.6164 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-02-23 15:09:09.6164 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-02-23 15:09:09.6164 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-02-23 15:09:09.6337 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 15.0532ms 
+2025-02-23 15:09:09.6635 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-02-23 15:09:09.6635 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-02-23 15:09:09.6635 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-02-23 15:09:09.6635 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 48.5397ms 
+2025-02-23 15:09:09.6635 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 48.5845ms 
+2025-02-23 15:09:09.6635 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 48.8203ms 
+2025-02-23 15:09:09.6870 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 68.0861ms 
+2025-02-23 15:09:09.8107 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-02-23 15:09:09.8166 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 6.2402ms 
+2025-02-23 15:12:13.8843 INFO Now listening on: https://localhost:7086 
+2025-02-23 15:12:13.8901 INFO Now listening on: http://localhost:5064 
+2025-02-23 15:12:13.9329 INFO Application started. Press Ctrl+C to shut down. 
+2025-02-23 15:12:13.9329 INFO Hosting environment: Development 
+2025-02-23 15:12:13.9329 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-02-23 15:12:14.4439 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-02-23 15:12:14.5470 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 107.5506ms 
+2025-02-23 15:12:14.5470 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-02-23 15:12:14.6112 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 58.0844ms 
+2025-02-23 15:12:14.6112 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-02-23 15:12:14.6112 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-02-23 15:12:14.6112 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-02-23 15:12:14.6584 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-02-23 15:12:14.6584 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-02-23 15:12:14.6584 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-02-23 15:12:14.6584 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 45.8790ms 
+2025-02-23 15:12:14.6584 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 45.6545ms 
+2025-02-23 15:12:14.6584 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 45.7719ms 
+2025-02-23 15:12:14.6584 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-02-23 15:12:14.6584 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-02-23 15:12:14.6584 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 5.1399ms 
+2025-02-23 15:12:14.7063 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 37.9168ms 
+2025-02-23 15:12:14.8201 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-02-23 15:12:14.8201 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 6.7006ms 
+2025-02-23 15:13:10.0942 INFO Request starting HTTP/2 GET https://localhost:7086/api/State/last-n-hours?deviceId=1&inputTime=2025-02-21%2016%3A28%3A35&hours=1 - - - 
+2025-02-23 15:13:10.1187 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByLastNHours (Cola)' 
+2025-02-23 15:13:10.1387 INFO Route matched with {action = "GetReportDataByLastNHours", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByLastNHours(Int32, System.Nullable`1[System.DateTime], Int32) on controller Cola.Controllers.StateController (Cola). 
+2025-02-23 15:13:10.8745 INFO 开始获取设备 1 的检查参数数据，最近 1 小时 
+2025-02-23 15:13:11.0686 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.SelfDefinnition.StateDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 15:13:11.1431 INFO Executed action Cola.Controllers.StateController.GetReportDataByLastNHours (Cola) in 1000.3301ms 
+2025-02-23 15:13:11.1431 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByLastNHours (Cola)' 
+2025-02-23 15:13:11.1431 INFO Request finished HTTP/2 GET https://localhost:7086/api/State/last-n-hours?deviceId=1&inputTime=2025-02-21%2016%3A28%3A35&hours=1 - 200 864 application/json;+charset=utf-8 1049.9673ms 
+2025-02-23 15:17:30.8451 INFO Now listening on: https://localhost:7086 
+2025-02-23 15:17:30.8451 INFO Now listening on: http://localhost:5064 
+2025-02-23 15:17:30.8800 INFO Application started. Press Ctrl+C to shut down. 
+2025-02-23 15:17:30.8800 INFO Hosting environment: Development 
+2025-02-23 15:17:30.8800 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-02-23 15:17:31.9033 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-02-23 15:17:31.9878 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 87.7229ms 
+2025-02-23 15:17:31.9878 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-02-23 15:17:32.0385 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 45.4548ms 
+2025-02-23 15:17:32.0385 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-02-23 15:17:32.0385 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-02-23 15:17:32.0385 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-02-23 15:17:32.0734 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-02-23 15:17:32.0734 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-02-23 15:17:32.0734 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-02-23 15:17:32.0734 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 35.2054ms 
+2025-02-23 15:17:32.0734 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 35.3613ms 
+2025-02-23 15:17:32.0734 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 35.2802ms 
+2025-02-23 15:17:32.0785 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-02-23 15:17:32.0785 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-02-23 15:17:32.0785 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 4.5880ms 
+2025-02-23 15:17:32.1110 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 28.7737ms 
+2025-02-23 15:17:32.2369 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-02-23 15:17:32.2369 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 7.5716ms 
+2025-02-23 15:18:18.1113 INFO Request starting HTTP/2 GET https://localhost:7086/api/State/last-n-hours?deviceId=1&inputTime=2025-02-21%2016%3A28%3A35&hours=1 - - - 
+2025-02-23 15:18:18.1387 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByLastNHours (Cola)' 
+2025-02-23 15:18:18.1595 INFO Route matched with {action = "GetReportDataByLastNHours", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByLastNHours(Int32, System.Nullable`1[System.DateTime], Int32) on controller Cola.Controllers.StateController (Cola). 
+2025-02-23 15:18:19.7001 INFO 开始获取设备 1 的检查参数数据，最近 1 小时 
+2025-02-23 15:18:19.9000 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.SelfDefinnition.StateDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 15:18:19.9617 INFO Executed action Cola.Controllers.StateController.GetReportDataByLastNHours (Cola) in 1798.7834ms 
+2025-02-23 15:18:19.9617 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByLastNHours (Cola)' 
+2025-02-23 15:18:19.9617 INFO Request finished HTTP/2 GET https://localhost:7086/api/State/last-n-hours?deviceId=1&inputTime=2025-02-21%2016%3A28%3A35&hours=1 - 200 864 application/json;+charset=utf-8 1851.1679ms 
+2025-02-23 15:19:43.2923 INFO Request starting HTTP/2 GET https://localhost:7086/api/State/last-n-hours?deviceId=1&inputTime=2025-02-21%2018%3A28%3A35&hours=1 - - - 
+2025-02-23 15:19:43.3341 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByLastNHours (Cola)' 
+2025-02-23 15:19:43.3341 INFO Route matched with {action = "GetReportDataByLastNHours", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByLastNHours(Int32, System.Nullable`1[System.DateTime], Int32) on controller Cola.Controllers.StateController (Cola). 
+2025-02-23 15:19:43.3341 INFO 开始获取设备 1 的检查参数数据，最近 1 小时 
+2025-02-23 15:19:43.3574 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.SelfDefinnition.StateDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 15:19:43.3584 INFO Executed action Cola.Controllers.StateController.GetReportDataByLastNHours (Cola) in 23.1221ms 
+2025-02-23 15:19:43.3584 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByLastNHours (Cola)' 
+2025-02-23 15:19:43.3584 INFO Request finished HTTP/2 GET https://localhost:7086/api/State/last-n-hours?deviceId=1&inputTime=2025-02-21%2018%3A28%3A35&hours=1 - 200 318 application/json;+charset=utf-8 69.2145ms 
+2025-02-23 15:20:28.6988 INFO Request starting HTTP/2 GET https://localhost:7086/api/State/current-shift?deviceId=1&inputTime=2025-02-21%2016%3A28%3A35 - - - 
+2025-02-23 15:20:28.7039 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByCurrentShift (Cola)' 
+2025-02-23 15:20:28.7039 INFO Route matched with {action = "GetReportDataByCurrentShift", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByCurrentShift(Int32, System.Nullable`1[System.DateTime]) on controller Cola.Controllers.StateController (Cola). 
+2025-02-23 15:20:28.7039 INFO 开始获取设备 1 的检查参数数据，当前班次 
+2025-02-23 15:20:28.7364 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.SelfDefinnition.StateDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 15:20:28.7364 INFO Executed action Cola.Controllers.StateController.GetReportDataByCurrentShift (Cola) in 23.469ms 
+2025-02-23 15:20:28.7364 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByCurrentShift (Cola)' 
+2025-02-23 15:20:28.7364 INFO Request finished HTTP/2 GET https://localhost:7086/api/State/current-shift?deviceId=1&inputTime=2025-02-21%2016%3A28%3A35 - 200 864 application/json;+charset=utf-8 40.1998ms 
+2025-02-23 15:21:22.9400 INFO Request starting HTTP/2 GET https://localhost:7086/api/State/current-shift?deviceId=1&inputTime=2025-02-20%2022%3A28%3A35 - - - 
+2025-02-23 15:21:22.9734 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByCurrentShift (Cola)' 
+2025-02-23 15:21:22.9734 INFO Route matched with {action = "GetReportDataByCurrentShift", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByCurrentShift(Int32, System.Nullable`1[System.DateTime]) on controller Cola.Controllers.StateController (Cola). 
+2025-02-23 15:21:22.9734 INFO 开始获取设备 1 的检查参数数据，当前班次 
+2025-02-23 15:21:22.9986 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.SelfDefinnition.StateDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-23 15:21:22.9986 INFO Executed action Cola.Controllers.StateController.GetReportDataByCurrentShift (Cola) in 23.9315ms 
+2025-02-23 15:21:22.9986 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByCurrentShift (Cola)' 
+2025-02-23 15:21:22.9986 INFO Request finished HTTP/2 GET https://localhost:7086/api/State/current-shift?deviceId=1&inputTime=2025-02-20%2022%3A28%3A35 - 200 41 application/json;+charset=utf-8 59.9245ms 

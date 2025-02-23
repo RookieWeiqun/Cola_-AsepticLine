@@ -31,9 +31,9 @@ Func<IServiceProvider, IFreeSql> fsqlFactory = r =>
          //"Host=8.141.80.120;Port=5432;Database=test;Username=cwq;Password=338670caO@")
         .UseAdoConnectionPool(true)
         .UseMonitorCommand(cmd => Console.WriteLine($"Sql：{cmd.CommandText}"))
-        .UseAutoSyncStructure(false) //自动同步实体结构到数据库，只有CRUD时才会生成表
+        .UseAutoSyncStructure(true) //自动同步实体结构到数据库，只有CRUD时才会生成表
         .Build();
-    fsql.CodeFirst.SyncStructure<HisDataCheck>();
+    fsql.CodeFirst.SyncStructure<CheckPara>();
     return fsql;
 };
 

@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Cola")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad91dd9407dd59d542b1bdca3ded06d60ab7b72d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f7df083c575a69d00d22c7d617ce62fe6cb067fc")]
 [assembly: System.Reflection.AssemblyProductAttribute("Cola")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Cola")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

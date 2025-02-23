@@ -37,23 +37,17 @@ namespace Cola.Controllers
                 {
                     return NotFound(new ApiResponse<object>(404, null, "未找到数据"));
                 }
-                // 将本地时间转换为 UTC 时间
-                //if (closestUpdateTime.HasValue)
-                //{
-                //    latestUpdateTime = latestUpdateTime.Value.ToUniversalTime();
-                //    closestUpdateTime = closestUpdateTime.Value.ToUniversalTime();
-                //}
                 _logger.LogInformation("Latest Update Time: {closestUpdateTime}", closestUpdateTime);
                 // 1. 查询最近时间的RealtimeData并加载DeviceInfo
-                var realtimeDatas = await _fsql.Select<HisDataCheck>()
+                var historytimeDatas = await _fsql.Select<HisDataCheck>()
                        .Where(r => r.RecordTime.Value.Ticks == closestUpdateTime.Value.Ticks)
                        .Include(r => r.DeviceInfo)
                        .ToListAsync();
 
-                _logger.LogInformation("成功获取检查参数数据，数量：{Count}", realtimeDatas.Count);
+                _logger.LogInformation("成功获取检查参数数据，数量：{Count}", historytimeDatas.Count);
 
                 // 2. 收集所有CheckPara的ID
-                var allCheckParaIds = realtimeDatas
+                var allCheckParaIds = historytimeDatas
                     .Where(r => r.Data != null)
                     .SelectMany(r => ((JObject)r.Data).Properties().Select(p => int.Parse(p.Name)))
                     .Distinct()
@@ -63,45 +57,86 @@ namespace Cola.Controllers
                     .Where(c => allCheckParaIds.Contains(c.Id))
                     .ToDictionaryAsync(c => c.Id);
                 // 4. 构建结果
-                var results = new List<HistoryDataResult>();
-
-                foreach (var realtimeData in realtimeDatas)
+                // 4.1 获取状态列表
+                var deviceStateList = await _fsql.Select<DeviceState>()
+                       .ToListAsync();
+                // 4.2 获取Device_type列表
+                var deviceTypeList = (await _fsql.Select<DeviceType>()
+                 .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
+                var results = new List<RealtimeDataResult>();
+                // 4.3 获取device_step列表
+                var deviceStepList = (await _fsql.Select<DeviceStep>()
+                    .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
+                // 4.4 构建结果
+                foreach (var historyimeData in historytimeDatas)
                 {
-                    var resultItem = new HistoryDataResult
+                    var resultItem = new RealtimeDataResult
                     {
-                        Id = realtimeData.Id,
-                        DeviceId = realtimeData.DeviceId,
-                        LineId = realtimeData.LineId,
-                        RecipeId = realtimeData.RecipeId,
-                        RecordTime = realtimeData.RecordTime,
-                        DeviceInfo = realtimeData.DeviceInfo
+                        Id = historyimeData.Id,
+                        DeviceId = historyimeData.DeviceId,
+                        LineId = historyimeData.LineId,
+                        RecipeId = historyimeData.RecipeId,
+                        RecordTime = historyimeData.RecordTime,
+                        Name = deviceTypeList.TryGetValue(historyimeData.DeviceInfo.DeviceType ?? 0, out var deviceTypeName) ? deviceTypeName : null,
                     };
 
-                    if (realtimeData.Data != null)
+                    if (historyimeData.Data != null)
                     {
-                        var dataDict = (JObject)realtimeData.Data;
+                        var dataDict = (JObject)historyimeData.Data;
+                        var reportDataItem = new ReportDataItem();
                         foreach (var prop in dataDict.Properties())
                         {
                             var checkParaId = int.Parse(prop.Name);
                             if (checkParas.TryGetValue(checkParaId, out var checkPara))
                             {
-                                resultItem.Data.Add(new DataItem
+                                // Assign values to ReportDataItem based on KeyName
+                                switch (checkPara.KeyName)
                                 {
-                                    RealtimeDataId = realtimeData.Id,
-                                    CheckParaId = checkParaId,
-                                    CheckParaAliasName = checkPara.AliasName,
-                                    Value = prop.Value.ToObject<object>()
-                                });
+                                    case CheckPara_KeyName.Weight:
+                                        reportDataItem.Weight = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.Status:
+                                        var statusValue = prop.Value.ToObject<int>();
+                                        var deviceState = deviceStateList.FirstOrDefault(ds => ds.Id == statusValue);
+                                        if (deviceState != null)
+                                        {
+                                            reportDataItem.Status = deviceState.Name;
+                                        }
+                                        break;
+                                    case CheckPara_KeyName.ProductFlowRate:
+                                        reportDataItem.ProductFlowRate = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.Name:
+                                        reportDataItem.Name = prop.Value.ToObject<string>();
+                                        break;
+                                    case CheckPara_KeyName.Formula:
+                                        reportDataItem.Formula = prop.Value.ToObject<string>();
+                                        break;
+                                    case CheckPara_KeyName.MixerStep:
+                                        var mixerStepId = prop.Value.ToObject<int>();
+                                        if (deviceStepList.TryGetValue(mixerStepId, out var mixerStepName))
+                                        {
+                                            reportDataItem.MixerStep = mixerStepName;
+                                        }
+                                        break;
+                                    case CheckPara_KeyName.Temperature:
+                                        reportDataItem.Temperature = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.LiquidLevel:
+                                        reportDataItem.LiquidLevel = prop.Value.ToObject<string>();
+                                        break;
+                                }
                             }
+                            reportDataItem.Name = historyimeData.DeviceInfo.Name;
                         }
+                        resultItem.Data = reportDataItem;
                     }
-
                     results.Add(resultItem);
                 }
 
                 // 返回标准响应格式
                 //return Ok(results);
-                return Ok(new ApiResponse<IEnumerable<HistoryDataResult>>(200, results, "成功"));
+                return Ok(new ApiResponse<IEnumerable<RealtimeDataResult>>(200, results, "成功"));
             }
             catch (Exception ex)
             {
@@ -137,9 +172,19 @@ namespace Cola.Controllers
                 var checkParas = await _fsql.Select<CheckPara>()
                     .Where(c => allCheckParaIds.Contains(c.Id))
                     .ToDictionaryAsync(c => c.Id);
-                // 4. 构建结果
-                var results = new List<RealtimeDataResult>();
 
+                // 4. 构建结果
+                // 4.1 获取状态列表
+                var deviceStateList =await _fsql.Select<DeviceState>()
+                       .ToListAsync();
+                // 4.2 获取Device_type列表
+                var deviceTypeList = (await _fsql.Select<DeviceType>()
+                 .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
+                var results = new List<RealtimeDataResult>();
+                // 4.3 获取device_step列表
+                var deviceStepList = (await _fsql.Select<DeviceStep>()
+                    .ToListAsync()).ToDictionary(dt=>dt.Id, dt=>dt.Name);
+                // 4.4 构建结果
                 foreach (var realtimeData in realtimeDatas)
                 {
                     var resultItem = new RealtimeDataResult
@@ -148,33 +193,65 @@ namespace Cola.Controllers
                         DeviceId = realtimeData.DeviceId,
                         LineId = realtimeData.LineId,
                         RecipeId = realtimeData.RecipeId,
-                        UpdateTime = realtimeData.UpdateTime,
-                        DeviceInfo = realtimeData.DeviceInfo
+                        RecordTime = realtimeData.UpdateTime,
+                        Name = deviceTypeList.TryGetValue(realtimeData.DeviceInfo.DeviceType ?? 0, out var deviceTypeName) ? deviceTypeName : null,
                     };
 
                     if (realtimeData.Data != null)
                     {
                         var dataDict = (JObject)realtimeData.Data;
+                        var reportDataItem = new ReportDataItem();
                         foreach (var prop in dataDict.Properties())
                         {
                             var checkParaId = int.Parse(prop.Name);
                             if (checkParas.TryGetValue(checkParaId, out var checkPara))
                             {
-                                resultItem.Data.Add(new DataItem
+                                // Assign values to ReportDataItem based on KeyName
+                                switch (checkPara.KeyName)
                                 {
-                                    RealtimeDataId = realtimeData.Id,
-                                    CheckParaId = checkParaId,
-                                    CheckParaAliasName = checkPara.AliasName,
-                                    Value = prop.Value.ToObject<object>()
-                                });
+                                    case CheckPara_KeyName.Weight:
+                                        reportDataItem.Weight = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.Status:
+                                        var statusValue = prop.Value.ToObject<int>();
+                                        var deviceState = deviceStateList.FirstOrDefault(ds => ds.Id == statusValue);
+                                        if (deviceState != null)
+                                        {
+                                            reportDataItem.Status = deviceState.Name;
+                                        }
+                                        break;
+                                    case CheckPara_KeyName.ProductFlowRate:
+                                        reportDataItem.ProductFlowRate = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.Name:
+                                        reportDataItem.Name = prop.Value.ToObject<string>();
+                                        break;
+                                    case CheckPara_KeyName.Formula:
+                                        reportDataItem.Formula = prop.Value.ToObject<string>();
+                                        break;
+                                    case CheckPara_KeyName.MixerStep:
+                                        var mixerStepId = prop.Value.ToObject<int>();
+                                        if (deviceStepList.TryGetValue(mixerStepId, out var mixerStepName))
+                                        {
+                                            reportDataItem.MixerStep = mixerStepName;
+                                        }
+                                        break;
+                                    case CheckPara_KeyName.Temperature:
+                                        reportDataItem.Temperature = prop.Value.ToObject<float>();
+                                        break;
+                                    case CheckPara_KeyName.LiquidLevel:
+                                        reportDataItem.LiquidLevel = prop.Value.ToObject<string>();
+                                        break;
+                                }
                             }
+                            reportDataItem.Name= realtimeData.DeviceInfo.Name;
                         }
+                        resultItem.Data = reportDataItem;
                     }
-
                     results.Add(resultItem);
                 }
                 return Ok(new ApiResponse<IEnumerable<RealtimeDataResult>>(200, results, "成功"));
-               
+
             }
             catch (Exception ex)
             {
@@ -184,6 +261,7 @@ namespace Cola.Controllers
                 return StatusCode(500, new ApiResponse<object>(500, null, "服务器内部错误"));
             }
         }
+
         // 辅助方法：找到离输入时间最近的 update_time
         private async Task<DateTime?> FindClosestUpdateTime(DateTime? inputTime)
         {

@@ -14,7 +14,7 @@ using Npgsql.LegacyPostgis;
 
 namespace Cola.Model {
 
-	[JsonObject(MemberSerialization.OptIn), Table(Name = "his_data_state", DisableSyncStructure = false)]
+	[JsonObject(MemberSerialization.OptIn), Table(Name = "his_data_state", DisableSyncStructure = true)]
 	public partial class HisDataState {
 
 		[JsonProperty, Column(Name = "id", IsPrimary = true, IsIdentity = true, InsertValueSql = "nextval('his_data_state_id_seq'::regclass)")]

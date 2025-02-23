@@ -113,6 +113,7 @@
           {
             "name": "deviceId",
             "in": "query",
+            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -121,6 +122,82 @@
           {
             "name": "inputTime",
             "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/State/last-n-hours": {
+      "get": {
+        "tags": [
+          "State"
+        ],
+        "operationId": "GetReportDataByLastNHours",
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "inputTime",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "hours",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/State/current-shift": {
+      "get": {
+        "tags": [
+          "State"
+        ],
+        "operationId": "GetReportDataByCurrentShift",
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "inputTime",
+            "in": "query",
+            "required": true,
             "schema": {
               "type": "string",
               "format": "date-time"
