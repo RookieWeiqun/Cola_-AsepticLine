@@ -319,5 +319,93 @@ namespace Cola.Controllers
 
             }
         }
+
+        [HttpGet("currunt/test", Name = "获取当前时间点检数据/测试接口")]
+        public async Task<IActionResult> GetCurrentTimeCheckData2([FromQuery] int deviceId, [FromQuery] DateTime inputTime)
+        {
+            try
+            {
+                _logger.LogInformation("开始获取设备 {DeviceId} 在 {InputTime} 的检查数据", deviceId, inputTime);
+
+                // ================== 第一部分：获取当前时间的记录 ==================
+                var closestRecord = await _fsql.Select<HisDataCheck>()
+                    .Where(c =>
+                        c.DeviceId == deviceId &&
+                        c.RecordTime <= inputTime)
+                    .Include(c => c.DeviceInfo) // 加载设备信息
+                    .OrderByDescending(c => c.RecordTime)
+                    .FirstAsync();
+                if (closestRecord == null)
+                {
+                    return NotFound(new ApiResponse<object>(404, null, "未找到数据"));
+                }
+
+                // ================== 第二部分：处理数据转换 ==================
+                // 1. 收集所有CheckPara的ID
+                var allCheckParaIds = ((JObject)closestRecord.Data)
+                    .Properties()
+                    .Select(p => int.Parse(p.Name))
+                    .Distinct()
+                    .ToList();
+                // 2. 批量查询CheckPara
+                var checkParas = await _fsql.Select<CheckPara>()
+                    .Where(c => allCheckParaIds.Contains(c.Id))
+                    .ToDictionaryAsync(c => c.Id);
+                // 3. 获取去重后的keynames
+                var keynames = await _fsql.Select<CheckPara>()
+                    .Where(c => c.Checked == 1)
+                    .Distinct()
+                    .ToListAsync(c=>c.KeyName);
+                // 4. 构建结果
+                var resultItem = new CheckDataResult
+                {
+                    Id = closestRecord.Id,
+                    DeviceId = closestRecord.DeviceId,
+                    LineId = closestRecord.LineId,
+                    RecipeId = closestRecord.RecipeId,
+                    RecordTime = closestRecord.RecordTime,
+                };
+                if (closestRecord.Data != null)
+                {
+                    var dataDict = (JObject)closestRecord.Data;
+                    var checkDataItem = new CheckDataItem();
+                    var checkDataItemType = typeof(CheckDataItem);
+                    foreach (var prop in dataDict.Properties())
+                    {
+                        var checkParaId = int.Parse(prop.Name);
+                        if (checkParas.TryGetValue(checkParaId, out var checkPara))
+                        {
+                            if (keynames.Contains(checkPara.KeyName))
+                            {
+                                var property = checkDataItemType.GetProperty(checkPara.KeyName);
+                                if (property != null && property.PropertyType == typeof(float))
+                                {
+                                    property.SetValue(checkDataItem, prop.Value.ToObject<float>());
+                                }
+                                else if (property != null && property.PropertyType == typeof(int))
+                                {
+                                    property.SetValue(checkDataItem, prop.Value.ToObject<int>());
+                                }
+                            }
+                        }
+                    }
+                    resultItem.Data = checkDataItem;
+                }
+
+                return Ok(new ApiResponse<CheckDataResult>(200, resultItem, "成功"));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "获取设备 {DeviceId} 数据失败 | 输入时间：{InputTime}", deviceId, inputTime);
+                return StatusCode(500, new ApiResponse<object>(500, null, $"服务器内部错误：{ex.Message}"));
+            }
+        }
+
+        //[HttpGet("exportToExcel", Name = "导出点检报表")]
+        //public async Task<IActionResult> ExportToExcel([FromQuery] int deviceId, [FromQuery] DateTime inputTime)
+        //{
+        //    ExcelHelper.ExportToExcel(0)
+        //}
+
     }
 }

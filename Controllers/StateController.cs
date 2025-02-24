@@ -90,6 +90,9 @@ namespace Cola.Controllers
                 // 7.3 获取device_step列表
                 var deviceStepList = (await _fsql.Select<DeviceStep>()
                     .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
+                // 7.4 获取recipe_info列表
+                var recipeInfoList = (await _fsql.Select<RecipeInfo>()
+               .ToListAsync()).ToDictionary(dt => dt.Sku, dt => dt.Name);
                 var results = new List<StateDataResult>();
                 foreach (var stateData in stateDatas)
                 {
@@ -102,7 +105,9 @@ namespace Cola.Controllers
                         BeginTime = stateData.BeginTime,
                         Duration = stateData.Duration,
                         EndTime = stateData.EndTime,
-                        Status= deviceStateList.FirstOrDefault(ds=>ds.Value==stateData.StateId)?.Name
+                        DeviceStatus = deviceStateList.FirstOrDefault(ds=>ds.Value==stateData.StateId)?.Name,
+                        //等待温工建表完善
+                        //Formula = recipeInfoList.TryGetValue(stateData.rec, out var recipeName) ? recipeName : null
                     };
 
                     if (stateData.Data != null)
@@ -130,9 +135,9 @@ namespace Cola.Controllers
                                     case CheckPara_KeyName.ProductFlowRate:
                                         stateDataResult.ProductFlowRate = prop.Value.ToObject<int>();
                                         break;
-                                    case CheckPara_KeyName.Formula:
-                                        stateDataResult.Formula = prop.Value.ToObject<string>();
-                                        break;
+                                    //case CheckPara_KeyName.Formula:
+                                    //    stateDataResult.Formula = prop.Value.ToObject<string>();
+                                    //    break;
                                     case CheckPara_KeyName.MixerStep:
                                         var mixerStepId = prop.Value.ToObject<int>();
                                         if (deviceStepList.TryGetValue(mixerStepId, out var mixerStepName))
@@ -204,6 +209,9 @@ namespace Cola.Controllers
                 // 5.3 获取device_step列表
                 var deviceStepList = (await _fsql.Select<DeviceStep>()
                     .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
+                // 5.4 获取recipe_info列表
+                var recipeInfoList = (await _fsql.Select<RecipeInfo>()
+               .ToListAsync()).ToDictionary(dt => dt.Sku, dt => dt.Name);
                 var results = new List<StateDataResult>();
                 foreach (var stateData in stateDatas)
                 {
@@ -216,7 +224,7 @@ namespace Cola.Controllers
                         BeginTime = stateData.BeginTime,
                         Duration = stateData.Duration,
                         EndTime = stateData.EndTime,
-                        Status = deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Name
+                        DeviceStatus = deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Name
                     };
 
                     if (stateData.Data != null)
@@ -236,9 +244,9 @@ namespace Cola.Controllers
                                     case CheckPara_KeyName.ProductFlowRate:
                                         stateDataResult.ProductFlowRate = prop.Value.ToObject<int>();
                                         break;
-                                    case CheckPara_KeyName.Formula:
-                                        stateDataResult.Formula = prop.Value.ToObject<string>();
-                                        break;
+                                    //case CheckPara_KeyName.Formula:
+                                    //    stateDataResult.Formula = prop.Value.ToObject<string>();
+                                    //    break;
                                     case CheckPara_KeyName.MixerStep:
                                         var mixerStepId = prop.Value.ToObject<int>();
                                         if (deviceStepList.TryGetValue(mixerStepId, out var mixerStepName))
@@ -328,6 +336,9 @@ namespace Cola.Controllers
                 // 5.3 获取device_step列表
                 var deviceStepList = (await _fsql.Select<DeviceStep>()
                     .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
+                // 5.4 获取recipe_info列表
+                var recipeInfoList = (await _fsql.Select<RecipeInfo>()
+               .ToListAsync()).ToDictionary(dt => dt.Sku, dt => dt.Name);
                 var results = new List<StateDataResult>();
                 foreach (var stateData in stateDatas)
                 {
@@ -340,7 +351,7 @@ namespace Cola.Controllers
                         BeginTime = stateData.BeginTime,
                         Duration = stateData.Duration,
                         EndTime = stateData.EndTime,
-                        Status = deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Name
+                        DeviceStatus = deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Name
                     };
 
                     if (stateData.Data != null)
@@ -360,9 +371,9 @@ namespace Cola.Controllers
                                     case CheckPara_KeyName.ProductFlowRate:
                                         stateDataResult.ProductFlowRate = prop.Value.ToObject<int>();
                                         break;
-                                    case CheckPara_KeyName.Formula:
-                                        stateDataResult.Formula = prop.Value.ToObject<string>();
-                                        break;
+                                    //case CheckPara_KeyName.Formula:
+                                    //    stateDataResult.Formula = prop.Value.ToObject<string>();
+                                    //    break;
                                     case CheckPara_KeyName.MixerStep:
                                         var mixerStepId = prop.Value.ToObject<int>();
                                         if (deviceStepList.TryGetValue(mixerStepId, out var mixerStepName))

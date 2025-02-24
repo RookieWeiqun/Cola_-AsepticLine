@@ -23,6 +23,28 @@
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
+    "Method": "GetCurrentTimeCheckData2",
+    "RelativePath": "api/Check/currunt/test",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "deviceId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "inputTime",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u70B9\u68C0\u6570\u636E/\u6D4B\u8BD5\u63A5\u53E3"
+  },
+  {
+    "ContainingType": "Cola.Controllers.CheckController",
     "Method": "GetSharpTimeCheckData",
     "RelativePath": "api/Check/sharp",
     "HttpMethod": "GET",

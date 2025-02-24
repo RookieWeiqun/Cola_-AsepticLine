@@ -67,7 +67,10 @@ namespace Cola.Controllers
                 // 4.3 获取device_step列表
                 var deviceStepList = (await _fsql.Select<DeviceStep>()
                     .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
-                // 4.4 构建结果
+                // 4.4 获取recipe_info列表
+                var recipeInfoList = (await _fsql.Select<RecipeInfo>()
+               .ToListAsync()).ToDictionary(dt => dt.Sku, dt => dt.Name);
+                // 4.5 构建结果
                 foreach (var historyimeData in historytimeDatas)
                 {
                     var resultItem = new RealtimeDataResult
@@ -95,22 +98,30 @@ namespace Cola.Controllers
                                     case CheckPara_KeyName.Weight:
                                         reportDataItem.Weight = prop.Value.ToObject<float>();
                                         break;
-                                    case CheckPara_KeyName.Status:
-                                        var statusValue = prop.Value.ToObject<int>();
-                                        var deviceState = deviceStateList.FirstOrDefault(ds => ds.Id == statusValue);
-                                        if (deviceState != null)
-                                        {
-                                            reportDataItem.Status = deviceState.Name;
-                                        }
+                                    case CheckPara_KeyName.CleanStatus:
+                                        //先暂时返回0，等数据库建好后返回具体值
+                                        //var statusValue = prop.Value.ToObject<int>();
+                                        //var deviceState = deviceStateList.FirstOrDefault(ds => ds.Id == statusValue);
+                                        //if (deviceState != null)
+                                        //{
+                                        //    reportDataItem.CleanStatus = deviceState.Name;
+                                        //}
+                                        reportDataItem.CleanStatus = prop.Value.ToObject<int>().ToString();
+                                        break;
+                                    case CheckPara_KeyName.BlendStatus:
+                                        //var statusValue = prop.Value.ToObject<int>();
+                                        //var deviceState = deviceStateList.FirstOrDefault(ds => ds.Id == statusValue);
+                                        //if (deviceState != null)
+                                        //{
+                                        //    reportDataItem.BlendStatus = deviceState.Name;
+                                        //}
+                                        reportDataItem.BlendStatus = prop.Value.ToObject<int>().ToString();
                                         break;
                                     case CheckPara_KeyName.ProductFlowRate:
                                         reportDataItem.ProductFlowRate = prop.Value.ToObject<float>();
                                         break;
                                     case CheckPara_KeyName.Name:
                                         reportDataItem.Name = prop.Value.ToObject<string>();
-                                        break;
-                                    case CheckPara_KeyName.Formula:
-                                        reportDataItem.Formula = prop.Value.ToObject<string>();
                                         break;
                                     case CheckPara_KeyName.MixerStep:
                                         var mixerStepId = prop.Value.ToObject<int>();
@@ -128,6 +139,17 @@ namespace Cola.Controllers
                                 }
                             }
                             reportDataItem.Name = historyimeData.DeviceInfo.Name;
+                            if (recipeInfoList.TryGetValue(historyimeData.RecipeId.ToString(), out var recipeName))
+                            {
+                                reportDataItem.Formula = recipeName;
+                            }
+                            reportDataItem.Capacity = historyimeData.DeviceInfo.Capacity == 0 ? 0 : historyimeData.DeviceInfo.Capacity;
+                            //设备状态这里先不写！！！！等温工
+                            //var deviceState = deviceStateList.FirstOrDefault(ds => ds.Value == historyimeData.StateId);
+                            //if (deviceState != null)
+                            //{
+                            //    reportDataItem.DeviceStatus = deviceState.Name;
+                            //}
                         }
                         resultItem.Data = reportDataItem;
                     }
@@ -184,6 +206,9 @@ namespace Cola.Controllers
                 // 4.3 获取device_step列表
                 var deviceStepList = (await _fsql.Select<DeviceStep>()
                     .ToListAsync()).ToDictionary(dt=>dt.Id, dt=>dt.Name);
+                // 4.4 获取recipe_info列表
+                var recipeInfoList  = (await _fsql.Select<RecipeInfo>()
+               .ToListAsync()).ToDictionary(dt => dt.Sku, dt => dt.Name);
                 // 4.4 构建结果
                 foreach (var realtimeData in realtimeDatas)
                 {
@@ -212,22 +237,30 @@ namespace Cola.Controllers
                                     case CheckPara_KeyName.Weight:
                                         reportDataItem.Weight = prop.Value.ToObject<float>();
                                         break;
-                                    case CheckPara_KeyName.Status:
-                                        var statusValue = prop.Value.ToObject<int>();
-                                        var deviceState = deviceStateList.FirstOrDefault(ds => ds.Id == statusValue);
-                                        if (deviceState != null)
-                                        {
-                                            reportDataItem.Status = deviceState.Name;
-                                        }
+                                    case CheckPara_KeyName.CleanStatus:
+                                        //先暂时返回0，等数据库建好后返回具体值
+                                        //var statusValue = prop.Value.ToObject<int>();
+                                        //var deviceState = deviceStateList.FirstOrDefault(ds => ds.Id == statusValue);
+                                        //if (deviceState != null)
+                                        //{
+                                        //    reportDataItem.CleanStatus = deviceState.Name;
+                                        //}
+                                        reportDataItem.CleanStatus = prop.Value.ToObject<int>().ToString();
+                                        break;
+                                    case CheckPara_KeyName.BlendStatus:
+                                        //var statusValue = prop.Value.ToObject<int>();
+                                        //var deviceState = deviceStateList.FirstOrDefault(ds => ds.Id == statusValue);
+                                        //if (deviceState != null)
+                                        //{
+                                        //    reportDataItem.BlendStatus = deviceState.Name;
+                                        //}
+                                        reportDataItem.BlendStatus = prop.Value.ToObject<int>().ToString();
                                         break;
                                     case CheckPara_KeyName.ProductFlowRate:
                                         reportDataItem.ProductFlowRate = prop.Value.ToObject<float>();
                                         break;
                                     case CheckPara_KeyName.Name:
                                         reportDataItem.Name = prop.Value.ToObject<string>();
-                                        break;
-                                    case CheckPara_KeyName.Formula:
-                                        reportDataItem.Formula = prop.Value.ToObject<string>();
                                         break;
                                     case CheckPara_KeyName.MixerStep:
                                         var mixerStepId = prop.Value.ToObject<int>();
@@ -245,6 +278,16 @@ namespace Cola.Controllers
                                 }
                             }
                             reportDataItem.Name= realtimeData.DeviceInfo.Name;
+                            if(recipeInfoList.TryGetValue(realtimeData.RecipeId.ToString(), out var recipeName))
+                            {
+                                reportDataItem.Formula = recipeName;
+                            }
+                            var deviceState = deviceStateList.FirstOrDefault(ds => ds.Value == realtimeData.StateId);
+                            if (deviceState != null)
+                            {
+                                reportDataItem.DeviceStatus = deviceState.Name;
+                            }
+                            reportDataItem.Capacity = realtimeData.DeviceInfo.Capacity == 0 ?   0:realtimeData.DeviceInfo.Capacity;
                         }
                         resultItem.Data = reportDataItem;
                     }
