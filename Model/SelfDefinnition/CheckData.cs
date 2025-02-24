@@ -9,13 +9,7 @@
         public DateTime? RecordTime { get; set; }
         public int? RecipeId { get; set; }
     }
-    //public class CheckDataItem
-    //{
-    //    public int CheckDataId { get; set; }
-    //    public int CheckParaId { get; set; }
-    //    public string CheckParaAliasName { get; set; }
-    //    public object? Value { get; set; }
-    //}
+
     public class CheckDataItem
     {
         public float AsepticTankTopPressure { get; set; }

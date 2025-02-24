@@ -20,7 +20,7 @@
         public string Formula { get; set; }
         public string MixerStep { get; set; }
         public float Temperature { get; set; } 
-        public string LiquidLevel { get; set; } 
+        public float LiquidLevel { get; set; } 
 
     }
 }

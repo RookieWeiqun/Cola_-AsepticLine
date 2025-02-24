@@ -123,7 +123,7 @@ namespace Cola.Controllers
                                         reportDataItem.Temperature = prop.Value.ToObject<float>();
                                         break;
                                     case CheckPara_KeyName.LiquidLevel:
-                                        reportDataItem.LiquidLevel = prop.Value.ToObject<string>();
+                                        reportDataItem.LiquidLevel = prop.Value.ToObject<float>();
                                         break;
                                 }
                             }
@@ -240,7 +240,7 @@ namespace Cola.Controllers
                                         reportDataItem.Temperature = prop.Value.ToObject<float>();
                                         break;
                                     case CheckPara_KeyName.LiquidLevel:
-                                        reportDataItem.LiquidLevel = prop.Value.ToObject<string>();
+                                        reportDataItem.LiquidLevel = prop.Value.ToObject<float>();
                                         break;
                                 }
                             }
