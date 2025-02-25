@@ -6,7 +6,7 @@
         public CheckDataItem Data { get; set; } = new CheckDataItem();
         public int? DeviceId { get; set; }
         public int? LineId { get; set; }
-        public DateTime? RecordTime { get; set; }
+        public string? RecordTime { get; set; }
         public int? RecipeId { get; set; }
     }
 

@@ -35,7 +35,7 @@ namespace Cola.Controllers
                 var closestUpdateTime = await FindClosestUpdateTime(inputTime);
                 if(!closestUpdateTime.HasValue)
                 {
-                    return NotFound(new ApiResponse<object>(404, null, "未找到数据"));
+                    return NotFound(new ApiResponse<object>(200, null, "未找到数据"));
                 }
                 _logger.LogInformation("Latest Update Time: {closestUpdateTime}", closestUpdateTime);
                 // 1. 查询最近时间的RealtimeData并加载DeviceInfo
@@ -180,7 +180,7 @@ namespace Cola.Controllers
                        .ToListAsync();
                 if (realtimeDatas.Count == 0)
                 {
-                    return NotFound(new ApiResponse<object>(404, null, "未找到数据"));
+                    return NotFound(new ApiResponse<object>(200, null, "未找到数据"));
                 }
                 _logger.LogInformation("成功获取检查参数数据，数量：{Count}", realtimeDatas.Count);
 

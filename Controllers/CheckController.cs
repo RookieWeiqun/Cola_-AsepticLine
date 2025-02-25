@@ -40,7 +40,7 @@ namespace Cola.Controllers
                     .FirstAsync();
                 if (closestRecord == null)
                 {
-                    return NotFound(new ApiResponse<object>(404, null, "未找到数据"));
+                    return NotFound(new ApiResponse<object>(200, null, "未找到数据"));
                 }
 
                 // ================== 第二部分：处理数据转换 ==================
@@ -61,7 +61,7 @@ namespace Cola.Controllers
                     DeviceId = closestRecord.DeviceId,
                     LineId = closestRecord.LineId,
                     RecipeId = closestRecord.RecipeId,
-                    RecordTime = closestRecord.RecordTime,
+                    RecordTime = closestRecord.RecordTime?.ToString(),
                 };
                 if (closestRecord.Data != null)
                 {
@@ -218,7 +218,9 @@ namespace Cola.Controllers
                         DeviceId = hourlyData.DeviceId,
                         LineId = hourlyData.LineId,
                         RecipeId = hourlyData.RecipeId,
-                        RecordTime = hourlyData.RecordTime,
+                        //这里只取RecordTime的时分
+                        RecordTime = hourlyData.RecordTime?.ToString("HH:mm"),
+
                     };
 
                     if (hourlyData.Data != null)
@@ -337,7 +339,7 @@ namespace Cola.Controllers
                     .FirstAsync();
                 if (closestRecord == null)
                 {
-                    return NotFound(new ApiResponse<object>(404, null, "未找到数据"));
+                    return NotFound(new ApiResponse<object>(200, null, "未找到数据"));
                 }
 
                 // ================== 第二部分：处理数据转换 ==================
@@ -363,7 +365,7 @@ namespace Cola.Controllers
                     DeviceId = closestRecord.DeviceId,
                     LineId = closestRecord.LineId,
                     RecipeId = closestRecord.RecipeId,
-                    RecordTime = closestRecord.RecordTime,
+                    RecordTime = closestRecord.RecordTime?.ToString(),
                 };
                 if (closestRecord.Data != null)
                 {
