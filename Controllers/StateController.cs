@@ -107,7 +107,7 @@ namespace Cola.Controllers
                         EndTime = stateData.EndTime,
                         DeviceStatus = deviceStateList.FirstOrDefault(ds=>ds.Value==stateData.StateId)?.Name,
                         //等待温工建表完善
-                        //Formula = recipeInfoList.TryGetValue(stateData.rec, out var recipeName) ? recipeName : null
+                        Formula = recipeInfoList.TryGetValue(stateData.RecipeId.ToString(), out var recipeName) ? recipeName : null
                     };
 
                     if (stateData.Data != null)

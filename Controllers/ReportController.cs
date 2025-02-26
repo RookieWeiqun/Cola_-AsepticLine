@@ -59,7 +59,11 @@ namespace Cola.Controllers
                 // 4. 构建结果
                 // 4.1 获取状态列表
                 var deviceStateList = await _fsql.Select<DeviceState>()
-                       .ToListAsync();
+                        .ToListAsync();
+                var cleanStateList = await _fsql.Select<CleanState>()
+                        .ToListAsync();
+                var blendStateList = await _fsql.Select<BlendState>()
+                        .ToListAsync();
                 // 4.2 获取Device_type列表
                 var deviceTypeList = (await _fsql.Select<DeviceType>()
                  .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
@@ -99,23 +103,20 @@ namespace Cola.Controllers
                                         reportDataItem.Weight = prop.Value.ToObject<float>();
                                         break;
                                     case CheckPara_KeyName.CleanStatus:
-                                        //先暂时返回0，等数据库建好后返回具体值
-                                        //var statusValue = prop.Value.ToObject<int>();
-                                        //var deviceState = deviceStateList.FirstOrDefault(ds => ds.Id == statusValue);
-                                        //if (deviceState != null)
-                                        //{
-                                        //    reportDataItem.CleanStatus = deviceState.Name;
-                                        //}
-                                        reportDataItem.CleanStatus = prop.Value.ToObject<int>().ToString();
+                                        var statusValue = prop.Value.ToObject<int>();
+                                        var cleanState = cleanStateList.FirstOrDefault(ds => ds.Value == statusValue);
+                                        if (cleanState != null)
+                                        {
+                                            reportDataItem.CleanStatus = cleanState.Name;
+                                        }
                                         break;
                                     case CheckPara_KeyName.BlendStatus:
-                                        //var statusValue = prop.Value.ToObject<int>();
-                                        //var deviceState = deviceStateList.FirstOrDefault(ds => ds.Id == statusValue);
-                                        //if (deviceState != null)
-                                        //{
-                                        //    reportDataItem.BlendStatus = deviceState.Name;
-                                        //}
-                                        reportDataItem.BlendStatus = prop.Value.ToObject<int>().ToString();
+                                        var blendValue = prop.Value.ToObject<int>();
+                                        var blendState = blendStateList.FirstOrDefault(ds => ds.Value == blendValue);
+                                        if (blendState != null)
+                                        {
+                                            reportDataItem.BlendStatus = blendState.Name;
+                                        }
                                         break;
                                     case CheckPara_KeyName.ProductFlowRate:
                                         reportDataItem.ProductFlowRate = prop.Value.ToObject<float>();
@@ -145,11 +146,11 @@ namespace Cola.Controllers
                             }
                             reportDataItem.Capacity = historyimeData.DeviceInfo.Capacity == 0 ? 0 : historyimeData.DeviceInfo.Capacity;
                             //设备状态这里先不写！！！！等温工
-                            //var deviceState = deviceStateList.FirstOrDefault(ds => ds.Value == historyimeData.StateId);
-                            //if (deviceState != null)
-                            //{
-                            //    reportDataItem.DeviceStatus = deviceState.Name;
-                            //}
+                            var deviceState = deviceStateList.FirstOrDefault(ds => ds.Value == historyimeData.StateId);
+                            if (deviceState != null)
+                            {
+                                reportDataItem.DeviceStatus = deviceState.Name;
+                            }
                         }
                         resultItem.Data = reportDataItem;
                     }
@@ -197,8 +198,12 @@ namespace Cola.Controllers
 
                 // 4. 构建结果
                 // 4.1 获取状态列表
-                var deviceStateList =await _fsql.Select<DeviceState>()
+                var deviceStateList = await _fsql.Select<DeviceState>()
                        .ToListAsync();
+                var cleanStateList = await _fsql.Select<CleanState>()
+                        .ToListAsync();
+                var blendStateList = await _fsql.Select<BlendState>()
+                        .ToListAsync();
                 // 4.2 获取Device_type列表
                 var deviceTypeList = (await _fsql.Select<DeviceType>()
                  .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
@@ -239,22 +244,20 @@ namespace Cola.Controllers
                                         break;
                                     case CheckPara_KeyName.CleanStatus:
                                         //先暂时返回0，等数据库建好后返回具体值
-                                        //var statusValue = prop.Value.ToObject<int>();
-                                        //var deviceState = deviceStateList.FirstOrDefault(ds => ds.Id == statusValue);
-                                        //if (deviceState != null)
-                                        //{
-                                        //    reportDataItem.CleanStatus = deviceState.Name;
-                                        //}
-                                        reportDataItem.CleanStatus = prop.Value.ToObject<int>().ToString();
+                                        var statusValue = prop.Value.ToObject<int>();
+                                        var cleanState = cleanStateList.FirstOrDefault(ds => ds.Value == statusValue);
+                                        if (cleanState != null)
+                                        {
+                                            reportDataItem.CleanStatus = cleanState.Name;
+                                        }
                                         break;
                                     case CheckPara_KeyName.BlendStatus:
-                                        //var statusValue = prop.Value.ToObject<int>();
-                                        //var deviceState = deviceStateList.FirstOrDefault(ds => ds.Id == statusValue);
-                                        //if (deviceState != null)
-                                        //{
-                                        //    reportDataItem.BlendStatus = deviceState.Name;
-                                        //}
-                                        reportDataItem.BlendStatus = prop.Value.ToObject<int>().ToString();
+                                        var blendValue = prop.Value.ToObject<int>();
+                                        var blendState = blendStateList.FirstOrDefault(ds => ds.Value == blendValue);
+                                        if (blendState != null)
+                                        {
+                                            reportDataItem.BlendStatus = blendState.Name;
+                                        }
                                         break;
                                     case CheckPara_KeyName.ProductFlowRate:
                                         reportDataItem.ProductFlowRate = prop.Value.ToObject<float>();

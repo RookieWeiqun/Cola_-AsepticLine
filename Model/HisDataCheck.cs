@@ -26,6 +26,8 @@ namespace Cola.Model
 		[JsonProperty, Column(Name = "record_time", DbType = "timestamptz", InsertValueSql = "CURRENT_TIMESTAMP")]
 		public DateTime? RecordTime { get; set; }
 
+        [JsonProperty, Column(Name = "state_id")]
+        public int? StateId { get; set; }
 
         [Navigate(nameof(DeviceId))]
         public DeviceInfo DeviceInfo { get; set; }= new DeviceInfo();

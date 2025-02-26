@@ -44,6 +44,14 @@ namespace Cola.Model {
 		[JsonProperty, Column(Name = "state_id")]
 		public int? StateId { get; set; }
 
-	}
+        [JsonProperty, Column(Name = "stop_def")]
+        public string StopDef { get; set; }
+
+        [JsonProperty, Column(Name = "stop_id")]
+        public int? StopId { get; set; }
+
+        [JsonProperty, Column(Name = "recipe_id")]
+        public int? RecipeId { get; set; }
+    }
 
 }
