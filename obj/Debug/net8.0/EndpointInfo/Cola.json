@@ -98,6 +98,29 @@
         }
       }
     },
+    "/api/Check/CheckParas": {
+      "get": {
+        "tags": [
+          "Check"
+        ],
+        "operationId": "通过设备Id获取点检列表",
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Report/history": {
       "get": {
         "tags": [
@@ -241,7 +264,77 @@
           }
         }
       }
+    },
+    "/api/State/stop-reason": {
+      "post": {
+        "tags": [
+          "State"
+        ],
+        "operationId": "写入设备停机原因",
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StopReasonInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StopReasonInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StopReasonInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StopReasonInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "State"
+        ],
+        "operationId": "获取停机原因状态列表",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
     }
   },
-  "components": { }
+  "components": {
+    "schemas": {
+      "StopReasonInput": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "reasonId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "stopDef": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
 }

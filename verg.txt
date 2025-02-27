@@ -25,6 +25,10 @@ Thank you to all our backers!
 >999.R1  Report页面API搭建
 ## Sprint-1-START [2025.01.14]
 
+### 0.0.02 [2025.02.05 18:50]
+>998.R1  完善BlendState和CleanState以及DeviceState
+>997.R1  增加停机原因
+>996.R1  增加通过设备Id获取点检列表接口
 
 
 

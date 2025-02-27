@@ -14,5 +14,8 @@
         public string? MixerStep { get; set; }
         public int? ProductFlowRate { get; set; }
         public string? Formula { get; set; }
+        public string? BlendStatus { get; set; }
+        //public int? StopId { get; set; }
+        public string? StopReason { get; set; }
     }
 }

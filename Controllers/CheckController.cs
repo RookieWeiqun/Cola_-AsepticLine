@@ -408,6 +408,14 @@ namespace Cola.Controllers
         //{
         //    ExcelHelper.ExportToExcel(0)
         //}
+        [HttpGet("CheckParas", Name = "通过设备Id获取点检列表")]
+        public async Task<IActionResult> GetCheckParasByDeviceId([FromQuery] int deviceId)
+        {
+            var keynames = await _fsql.Select<CheckPara>()
+                .Where(c => c.DeviceId == deviceId)
+                .ToListAsync(c => new { c.AliasName, c.KeyName });
 
+            return Ok(new ApiResponse<IEnumerable<object>>(200, keynames, "成功"));
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace Cola.Controllers
             _appConfig = options.Value; // 获取配置实例
         }
         [HttpGet(Name = "获取当前时间的一个完整产程的甘特图数据")]
-        public async Task<IActionResult> GetReportDataByInputTime([FromQuery,Required] int deviceId, [FromQuery, Required] DateTime? inputTime)
+        public async Task<IActionResult> GetReportDataByInputTime([FromQuery, Required] int deviceId, [FromQuery, Required] DateTime? inputTime)
         {
             try
             {
@@ -36,7 +36,7 @@ namespace Cola.Controllers
                 // 1. 参数校验
                 if (!inputTime.HasValue)
                 {
-                    return StatusCode(400, new ApiResponse<object>(400, null, "必须提供 inputTime 参数"));
+                    return StatusCode(400, new ApiResponse<object>(200, null, "必须提供 inputTime 参数"));
                 }
 
                 // 2. 找到离 inputTime 最近的 CIP 的 BeginTime（降序取第一条）
@@ -84,13 +84,18 @@ namespace Cola.Controllers
                 // 7.1 获取状态列表
                 var deviceStateList = await _fsql.Select<DeviceState>()
                        .ToListAsync();
+                var blendStateList = await _fsql.Select<BlendState>()
+                        .ToListAsync();
                 // 7.2 获取Device_type列表
                 var deviceTypeList = (await _fsql.Select<DeviceType>()
                  .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
                 // 7.3 获取device_step列表
                 var deviceStepList = (await _fsql.Select<DeviceStep>()
                     .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
-                // 7.4 获取recipe_info列表
+                // 7.4 获取停机原因列表
+                var stopReasonList = (await _fsql.Select<StopState>()
+                    .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
+                // 7.5 获取recipe_info列表
                 var recipeInfoList = (await _fsql.Select<RecipeInfo>()
                .ToListAsync()).ToDictionary(dt => dt.Sku, dt => dt.Name);
                 var results = new List<StateDataResult>();
@@ -105,9 +110,9 @@ namespace Cola.Controllers
                         BeginTime = stateData.BeginTime,
                         Duration = stateData.Duration,
                         EndTime = stateData.EndTime,
-                        DeviceStatus = deviceStateList.FirstOrDefault(ds=>ds.Value==stateData.StateId)?.Name,
-                        //等待温工建表完善
-                        Formula = recipeInfoList.TryGetValue(stateData.RecipeId.ToString(), out var recipeName) ? recipeName : null
+                        DeviceStatus = deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Name,
+                        Formula = recipeInfoList.TryGetValue(stateData.RecipeId.ToString(), out var recipeName) ? recipeName : null,
+                        StopReason = stateData.StopId.HasValue && stopReasonList.TryGetValue(stateData.StopId.Value, out var stopReason) ? stopReason : stateData.StopDef
                     };
 
                     if (stateData.Data != null)
@@ -124,20 +129,17 @@ namespace Cola.Controllers
                                     case CheckPara_KeyName.Weight:
                                         stateDataResult.Weight = prop.Value.ToObject<float>();
                                         break;
-                                    //case CheckPara_KeyName.Status:
-                                    //    var statusValue = prop.Value.ToObject<int>();
-                                    //    var deviceState = deviceStateList.FirstOrDefault(ds => ds.Id == statusValue);
-                                    //    if (deviceState != null)
-                                    //    {
-                                    //        stateDataResult.Status = deviceState.Name;
-                                    //    }
-                                    //    break;
+                                    case CheckPara_KeyName.BlendStatus:
+                                        var statusValue = prop.Value.ToObject<int>();
+                                        var deviceState = blendStateList.FirstOrDefault(ds => ds.Value == statusValue);
+                                        if (deviceState != null)
+                                        {
+                                            stateDataResult.BlendStatus = deviceState.Name;
+                                        }
+                                        break;
                                     case CheckPara_KeyName.ProductFlowRate:
                                         stateDataResult.ProductFlowRate = prop.Value.ToObject<int>();
                                         break;
-                                    //case CheckPara_KeyName.Formula:
-                                    //    stateDataResult.Formula = prop.Value.ToObject<string>();
-                                    //    break;
                                     case CheckPara_KeyName.MixerStep:
                                         var mixerStepId = prop.Value.ToObject<int>();
                                         if (deviceStepList.TryGetValue(mixerStepId, out var mixerStepName))
@@ -206,10 +208,15 @@ namespace Cola.Controllers
                 // 5.2 获取Device_type列表
                 var deviceTypeList = (await _fsql.Select<DeviceType>()
                  .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
+                var blendStateList = await _fsql.Select<BlendState>()
+                 .ToListAsync();
                 // 5.3 获取device_step列表
                 var deviceStepList = (await _fsql.Select<DeviceStep>()
                     .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
-                // 5.4 获取recipe_info列表
+                // 5.4 获取停机原因列表
+                var stopReasonList = (await _fsql.Select<StopState>()
+                    .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
+                // 5.5 获取recipe_info列表
                 var recipeInfoList = (await _fsql.Select<RecipeInfo>()
                .ToListAsync()).ToDictionary(dt => dt.Sku, dt => dt.Name);
                 var results = new List<StateDataResult>();
@@ -224,7 +231,9 @@ namespace Cola.Controllers
                         BeginTime = stateData.BeginTime,
                         Duration = stateData.Duration,
                         EndTime = stateData.EndTime,
-                        DeviceStatus = deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Name
+                        DeviceStatus = deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Name,
+                        Formula = recipeInfoList.TryGetValue(stateData.RecipeId.ToString(), out var recipeName) ? recipeName : null,
+                        StopReason = stateData.StopId.HasValue && stopReasonList.TryGetValue(stateData.StopId.Value, out var stopReason) ? stopReason : stateData.StopDef
                     };
 
                     if (stateData.Data != null)
@@ -244,9 +253,14 @@ namespace Cola.Controllers
                                     case CheckPara_KeyName.ProductFlowRate:
                                         stateDataResult.ProductFlowRate = prop.Value.ToObject<int>();
                                         break;
-                                    //case CheckPara_KeyName.Formula:
-                                    //    stateDataResult.Formula = prop.Value.ToObject<string>();
-                                    //    break;
+                                    case CheckPara_KeyName.BlendStatus:
+                                        var statusValue = prop.Value.ToObject<int>();
+                                        var deviceState = blendStateList.FirstOrDefault(ds => ds.Value == statusValue);
+                                        if (deviceState != null)
+                                        {
+                                            stateDataResult.BlendStatus = deviceState.Name;
+                                        }
+                                        break;
                                     case CheckPara_KeyName.MixerStep:
                                         var mixerStepId = prop.Value.ToObject<int>();
                                         if (deviceStepList.TryGetValue(mixerStepId, out var mixerStepName))
@@ -330,13 +344,18 @@ namespace Cola.Controllers
                 // 5.1 获取状态列表
                 var deviceStateList = await _fsql.Select<DeviceState>()
                        .ToListAsync();
+                var blendStateList = await _fsql.Select<BlendState>()
+                        .ToListAsync();
                 // 5.2 获取Device_type列表
                 var deviceTypeList = (await _fsql.Select<DeviceType>()
                  .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
                 // 5.3 获取device_step列表
                 var deviceStepList = (await _fsql.Select<DeviceStep>()
                     .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
-                // 5.4 获取recipe_info列表
+                // 5.4 获取停机原因列表
+                var stopReasonList = (await _fsql.Select<StopState>()
+                    .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
+                // 5.5 获取recipe_info列表
                 var recipeInfoList = (await _fsql.Select<RecipeInfo>()
                .ToListAsync()).ToDictionary(dt => dt.Sku, dt => dt.Name);
                 var results = new List<StateDataResult>();
@@ -351,7 +370,9 @@ namespace Cola.Controllers
                         BeginTime = stateData.BeginTime,
                         Duration = stateData.Duration,
                         EndTime = stateData.EndTime,
-                        DeviceStatus = deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Name
+                        DeviceStatus = deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Name,
+                        Formula = recipeInfoList.TryGetValue(stateData.RecipeId.ToString(), out var recipeName) ? recipeName : null,
+                        StopReason = stateData.StopId.HasValue && stopReasonList.TryGetValue(stateData.StopId.Value, out var stopReason) ? stopReason : stateData.StopDef
                     };
 
                     if (stateData.Data != null)
@@ -371,9 +392,14 @@ namespace Cola.Controllers
                                     case CheckPara_KeyName.ProductFlowRate:
                                         stateDataResult.ProductFlowRate = prop.Value.ToObject<int>();
                                         break;
-                                    //case CheckPara_KeyName.Formula:
-                                    //    stateDataResult.Formula = prop.Value.ToObject<string>();
-                                    //    break;
+                                    case CheckPara_KeyName.BlendStatus:
+                                        var statusValue = prop.Value.ToObject<int>();
+                                        var deviceState = blendStateList.FirstOrDefault(ds => ds.Value == statusValue);
+                                        if (deviceState != null)
+                                        {
+                                            stateDataResult.BlendStatus = deviceState.Name;
+                                        }
+                                        break;
                                     case CheckPara_KeyName.MixerStep:
                                         var mixerStepId = prop.Value.ToObject<int>();
                                         if (deviceStepList.TryGetValue(mixerStepId, out var mixerStepName))
@@ -394,6 +420,74 @@ namespace Cola.Controllers
             {
                 _logger.LogError(ex, "获取设备 {DeviceId} 数据失败", deviceId);
                 return StatusCode(500, new ApiResponse<object>(500, null, "服务器内部错误")); ;
+            }
+        }
+        //用与写入设备停机原因
+        [HttpPost("stop-reason", Name = "写入设备停机原因")]
+        public async Task<IActionResult> WriteStopReason([FromBody] StopReasonInput input)
+        {
+            try
+            {
+                _logger.LogInformation("开始写入设备 {DeviceId} 的停机原因", input.Id);
+
+                // 1. 参数校验
+                if (input.ReasonId == null && string.IsNullOrEmpty(input.StopDef))
+                {
+                    return StatusCode(400, new ApiResponse<object>(200, null, "必须提供有效的 ReasonId 或 StopDef"));
+                }
+
+                // 2. 查询最近的一条未结束的数据
+                var stateData = await _fsql.Select<HisDataState>()
+                    .Where(s => s.Id == input.Id)
+                    .FirstAsync();
+                if (stateData == null)
+                {
+                    return StatusCode(200, new ApiResponse<object>(400, null, "未找到对应的数据"));
+                }
+
+                // 3. 更新数据
+                if (input.ReasonId.HasValue)
+                {
+                    stateData.StopId = input.ReasonId.Value;
+                    await _fsql.Update<HisDataState>()
+                        .Set(s => s.StopId, input.ReasonId.Value)
+                        .Set(s => s.StopDef, (string)null)
+                        .Where(s => s.Id == stateData.Id)
+                        .ExecuteAffrowsAsync();
+                }
+                else if (!string.IsNullOrEmpty(input.StopDef))
+                {
+                    stateData.StopDef = input.StopDef;
+                    await _fsql.Update<HisDataState>()
+                        .Set(s => s.StopDef, input.StopDef)
+                        .Set(s => s.StopId, (int?)null)
+                        .Where(s => s.Id == stateData.Id)
+                        .ExecuteAffrowsAsync();
+                }
+
+                return Ok(new ApiResponse<object>(200, null, "成功"));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "写入设备 {DeviceId} 数据失败", input.Id);
+                return StatusCode(500, new ApiResponse<object>(500, null, "服务器内部错误"));
+            }
+        }
+        [HttpGet("stop-reason", Name = "获取停机原因状态列表")]
+        public async Task<IActionResult> GetStopReasonList()
+        {
+            try
+            {
+                _logger.LogInformation("开始获取停机原因列表");
+                // 1. 查询所有停机原因
+                var stopReasons = await _fsql.Select<StopState>()
+                    .ToListAsync();
+                return Ok(new ApiResponse<IEnumerable<StopState>>(200, stopReasons, "成功"));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "获取停机原因列表失败");
+                return StatusCode(500, new ApiResponse<object>(500, null, "服务器内部错误"));
             }
         }
     }
