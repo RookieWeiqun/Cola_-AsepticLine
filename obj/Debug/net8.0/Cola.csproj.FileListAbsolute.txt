@@ -66,3 +66,4 @@ D:\cwq\MyCode\Cola_ AsepticLine\Cola\bin\Debug\net8.0\Cola.staticwebassets.endpo
 D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\staticwebassets\msbuild.Cola.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
 D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\cwq\MyCode\Cola_ AsepticLine\Cola\bin\Debug\net8.0\nlog.config
