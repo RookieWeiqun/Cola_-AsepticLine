@@ -1,4 +1,4 @@
-﻿namespace Cola.Model.SelfDefinnition
+﻿namespace Cola.Model
 {
     public class CheckDataResult
     {

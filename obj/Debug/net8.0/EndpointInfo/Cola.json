@@ -10,7 +10,7 @@
         "tags": [
           "Check"
         ],
-        "operationId": "获取当前时间点检数据",
+        "operationId": "��ȡ��ǰʱ��������",
         "parameters": [
           {
             "name": "deviceId",
@@ -41,7 +41,7 @@
         "tags": [
           "Check"
         ],
-        "operationId": "获取整点时间点检数据",
+        "operationId": "��ȡ����ʱ��������",
         "parameters": [
           {
             "name": "deviceId",
@@ -72,7 +72,7 @@
         "tags": [
           "Check"
         ],
-        "operationId": "获取当前时间点检数据/测试接口",
+        "operationId": "��ȡ��ǰʱ��������/���Խӿ�",
         "parameters": [
           {
             "name": "deviceId",
@@ -103,7 +103,7 @@
         "tags": [
           "Check"
         ],
-        "operationId": "通过设备Id获取点检列表",
+        "operationId": "ͨ���豸Id��ȡ����б�",
         "parameters": [
           {
             "name": "deviceId",
@@ -114,6 +114,50 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Check/exportToExcel": {
+      "get": {
+        "tags": [
+          "Check"
+        ],
+        "operationId": "������챨��",
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "inputTime",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Check/template": {
+      "get": {
+        "tags": [
+          "Check"
+        ],
+        "operationId": "获取点检表模板",
         "responses": {
           "200": {
             "description": "Success"

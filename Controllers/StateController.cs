@@ -325,7 +325,7 @@ namespace Cola.Controllers
                 var stateDatas = await _fsql.Select<HisDataState>()
                    .Where(s =>
                        s.DeviceId == deviceId &&
-                       s.EndTime >= shiftStartTime &&
+                       s.EndTime >= shiftStartTime ||
                        s.BeginTime <= inputTime)
                    .OrderBy(s => s.BeginTime)
                    .ToListAsync();

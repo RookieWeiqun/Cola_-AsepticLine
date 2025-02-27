@@ -2,7 +2,6 @@ using AutoMapper;
 using Cola.DTO;
 using Cola.Extensions;
 using Cola.Model;
-using Cola.Model.SelfDefinnition;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 
@@ -23,38 +22,38 @@ namespace Cola.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("currunt", Name = "»ñÈ¡µ±Ç°Ê±¼äµã¼ìÊı¾İ")]
+        [HttpGet("currunt", Name = "ï¿½ï¿½È¡ï¿½ï¿½Ç°Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
         public async Task<IActionResult> GetCurrentTimeCheckData([FromQuery] int deviceId, [FromQuery] DateTime inputTime)
         {
             try
             {
-                _logger.LogInformation("¿ªÊ¼»ñÈ¡Éè±¸ {DeviceId} ÔÚ {InputTime} µÄ¼ì²éÊı¾İ", deviceId, inputTime);
+                _logger.LogInformation("ï¿½ï¿½Ê¼ï¿½ï¿½È¡ï¿½è±¸ {DeviceId} ï¿½ï¿½ {InputTime} ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", deviceId, inputTime);
 
-                // ================== µÚÒ»²¿·Ö£º»ñÈ¡µ±Ç°Ê±¼äµÄ¼ÇÂ¼ ==================
+                // ================== ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½È¡ï¿½ï¿½Ç°Ê±ï¿½ï¿½Ä¼ï¿½Â¼ ==================
                 var closestRecord = await _fsql.Select<HisDataCheck>()
                     .Where(c =>
                         c.DeviceId == deviceId &&
                         c.RecordTime <= inputTime)  
-                    .Include(c => c.DeviceInfo) // ¼ÓÔØÉè±¸ĞÅÏ¢
+                    .Include(c => c.DeviceInfo) // ï¿½ï¿½ï¿½ï¿½ï¿½è±¸ï¿½ï¿½Ï¢
                     .OrderByDescending(c => c.RecordTime)
                     .FirstAsync();
                 if (closestRecord == null)
                 {
-                    return NotFound(new ApiResponse<object>(200, null, "Î´ÕÒµ½Êı¾İ"));
+                    return NotFound(new ApiResponse<object>(200, null, "Î´ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½"));
                 }
 
-                // ================== µÚ¶ş²¿·Ö£º´¦ÀíÊı¾İ×ª»» ==================
-                // 1. ÊÕ¼¯ËùÓĞCheckParaµÄID
+                // ================== ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ ==================
+                // 1. ï¿½Õ¼ï¿½ï¿½ï¿½ï¿½ï¿½CheckParaï¿½ï¿½ID
                 var allCheckParaIds = ((JObject)closestRecord.Data)
                     .Properties()
                     .Select(p => int.Parse(p.Name))
                     .Distinct()
                     .ToList();
-                // 2. ÅúÁ¿²éÑ¯CheckPara
+                // 2. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯CheckPara
                 var checkParas = await _fsql.Select<CheckPara>()
                     .Where(c => allCheckParaIds.Contains(c.Id))
                     .ToDictionaryAsync(c => c.Id);
-                // 3. ¹¹½¨½á¹û
+                // 3. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 var resultItem = new CheckDataResult
                 {
                     Id = closestRecord.Id,
@@ -150,27 +149,27 @@ namespace Cola.Controllers
                     resultItem.Data = checkDataItem;
                 }
 
-                return Ok(new ApiResponse<CheckDataResult>(200, resultItem, "³É¹¦"));
+                return Ok(new ApiResponse<CheckDataResult>(200, resultItem, "ï¿½É¹ï¿½"));
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "»ñÈ¡Éè±¸ {DeviceId} Êı¾İÊ§°Ü | ÊäÈëÊ±¼ä£º{InputTime}", deviceId, inputTime);
-                return StatusCode(500, new ApiResponse<object>(500, null, $"·şÎñÆ÷ÄÚ²¿´íÎó£º{ex.Message}"));
+                _logger.LogError(ex, "ï¿½ï¿½È¡ï¿½è±¸ {DeviceId} ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ | ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä£º{InputTime}", deviceId, inputTime);
+                return StatusCode(500, new ApiResponse<object>(500, null, $"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½{ex.Message}"));
             }
         }
-        [HttpGet("sharp", Name = "»ñÈ¡ÕûµãÊ±¼äµã¼ìÊı¾İ")]
+        [HttpGet("sharp", Name = "ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
         public async Task<IActionResult> GetSharpTimeCheckData([FromQuery] int deviceId, [FromQuery] DateTime inputTime)
         {
             try
             {
-                // ================== µÚÒ»²¿·Ö£º»ñÈ¡µ±ÈÕÕûµãÊı¾İ ==================
-                // 1. Éú³Éµ±ÈÕËùÓĞÕûµãÊ±¼ä£¨00:00, 01:00,...,23:00£©
+                // ================== ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ==================
+                // 1. ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä£¨00:00, 01:00,...,23:00ï¿½ï¿½
                 var dayStart = inputTime.Date;
                 var hourlyPoints = Enumerable.Range(0, 24)
                     .Select(h => dayStart.AddHours(h))
                     .ToList();
 
-                // 2. ²éÑ¯µ±ÌìËùÓĞÊı¾İ
+                // 2. ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 var dayEnd = dayStart.AddDays(1);
                 var allRecords = await _fsql.Select<HisDataCheck>()
                     .Where(c =>
@@ -179,7 +178,7 @@ namespace Cola.Controllers
                         c.RecordTime < dayEnd)
                     .ToListAsync();
 
-                // 3. ÔÚ±¾µØ´¦ÀíÊı¾İ£¬ÕÒµ½Ã¿¸öÕûµã¸½½üµÄÊı¾İ£¨Ê±¼ä´°¿Ú ¡À1 ·ÖÖÓ£©
+                // 3. ï¿½Ú±ï¿½ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ£ï¿½ï¿½Òµï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ã¸½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ£ï¿½Ê±ï¿½ä´°ï¿½ï¿½ ï¿½ï¿½1 ï¿½ï¿½ï¿½Ó£ï¿½
                 var hourlyDatas = new List<HisDataCheck>();
                 foreach (var hour in hourlyPoints)
                 {
@@ -196,18 +195,18 @@ namespace Cola.Controllers
                         hourlyDatas.Add(recordsInWindow);
                     }
                 }
-                // ================== µÚ¶ş²¿·Ö£º´¦ÀíÊı¾İ×ª»» ==================
-                // 2. ÊÕ¼¯ËùÓĞCheckParaµÄID
+                // ================== ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ ==================
+                // 2. ï¿½Õ¼ï¿½ï¿½ï¿½ï¿½ï¿½CheckParaï¿½ï¿½ID
                 var allCheckParaIds = hourlyDatas
                     .Where(r => r.Data != null)
                     .SelectMany(r => ((JObject)r.Data).Properties().Select(p => int.Parse(p.Name)))
                     .Distinct()
                     .ToList();
-                // 3. ÅúÁ¿²éÑ¯CheckPara
+                // 3. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯CheckPara
                 var checkParas = await _fsql.Select<CheckPara>()
                     .Where(c => allCheckParaIds.Contains(c.Id))
                     .ToDictionaryAsync(c => c.Id);
-                // 4. ¹¹½¨½á¹û
+                // 4. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 var results = new List<CheckDataResult>();
 
                 foreach (var hourlyData in hourlyDatas)
@@ -218,7 +217,7 @@ namespace Cola.Controllers
                         DeviceId = hourlyData.DeviceId,
                         LineId = hourlyData.LineId,
                         RecipeId = hourlyData.RecipeId,
-                        //ÕâÀïÖ»È¡RecordTimeµÄÊ±·Ö
+                        //ï¿½ï¿½ï¿½ï¿½Ö»È¡RecordTimeï¿½ï¿½Ê±ï¿½ï¿½
                         RecordTime = hourlyData.RecordTime?.ToString("HH:mm"),
 
                     };
@@ -312,53 +311,53 @@ namespace Cola.Controllers
 
                     results.Add(resultItem);
                 }
-                return Ok(new ApiResponse<IEnumerable<CheckDataResult>>(200, results, "³É¹¦"));
+                return Ok(new ApiResponse<IEnumerable<CheckDataResult>>(200, results, "ï¿½É¹ï¿½"));
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "»ñÈ¡Éè±¸ {DeviceId} Êı¾İÊ§°Ü | ÊäÈëÊ±¼ä£º{InputTime}", deviceId, inputTime);
-                return StatusCode(500, new ApiResponse<object>(500, null, $"·şÎñÆ÷ÄÚ²¿´íÎó£º{ex.Message}"));
+                _logger.LogError(ex, "ï¿½ï¿½È¡ï¿½è±¸ {DeviceId} ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ | ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä£º{InputTime}", deviceId, inputTime);
+                return StatusCode(500, new ApiResponse<object>(500, null, $"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½{ex.Message}"));
 
             }
         }
 
-        [HttpGet("currunt/test", Name = "»ñÈ¡µ±Ç°Ê±¼äµã¼ìÊı¾İ/²âÊÔ½Ó¿Ú")]
+        [HttpGet("currunt/test", Name = "ï¿½ï¿½È¡ï¿½ï¿½Ç°Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½Ô½Ó¿ï¿½")]
         public async Task<IActionResult> GetCurrentTimeCheckData2([FromQuery] int deviceId, [FromQuery] DateTime inputTime)
         {
             try
             {
-                _logger.LogInformation("¿ªÊ¼»ñÈ¡Éè±¸ {DeviceId} ÔÚ {InputTime} µÄ¼ì²éÊı¾İ", deviceId, inputTime);
+                _logger.LogInformation("ï¿½ï¿½Ê¼ï¿½ï¿½È¡ï¿½è±¸ {DeviceId} ï¿½ï¿½ {InputTime} ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", deviceId, inputTime);
 
-                // ================== µÚÒ»²¿·Ö£º»ñÈ¡µ±Ç°Ê±¼äµÄ¼ÇÂ¼ ==================
+                // ================== ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½È¡ï¿½ï¿½Ç°Ê±ï¿½ï¿½Ä¼ï¿½Â¼ ==================
                 var closestRecord = await _fsql.Select<HisDataCheck>()
                     .Where(c =>
                         c.DeviceId == deviceId &&
                         c.RecordTime <= inputTime)
-                    .Include(c => c.DeviceInfo) // ¼ÓÔØÉè±¸ĞÅÏ¢
+                    .Include(c => c.DeviceInfo) // ï¿½ï¿½ï¿½ï¿½ï¿½è±¸ï¿½ï¿½Ï¢
                     .OrderByDescending(c => c.RecordTime)
                     .FirstAsync();
                 if (closestRecord == null)
                 {
-                    return NotFound(new ApiResponse<object>(200, null, "Î´ÕÒµ½Êı¾İ"));
+                    return NotFound(new ApiResponse<object>(200, null, "Î´ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½"));
                 }
 
-                // ================== µÚ¶ş²¿·Ö£º´¦ÀíÊı¾İ×ª»» ==================
-                // 1. ÊÕ¼¯ËùÓĞCheckParaµÄID
+                // ================== ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ ==================
+                // 1. ï¿½Õ¼ï¿½ï¿½ï¿½ï¿½ï¿½CheckParaï¿½ï¿½ID
                 var allCheckParaIds = ((JObject)closestRecord.Data)
                     .Properties()
                     .Select(p => int.Parse(p.Name))
                     .Distinct()
                     .ToList();
-                // 2. ÅúÁ¿²éÑ¯CheckPara
+                // 2. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯CheckPara
                 var checkParas = await _fsql.Select<CheckPara>()
                     .Where(c => allCheckParaIds.Contains(c.Id))
                     .ToDictionaryAsync(c => c.Id);
-                // 3. »ñÈ¡È¥ÖØºóµÄkeynames
+                // 3. ï¿½ï¿½È¡È¥ï¿½Øºï¿½ï¿½keynames
                 var keynames = await _fsql.Select<CheckPara>()
                     .Where(c => c.Checked == 1)
                     .Distinct()
                     .ToListAsync(c=>c.KeyName);
-                // 4. ¹¹½¨½á¹û
+                // 4. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 var resultItem = new CheckDataResult
                 {
                     Id = closestRecord.Id,
@@ -394,28 +393,69 @@ namespace Cola.Controllers
                     resultItem.Data = checkDataItem;
                 }
 
-                return Ok(new ApiResponse<CheckDataResult>(200, resultItem, "³É¹¦"));
+                return Ok(new ApiResponse<CheckDataResult>(200, resultItem, "ï¿½É¹ï¿½"));
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "»ñÈ¡Éè±¸ {DeviceId} Êı¾İÊ§°Ü | ÊäÈëÊ±¼ä£º{InputTime}", deviceId, inputTime);
-                return StatusCode(500, new ApiResponse<object>(500, null, $"·şÎñÆ÷ÄÚ²¿´íÎó£º{ex.Message}"));
+                _logger.LogError(ex, "ï¿½ï¿½È¡ï¿½è±¸ {DeviceId} ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ | ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä£º{InputTime}", deviceId, inputTime);
+                return StatusCode(500, new ApiResponse<object>(500, null, $"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½{ex.Message}"));
             }
         }
-
-        //[HttpGet("exportToExcel", Name = "µ¼³öµã¼ì±¨±í")]
-        //public async Task<IActionResult> ExportToExcel([FromQuery] int deviceId, [FromQuery] DateTime inputTime)
-        //{
-        //    ExcelHelper.ExportToExcel(0)
-        //}
-        [HttpGet("CheckParas", Name = "Í¨¹ıÉè±¸Id»ñÈ¡µã¼ìÁĞ±í")]
+        [HttpGet("CheckParas", Name = "Í¨ï¿½ï¿½ï¿½è±¸Idï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ğ±ï¿½")]
         public async Task<IActionResult> GetCheckParasByDeviceId([FromQuery] int deviceId)
         {
             var keynames = await _fsql.Select<CheckPara>()
                 .Where(c => c.DeviceId == deviceId)
                 .ToListAsync(c => new { c.AliasName, c.KeyName });
 
-            return Ok(new ApiResponse<IEnumerable<object>>(200, keynames, "³É¹¦"));
+            return Ok(new ApiResponse<IEnumerable<object>>(200, keynames, "ï¿½É¹ï¿½"));
+        }
+        [HttpGet("exportToExcel", Name = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì±¨ï¿½ï¿½")]
+        public async Task<IActionResult> ExportToExcel([FromQuery] int deviceId, [FromQuery] DateTime inputTime)
+        {
+            try
+            {
+                // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                var dayStart = inputTime.Date;
+                var dayEnd = dayStart.AddDays(1);
+                var checkRecords = await _fsql.Select<HisDataCheck>()
+                    .Where(c =>
+                        c.DeviceId == deviceId &&
+                        c.RecordTime >= dayStart &&
+                        c.RecordTime < dayEnd)
+                    .ToListAsync();
+
+                // ×ªï¿½ï¿½ï¿½ï¿½ï¿½İ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½
+                var results = new List<CheckDataResult>();
+                // ... ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ß¼ï¿½ ...
+
+                // ï¿½ï¿½ï¿½ï¿½Excel
+                var excelBytes = ExcelHelper.ExportCheckDataToExcel(results, inputTime);
+
+                // ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
+                string fileName = $"ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½_{inputTime:yyyyMMdd}.xlsx";
+                return File(excelBytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "ï¿½ï¿½ï¿½ï¿½ExcelÊ§ï¿½ï¿½ | ï¿½è±¸IDï¿½ï¿½{DeviceId}, ï¿½ï¿½ï¿½Ú£ï¿½{InputTime}", deviceId, inputTime);
+                return StatusCode(500, new ApiResponse<object>(500, null, $"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½{ex.Message}"));
+            }
+        }
+        [HttpGet("template", Name = "è·å–ç‚¹æ£€è¡¨æ¨¡æ¿")]
+        public IActionResult GetTemplate()
+        {
+            try
+            {
+                var excelBytes = ExcelHelper.CreateCheckDataTemplate();
+                string fileName = $"æœè‚‰æ€èŒåœ¨çº¿æ··åˆè®°å½•è¡¨æ¨¡æ¿.xlsx";
+                return File(excelBytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "å¯¼å‡ºæ¨¡æ¿å¤±è´¥");
+                return StatusCode(500, new ApiResponse<object>(500, null, $"æœåŠ¡å™¨å†…éƒ¨é”™è¯¯ï¼š{ex.Message}"));
+            }
         }
     }
 }
