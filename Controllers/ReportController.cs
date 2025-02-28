@@ -2,6 +2,7 @@
 using Cola.Model;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 
 namespace Cola.Controllers
 {
@@ -21,7 +22,7 @@ namespace Cola.Controllers
             _mapper = mapper;
         }
         [HttpGet("history", Name = "GetHistoryTimeReport")]
-        public async Task<IActionResult> GetReportDataByInputTime([FromQuery] DateTime? inputTime)
+        public async Task<IActionResult> GetReportDataByInputTime([FromQuery][Required] DateTime? inputTime)
         {
             if (!inputTime.HasValue)
             {
@@ -32,18 +33,24 @@ namespace Cola.Controllers
                 _logger.LogInformation("开始获取检查参数数据");
 
                 // 0. 找到离当前时间最近的 update_time
-                var closestUpdateTime = await FindClosestUpdateTime(inputTime);
-                if(!closestUpdateTime.HasValue)
-                {
-                    return NotFound(new ApiResponse<object>(200, null, "未找到数据"));
-                }
+                //var closestUpdateTime = await FindClosestUpdateTime(inputTime);
+                // Extract year, month, day, hour, and minute from closestUpdateTime
+                var closestUpdateTime = new DateTime(inputTime.Value.Year, inputTime.Value.Month, inputTime.Value.Day, inputTime.Value.Hour, inputTime.Value.Minute, 0);
+                //if (!closestUpdateTime.HasValue)
+                //{
+                //    return NotFound(new ApiResponse<object>(200, null, "未找到数据"));
+                //}
                 _logger.LogInformation("Latest Update Time: {closestUpdateTime}", closestUpdateTime);
                 // 1. 查询最近时间的RealtimeData并加载DeviceInfo
                 var historytimeDatas = await _fsql.Select<HisDataCheck>()
-                       .Where(r => r.RecordTime.Value.Ticks == closestUpdateTime.Value.Ticks)
-                       .Include(r => r.DeviceInfo)
-                       .ToListAsync();
-
+                .Where(r => r.RecordTime.HasValue &&
+                r.RecordTime.Value.Year == closestUpdateTime.Year &&
+                r.RecordTime.Value.Month == closestUpdateTime.Month &&
+                r.RecordTime.Value.Day == closestUpdateTime.Day &&
+                r.RecordTime.Value.Hour == closestUpdateTime.Hour &&
+                r.RecordTime.Value.Minute == closestUpdateTime.Minute)
+                .Include(r => r.DeviceInfo)
+                .ToListAsync();
                 _logger.LogInformation("成功获取检查参数数据，数量：{Count}", historytimeDatas.Count);
 
                 // 2. 收集所有CheckPara的ID

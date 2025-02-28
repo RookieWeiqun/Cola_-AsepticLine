@@ -14,7 +14,7 @@
       }
     ],
     "ReturnTypes": [],
-    "EndpointName": "\u0368\uFFFD\uFFFD\uFFFD\u8C78Id\uFFFD\uFFFD\u0221\uFFFD\uFFFD\uFFFD\uFFFD\u0431\uFFFD"
+    "EndpointName": "\u901A\u8FC7\u8BBE\u5907Id\u83B7\u53D6\u70B9\u68C0\u5217\u8868"
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
@@ -36,7 +36,7 @@
       }
     ],
     "ReturnTypes": [],
-    "EndpointName": "\uFFFD\uFFFD\u0221\uFFFD\uFFFD\u01F0\u02B1\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD"
+    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u70B9\u68C0\u6570\u636E"
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
@@ -58,21 +58,16 @@
       }
     ],
     "ReturnTypes": [],
-    "EndpointName": "\uFFFD\uFFFD\u0221\uFFFD\uFFFD\u01F0\u02B1\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD/\uFFFD\uFFFD\uFFFD\u053D\u04FF\uFFFD"
+    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u70B9\u68C0\u6570\u636E/\u6D4B\u8BD5\u63A5\u53E3"
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
-    "Method": "ExportToExcel",
-    "RelativePath": "api/Check/exportToExcel",
+    "Method": "ExportToExcel2",
+    "RelativePath": "api/Check/Export",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
-      {
-        "Name": "deviceId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
       {
         "Name": "inputTime",
         "Type": "System.DateTime",
@@ -80,7 +75,7 @@
       }
     ],
     "ReturnTypes": [],
-    "EndpointName": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCC68\uFFFD\uFFFD"
+    "EndpointName": "\u5BFC\u51FAexcel\u6570\u636E"
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
@@ -102,18 +97,29 @@
       }
     ],
     "ReturnTypes": [],
-    "EndpointName": "\uFFFD\uFFFD\u0221\uFFFD\uFFFD\uFFFD\uFFFD\u02B1\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD"
+    "EndpointName": "\u83B7\u53D6\u6574\u70B9\u65F6\u95F4\u70B9\u68C0\u6570\u636E"
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
-    "Method": "GetTemplate",
-    "RelativePath": "api/Check/template",
+    "Method": "GetSharpTimeCheckData2",
+    "RelativePath": "api/Check/sharp/test",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "deviceId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "inputTime",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [],
-    "EndpointName": "\u83B7\u53D6\u70B9\u68C0\u8868\u6A21\u677F"
+    "EndpointName": "\u83B7\u53D6\u6574\u70B9\u65F6\u95F4\u70B9\u68C0\u6570\u636Etest"
   },
   {
     "ContainingType": "Cola.Controllers.ReportController",

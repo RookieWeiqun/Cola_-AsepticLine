@@ -112,7 +112,8 @@ namespace Cola.Controllers
                         EndTime = stateData.EndTime,
                         DeviceStatus = deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Name,
                         Formula = recipeInfoList.TryGetValue(stateData.RecipeId.ToString(), out var recipeName) ? recipeName : null,
-                        StopReason = stateData.StopId.HasValue && stopReasonList.TryGetValue(stateData.StopId.Value, out var stopReason) ? stopReason : stateData.StopDef
+                        StopReason = stateData.StopId.HasValue && stopReasonList.TryGetValue(stateData.StopId.Value, out var stopReason) ? stopReason : stateData.StopDef,
+                        Capacity = stateData.DeviceInfo.Capacity == 0 ? 0 : stateData.DeviceInfo.Capacity
                     };
 
                     if (stateData.Data != null)
@@ -233,7 +234,8 @@ namespace Cola.Controllers
                         EndTime = stateData.EndTime,
                         DeviceStatus = deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Name,
                         Formula = recipeInfoList.TryGetValue(stateData.RecipeId.ToString(), out var recipeName) ? recipeName : null,
-                        StopReason = stateData.StopId.HasValue && stopReasonList.TryGetValue(stateData.StopId.Value, out var stopReason) ? stopReason : stateData.StopDef
+                        StopReason = stateData.StopId.HasValue && stopReasonList.TryGetValue(stateData.StopId.Value, out var stopReason) ? stopReason : stateData.StopDef,
+                        Capacity = stateData.DeviceInfo.Capacity == 0 ? 0 : stateData.DeviceInfo.Capacity
                     };
 
                     if (stateData.Data != null)
@@ -372,7 +374,8 @@ namespace Cola.Controllers
                         EndTime = stateData.EndTime,
                         DeviceStatus = deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Name,
                         Formula = recipeInfoList.TryGetValue(stateData.RecipeId.ToString(), out var recipeName) ? recipeName : null,
-                        StopReason = stateData.StopId.HasValue && stopReasonList.TryGetValue(stateData.StopId.Value, out var stopReason) ? stopReason : stateData.StopDef
+                        StopReason = stateData.StopId.HasValue && stopReasonList.TryGetValue(stateData.StopId.Value, out var stopReason) ? stopReason : stateData.StopDef,
+                        Capacity = stateData.DeviceInfo.Capacity == 0 ? 0 : stateData.DeviceInfo.Capacity
                     };
 
                     if (stateData.Data != null)

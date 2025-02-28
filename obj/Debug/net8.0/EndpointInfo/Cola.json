@@ -10,7 +10,7 @@
         "tags": [
           "Check"
         ],
-        "operationId": "��ȡ��ǰʱ��������",
+        "operationId": "获取当前时间点检数据",
         "parameters": [
           {
             "name": "deviceId",
@@ -41,7 +41,7 @@
         "tags": [
           "Check"
         ],
-        "operationId": "��ȡ����ʱ��������",
+        "operationId": "获取整点时间点检数据",
         "parameters": [
           {
             "name": "deviceId",
@@ -72,7 +72,38 @@
         "tags": [
           "Check"
         ],
-        "operationId": "��ȡ��ǰʱ��������/���Խӿ�",
+        "operationId": "获取当前时间点检数据/测试接口",
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "inputTime",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Check/sharp/test": {
+      "get": {
+        "tags": [
+          "Check"
+        ],
+        "operationId": "获取整点时间点检数据test",
         "parameters": [
           {
             "name": "deviceId",
@@ -103,7 +134,7 @@
         "tags": [
           "Check"
         ],
-        "operationId": "ͨ���豸Id��ȡ����б�",
+        "operationId": "通过设备Id获取点检列表",
         "parameters": [
           {
             "name": "deviceId",
@@ -121,21 +152,13 @@
         }
       }
     },
-    "/api/Check/exportToExcel": {
+    "/api/Check/Export": {
       "get": {
         "tags": [
           "Check"
         ],
-        "operationId": "������챨��",
+        "operationId": "导出excel数据",
         "parameters": [
-          {
-            "name": "deviceId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
           {
             "name": "inputTime",
             "in": "query",
@@ -145,19 +168,6 @@
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Check/template": {
-      "get": {
-        "tags": [
-          "Check"
-        ],
-        "operationId": "获取点检表模板",
         "responses": {
           "200": {
             "description": "Success"
@@ -175,6 +185,7 @@
           {
             "name": "inputTime",
             "in": "query",
+            "required": true,
             "schema": {
               "type": "string",
               "format": "date-time"

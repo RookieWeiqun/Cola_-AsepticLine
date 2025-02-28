@@ -26,8 +26,7 @@ namespace Cola.Model {
 		[JsonProperty, Column(Name = "lower_inc")]
 		public short? LowerInc { get; set; }
 
-		[JsonProperty, Column(Name = "para_id")]
-		public int? ParaId { get; set; }
+
 
 		[JsonProperty, Column(Name = "recipe_id")]
 		public int? RecipeId { get; set; }
@@ -38,6 +37,10 @@ namespace Cola.Model {
 		[JsonProperty, Column(Name = "upper_inc")]
 		public short? UpperInc { get; set; }
 
-	}
+
+        [JsonProperty, Column(Name = "check_para_id")]
+        public int? CheckParaId { get; set; }
+
+    }
 
 }

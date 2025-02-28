@@ -52,6 +52,9 @@ namespace Cola.Model {
 
         [JsonProperty, Column(Name = "recipe_id")]
         public int? RecipeId { get; set; }
+
+        [Navigate(nameof(DeviceId))]
+        public DeviceInfo DeviceInfo { get; set; } = new DeviceInfo();
     }
 
 }

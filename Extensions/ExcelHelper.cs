@@ -34,94 +34,9 @@ namespace Cola.Extensions
                 workbook.Write(fileStream);
             }
         }
-         public static byte[] ExportCheckDataToExcel(IEnumerable<CheckDataResult> data, DateTime reportDate)
-        {
-            using (var workbook = new XSSFWorkbook())
-            {
-                var sheet = workbook.CreateSheet("点检记录表");
-                
-                // 设置列宽
-                sheet.SetColumnWidth(0, 15 * 256); // 时间列
-                sheet.SetColumnWidth(1, 20 * 256); // 数据列
-                
-                // 创建标题样式
-                var titleStyle = workbook.CreateCellStyle();
-                var titleFont = workbook.CreateFont();
-                titleFont.FontHeightInPoints = 14;
-                titleFont.IsBold = true;
-                titleStyle.SetFont(titleFont);
-                titleStyle.Alignment = HorizontalAlignment.Center;
-                
-                // 创建表头
-                var titleRow = sheet.CreateRow(0);
-                var titleCell = titleRow.CreateCell(0);
-                titleCell.SetCellValue("果肉杀菌在线记录表");
-                titleStyle.Alignment = HorizontalAlignment.Center;
-                titleCell.CellStyle = titleStyle;
-                
-                // 合并标题单元格
-                sheet.AddMergedRegion(new CellRangeAddress(0, 0, 0, 8));
-                
-                // 添加日期行
-                var dateRow = sheet.CreateRow(1);
-                dateRow.CreateCell(0).SetCellValue("日期：");
-                dateRow.CreateCell(1).SetCellValue(reportDate.ToString("yyyy-MM-dd"));
-                
-                // 创建表头样式
-                var headerStyle = workbook.CreateCellStyle();
-                headerStyle.Alignment = HorizontalAlignment.Center;
-                var headerFont = workbook.CreateFont();
-                headerFont.IsBold = true;
-                headerStyle.SetFont(headerFont);
-                
-                // 添加列头
-                var headerRow = sheet.CreateRow(2);
-                headerRow.CreateCell(0).SetCellValue("时间");
-                headerRow.CreateCell(1).SetCellValue("杀菌出口温度(℃)");
-                headerRow.CreateCell(2).SetCellValue("冷却温度(℃)");
-                headerRow.CreateCell(3).SetCellValue("产品流量(T/H)");
-                headerRow.CreateCell(4).SetCellValue("杀菌时间(S)");
-                headerRow.CreateCell(5).SetCellValue("产品压力(Bar)");
-                headerRow.CreateCell(6).SetCellValue("保温温度(℃)");
-                headerRow.CreateCell(7).SetCellValue("除气罐温度(℃)");
-                headerRow.CreateCell(8).SetCellValue("除气罐压力(Bar)");
-                
-                // 设置表头样式
-                for (int i = 0; i <= 8; i++)
-                {
-                    headerRow.GetCell(i).CellStyle = headerStyle;
-                }
-                
-                // 填充数据
-                int rowIndex = 3;
-                foreach (var item in data)
-                {
-                    var row = sheet.CreateRow(rowIndex++);
-                    row.CreateCell(0).SetCellValue(item.RecordTime);
-                    
-                    if (item.Data != null)
-                    {
-                        row.CreateCell(1).SetCellValue(item.Data.EndTemperature);
-                        row.CreateCell(2).SetCellValue(item.Data.CoolingTemperature);
-                        row.CreateCell(3).SetCellValue(item.Data.ProductFlowRate);
-                        row.CreateCell(4).SetCellValue(item.Data.SterilizationTime);
-                        row.CreateCell(5).SetCellValue(item.Data.ProductPressure);
-                        row.CreateCell(6).SetCellValue(item.Data.HoldingTemperature);
-                        row.CreateCell(7).SetCellValue(item.Data.DegassingTankTemperature);
-                        row.CreateCell(8).SetCellValue(item.Data.DegassingTankPressure);
-                    }
-                }
-                
-                // 返回Excel文件的字节数组
-                using (var ms = new MemoryStream())
-                {
-                    workbook.Write(ms);
-                    return ms.ToArray();
-                }
-            }
-        }
 
-        public static byte[] CreateCheckDataTemplate()
+
+        public static byte[] CreateCheckDataTemplate(List<ExcelData> excelList)
         {
             using (var workbook = new XSSFWorkbook())
             {
@@ -202,6 +117,60 @@ namespace Cola.Extensions
                 }
 
                 // 返回Excel文件的字节数组
+                using (var ms = new MemoryStream())
+                {
+                    workbook.Write(ms);
+                    return ms.ToArray();
+                }
+            }
+        }
+        public static byte[] ExportCheckDataToExcel(string templatePath, List<ExcelData> excelList)
+        {
+            // Load the existing Excel template
+            using (var fileStream = new FileStream(templatePath, FileMode.Open, FileAccess.Read))
+            {
+                var workbook = new XSSFWorkbook(fileStream);
+                var sheet = workbook.GetSheetAt(0); // Assuming the data is in the first sheet
+
+                // Find the row to start adding data (after the headers)
+                int startRow = 3; // Assuming the headers are in the first 3 rows
+
+                // Populate the data from excelList
+                string currentDeviceName = null;
+                int mergeStartRow = startRow;
+
+                foreach (var excelData in excelList)
+                {
+                    var row = sheet.CreateRow(startRow++);
+                    row.CreateCell(0).SetCellValue(excelData.DeviceName);
+                    row.CreateCell(1).SetCellValue(excelData.ProjectDescription);
+                    row.CreateCell(2).SetCellValue(excelData.ReferenceValue);
+                    row.CreateCell(3).SetCellValue(excelData.Unit);
+                    row.CreateCell(4).SetCellValue(excelData.ProjectName);
+
+                    if (currentDeviceName == null)
+                    {
+                        currentDeviceName = excelData.DeviceName;
+                    }
+                    else if (currentDeviceName != excelData.DeviceName)
+                    {
+                        // Merge cells for the previous DeviceName
+                        if (mergeStartRow < startRow - 1)
+                        {
+                            sheet.AddMergedRegion(new CellRangeAddress(mergeStartRow, startRow - 2, 0, 0));
+                        }
+                        currentDeviceName = excelData.DeviceName;
+                        mergeStartRow = startRow - 1;
+                    }
+                }
+
+                // Merge cells for the last DeviceName
+                if (mergeStartRow < startRow - 1)
+                {
+                    sheet.AddMergedRegion(new CellRangeAddress(mergeStartRow, startRow - 1, 0, 0));
+                }
+
+                // Save the updated workbook to a memory stream
                 using (var ms = new MemoryStream())
                 {
                     workbook.Write(ms);
