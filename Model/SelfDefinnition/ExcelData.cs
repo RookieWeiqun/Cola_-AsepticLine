@@ -11,5 +11,8 @@
         public string? Unit { get; set; }
 
         public string? ProjectName { get; set; }
+        // Dictionary to store time-based values
+        public Dictionary<string, string> TimeValues { get; set; } = new Dictionary<string, string>();
+
     }
 }

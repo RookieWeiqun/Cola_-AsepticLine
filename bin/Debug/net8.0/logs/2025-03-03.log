@@ -1,0 +1,544 @@
+2025-03-03 09:12:33.9351 INFO Now listening on: https://localhost:7086 
+2025-03-03 09:12:33.9351 INFO Now listening on: http://localhost:5064 
+2025-03-03 09:12:33.9755 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 09:12:33.9755 INFO Hosting environment: Development 
+2025-03-03 09:12:33.9755 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-03-03 09:12:34.8349 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-03-03 09:12:34.9387 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 108.7197ms 
+2025-03-03 09:12:34.9451 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-03-03 09:12:34.9946 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 49.6248ms 
+2025-03-03 09:12:34.9946 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-03-03 09:12:34.9946 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-03-03 09:12:34.9946 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-03-03 09:12:34.9946 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-03-03 09:12:34.9946 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-03-03 09:12:35.0174 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 19.6785ms 
+2025-03-03 09:12:35.0462 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-03-03 09:12:35.0462 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-03-03 09:12:35.0516 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 54.4157ms 
+2025-03-03 09:12:35.0516 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 54.1536ms 
+2025-03-03 09:12:35.0516 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-03-03 09:12:35.0516 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 54.5941ms 
+2025-03-03 09:12:35.0677 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 65.5438ms 
+2025-03-03 09:12:35.2141 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-03-03 09:12:35.2255 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 11.7871ms 
+2025-03-03 09:12:47.7649 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/Export/Juice?inputTime=2025-03-02 - - - 
+2025-03-03 09:12:47.7862 INFO Executing endpoint 'Cola.Controllers.CheckController.ExportToExcel2 (Cola)' 
+2025-03-03 09:12:47.8124 INFO Route matched with {action = "ExportToExcel2", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportToExcel2(System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-03-03 09:12:49.6877 INFO 开始获取设备 7 在 03/02/2025 00:00:00 的整点检查数据 
+2025-03-03 09:15:31.2027 INFO Executing FileContentResult, sending file with download name '果肉杀菌在线混合记录表模板.xlsx' ... 
+2025-03-03 09:15:31.2176 INFO Executed action Cola.Controllers.CheckController.ExportToExcel2 (Cola) in 163401.2637ms 
+2025-03-03 09:15:31.2176 INFO Executed endpoint 'Cola.Controllers.CheckController.ExportToExcel2 (Cola)' 
+2025-03-03 09:15:31.2176 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/Export/Juice?inputTime=2025-03-02 - 200 13439 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 163453.8994ms 
+2025-03-03 09:15:47.3591 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/sharp?deviceId=7&inputTime=2025-03-02 - - - 
+2025-03-03 09:15:47.3591 INFO Executing endpoint 'Cola.Controllers.CheckController.GetSharpTimeCheckData (Cola)' 
+2025-03-03 09:15:47.3654 INFO Route matched with {action = "GetSharpTimeCheckData", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSharpTimeCheckData(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-03-03 09:15:47.4508 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.CheckDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-03 09:15:47.4915 INFO Executed action Cola.Controllers.CheckController.GetSharpTimeCheckData (Cola) in 126.1188ms 
+2025-03-03 09:15:47.4915 INFO Executed endpoint 'Cola.Controllers.CheckController.GetSharpTimeCheckData (Cola)' 
+2025-03-03 09:15:47.4915 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/sharp?deviceId=7&inputTime=2025-03-02 - 200 16744 application/json;+charset=utf-8 132.9263ms 
+2025-03-03 09:23:10.7834 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/Export/Juice?inputTime=2025-03-02 - - - 
+2025-03-03 09:23:10.7890 INFO Executing endpoint 'Cola.Controllers.CheckController.ExportToExcel2 (Cola)' 
+2025-03-03 09:23:10.7890 INFO Route matched with {action = "ExportToExcel2", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportToExcel2(System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-03-03 09:23:10.9360 INFO 开始获取设备 7 在 03/02/2025 00:00:00 的整点检查数据 
+2025-03-03 09:31:37.2676 INFO Now listening on: https://localhost:7086 
+2025-03-03 09:31:37.2729 INFO Now listening on: http://localhost:5064 
+2025-03-03 09:31:37.3093 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 09:31:37.3093 INFO Hosting environment: Development 
+2025-03-03 09:31:37.3093 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-03-03 09:31:37.8255 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-03-03 09:31:37.9400 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 119.8739ms 
+2025-03-03 09:31:37.9489 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-03-03 09:31:38.0042 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 55.4255ms 
+2025-03-03 09:31:38.0042 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-03-03 09:31:38.0042 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-03-03 09:31:38.0042 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-03-03 09:31:38.0042 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-03-03 09:31:38.0042 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-03-03 09:31:38.0310 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 24.2216ms 
+2025-03-03 09:31:38.0672 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-03-03 09:31:38.0672 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-03-03 09:31:38.0672 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-03-03 09:31:38.0672 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 63.6238ms 
+2025-03-03 09:31:38.0672 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 63.6453ms 
+2025-03-03 09:31:38.0672 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 63.7047ms 
+2025-03-03 09:31:38.0856 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 71.2102ms 
+2025-03-03 09:31:38.2290 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-03-03 09:31:38.2290 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 7.6499ms 
+2025-03-03 09:31:53.3434 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/Export/Juice?inputTime=2025-03-02 - - - 
+2025-03-03 09:31:53.3626 INFO Executing endpoint 'Cola.Controllers.CheckController.ExportToExcel2 (Cola)' 
+2025-03-03 09:31:53.3835 INFO Route matched with {action = "ExportToExcel2", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportToExcel2(System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-03-03 09:31:55.2742 INFO 开始获取设备 7 在 03/02/2025 00:00:00 的整点检查数据 
+2025-03-03 09:32:36.6319 INFO Executing FileContentResult, sending file with download name '果肉杀菌在线混合记录表模板.xlsx' ... 
+2025-03-03 09:32:36.6511 INFO Executed action Cola.Controllers.CheckController.ExportToExcel2 (Cola) in 43262.3701ms 
+2025-03-03 09:32:36.6511 INFO Executed endpoint 'Cola.Controllers.CheckController.ExportToExcel2 (Cola)' 
+2025-03-03 09:32:36.6511 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/Export/Juice?inputTime=2025-03-02 - 200 13439 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 43308.6457ms 
+2025-03-03 09:44:22.2729 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/Export/Juice?inputTime=2025-03-02 - - - 
+2025-03-03 09:44:22.2729 INFO Executing endpoint 'Cola.Controllers.CheckController.ExportToExcel2 (Cola)' 
+2025-03-03 09:44:22.2729 INFO Route matched with {action = "ExportToExcel2", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportToExcel2(System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-03-03 09:44:22.4152 INFO 开始获取设备 7 在 03/02/2025 00:00:00 的整点检查数据 
+2025-03-03 09:57:42.2802 INFO Now listening on: https://localhost:7086 
+2025-03-03 09:57:42.2853 INFO Now listening on: http://localhost:5064 
+2025-03-03 09:57:42.3253 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 09:57:42.3253 INFO Hosting environment: Development 
+2025-03-03 09:57:42.3253 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-03-03 09:57:42.8286 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-03-03 09:57:42.9476 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 124.1168ms 
+2025-03-03 09:57:42.9476 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-03-03 09:57:43.0089 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 55.5348ms 
+2025-03-03 09:57:43.0089 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-03-03 09:57:43.0089 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-03-03 09:57:43.0089 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-03-03 09:57:43.0089 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-03-03 09:57:43.0089 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-03-03 09:57:43.0323 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 17.2109ms 
+2025-03-03 09:57:43.0653 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-03-03 09:57:43.0653 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-03-03 09:57:43.0689 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 53.9882ms 
+2025-03-03 09:57:43.0689 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 55.5057ms 
+2025-03-03 09:57:43.0689 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-03-03 09:57:43.0689 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 57.7088ms 
+2025-03-03 09:57:43.0855 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 69.9327ms 
+2025-03-03 09:57:43.2225 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-03-03 09:57:43.2225 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 7.4083ms 
+2025-03-03 09:58:31.6130 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/Export/Juice?inputTime=2025-03-02 - - - 
+2025-03-03 09:58:31.6412 INFO Executing endpoint 'Cola.Controllers.CheckController.ExportToExcel2 (Cola)' 
+2025-03-03 09:58:31.6609 INFO Route matched with {action = "ExportToExcel2", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportToExcel2(System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-03-03 09:58:33.4907 INFO 开始获取设备 7 在 03/02/2025 00:00:00 的整点检查数据 
+2025-03-03 09:58:35.0497 INFO Executing FileContentResult, sending file with download name '果肉杀菌在线混合记录表模板.xlsx' ... 
+2025-03-03 09:58:35.0652 INFO Executed action Cola.Controllers.CheckController.ExportToExcel2 (Cola) in 3400.7513ms 
+2025-03-03 09:58:35.0655 INFO Executed endpoint 'Cola.Controllers.CheckController.ExportToExcel2 (Cola)' 
+2025-03-03 09:58:35.0655 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/Export/Juice?inputTime=2025-03-02 - 200 13326 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 3454.9528ms 
+2025-03-03 10:14:57.7826 INFO Now listening on: https://localhost:7086 
+2025-03-03 10:14:57.7886 INFO Now listening on: http://localhost:5064 
+2025-03-03 10:14:57.8308 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 10:14:57.8308 INFO Hosting environment: Development 
+2025-03-03 10:14:57.8308 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-03-03 10:14:58.5794 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-03-03 10:14:58.6970 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 121.3965ms 
+2025-03-03 10:14:58.6970 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-03-03 10:14:58.7826 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 78.3925ms 
+2025-03-03 10:14:58.7894 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-03-03 10:14:58.7894 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-03-03 10:14:58.7894 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-03-03 10:14:58.7894 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-03-03 10:14:58.8064 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-03-03 10:14:58.8204 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 30.3894ms 
+2025-03-03 10:14:58.8820 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-03-03 10:14:58.8820 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-03-03 10:14:58.8873 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 97.4534ms 
+2025-03-03 10:14:58.8873 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 100.5761ms 
+2025-03-03 10:14:58.8873 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-03-03 10:14:58.8873 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 101.3940ms 
+2025-03-03 10:14:58.9128 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 110.3157ms 
+2025-03-03 10:14:59.0970 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-03-03 10:14:59.1069 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 10.1501ms 
+2025-03-03 10:15:20.7546 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/Export/Juice?inputTime=2025-03-02&shift=%E7%99%BD%E7%8F%AD - - - 
+2025-03-03 10:15:20.8166 INFO Executing endpoint 'Cola.Controllers.CheckController.ExportToExcel2 (Cola)' 
+2025-03-03 10:15:20.8368 INFO Route matched with {action = "ExportToExcel2", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportToExcel2(System.DateTime, System.String) on controller Cola.Controllers.CheckController (Cola). 
+2025-03-03 10:15:22.6535 INFO 开始获取设备 7 在 03/02/2025 00:00:00 的整点检查数据 
+2025-03-03 10:15:24.1031 INFO Executing FileContentResult, sending file with download name '果肉杀菌在线混合记录表模板.xlsx' ... 
+2025-03-03 10:15:24.1181 INFO Executed action Cola.Controllers.CheckController.ExportToExcel2 (Cola) in 3277.231ms 
+2025-03-03 10:15:24.1181 INFO Executed endpoint 'Cola.Controllers.CheckController.ExportToExcel2 (Cola)' 
+2025-03-03 10:15:24.1181 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/Export/Juice?inputTime=2025-03-02&shift=%E7%99%BD%E7%8F%AD - 200 13337 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 3364.8490ms 
+2025-03-03 10:16:40.1777 INFO Now listening on: https://localhost:7086 
+2025-03-03 10:16:40.1777 INFO Now listening on: http://localhost:5064 
+2025-03-03 10:16:40.2381 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 10:16:40.2381 INFO Hosting environment: Development 
+2025-03-03 10:16:40.2381 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-03-03 10:16:41.1027 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-03-03 10:16:41.2244 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 126.1923ms 
+2025-03-03 10:16:41.2244 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-03-03 10:16:41.2954 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 64.2446ms 
+2025-03-03 10:16:41.2954 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-03-03 10:16:41.2954 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-03-03 10:16:41.2954 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-03-03 10:16:41.2954 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-03-03 10:16:41.3100 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-03-03 10:16:41.3387 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 39.5629ms 
+2025-03-03 10:16:41.3765 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-03-03 10:16:41.3765 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-03-03 10:16:41.3810 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 81.8665ms 
+2025-03-03 10:16:41.3810 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 82.1334ms 
+2025-03-03 10:16:41.3810 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-03-03 10:16:41.3810 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 82.0329ms 
+2025-03-03 10:16:41.3984 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 88.4202ms 
+2025-03-03 10:16:41.5905 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-03-03 10:16:41.5995 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 9.5012ms 
+2025-03-03 10:16:53.5831 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/Export/Juice?inputTime=2025-03-02&shift=%E7%99%BD%E7%8F%AD - - - 
+2025-03-03 10:16:53.6015 INFO Executing endpoint 'Cola.Controllers.CheckController.ExportToExcel2 (Cola)' 
+2025-03-03 10:16:53.6224 INFO Route matched with {action = "ExportToExcel2", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportToExcel2(System.DateTime, System.String) on controller Cola.Controllers.CheckController (Cola). 
+2025-03-03 10:16:54.6258 INFO 开始获取设备 7 在 03/02/2025 00:00:00 的整点检查数据 
+2025-03-03 10:16:55.5989 INFO Executing FileContentResult, sending file with download name '果肉杀菌在线混合记录表模板.xlsx' ... 
+2025-03-03 10:16:55.5989 INFO Executed action Cola.Controllers.CheckController.ExportToExcel2 (Cola) in 1981.2515ms 
+2025-03-03 10:16:55.5989 INFO Executed endpoint 'Cola.Controllers.CheckController.ExportToExcel2 (Cola)' 
+2025-03-03 10:16:55.5989 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/Export/Juice?inputTime=2025-03-02&shift=%E7%99%BD%E7%8F%AD - 200 13324 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 2026.3559ms 
+2025-03-03 10:19:47.1909 INFO Now listening on: https://localhost:7086 
+2025-03-03 10:19:47.1961 INFO Now listening on: http://localhost:5064 
+2025-03-03 10:19:47.2342 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 10:19:47.2342 INFO Hosting environment: Development 
+2025-03-03 10:19:47.2342 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-03-03 10:19:47.8199 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-03-03 10:19:47.9392 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 125.1346ms 
+2025-03-03 10:19:47.9439 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-03-03 10:19:47.9991 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 55.1625ms 
+2025-03-03 10:19:47.9991 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-03-03 10:19:47.9991 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-03-03 10:19:47.9991 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-03-03 10:19:48.0032 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-03-03 10:19:48.0032 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-03-03 10:19:48.0286 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 25.3013ms 
+2025-03-03 10:19:48.0604 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-03-03 10:19:48.0604 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-03-03 10:19:48.0604 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 61.9965ms 
+2025-03-03 10:19:48.0604 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 61.1748ms 
+2025-03-03 10:19:48.0682 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-03-03 10:19:48.0682 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 65.9010ms 
+2025-03-03 10:19:48.0882 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 84.9393ms 
+2025-03-03 10:19:48.2353 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-03-03 10:19:48.2441 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 9.3444ms 
+2025-03-03 10:20:24.4250 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/Export/Juice?inputTime=2025-03-02&shift=%E7%99%BD%E7%8F%AD - - - 
+2025-03-03 10:20:24.4560 INFO Executing endpoint 'Cola.Controllers.CheckController.ExportToExcel2 (Cola)' 
+2025-03-03 10:20:24.4762 INFO Route matched with {action = "ExportToExcel2", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportToExcel2(System.DateTime, System.String) on controller Cola.Controllers.CheckController (Cola). 
+2025-03-03 10:20:25.4102 INFO 开始获取设备 7 在 03/02/2025 00:00:00 的整点检查数据 
+2025-03-03 10:20:26.3315 INFO Executing FileContentResult, sending file with download name '果肉杀菌在线混合记录表模板.xlsx' ... 
+2025-03-03 10:20:26.3494 INFO Executed action Cola.Controllers.CheckController.ExportToExcel2 (Cola) in 1868.9424ms 
+2025-03-03 10:20:26.3498 INFO Executed endpoint 'Cola.Controllers.CheckController.ExportToExcel2 (Cola)' 
+2025-03-03 10:20:26.3498 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/Export/Juice?inputTime=2025-03-02&shift=%E7%99%BD%E7%8F%AD - 200 13330 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 1925.6276ms 
+2025-03-03 10:25:11.5946 INFO Now listening on: https://localhost:7086 
+2025-03-03 10:25:11.6028 INFO Now listening on: http://localhost:5064 
+2025-03-03 10:25:11.6644 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 10:25:11.6644 INFO Hosting environment: Development 
+2025-03-03 10:25:11.6644 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-03-03 10:25:12.1619 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-03-03 10:25:12.2722 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 116.7442ms 
+2025-03-03 10:25:12.2722 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-03-03 10:25:12.3328 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 54.7937ms 
+2025-03-03 10:25:12.3328 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-03-03 10:25:12.3328 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-03-03 10:25:12.3328 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-03-03 10:25:12.3328 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-03-03 10:25:12.3328 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-03-03 10:25:12.3581 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 21.2812ms 
+2025-03-03 10:25:12.3921 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-03-03 10:25:12.3921 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-03-03 10:25:12.3954 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 59.5252ms 
+2025-03-03 10:25:12.3954 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 59.1862ms 
+2025-03-03 10:25:12.3954 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-03-03 10:25:12.3954 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 59.9309ms 
+2025-03-03 10:25:12.4119 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 75.2458ms 
+2025-03-03 10:25:12.5515 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-03-03 10:25:12.5515 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 9.0154ms 
+2025-03-03 10:36:44.7925 INFO Request starting HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-03-02 - - - 
+2025-03-03 10:36:44.8515 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-03-03 10:36:44.8748 INFO Route matched with {action = "GetReportDataByInputTime", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByInputTime(Int32, System.Nullable`1[System.DateTime]) on controller Cola.Controllers.StateController (Cola). 
+2025-03-03 10:36:46.3196 INFO 开始获取设备 1 的检查参数数据,CIP为 105 
+2025-03-03 10:36:46.6079 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.SelfDefinnition.StateDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-03 10:36:46.6703 INFO Executed action Cola.Controllers.StateController.GetReportDataByInputTime (Cola) in 1792.1863ms 
+2025-03-03 10:36:46.6703 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-03-03 10:36:46.6703 INFO Request finished HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-03-02 - 200 1234 application/json;+charset=utf-8 1878.7891ms 
+2025-03-03 10:47:21.0437 INFO Now listening on: https://localhost:7086 
+2025-03-03 10:47:21.0437 INFO Now listening on: http://localhost:5064 
+2025-03-03 10:47:21.0807 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 10:47:21.0807 INFO Hosting environment: Development 
+2025-03-03 10:47:21.0807 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-03-03 10:47:21.7925 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-03-03 10:47:21.8993 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 113.9857ms 
+2025-03-03 10:47:21.8993 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-03-03 10:47:21.9525 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 48.1097ms 
+2025-03-03 10:47:21.9525 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-03-03 10:47:21.9525 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-03-03 10:47:21.9525 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-03-03 10:47:21.9525 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-03-03 10:47:21.9617 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-03-03 10:47:21.9768 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 21.4629ms 
+2025-03-03 10:47:22.0113 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-03-03 10:47:22.0113 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-03-03 10:47:22.0113 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 59.5224ms 
+2025-03-03 10:47:22.0113 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 59.4146ms 
+2025-03-03 10:47:22.0113 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-03-03 10:47:22.0113 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 62.6689ms 
+2025-03-03 10:47:22.0324 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 70.7510ms 
+2025-03-03 10:47:22.1602 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-03-03 10:47:22.1602 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 7.2118ms 
+2025-03-03 10:47:36.4671 INFO Request starting HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-03-02 - - - 
+2025-03-03 10:47:36.4831 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-03-03 10:47:36.5033 INFO Route matched with {action = "GetReportDataByInputTime", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByInputTime(Int32, System.Nullable`1[System.DateTime]) on controller Cola.Controllers.StateController (Cola). 
+2025-03-03 10:47:37.8679 INFO 开始获取设备 1 的检查参数数据,CIP为 105 
+2025-03-03 10:47:38.1244 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.SelfDefinnition.StateDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-03 10:47:38.1791 INFO Executed action Cola.Controllers.StateController.GetReportDataByInputTime (Cola) in 1672.6339ms 
+2025-03-03 10:47:38.1791 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-03-03 10:47:38.1791 INFO Request finished HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-03-02 - 200 1234 application/json;+charset=utf-8 1713.0081ms 
+2025-03-03 10:48:30.2618 INFO Request starting HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-03-02 - - - 
+2025-03-03 10:48:30.2618 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-03-03 10:48:30.2618 INFO Route matched with {action = "GetReportDataByInputTime", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByInputTime(Int32, System.Nullable`1[System.DateTime]) on controller Cola.Controllers.StateController (Cola). 
+2025-03-03 10:48:30.2618 INFO 开始获取设备 1 的检查参数数据,CIP为 105 
+2025-03-03 10:50:05.2427 INFO Now listening on: https://localhost:7086 
+2025-03-03 10:50:05.2427 INFO Now listening on: http://localhost:5064 
+2025-03-03 10:50:05.2843 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 10:50:05.2843 INFO Hosting environment: Development 
+2025-03-03 10:50:05.2843 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-03-03 10:50:05.6520 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-03-03 10:50:05.7618 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 113.9190ms 
+2025-03-03 10:50:05.7618 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-03-03 10:50:05.8240 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 55.5891ms 
+2025-03-03 10:50:05.8240 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-03-03 10:50:05.8240 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-03-03 10:50:05.8240 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-03-03 10:50:05.8240 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-03-03 10:50:05.8240 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-03-03 10:50:05.8489 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 22.2820ms 
+2025-03-03 10:50:05.8876 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-03-03 10:50:05.8876 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-03-03 10:50:05.8876 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-03-03 10:50:05.8876 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 63.1177ms 
+2025-03-03 10:50:05.8876 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 63.0367ms 
+2025-03-03 10:50:05.8876 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 63.0363ms 
+2025-03-03 10:50:05.9030 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 74.9061ms 
+2025-03-03 10:50:06.0334 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-03-03 10:50:06.0416 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 8.5185ms 
+2025-03-03 10:50:26.1160 INFO Request starting HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-03-02 - - - 
+2025-03-03 10:50:26.1410 INFO Executing endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-03-03 10:50:26.1581 INFO Route matched with {action = "GetReportDataByInputTime", controller = "State"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReportDataByInputTime(Int32, System.Nullable`1[System.DateTime]) on controller Cola.Controllers.StateController (Cola). 
+2025-03-03 10:50:27.5805 INFO 开始获取设备 1 的检查参数数据,CIP为 105 
+2025-03-03 10:50:35.2042 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.SelfDefinnition.StateDataResult, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-03 10:50:35.2669 INFO Executed action Cola.Controllers.StateController.GetReportDataByInputTime (Cola) in 9104.389ms 
+2025-03-03 10:50:35.2669 INFO Executed endpoint 'Cola.Controllers.StateController.GetReportDataByInputTime (Cola)' 
+2025-03-03 10:50:35.2669 INFO Request finished HTTP/2 GET https://localhost:7086/api/State?deviceId=1&inputTime=2025-03-02 - 200 1238 application/json;+charset=utf-8 9152.7836ms 
+2025-03-03 11:08:35.9164 INFO Now listening on: https://localhost:7086 
+2025-03-03 11:08:35.9164 INFO Now listening on: http://localhost:5064 
+2025-03-03 11:08:35.9600 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 11:08:35.9600 INFO Hosting environment: Development 
+2025-03-03 11:08:35.9600 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-03-03 11:08:36.5661 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-03-03 11:08:36.6877 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 126.4258ms 
+2025-03-03 11:08:36.6913 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-03-03 11:08:36.7378 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 46.4745ms 
+2025-03-03 11:08:36.7378 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-03-03 11:08:36.7378 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-03-03 11:08:36.7378 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-03-03 11:08:36.7378 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-03-03 11:08:36.7378 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-03-03 11:08:36.7669 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 25.7543ms 
+2025-03-03 11:08:36.7982 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-03-03 11:08:36.7982 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-03-03 11:08:36.8020 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 61.0243ms 
+2025-03-03 11:08:36.8020 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 60.9112ms 
+2025-03-03 11:08:36.8020 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-03-03 11:08:36.8020 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 68.0991ms 
+2025-03-03 11:08:36.8259 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 83.8497ms 
+2025-03-03 11:08:36.9675 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-03-03 11:08:37.0322 ERROR An unhandled exception has occurred while executing the request. Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - Cola.Controllers.CheckController.GetSharpTimeForExcel (Cola). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-03 11:08:37.0354 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 500 - text/plain;+charset=utf-8 68.1253ms 
+2025-03-03 11:08:44.0767 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-03-03 11:08:44.0814 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 5.0065ms 
+2025-03-03 11:08:44.0814 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-03-03 11:08:44.0814 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-03-03 11:08:44.0814 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 1.2023ms 
+2025-03-03 11:08:44.1023 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 15.2040ms 
+2025-03-03 11:08:44.1496 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-03-03 11:08:44.1655 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/favicon-32x32.png - - - 
+2025-03-03 11:08:44.1875 INFO Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A' 
+2025-03-03 11:08:44.1927 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/favicon-32x32.png - 200 628 image/png 26.6819ms 
+2025-03-03 11:08:44.1927 ERROR An unhandled exception has occurred while executing the request. Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - Cola.Controllers.CheckController.GetSharpTimeForExcel (Cola). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-03 11:08:44.1927 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 500 - text/plain;+charset=utf-8 48.5527ms 
+2025-03-03 11:08:56.3000 INFO Now listening on: https://localhost:7086 
+2025-03-03 11:08:56.3000 INFO Now listening on: http://localhost:5064 
+2025-03-03 11:08:56.3442 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 11:08:56.3442 INFO Hosting environment: Development 
+2025-03-03 11:08:56.3442 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-03-03 11:08:57.0522 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-03-03 11:08:57.1505 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 101.4152ms 
+2025-03-03 11:08:57.1505 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-03-03 11:08:57.2020 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 47.1950ms 
+2025-03-03 11:08:57.2020 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-03-03 11:08:57.2020 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-03-03 11:08:57.2020 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-03-03 11:08:57.2020 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-03-03 11:08:57.2106 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-03-03 11:08:57.2106 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 13.9991ms 
+2025-03-03 11:08:57.2486 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-03-03 11:08:57.2486 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-03-03 11:08:57.2486 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 46.8697ms 
+2025-03-03 11:08:57.2486 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 46.7321ms 
+2025-03-03 11:08:57.2582 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-03-03 11:08:57.2582 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 53.8463ms 
+2025-03-03 11:08:57.2744 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 65.1831ms 
+2025-03-03 11:08:57.4191 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-03-03 11:08:57.4904 ERROR An unhandled exception has occurred while executing the request. Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - Cola.Controllers.CheckController.GetSharpTimeForExcel (Cola). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-03 11:08:57.4904 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 500 - text/plain;+charset=utf-8 74.7711ms 
+2025-03-03 11:16:48.0811 INFO Now listening on: https://localhost:7086 
+2025-03-03 11:16:48.0811 INFO Now listening on: http://localhost:5064 
+2025-03-03 11:16:48.1316 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 11:16:48.1316 INFO Hosting environment: Development 
+2025-03-03 11:16:48.1316 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-03-03 11:16:48.5436 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-03-03 11:16:48.6667 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 128.5715ms 
+2025-03-03 11:16:48.6667 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-03-03 11:16:48.7314 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 58.8427ms 
+2025-03-03 11:16:48.7314 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-03-03 11:16:48.7314 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-03-03 11:16:48.7314 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-03-03 11:16:48.7314 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-03-03 11:16:48.7314 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-03-03 11:16:48.7561 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 20.8243ms 
+2025-03-03 11:16:48.7884 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-03-03 11:16:48.7884 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-03-03 11:16:48.7884 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-03-03 11:16:48.7884 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 55.3067ms 
+2025-03-03 11:16:48.7884 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 55.2992ms 
+2025-03-03 11:16:48.7884 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 55.3350ms 
+2025-03-03 11:16:48.8072 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 70.6074ms 
+2025-03-03 11:16:48.9480 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-03-03 11:16:49.0095 ERROR An unhandled exception has occurred while executing the request. Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - Cola.Controllers.CheckController.GetSharpTimeForExcel (Cola). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-03 11:16:49.0095 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 500 - text/plain;+charset=utf-8 64.5534ms 
+2025-03-03 11:18:16.5026 INFO Now listening on: https://localhost:7086 
+2025-03-03 11:18:16.5069 INFO Now listening on: http://localhost:5064 
+2025-03-03 11:18:16.5429 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 11:18:16.5429 INFO Hosting environment: Development 
+2025-03-03 11:18:16.5429 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-03-03 11:18:17.2465 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-03-03 11:18:17.3612 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 119.0167ms 
+2025-03-03 11:18:17.3663 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-03-03 11:18:17.4256 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 59.3040ms 
+2025-03-03 11:18:17.4256 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-03-03 11:18:17.4256 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-03-03 11:18:17.4256 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-03-03 11:18:17.4256 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-03-03 11:18:17.4256 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-03-03 11:18:17.4517 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 21.2433ms 
+2025-03-03 11:18:17.4850 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-03-03 11:18:17.4850 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-03-03 11:18:17.4850 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 55.1279ms 
+2025-03-03 11:18:17.4850 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 56.1584ms 
+2025-03-03 11:18:17.4919 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-03-03 11:18:17.4919 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 61.7631ms 
+2025-03-03 11:18:17.5111 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 80.1436ms 
+2025-03-03 11:18:17.6496 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-03-03 11:18:17.6496 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 8.0691ms 
+2025-03-03 11:21:19.0702 INFO Now listening on: https://localhost:7086 
+2025-03-03 11:21:19.0702 INFO Now listening on: http://localhost:5064 
+2025-03-03 11:21:19.1106 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 11:21:19.1106 INFO Hosting environment: Development 
+2025-03-03 11:21:19.1106 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-03-03 11:21:19.7126 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-03-03 11:21:19.8322 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 125.0663ms 
+2025-03-03 11:21:19.8483 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-03-03 11:21:19.9119 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 63.6450ms 
+2025-03-03 11:21:19.9119 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-03-03 11:21:19.9119 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-03-03 11:21:19.9119 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-03-03 11:21:19.9119 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-03-03 11:21:19.9250 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-03-03 11:21:19.9250 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 18.9694ms 
+2025-03-03 11:21:20.0019 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-03-03 11:21:20.0019 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-03-03 11:21:20.0055 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 90.0268ms 
+2025-03-03 11:21:20.0055 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 86.0937ms 
+2025-03-03 11:21:20.0192 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-03-03 11:21:20.0192 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 102.5753ms 
+2025-03-03 11:21:20.0192 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 107.9009ms 
+2025-03-03 11:21:20.1792 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-03-03 11:21:20.1792 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 7.8877ms 
+2025-03-03 11:21:39.0939 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/Export/Juice?inputTime=2025-03-02&shift=%E7%99%BD%E7%8F%AD - - - 
+2025-03-03 11:21:39.1141 INFO Executing endpoint 'Cola.Controllers.CheckController.ExportToExcel2 (Cola)' 
+2025-03-03 11:21:39.1344 INFO Route matched with {action = "ExportToExcel2", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportToExcel2(System.DateTime, System.String) on controller Cola.Controllers.CheckController (Cola). 
+2025-03-03 11:21:40.9954 INFO 开始获取设备 7 在 03/02/2025 00:00:00 的整点检查数据 
+2025-03-03 11:21:42.4842 INFO Executing FileContentResult, sending file with download name '果肉杀菌在线混合记录表模板.xlsx' ... 
+2025-03-03 11:21:42.4946 INFO Executed action Cola.Controllers.CheckController.ExportToExcel2 (Cola) in 3355.5156ms 
+2025-03-03 11:21:42.4946 INFO Executed endpoint 'Cola.Controllers.CheckController.ExportToExcel2 (Cola)' 
+2025-03-03 11:21:42.4946 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/Export/Juice?inputTime=2025-03-02&shift=%E7%99%BD%E7%8F%AD - 200 13131 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 3401.5752ms 
+2025-03-03 11:22:52.5150 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/Export/Juice?inputTime=2025-03-02&shift=%E7%99%BD%E7%8F%AD - - - 
+2025-03-03 11:22:52.5260 INFO Executing endpoint 'Cola.Controllers.CheckController.ExportToExcel2 (Cola)' 
+2025-03-03 11:22:52.5260 INFO Route matched with {action = "ExportToExcel2", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportToExcel2(System.DateTime, System.String) on controller Cola.Controllers.CheckController (Cola). 
+2025-03-03 11:28:50.3339 INFO Now listening on: https://localhost:7086 
+2025-03-03 11:28:50.3339 INFO Now listening on: http://localhost:5064 
+2025-03-03 11:28:50.3828 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 11:28:50.3828 INFO Hosting environment: Development 
+2025-03-03 11:28:50.3828 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-03-03 11:28:51.0580 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-03-03 11:28:51.1962 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 142.5951ms 
+2025-03-03 11:28:51.1962 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-03-03 11:28:51.2484 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 46.7646ms 
+2025-03-03 11:28:51.2484 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-03-03 11:28:51.2484 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-03-03 11:28:51.2484 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-03-03 11:28:51.2484 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-03-03 11:28:51.2484 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-03-03 11:28:51.2731 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 21.3256ms 
+2025-03-03 11:28:51.3037 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-03-03 11:28:51.3037 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-03-03 11:28:51.3037 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 54.3450ms 
+2025-03-03 11:28:51.3037 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 54.2429ms 
+2025-03-03 11:28:51.3037 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-03-03 11:28:51.3037 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 56.4112ms 
+2025-03-03 11:28:51.3240 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 71.6881ms 
+2025-03-03 11:28:51.4640 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-03-03 11:28:51.4640 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 6.8415ms 
+2025-03-03 11:29:14.5322 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/Export/Juice?inputTime=2025-03-02&shift=%E7%99%BD%E7%8F%AD - - - 
+2025-03-03 11:29:14.5605 INFO Executing endpoint 'Cola.Controllers.CheckController.ExportToExcel2 (Cola)' 
+2025-03-03 11:29:14.5800 INFO Route matched with {action = "ExportToExcel2", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportToExcel2(System.DateTime, System.String) on controller Cola.Controllers.CheckController (Cola). 
+2025-03-03 11:29:16.3171 INFO 开始获取设备 7 在 03/02/2025 00:00:00 的整点检查数据 
+2025-03-03 11:29:17.7304 INFO Executing FileContentResult, sending file with download name '果肉杀菌在线混合记录表模板.xlsx' ... 
+2025-03-03 11:29:17.7433 INFO Executed action Cola.Controllers.CheckController.ExportToExcel2 (Cola) in 3160.0445ms 
+2025-03-03 11:29:17.7433 INFO Executed endpoint 'Cola.Controllers.CheckController.ExportToExcel2 (Cola)' 
+2025-03-03 11:29:17.7433 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/Export/Juice?inputTime=2025-03-02&shift=%E7%99%BD%E7%8F%AD - 200 12933 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 3212.1657ms 
+2025-03-03 13:12:44.6355 INFO Now listening on: https://localhost:7086 
+2025-03-03 13:12:44.6355 INFO Now listening on: http://localhost:5064 
+2025-03-03 13:12:44.6877 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 13:12:44.6877 INFO Hosting environment: Development 
+2025-03-03 13:12:44.6877 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-03-03 13:12:45.1208 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-03-03 13:12:45.2288 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 113.4876ms 
+2025-03-03 13:12:45.2288 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-03-03 13:12:45.2781 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 45.1468ms 
+2025-03-03 13:12:45.2781 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-03-03 13:12:45.2781 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-03-03 13:12:45.2781 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-03-03 13:12:45.2781 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-03-03 13:12:45.2781 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-03-03 13:12:45.3004 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 17.8040ms 
+2025-03-03 13:12:45.3365 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-03-03 13:12:45.3365 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-03-03 13:12:45.3365 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 57.6893ms 
+2025-03-03 13:12:45.3365 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 57.1111ms 
+2025-03-03 13:12:45.3365 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-03-03 13:12:45.3365 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 59.3672ms 
+2025-03-03 13:12:45.3592 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 76.2028ms 
+2025-03-03 13:12:45.4903 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-03-03 13:12:45.4903 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 6.4389ms 
+2025-03-03 13:13:11.4825 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/CheckParas?deviceId=7&inputTime=2025-03-02 - - - 
+2025-03-03 13:13:11.5076 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCheckParasByDeviceId (Cola)' 
+2025-03-03 13:13:11.5224 INFO Route matched with {action = "GetCheckParasByDeviceId", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCheckParasByDeviceId(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-03-03 13:13:13.0039 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-03 13:13:13.0590 INFO Executed action Cola.Controllers.CheckController.GetCheckParasByDeviceId (Cola) in 1532.9155ms 
+2025-03-03 13:13:13.0590 INFO Executed endpoint 'Cola.Controllers.CheckController.GetCheckParasByDeviceId (Cola)' 
+2025-03-03 13:13:13.0590 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/CheckParas?deviceId=7&inputTime=2025-03-02 - 200 2009 application/json;+charset=utf-8 1577.2915ms 

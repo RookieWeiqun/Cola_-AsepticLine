@@ -124,13 +124,17 @@ namespace Cola.Extensions
                 }
             }
         }
-        public static byte[] ExportCheckDataToExcel(string templatePath, List<ExcelData> excelList)
+        public static byte[] ExportCheckDataToExcel(string templatePath, List<ExcelData> excelList, DateTime inputTime, string shift)
         {
             // Load the existing Excel template
             using (var fileStream = new FileStream(templatePath, FileMode.Open, FileAccess.Read))
             {
                 var workbook = new XSSFWorkbook(fileStream);
                 var sheet = workbook.GetSheetAt(0); // Assuming the data is in the first sheet
+
+                //handle the date and shift
+                sheet.GetRow(1).GetCell(3).SetCellValue( inputTime.ToString("yyyy-MM-dd"));
+                sheet.GetRow(1).GetCell(15).SetCellValue(shift);
 
                 // Find the row to start adding data (after the headers)
                 int startRow = 3; // Assuming the headers are in the first 3 rows
@@ -147,7 +151,11 @@ namespace Cola.Extensions
                     row.CreateCell(2).SetCellValue(excelData.ReferenceValue);
                     row.CreateCell(3).SetCellValue(excelData.Unit);
                     row.CreateCell(4).SetCellValue(excelData.ProjectName);
-
+                    int cellIndex = 6; // Assuming time-based values start from the 6th column
+                    foreach (var timeValue in excelData.TimeValues)
+                    {
+                        row.CreateCell(cellIndex++).SetCellValue(timeValue.Value);
+                    }
                     if (currentDeviceName == null)
                     {
                         currentDeviceName = excelData.DeviceName;

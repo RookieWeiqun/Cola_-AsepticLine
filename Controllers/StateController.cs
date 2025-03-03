@@ -68,6 +68,7 @@ namespace Cola.Controllers
                        s.DeviceId == deviceId &&
                        s.BeginTime >= cutoffTime &&
                        s.BeginTime <= inputTime)
+                    .Include(r => r.DeviceInfo)
                    .OrderBy(s => s.BeginTime)
                    .ToListAsync();
                 // 5. 收集所有CheckPara的ID
@@ -190,6 +191,7 @@ namespace Cola.Controllers
                        s.EndTime >= startTime &&
                        s.BeginTime <= endTime)
                    .OrderBy(s => s.BeginTime)
+                   .Include(r => r.DeviceInfo)
                    .ToListAsync();
 
                 // 3. 收集所有CheckPara的ID
@@ -330,6 +332,7 @@ namespace Cola.Controllers
                        s.EndTime >= shiftStartTime ||
                        s.BeginTime <= inputTime)
                    .OrderBy(s => s.BeginTime)
+                   .Include(r => r.DeviceInfo)
                    .ToListAsync();
 
                 // 3. 收集所有CheckPara的ID

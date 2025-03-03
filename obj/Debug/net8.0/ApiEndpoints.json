@@ -11,6 +11,11 @@
         "Name": "deviceId",
         "Type": "System.Int32",
         "IsRequired": false
+      },
+      {
+        "Name": "inputTime",
+        "Type": "System.DateTime",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [],
@@ -63,7 +68,7 @@
   {
     "ContainingType": "Cola.Controllers.CheckController",
     "Method": "ExportToExcel2",
-    "RelativePath": "api/Check/Export",
+    "RelativePath": "api/Check/Export/Juice",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -72,10 +77,15 @@
         "Name": "inputTime",
         "Type": "System.DateTime",
         "IsRequired": false
+      },
+      {
+        "Name": "shift",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [],
-    "EndpointName": "\u5BFC\u51FAexcel\u6570\u636E"
+    "EndpointName": "\u5BFC\u51FA\u679C\u6C41excel\u6570\u636E"
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",

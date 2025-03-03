@@ -36,4 +36,19 @@
         public float Temperature { get; set; }
         public float TowerWaterPressureDifference { get; set; }
     }
+    public class CheckHeadItem
+    {
+
+        public string? ProjectDescription { get; set; }
+
+        public string? ReferenceValue { get; set; }
+
+        public string? Unit { get; set; }
+
+        public string? ProjectName { get; set; }
+
+        public string? Keyname { get; set; }
+
+
+    }
 }
