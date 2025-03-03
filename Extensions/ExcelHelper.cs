@@ -124,7 +124,7 @@ namespace Cola.Extensions
                 }
             }
         }
-        public static byte[] ExportCheckDataToExcel(string templatePath, List<ExcelData> excelList, DateTime inputTime, string shift)
+        public static byte[] ExportCheckDataToExcel(string templatePath, List<ExcelData> excelList, DateTime inputTime)
         {
             // Load the existing Excel template
             using (var fileStream = new FileStream(templatePath, FileMode.Open, FileAccess.Read))
@@ -134,7 +134,7 @@ namespace Cola.Extensions
 
                 //handle the date and shift
                 sheet.GetRow(1).GetCell(3).SetCellValue( inputTime.ToString("yyyy-MM-dd"));
-                sheet.GetRow(1).GetCell(15).SetCellValue(shift);
+                //sheet.GetRow(1).GetCell(15).SetCellValue(shift);
 
                 // Find the row to start adding data (after the headers)
                 int startRow = 3; // Assuming the headers are in the first 3 rows
