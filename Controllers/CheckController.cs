@@ -564,7 +564,7 @@ namespace Cola.Controllers
                 var dayEnd = dayStart.AddDays(1);
                 //获取设备7和9的点检项
                 var keynames = await _fsql.Select<CheckPara>()
-                    .Where(c => c.DeviceId == 7 || c.DeviceId == 9)
+                    .Where(c =>  c.DeviceId == 9)
                     .OrderBy(o => o.DeviceId)
                     .ToListAsync();
                 var recipeDetailList = await _fsql.Select<RecipeDetailInfo>()
@@ -572,7 +572,7 @@ namespace Cola.Controllers
                 //获取当前时间的记录
                 var allRecords = await _fsql.Select<HisDataCheck>()
                  .Where(c =>
-                     c.DeviceId == 7 &&
+                     c.DeviceId == 9 &&
                      c.RecordTime >= dayStart &&
                      c.RecordTime < dayEnd)
                  .OrderBy(c => c.RecordTime)
@@ -582,6 +582,7 @@ namespace Cola.Controllers
 
                 // ================== 第二部分：获取整点列数据 ==================
                 var result = await GetSharpTimeForExcel(7, inputTime,0);
+                var result2 = await GetSharpTimeForExcel(9, inputTime, 0);
                 var deviceStepList = (await _fsql.Select<DeviceStep>()
                     .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
                 if (result is not null)
@@ -589,12 +590,12 @@ namespace Cola.Controllers
                     // Prepare data for ExportCheckDataToExcel method
                     var excelDataList = new List<ExcelData>();
 
-                    foreach (var item in result)
+                    foreach (var item in result2)
                     {
                         // Convert CheckDataItem to JObject
                         var dataJson = JsonConvert.SerializeObject(item.Data);
                         var dataDict = JObject.Parse(dataJson).Properties()
-                            .Where(p => p.Value.Type != JTokenType.Null && p.Value.ToObject<float>() != 0)
+                            .Where(p => p.Value.Type != JTokenType.Null && p.Value.ToObject<float>() != -1)
                             .ToDictionary(p => p.Name, p => p.Value);
 
                         foreach (var prop in dataDict)
@@ -680,7 +681,7 @@ namespace Cola.Controllers
         {
             try
             {
-                _logger.LogInformation("开始获取设备 {DeviceId} 在 {InputTime} 的整点检查数据", deviceId, inputTime);
+                _logger.LogInformation("开始获取设备 {deviceId} 在 {InputTime} 的整点检查数据",  deviceId, inputTime);
 
                 // ================== 第一部分：获取当日整点数据 ==================
                 // 1. 生成当日所有整点时间（00:00, 01:00,...,23:00）
@@ -703,7 +704,7 @@ namespace Cola.Controllers
                 var dayEnd = dayStart.AddDays(1);
                 var allRecords = await _fsql.Select<HisDataCheck>()
                     .Where(c =>
-                        c.DeviceId == deviceId &&
+                        c.DeviceId==deviceId &&
                         c.RecordTime >= dayStart &&
                         c.RecordTime < dayEnd)
                     .ToListAsync();
@@ -791,7 +792,7 @@ namespace Cola.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "获取设备 {DeviceId} 数据失败 | 输入时间：{InputTime}", deviceId, inputTime);
+                _logger.LogError(ex, "获取设备 {deviceId} 数据失败 | 输入时间：{InputTime}",  deviceId, inputTime);
                 return null;
             }
         }
