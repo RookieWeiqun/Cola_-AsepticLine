@@ -23,9 +23,14 @@ namespace Cola.Model {
 		[JsonProperty, Column(Name = "desc")]
 		public string Desc { get; set; }
 
+		[JsonProperty, Column(Name = "device_list", StringLength = 50)]
+		public string DeviceList { get; set; }
+
 		[JsonProperty, Column(Name = "name", StringLength = 50)]
 		public string Name { get; set; }
 
-	}
+        [JsonProperty, Column(Name = "report")]
+        public int? Report { get; set; }
+    }
 
 }

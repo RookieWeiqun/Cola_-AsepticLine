@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Check/currunt": {
+    "/api/Check/currunt/previous": {
       "get": {
         "tags": [
           "Check"
@@ -36,7 +36,7 @@
         }
       }
     },
-    "/api/Check/sharp": {
+    "/api/Check/sharp/previous": {
       "get": {
         "tags": [
           "Check"
@@ -67,7 +67,7 @@
         }
       }
     },
-    "/api/Check/currunt/test": {
+    "/api/Check/currunt": {
       "get": {
         "tags": [
           "Check"
@@ -98,7 +98,7 @@
         }
       }
     },
-    "/api/Check/sharp/test": {
+    "/api/Check/sharp": {
       "get": {
         "tags": [
           "Check"
@@ -119,6 +119,14 @@
             "schema": {
               "type": "string",
               "format": "date-time"
+            }
+          },
+          {
+            "name": "shift",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -160,6 +168,19 @@
         }
       }
     },
+    "/api/Check/deviceList": {
+      "get": {
+        "tags": [
+          "Check"
+        ],
+        "operationId": "设备列表",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Check/Export/Juice": {
       "get": {
         "tags": [
@@ -179,7 +200,8 @@
             "name": "shift",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],

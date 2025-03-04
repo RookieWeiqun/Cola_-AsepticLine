@@ -33,7 +33,7 @@ Func<IServiceProvider, IFreeSql> fsqlFactory = r =>
         .UseMonitorCommand(cmd => Console.WriteLine($"Sql：{cmd.CommandText}"))
         .UseAutoSyncStructure(true) //自动同步实体结构到数据库，只有CRUD时才会生成表
         .Build();
-    fsql.CodeFirst.SyncStructure<CheckPara>();
+    //fsql.CodeFirst.SyncStructure<DeviceType>();
     return fsql;
 };
 

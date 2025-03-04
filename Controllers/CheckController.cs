@@ -23,7 +23,7 @@ namespace Cola.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("currunt", Name = "获取当前时间点检数据")]
+        [HttpGet("currunt/previous", Name = "获取当前时间点检数据")]
         public async Task<IActionResult> GetCurrentTimeCheckData([FromQuery] int deviceId, [FromQuery] DateTime inputTime)
         {
             try
@@ -158,7 +158,7 @@ namespace Cola.Controllers
                 return StatusCode(500, new ApiResponse<object>(500, null, $"服务器内部错误：{ex.Message}"));
             }
         }
-        [HttpGet("sharp", Name = "获取整点时间点检数据")]
+        [HttpGet("sharp/previous", Name = "获取整点时间点检数据")]
         public async Task<IActionResult> GetSharpTimeCheckData([FromQuery] int deviceId, [FromQuery] DateTime inputTime)
         {
             try
@@ -322,12 +322,20 @@ namespace Cola.Controllers
             }
         }
 
-        [HttpGet("currunt/test", Name = "获取当前时间点检数据/测试接口")]
+        [HttpGet("currunt", Name = "获取当前时间点检数据/测试接口")]
         public async Task<IActionResult> GetCurrentTimeCheckData2([FromQuery] int deviceId, [FromQuery] DateTime inputTime)
         {
             try
             {
                 _logger.LogInformation("开始获取设备 {DeviceId} 在 {InputTime} 的检查数据", deviceId, inputTime);
+                // 获取设备列表中的第一个设备当作deviceId，后续看客户需求
+                var deviceIds = await _fsql.Select<DeviceType>()
+                    .Where(n => n.Id == deviceId)
+                    .FirstAsync(n=>n.DeviceList);
+                List<int> deviceIdList = deviceIds.Split(',')
+                                  .Select(int.Parse)
+                                  .ToList();
+                deviceId = deviceIdList[0];
 
                 // ================== 第一部分：获取当前时间的记录 ==================
                 var closestRecord = await _fsql.Select<HisDataCheck>()
@@ -402,21 +410,48 @@ namespace Cola.Controllers
                 return StatusCode(500, new ApiResponse<object>(500, null, $"�������ڲ�����{ex.Message}"));
             }
         }
-        [HttpGet("sharp/test", Name = "获取整点时间点检数据test")]
-        public async Task<IActionResult> GetSharpTimeCheckData2([FromQuery] int deviceId, [FromQuery] DateTime inputTime)
+        [HttpGet("sharp", Name = "获取整点时间点检数据test")]
+        public async Task<IActionResult> GetSharpTimeCheckData2([FromQuery] int deviceId, [FromQuery] DateTime inputTime, [FromQuery] int shift)
         {
             try
             {
                 _logger.LogInformation("开始获取设备 {DeviceId} 在 {InputTime} 的整点检查数据", deviceId, inputTime);
-
+                // 获取设备列表中的第一个设备当作deviceId，后续看客户需求
+                var deviceIds = await _fsql.Select<DeviceType>()
+                    .Where(n => n.Id == deviceId)
+                    .FirstAsync(n => n.DeviceList);
+                List<int> deviceIdList = deviceIds.Split(',')
+                                  .Select(int.Parse)
+                                  .ToList();
+                deviceId = deviceIdList[0];
                 // ================== 第一部分：获取当日整点数据 ==================
                 // 1. 生成当日所有整点时间（00:00, 01:00,...,23:00）
                 var dayStart = inputTime.Date;
-                var hourlyPoints = Enumerable.Range(0, 24)
-                    .Select(h => dayStart.AddHours(h))
-                    .ToList();
-
-                // 2. 查询当天所有数据
+       
+                List<DateTime> hourlyPoints = new List<DateTime>();
+                if (shift == 0)
+                {
+                    hourlyPoints = Enumerable.Range(7, 12)
+                        .Select(h => dayStart.AddHours(h)) // 7:00 ~ 18:00
+                        .ToList();
+                }
+                // Shift 1: 晚7点至次日早7点（共12小时）
+                else if (shift == 1)
+                {
+                    hourlyPoints = Enumerable.Range(19, 5) // 当日19:00 ~ 23:00（5小时）
+                        .Select(h => dayStart.AddHours(h))
+                        .Concat(Enumerable.Range(0, 7) // 次日0:00 ~ 6:00（7小时）
+                            .Select(h => dayStart.AddDays(1).AddHours(h)))
+                        .ToList();
+                }
+                else 
+                {
+                    hourlyPoints = Enumerable.Range(0, 24)
+                        .Select(h => dayStart.AddHours(h))
+                        .ToList();
+                }
+                // 2. 查询当天7点到第二天7点的所有数据
+                dayStart = inputTime.Date.AddHours(7);
                 var dayEnd = dayStart.AddDays(1);
                 var allRecords = await _fsql.Select<HisDataCheck>()
                     .Where(c =>
@@ -554,6 +589,22 @@ namespace Cola.Controllers
         }
 
 
+        [HttpGet("deviceList", Name = "设备列表")]
+        public async Task<IActionResult> GetDeviceList()
+        {
+            try
+            {
+                var devicelist = await _fsql.Select<DeviceType>()
+                    .Where(c => c.Report == 1)
+                    .ToListAsync(c=> new{ c.Id,c.Name});
+                    return Ok(new ApiResponse<IEnumerable<object>>(200, devicelist, "成功"));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "获取设别列表失败");
+                return StatusCode(500, new ApiResponse<object>(500, null, $"服务器内部错误：{ex.Message}"));
+            }
+        }
         //[HttpGet("Export/Juice", Name = "导出果汁excel数据")]
         //public async Task<IActionResult> ExportToExcel2( [FromQuery] DateTime inputTime, [FromQuery] string shift)
         //{
@@ -798,21 +849,21 @@ namespace Cola.Controllers
         //}
 
         [HttpGet("Export/Juice", Name = "导出果汁excel数据")]
-        public async Task<IActionResult> ExportToExcel2([FromQuery] DateTime inputTime, [FromQuery] string shift)
+        public async Task<IActionResult> ExportToExcel2([FromQuery] DateTime inputTime, [FromQuery] int shift)
         {
             try
             {
                 var deviceIds = new List<int> { 7, 9 };
-                var excelDataList = await GetSharpTimeForExcel(deviceIds, inputTime, shift == "0" ? 0 : 1);
+                var excelDataList = await GetSharpTimeForExcel(deviceIds, inputTime, shift);
 
                 if (excelDataList != null)
                 {
                     string templatePath = "";
-                    if (shift == "0") 
+                    if (shift == 0) 
                     {
                         templatePath = Path.Combine(Directory.GetCurrentDirectory(), "Template", "果肉杀菌在线混合记录表模板_白班.xlsx");
                     }
-                    else if (shift == "1")
+                    else if (shift == 1)
                     {
                         templatePath = Path.Combine(Directory.GetCurrentDirectory(), "Template", "果肉杀菌在线混合记录表模板_夜班.xlsx");
                     }
