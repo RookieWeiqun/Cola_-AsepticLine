@@ -26,4 +26,5 @@
         public int? Capacity { get; set; }
 
     }
+
 }

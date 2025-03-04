@@ -5,6 +5,7 @@ using Cola.Model;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Linq;
 
 namespace Cola.Controllers
 {
@@ -332,9 +333,17 @@ namespace Cola.Controllers
                 var deviceIds = await _fsql.Select<DeviceType>()
                     .Where(n => n.Id == deviceId)
                     .FirstAsync(n=>n.DeviceList);
+                if (deviceIds == null)
+                {
+                    return NotFound(new ApiResponse<object>(200, null, "deviceIds为null未找到数据"));
+                }
                 List<int> deviceIdList = deviceIds.Split(',')
                                   .Select(int.Parse)
                                   .ToList();
+                if(deviceIdList.Count == 0)
+                {
+                    return NotFound(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
+                }
                 deviceId = deviceIdList[0];
 
                 // ================== 第一部分：获取当前时间的记录 ==================
@@ -402,12 +411,12 @@ namespace Cola.Controllers
                     resultItem.Data = checkDataItem;
                 }
 
-                return Ok(new ApiResponse<CheckDataResult>(200, resultItem, "�ɹ�"));
+                return Ok(new ApiResponse<CheckDataResult>(200, resultItem, "成功"));
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "��ȡ�豸 {DeviceId} ����ʧ�� | ����ʱ�䣺{InputTime}", deviceId, inputTime);
-                return StatusCode(500, new ApiResponse<object>(500, null, $"�������ڲ�����{ex.Message}"));
+                _logger.LogError(ex, "获取设备 {DeviceId} 数据失败 | 输入时间：{InputTime}", deviceId, inputTime);
+                return StatusCode(500, new ApiResponse<object>(500, null, $"服务器内部错误：{ex.Message}"));
             }
         }
         [HttpGet("sharp", Name = "获取整点时间点检数据test")]
@@ -420,9 +429,17 @@ namespace Cola.Controllers
                 var deviceIds = await _fsql.Select<DeviceType>()
                     .Where(n => n.Id == deviceId)
                     .FirstAsync(n => n.DeviceList);
+                if(deviceIds == null)
+                {
+                    return NotFound(new ApiResponse<object>(200, null, "deviceIds为null未找到数据"));
+                }
                 List<int> deviceIdList = deviceIds.Split(',')
                                   .Select(int.Parse)
                                   .ToList();
+                if (deviceIdList.Count == 0)
+                {
+                    return NotFound(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
+                }
                 deviceId = deviceIdList[0];
                 // ================== 第一部分：获取当日整点数据 ==================
                 // 1. 生成当日所有整点时间（00:00, 01:00,...,23:00）
@@ -549,10 +566,25 @@ namespace Cola.Controllers
         }
 
         [HttpGet("CheckParas", Name = "通过设备Id获取点检列表")]
-        public async Task<IActionResult> GetCheckParasByDeviceId([FromQuery] int deviceId, [FromQuery] DateTime inputTime)
+        public async Task<IActionResult> GetCheckParasByDeviceId([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime)
         {
+            //处理deviceId
+            var deviceIds = await _fsql.Select<DeviceType>()
+              .Where(n => n.Id == deviceTypeId)
+              .FirstAsync(n => n.DeviceList);
+            if (deviceIds == null)
+            {
+                return NotFound(new ApiResponse<object>(200, null, "deviceIds为null未找到数据"));
+            }
+            List<int> deviceIdList = deviceIds.Split(',')
+                              .Select(int.Parse)
+                              .ToList();
+            if (deviceIdList.Count == 0)
+            {
+                return NotFound(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
+            }
             // ================== 第一部分：获取表头数据 ==================
-            var dayStart = inputTime.Date;
+            var dayStart = inputTime.Date.AddHours(7);
             var dayEnd = dayStart.AddDays(1);
             //获取设备7和9的点检项
             var recipeDetailList = await _fsql.Select<RecipeDetailInfo>()
@@ -560,15 +592,18 @@ namespace Cola.Controllers
             //获取当前时间的记录来获取recipe_id
             var allRecords = await _fsql.Select<HisDataCheck>()
              .Where(c =>
-                 c.DeviceId == deviceId &&
+                 deviceIdList.Contains(c.DeviceId.Value) &&
                  c.RecordTime >= dayStart &&
                  c.RecordTime < dayEnd)
              .OrderBy(c => c.RecordTime)
              .ToListAsync();
+            //var recordsByDevice = allRecords
+            //.GroupBy(c => c.DeviceId.Value)
+            // .ToDictionary(g => g.Key, g => g.ToList());
             //取allRecords最后一个recordtime的recipe_id
             var recipeId = allRecords.LastOrDefault()?.RecipeId;
             var keynames = await _fsql.Select<CheckPara>()
-                .Where(c => c.DeviceId == deviceId)
+                .Where(c => deviceIdList.Contains(c.DeviceId.Value))
                 .ToListAsync();
             List<CheckHeadItem> checkHeads  = new List<CheckHeadItem>();
             foreach (var name in keynames )
@@ -579,7 +614,8 @@ namespace Cola.Controllers
                     ReferenceValue = recipeDetailList.FirstOrDefault(r => r.RecipeId == recipeId && r.CheckParaId == name.Id)?.Lower ?? "null",
                     Unit = name.Unit,
                     ProjectName = name.Name,
-                    Keyname = name.KeyName
+                    Keyname = name.KeyName,
+                    DeviceId=name.DeviceId
                 };
                    
                 checkHeads.Add(item);
@@ -849,12 +885,26 @@ namespace Cola.Controllers
         //}
 
         [HttpGet("Export/Juice", Name = "导出果汁excel数据")]
-        public async Task<IActionResult> ExportToExcel2([FromQuery] DateTime inputTime, [FromQuery] int shift)
+        public async Task<IActionResult> ExportToExcel2([FromQuery] int deviceId, [FromQuery] DateTime inputTime, [FromQuery] int shift)
         {
             try
             {
-                var deviceIds = new List<int> { 7, 9 };
-                var excelDataList = await GetSharpTimeForExcel(deviceIds, inputTime, shift);
+                var deviceIds = await _fsql.Select<DeviceType>()
+               .Where(n => n.Id == deviceId)
+               .FirstAsync(n => n.DeviceList);
+                if (deviceIds == null)
+                {
+                    return NotFound(new ApiResponse<object>(200, null, "deviceIds为null未找到数据"));
+                }
+                List<int> deviceIdList = deviceIds.Split(',')
+                                  .Select(int.Parse)
+                                  .ToList();
+                if (deviceIdList.Count == 0)
+                {
+                    return NotFound(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
+                }
+
+                var excelDataList = await GetSharpTimeForExcel(deviceIdList, inputTime, shift);
 
                 if (excelDataList != null)
                 {

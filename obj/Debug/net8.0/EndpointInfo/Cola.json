@@ -145,7 +145,7 @@
         "operationId": "通过设备Id获取点检列表",
         "parameters": [
           {
-            "name": "deviceId",
+            "name": "deviceTypeId",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -188,6 +188,14 @@
         ],
         "operationId": "导出果汁excel数据",
         "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
           {
             "name": "inputTime",
             "in": "query",

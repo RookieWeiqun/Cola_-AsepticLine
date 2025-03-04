@@ -8,7 +8,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "deviceId",
+        "Name": "deviceTypeId",
         "Type": "System.Int32",
         "IsRequired": false
       },
@@ -84,6 +84,11 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "deviceId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
       {
         "Name": "inputTime",
         "Type": "System.DateTime",

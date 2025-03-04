@@ -50,6 +50,8 @@
 
         public string? Keyname { get; set; }
 
+        public int? DeviceId { get; set; }
+
 
     }
 }
