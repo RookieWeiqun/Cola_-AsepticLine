@@ -124,7 +124,7 @@ namespace Cola.Extensions
                 }
             }
         }
-        public static byte[] ExportCheckDataToExcel(string templatePath, List<ExcelData> excelList, DateTime inputTime)
+        public static byte[] ExportCheckDataToExcel(string templatePath, List<ExcelData> excelList, DateTime inputTime,string title)
         {
             // Load the existing Excel template
             using (var fileStream = new FileStream(templatePath, FileMode.Open, FileAccess.Read))
@@ -132,7 +132,8 @@ namespace Cola.Extensions
                 var workbook = new XSSFWorkbook(fileStream);
                 var sheet = workbook.GetSheetAt(0); // Assuming the data is in the first sheet
 
-                //handle the date and shift
+                //handle the date and title
+                sheet.GetRow(0).GetCell(0).SetCellValue(title);
                 sheet.GetRow(1).GetCell(3).SetCellValue( inputTime.ToString("yyyy-MM-dd"));
                 //sheet.GetRow(1).GetCell(15).SetCellValue(shift);
 
@@ -143,19 +144,69 @@ namespace Cola.Extensions
                 string currentDeviceName = null;
                 int mergeStartRow = startRow;
 
+                //foreach (var excelData in excelList)
+                //{
+                //    var row = sheet.CreateRow(startRow++);
+                //    row.CreateCell(0).SetCellValue(excelData.DeviceName);
+                //    row.CreateCell(1).SetCellValue(excelData.ProjectDescription);
+                //    row.CreateCell(2).SetCellValue(excelData.ReferenceValue);
+                //    row.CreateCell(3).SetCellValue(excelData.Unit);
+                //    row.CreateCell(4).SetCellValue(excelData.ProjectName);
+                //    int cellIndex = 6; // Assuming time-based values start from the 6th column
+                //    foreach (var timeValue in excelData.TimeValues)
+                //    {
+                //        row.CreateCell(cellIndex++).SetCellValue(timeValue.Value);
+                //    }
+                //    if (currentDeviceName == null)
+                //    {
+                //        currentDeviceName = excelData.DeviceName;
+                //    }
+                //    else if (currentDeviceName != excelData.DeviceName)
+                //    {
+                //        // Merge cells for the previous DeviceName
+                //        if (mergeStartRow < startRow - 1)
+                //        {
+                //            sheet.AddMergedRegion(new CellRangeAddress(mergeStartRow, startRow - 2, 0, 0));
+                //        }
+                //        currentDeviceName = excelData.DeviceName;
+                //        mergeStartRow = startRow - 1;
+                //    }
+                //}
                 foreach (var excelData in excelList)
                 {
                     var row = sheet.CreateRow(startRow++);
-                    row.CreateCell(0).SetCellValue(excelData.DeviceName);
-                    row.CreateCell(1).SetCellValue(excelData.ProjectDescription);
-                    row.CreateCell(2).SetCellValue(excelData.ReferenceValue);
-                    row.CreateCell(3).SetCellValue(excelData.Unit);
-                    row.CreateCell(4).SetCellValue(excelData.ProjectName);
+                    var cellStyle = workbook.CreateCellStyle();
+                    cellStyle.Alignment = HorizontalAlignment.Center;
+                    cellStyle.VerticalAlignment = VerticalAlignment.Center;
+
+                    var cell0 = row.CreateCell(0);
+                    cell0.SetCellValue(excelData.DeviceName);
+                    cell0.CellStyle = cellStyle;
+
+                    var cell1 = row.CreateCell(1);
+                    cell1.SetCellValue(excelData.ProjectDescription);
+                    cell1.CellStyle = cellStyle;
+
+                    var cell2 = row.CreateCell(2);
+                    cell2.SetCellValue(excelData.ReferenceValue);
+                    cell2.CellStyle = cellStyle;
+
+                    var cell3 = row.CreateCell(3);
+                    cell3.SetCellValue(excelData.Unit);
+                    cell3.CellStyle = cellStyle;
+
+                    var cell4 = row.CreateCell(4);
+                    cell4.SetCellValue(excelData.ProjectName);
+                    cell4.CellStyle = cellStyle;
+
                     int cellIndex = 6; // Assuming time-based values start from the 6th column
                     foreach (var timeValue in excelData.TimeValues)
                     {
-                        row.CreateCell(cellIndex++).SetCellValue(timeValue.Value);
+                        var cell = row.CreateCell(cellIndex++);
+                        cell.SetCellValue(timeValue.Value);
+                        cell.CellStyle = cellStyle;
                     }
+
                     if (currentDeviceName == null)
                     {
                         currentDeviceName = excelData.DeviceName;
@@ -171,7 +222,6 @@ namespace Cola.Extensions
                         mergeStartRow = startRow - 1;
                     }
                 }
-
                 // Merge cells for the last DeviceName
                 if (mergeStartRow < startRow - 1)
                 {

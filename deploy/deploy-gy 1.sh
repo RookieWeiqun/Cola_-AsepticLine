@@ -10,31 +10,41 @@ fi
 
 echo "开始远程部署 - $(date)"
 
-echo "开始部署您的项目..."
+echo "开始部署.NET后端项目..."
 
-# 1. 克隆项目代码
-# echo "1. 克隆项目代码..."
-# git clone https://git.zhouxhere.com/wonderzhao/cola-web.git
 
-# 2. 进入项目目录
-# echo "2. 进入项目目录..."
-# cd cola-web
+# 1. 传输文件到服务器
+echo "2. 传输文件到服务器..."
+# 传输项目文件和 Dockerfile
+scp -r -P ${REMOTE_PORT} ../../Cola/* ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH}/
 
-# 3. 安装依赖
-# echo "3. 安装依赖..."
-# npm install
+# 2. 在远程服务器上执行部署
+echo "3. 在远程服务器上执行部署..."
+ssh -p ${REMOTE_PORT} ${REMOTE_USER}@${REMOTE_HOST} << EOF
+    set -e  # 遇到错误立即退出
 
-# 4. 构建项目
-echo "4. 构建项目..."
-npm run build
+    echo "===== 开始执行远程部署 ====="
+    
+    # 进入项目目录构建镜像
+    cd ${REMOTE_PATH}
+    docker build -t ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} .
+    
+    # 返回上级目录执行 docker-compose
+    cd ../../
+    docker-compose down
+    docker-compose up -d
 
-# 5. 构建 Docker 镜像
-echo "5. 构建 Docker 镜像..."
-docker build -t ${DOCKER_IMAGE_NAME} .
+    # 清理不再使用的镜像
+    docker image prune -f
+EOF
 
-# 6. 保存镜像为 tar 文件
-echo "6. 保存 Docker 镜像..."
-docker save ${DOCKER_IMAGE_NAME} > ${DOCKER_IMAGE_NAME}.tar
+
+
+
+
+
+
+
 
 # 7. 传输文件到服务器
 echo "7. 传输文件到服务器..."

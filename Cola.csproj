@@ -37,6 +37,12 @@
     <None Update="Template\果肉杀菌在线混合记录表模板.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Template\果肉杀菌在线混合记录表模板_夜班.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Template\果肉杀菌在线混合记录表模板_白班.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

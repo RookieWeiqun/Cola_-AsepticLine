@@ -4,10 +4,10 @@
 REMOTE_HOST="192.168.1.199"        # 实际服务器IP,局域网IP
 REMOTE_USER="owner"                # 实际用户名
 REMOTE_PORT="22"                   # SSH 端口
-REMOTE_PATH="/home/owner/web"      # 实际部署路径
-DOCKER_IMAGE_NAME="cola-web"       # 实际镜像名称
-DOCKER_CONTAINER_NAME="cola-web-container" # 实际容器名称
-APP_PORT=8090                      # 实际应用端口
+REMOTE_PATH="/home/owner/dotnet/cola_-aseptic-line2"      # 实际部署路径
+DOCKER_IMAGE_NAME="dotnet-app"       # 实际镜像名称
+DOCKER_CONTAINER_NAME="dotnet-app:latest" # 实际容器名称
+APP_PORT=8080                      # 实际应用端口
 
 # SSH 连接配置
 SSH_CONNECT_TIMEOUT=10            # SSH 连接超时时间（秒）

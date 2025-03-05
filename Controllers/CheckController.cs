@@ -41,7 +41,7 @@ namespace Cola.Controllers
                     .FirstAsync();
                 if (closestRecord == null)
                 {
-                    return NotFound(new ApiResponse<object>(200, null, "未找到数据"));
+                    return Ok(new ApiResponse<object>(200, null, "未找到数据"));
                 }
 
                 // ================== 第二部分：处理数据转换 ==================
@@ -335,14 +335,14 @@ namespace Cola.Controllers
                     .FirstAsync(n=>n.DeviceList);
                 if (deviceIds == null)
                 {
-                    return NotFound(new ApiResponse<object>(200, null, "deviceIds为null未找到数据"));
+                    return Ok(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
                 }
                 List<int> deviceIdList = deviceIds.Split(',')
                                   .Select(int.Parse)
                                   .ToList();
                 if(deviceIdList.Count == 0)
                 {
-                    return NotFound(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
+                    return Ok(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
                 }
                 deviceId = deviceIdList[0];
 
@@ -356,7 +356,7 @@ namespace Cola.Controllers
                     .FirstAsync();
                 if (closestRecord == null)
                 {
-                    return NotFound(new ApiResponse<object>(200, null, "未找到数据"));
+                    return Ok(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
                 }
 
                 // ================== 第二部分：处理数据转换 ==================
@@ -431,14 +431,15 @@ namespace Cola.Controllers
                     .FirstAsync(n => n.DeviceList);
                 if(deviceIds == null)
                 {
-                    return NotFound(new ApiResponse<object>(200, null, "deviceIds为null未找到数据"));
+                    return Ok(new ApiResponse<object>(200, null, "deviceIds为null未找到数据"));
+
                 }
                 List<int> deviceIdList = deviceIds.Split(',')
                                   .Select(int.Parse)
                                   .ToList();
                 if (deviceIdList.Count == 0)
                 {
-                    return NotFound(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
+                    return Ok(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
                 }
                 deviceId = deviceIdList[0];
                 // ================== 第一部分：获取当日整点数据 ==================
@@ -574,14 +575,14 @@ namespace Cola.Controllers
               .FirstAsync(n => n.DeviceList);
             if (deviceIds == null)
             {
-                return NotFound(new ApiResponse<object>(200, null, "deviceIds为null未找到数据"));
+                return Ok(new ApiResponse<object>(200, null, "deviceIds为null未找到数据"));
             }
             List<int> deviceIdList = deviceIds.Split(',')
                               .Select(int.Parse)
                               .ToList();
             if (deviceIdList.Count == 0)
             {
-                return NotFound(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
+                return Ok(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
             }
             // ================== 第一部分：获取表头数据 ==================
             var dayStart = inputTime.Date.AddHours(7);
@@ -885,23 +886,23 @@ namespace Cola.Controllers
         //}
 
         [HttpGet("Export/Juice", Name = "导出果汁excel数据")]
-        public async Task<IActionResult> ExportToExcel2([FromQuery] int deviceId, [FromQuery] DateTime inputTime, [FromQuery] int shift)
+        public async Task<IActionResult> ExportToExcel2([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime, [FromQuery] int shift)
         {
             try
             {
-                var deviceIds = await _fsql.Select<DeviceType>()
-               .Where(n => n.Id == deviceId)
-               .FirstAsync(n => n.DeviceList);
-                if (deviceIds == null)
+                var deviceType = await _fsql.Select<DeviceType>()
+               .Where(n => n.Id == deviceTypeId)
+               .FirstAsync();
+                if (deviceType == null)
                 {
-                    return NotFound(new ApiResponse<object>(200, null, "deviceIds为null未找到数据"));
+                    return Ok(new ApiResponse<object>(200, null, "deviceIds为null未找到数据"));
                 }
-                List<int> deviceIdList = deviceIds.Split(',')
+                List<int> deviceIdList = deviceType.DeviceList.Split(',')
                                   .Select(int.Parse)
                                   .ToList();
                 if (deviceIdList.Count == 0)
                 {
-                    return NotFound(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
+                    return Ok(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
                 }
 
                 var excelDataList = await GetSharpTimeForExcel(deviceIdList, inputTime, shift);
@@ -917,13 +918,13 @@ namespace Cola.Controllers
                     {
                         templatePath = Path.Combine(Directory.GetCurrentDirectory(), "Template", "果肉杀菌在线混合记录表模板_夜班.xlsx");
                     }
-                    var excelBytes = ExcelHelper.ExportCheckDataToExcel(templatePath, excelDataList, inputTime);
-                    string fileName = $"果肉杀菌在线混合记录表.xlsx";
+                    var excelBytes = ExcelHelper.ExportCheckDataToExcel(templatePath, excelDataList, inputTime,deviceType.Name);
+                    string fileName = $"{deviceType.Name}在线混合记录表.xlsx";
                     return File(excelBytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
                 }
                 else
                 {
-                    return NotFound(new ApiResponse<object>(200, null, "未找到数据"));
+                    return Ok(new ApiResponse<object>(200, null, "未找到数据"));
                 }
             }
             catch (Exception ex)
