@@ -5,6 +5,7 @@ using Cola.Model;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Dynamic;
 using System.Linq;
 
 namespace Cola.Controllers
@@ -24,7 +25,7 @@ namespace Cola.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("currunt/previous", Name = "获取当前时间点检数据")]
+        [HttpGet("currunt/previous", Name = "获取当前时间点检数据/V1")]
         public async Task<IActionResult> GetCurrentTimeCheckData([FromQuery] int deviceId, [FromQuery] DateTime inputTime)
         {
             try
@@ -159,7 +160,7 @@ namespace Cola.Controllers
                 return StatusCode(500, new ApiResponse<object>(500, null, $"服务器内部错误：{ex.Message}"));
             }
         }
-        [HttpGet("sharp/previous", Name = "获取整点时间点检数据")]
+        [HttpGet("sharp/previous", Name = "获取整点时间点检数据/V1")]
         public async Task<IActionResult> GetSharpTimeCheckData([FromQuery] int deviceId, [FromQuery] DateTime inputTime)
         {
             try
@@ -323,7 +324,7 @@ namespace Cola.Controllers
             }
         }
 
-        [HttpGet("currunt", Name = "获取当前时间点检数据/测试接口")]
+        [HttpGet("currunt", Name = "获取当前时间点检数据/V2")]
         public async Task<IActionResult> GetCurrentTimeCheckData2([FromQuery] int deviceId, [FromQuery] DateTime inputTime)
         {
             try
@@ -416,6 +417,129 @@ namespace Cola.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "获取设备 {DeviceId} 数据失败 | 输入时间：{InputTime}", deviceId, inputTime);
+                return StatusCode(500, new ApiResponse<object>(500, null, $"服务器内部错误：{ex.Message}"));
+            }
+        }
+        [HttpGet("currunt/V3", Name = "获取当前时间点检数据/V3")]
+        public async Task<IActionResult> GetCurrentTimeCheckData3([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime)
+        {
+            try
+            {
+                _logger.LogInformation("开始获取设备 {DeviceId} 在 {InputTime} 的检查数据", deviceTypeId, inputTime);
+                // 获取设备列表中的第一个设备当作deviceId，后续看客户需求
+                var deviceIds = await _fsql.Select<DeviceType>()
+                    .Where(n => n.Id == deviceTypeId)
+                    .FirstAsync(n => n.DeviceList);
+                if (deviceIds == null)
+                {
+                    return Ok(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
+                }
+                List<int> deviceIdList = deviceIds.Split(',')
+                                  .Select(int.Parse)
+                                  .ToList();
+                if (deviceIdList.Count == 0)
+                {
+                    return Ok(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
+                }
+                //deviceId = deviceIdList[0];
+
+                // ================== 第一部分：获取当前时间的记录 ==================
+                var startTime = inputTime.AddSeconds(-60);
+                var allRecords = await _fsql.Select<HisDataCheck>()
+                    .Where(c =>
+                        deviceIdList.Contains(c.DeviceId.Value) &&
+                        c.RecordTime > startTime &&
+                        c.RecordTime <= inputTime)
+                    .Include(c => c.DeviceInfo)
+                    .OrderByDescending(c => c.RecordTime)
+                    .ToListAsync();
+                // 按设备分组
+                var recordsByDevice = allRecords
+                    .GroupBy(c => c.DeviceId.Value)
+                    .ToDictionary(g => g.Key, g => g.ToList());
+                // 找到每个设备与 inputTime 最接近的记录
+                var closestRecords = new List<HisDataCheck>();
+
+                foreach (var deviceId in deviceIdList)
+                {
+                    if (recordsByDevice.TryGetValue(deviceId, out var deviceRecords))
+                    {
+                        var closestRecord = deviceRecords
+                            .OrderBy(c => Math.Abs((c.RecordTime - inputTime).Value.Ticks))
+                            .FirstOrDefault();
+
+                        if (closestRecord != null)
+                        {
+                            closestRecords.Add(closestRecord);
+                        }
+                    }
+                }
+
+                if (closestRecords.Count == 0)
+                {
+                    return Ok(new ApiResponse<object>(200, null, "未根据deviceIdList查询出HisDataCheck"));
+                }
+                // ================== 第二部分：处理数据转换 ==================
+                var results = new List<CheckDataResult2>();
+                foreach (var closestRecord in closestRecords)
+                {
+                    // 1. 收集所有CheckPara的ID
+                    var allCheckParaIds = ((JObject)closestRecord.Data)
+                        .Properties()
+                        .Select(p => int.Parse(p.Name))
+                        .Distinct()
+                        .ToList();
+                    // 2. 批量查询CheckPara
+                    var checkParas = await _fsql.Select<CheckPara>()
+                        .Where(c => allCheckParaIds.Contains(c.Id))
+                        .ToDictionaryAsync(c => c.Id);
+                    // 3. 获取去重后的keynames
+                    var keynames = await _fsql.Select<CheckPara>()
+                        .Where(c => c.Checked == 1)
+                        .Distinct()
+                        .ToListAsync(c => c.KeyName);
+                    // 4. 构建结果
+                    var resultItem = new CheckDataResult2
+                    {
+                        Id = closestRecord.Id,
+                        DeviceId = closestRecord.DeviceId,
+                        LineId = closestRecord.LineId,
+                        RecipeId = closestRecord.RecipeId,
+                        RecordTime = closestRecord.RecordTime?.ToString(),
+                    };
+                    if (closestRecord.Data != null)
+                    {
+                        var dataDict = (JObject)closestRecord.Data;
+                        dynamic checkDataItem = new ExpandoObject();
+                        var checkDataItemDict = (IDictionary<string, object>)checkDataItem;
+
+                        foreach (var keyname in keynames)
+                        {
+                            checkDataItemDict[keyname] = null; // Initialize with null or any default value
+                        }
+
+                        foreach (var prop in dataDict.Properties())
+                        {
+                            var checkParaId = int.Parse(prop.Name);
+                            if (checkParas.TryGetValue(checkParaId, out var checkPara))
+                            {
+                                if (keynames.Contains(checkPara.KeyName))
+                                {
+                                    checkDataItemDict[checkPara.KeyName] = prop.Value.ToObject<object>();
+                                }
+                            }
+                        }
+                        resultItem.Data = checkDataItem;
+                    }
+
+                    results.Add(resultItem);
+                }
+
+                return Ok(new ApiResponse<IEnumerable<CheckDataResult2>>(200, results, "成功"));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "获取设备 {DeviceId} 数据失败 | 输入时间：{InputTime}", deviceTypeId, inputTime);
                 return StatusCode(500, new ApiResponse<object>(500, null, $"服务器内部错误：{ex.Message}"));
             }
         }

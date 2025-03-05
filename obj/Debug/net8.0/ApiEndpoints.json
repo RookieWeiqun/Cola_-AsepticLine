@@ -41,7 +41,7 @@
       }
     ],
     "ReturnTypes": [],
-    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u70B9\u68C0\u6570\u636E/\u6D4B\u8BD5\u63A5\u53E3"
+    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V2"
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
@@ -63,7 +63,29 @@
       }
     ],
     "ReturnTypes": [],
-    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u70B9\u68C0\u6570\u636E"
+    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V1"
+  },
+  {
+    "ContainingType": "Cola.Controllers.CheckController",
+    "Method": "GetCurrentTimeCheckData3",
+    "RelativePath": "api/Check/currunt/V3",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "deviceTypeId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "inputTime",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V3"
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
@@ -85,7 +107,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "deviceId",
+        "Name": "deviceTypeId",
         "Type": "System.Int32",
         "IsRequired": false
       },
@@ -150,7 +172,7 @@
       }
     ],
     "ReturnTypes": [],
-    "EndpointName": "\u83B7\u53D6\u6574\u70B9\u65F6\u95F4\u70B9\u68C0\u6570\u636E"
+    "EndpointName": "\u83B7\u53D6\u6574\u70B9\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V1"
   },
   {
     "ContainingType": "Cola.Controllers.ReportController",

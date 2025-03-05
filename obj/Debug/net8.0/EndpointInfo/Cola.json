@@ -10,7 +10,7 @@
         "tags": [
           "Check"
         ],
-        "operationId": "获取当前时间点检数据",
+        "operationId": "获取当前时间点检数据/V1",
         "parameters": [
           {
             "name": "deviceId",
@@ -41,7 +41,7 @@
         "tags": [
           "Check"
         ],
-        "operationId": "获取整点时间点检数据",
+        "operationId": "获取整点时间点检数据/V1",
         "parameters": [
           {
             "name": "deviceId",
@@ -72,10 +72,41 @@
         "tags": [
           "Check"
         ],
-        "operationId": "获取当前时间点检数据/测试接口",
+        "operationId": "获取当前时间点检数据/V2",
         "parameters": [
           {
             "name": "deviceId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "inputTime",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Check/currunt/V3": {
+      "get": {
+        "tags": [
+          "Check"
+        ],
+        "operationId": "获取当前时间点检数据/V3",
+        "parameters": [
+          {
+            "name": "deviceTypeId",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -189,7 +220,7 @@
         "operationId": "导出果汁excel数据",
         "parameters": [
           {
-            "name": "deviceId",
+            "name": "deviceTypeId",
             "in": "query",
             "schema": {
               "type": "integer",

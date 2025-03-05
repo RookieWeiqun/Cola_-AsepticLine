@@ -1,9 +1,20 @@
-﻿namespace Cola.Model
+﻿using System.Dynamic;
+
+namespace Cola.Model
 {
     public class CheckDataResult
     {
         public int Id { get; set; }
         public CheckDataItem Data { get; set; } = new CheckDataItem();
+        public int? DeviceId { get; set; }
+        public int? LineId { get; set; }
+        public string? RecordTime { get; set; }
+        public int? RecipeId { get; set; }
+    }
+    public class CheckDataResult2
+    {
+        public int Id { get; set; }
+        public dynamic Data { get; set; } = new ExpandoObject();
         public int? DeviceId { get; set; }
         public int? LineId { get; set; }
         public string? RecordTime { get; set; }
