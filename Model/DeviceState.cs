@@ -20,6 +20,12 @@ namespace Cola.Model {
 		[JsonProperty, Column(Name = "id", IsPrimary = true, IsIdentity = true, InsertValueSql = "nextval('device_state_id_seq'::regclass)")]
 		public int Id { get; set; }
 
+		[JsonProperty, Column(Name = "caused")]
+		public short? Caused { get; set; }
+
+		[JsonProperty, Column(Name = "color", StringLength = 20)]
+		public string Color { get; set; }
+
 		[JsonProperty, Column(Name = "description", StringLength = -2)]
 		public string Description { get; set; }
 

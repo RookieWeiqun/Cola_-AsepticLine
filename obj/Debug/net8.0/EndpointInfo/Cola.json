@@ -134,7 +134,46 @@
         "tags": [
           "Check"
         ],
-        "operationId": "获取整点时间点检数据test",
+        "operationId": "获取整点时间点检数据/V3",
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "inputTime",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "shift",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Check/sharp/V2": {
+      "get": {
+        "tags": [
+          "Check"
+        ],
+        "operationId": "获取整点时间点检数据V2",
         "parameters": [
           {
             "name": "deviceId",
@@ -222,6 +261,7 @@
           {
             "name": "deviceTypeId",
             "in": "query",
+            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"

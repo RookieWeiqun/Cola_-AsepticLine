@@ -19,6 +19,10 @@ namespace Cola.Model
         public int? LineId { get; set; }
         public string? RecordTime { get; set; }
         public int? RecipeId { get; set; }
+        public short? HourCheckValid { get; set; } 
+        public string? HourCheckTime { get; set; }
+        public int? HourCheckStatus { get; set; }
+        public long? AlarmId { get; set; }
     }
 
     public class CheckDataItem
@@ -64,5 +68,20 @@ namespace Cola.Model
         public int? DeviceId { get; set; }
 
 
+    }
+    public class AlarmItem
+    {
+        public int? AlarmId { get; set; }
+        public string? Valule { get; set; }
+        //public int? IsAlarm { get; set; }
+        public int? CheckStatus { get; set; }
+        public string? CheckUser { get; set; }
+        public string? CheckText { get; set; }
+    }
+    public class CheckWithAlarmData
+    {
+        public HisDataCheck CheckData { get; set; } = new HisDataCheck();
+        public HisDataAlarm? AlarmData { get; set; } = new HisDataAlarm();
+        public DateTime? SharpTime { get; set; }
     }
 }

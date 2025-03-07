@@ -1,0 +1,77 @@
+2025-03-06 17:17:58.5521 INFO Now listening on: https://localhost:7086 
+2025-03-06 17:17:58.5521 INFO Now listening on: http://localhost:5064 
+2025-03-06 17:17:58.9237 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-06 17:17:58.9237 INFO Hosting environment: Development 
+2025-03-06 17:17:58.9237 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-03-06 17:17:59.7948 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-03-06 17:17:59.9334 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 143.2708ms 
+2025-03-06 17:17:59.9334 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-03-06 17:18:00.0101 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-03-06 17:18:00.0101 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-03-06 17:18:00.0101 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-03-06 17:18:00.0101 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-03-06 17:18:00.0101 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 86.6151ms 
+2025-03-06 17:18:00.0262 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 14.8065ms 
+2025-03-06 17:18:00.0865 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-03-06 17:18:00.0865 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-03-06 17:18:00.0865 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 76.2496ms 
+2025-03-06 17:18:00.0865 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 76.6021ms 
+2025-03-06 17:18:00.0899 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-03-06 17:18:00.1165 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-03-06 17:18:00.1165 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 106.5703ms 
+2025-03-06 17:18:00.1645 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 74.6353ms 
+2025-03-06 17:18:00.2968 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-03-06 17:18:00.2968 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 9.5443ms 
+2025-03-06 17:18:34.0130 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/currunt/V3?deviceTypeId=3&inputTime=2025-03-06 - - - 
+2025-03-06 17:18:34.0362 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData3 (Cola)' 
+2025-03-06 17:18:34.0638 INFO Route matched with {action = "GetCurrentTimeCheckData3", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeCheckData3(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-03-06 17:18:35.0827 INFO 开始获取设备 3 在 03/06/2025 00:00:00 的检查数据 
+2025-03-06 17:18:50.6076 ERROR 获取设备 3 数据失败 | 输入时间：03/06/2025 00:00:00 System.Exception: Exception while connecting
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.TimeoutException: Timeout during connection attempt
+   at Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.<>c__DisplayClass38_0.<<Rent>g__RentAsync|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Npgsql.NpgsqlConnection.<>c__DisplayClass41_0.<<Open>g__OpenAsync|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at FreeSql.Internal.CommonProvider.DbConnectionStringPool.GetAsync()
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteReaderMultipleAsync(Int32 multipleResult, DbConnection connection, DbTransaction transaction, Func`3 fetchHandler, Action`2 schemaHandler, CommandType cmdType, String cmdText, Int32 cmdTimeout, DbParameter[] cmdParms, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at FreeSql.Internal.CommonProvider.AdoProvider.LoggerException(IObjectPool`1 pool, PrepareCommandResult pc, Exception ex, DateTime dt, StringBuilder logtxt, Boolean isThrowException)
+   at FreeSql.Internal.CommonProvider.AdoProvider.ExecuteReaderMultipleAsync(Int32 multipleResult, DbConnection connection, DbTransaction transaction, Func`3 fetchHandler, Action`2 schemaHandler, CommandType cmdType, String cmdText, Int32 cmdTimeout, DbParameter[] cmdParms, CancellationToken cancellationToken)
+   at FreeSql.Internal.CommonProvider.Select0Provider`2.ToListMrPrivateAsync[TReturn](String sql, ReadAnonymousTypeAfInfo af, ReadAnonymousTypeOtherInfo[] otherData, CancellationToken cancellationToken)
+   at FreeSql.Internal.CommonProvider.Select0Provider`2.InternalToListAsync[TReturn](Expression select, CancellationToken cancellationToken)
+   at FreeSql.Internal.CommonProvider.Select1Provider`1.ToListAsync[TReturn](Expression`1 select, CancellationToken cancellationToken)
+   at FreeSql.Internal.CommonProvider.Select1Provider`1.ToOneAsync[TReturn](Expression`1 select, CancellationToken cancellationToken)
+   at Cola.Controllers.CheckController.GetCurrentTimeCheckData3(Int32 deviceTypeId, DateTime inputTime) in D:\cwq\MyCode\Cola_ AsepticLine\Cola\Controllers\CheckController.cs:line 430
+2025-03-06 17:18:50.6076 INFO Executing ObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-06 17:18:50.6934 INFO Executed action Cola.Controllers.CheckController.GetCurrentTimeCheckData3 (Cola) in 16625.1578ms 
+2025-03-06 17:18:50.6934 INFO Executed endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData3 (Cola)' 
+2025-03-06 17:18:50.6934 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/currunt/V3?deviceTypeId=3&inputTime=2025-03-06 - 500 87 application/json;+charset=utf-8 16681.0592ms 
+2025-03-06 17:19:45.2445 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/currunt/V3?deviceTypeId=3&inputTime=2025-03-06 - - - 
+2025-03-06 17:19:45.2483 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData3 (Cola)' 
+2025-03-06 17:19:45.2483 INFO Route matched with {action = "GetCurrentTimeCheckData3", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeCheckData3(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-03-06 17:19:45.2483 INFO 开始获取设备 3 在 03/06/2025 00:00:00 的检查数据 
+2025-03-06 17:19:45.6576 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-06 17:19:45.6576 INFO Executed action Cola.Controllers.CheckController.GetCurrentTimeCheckData3 (Cola) in 409.3482ms 
+2025-03-06 17:19:45.6576 INFO Executed endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData3 (Cola)' 
+2025-03-06 17:19:45.6576 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/currunt/V3?deviceTypeId=3&inputTime=2025-03-06 - 200 79 application/json;+charset=utf-8 416.0809ms 
+2025-03-06 17:19:52.7708 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/currunt/V3?deviceTypeId=3&inputTime=2025-03-05 - - - 
+2025-03-06 17:19:52.7708 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData3 (Cola)' 
+2025-03-06 17:19:52.7708 INFO Route matched with {action = "GetCurrentTimeCheckData3", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeCheckData3(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-03-06 17:19:52.7708 INFO 开始获取设备 3 在 03/05/2025 00:00:00 的检查数据 
+2025-03-06 17:19:52.9815 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.CheckDataResult2, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-06 17:19:52.9944 INFO Executed action Cola.Controllers.CheckController.GetCurrentTimeCheckData3 (Cola) in 222.6517ms 
+2025-03-06 17:19:52.9944 INFO Executed endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData3 (Cola)' 
+2025-03-06 17:19:52.9944 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/currunt/V3?deviceTypeId=3&inputTime=2025-03-05 - 200 3304 application/json;+charset=utf-8 224.0891ms 
+2025-03-06 17:20:27.2767 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/currunt/V3?deviceTypeId=3&inputTime=2025-03-02 - - - 
+2025-03-06 17:20:27.2767 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData3 (Cola)' 
+2025-03-06 17:20:27.2796 INFO Route matched with {action = "GetCurrentTimeCheckData3", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeCheckData3(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-03-06 17:20:27.2796 INFO 开始获取设备 3 在 03/02/2025 00:00:00 的检查数据 
+2025-03-06 17:20:27.3403 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.CheckDataResult2, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-06 17:20:27.3403 INFO Executed action Cola.Controllers.CheckController.GetCurrentTimeCheckData3 (Cola) in 61.128ms 
+2025-03-06 17:20:27.3403 INFO Executed endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData3 (Cola)' 
+2025-03-06 17:20:27.3403 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/currunt/V3?deviceTypeId=3&inputTime=2025-03-02 - 200 3369 application/json;+charset=utf-8 67.9440ms 

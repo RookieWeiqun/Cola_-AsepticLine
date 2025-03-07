@@ -38,6 +38,12 @@ namespace Cola.Model {
 		[JsonProperty, Column(Name = "no")]
 		public short? No { get; set; }
 
+		[JsonProperty, Column(Name = "report_group")]
+		public short? ReportGroup { get; set; }
+
+		[JsonProperty, Column(Name = "reported")]
+		public short? Reported { get; set; }
+
 	}
 
 }

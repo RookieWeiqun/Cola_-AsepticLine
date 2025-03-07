@@ -5,8 +5,10 @@ using Cola.Model;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.Dynamic;
 using System.Linq;
+using static FreeSql.Internal.GlobalFilter;
 
 namespace Cola.Controllers
 {
@@ -37,7 +39,7 @@ namespace Cola.Controllers
                     .Where(c =>
                         c.DeviceId == deviceId &&
                         c.RecordTime <= inputTime)  
-                    .Include(c => c.DeviceInfo) // �����豸��Ϣ
+                    .Include(c => c.DeviceInfo) 
                     .OrderByDescending(c => c.RecordTime)
                     .FirstAsync();
                 if (closestRecord == null)
@@ -443,7 +445,7 @@ namespace Cola.Controllers
                 }
                 //deviceId = deviceIdList[0];
 
-                // ================== 第一部分：获取当前时间的记录 ==================
+                // ================== 第一部分：获取当前时间的点检记录 ==================
                 var startTime = inputTime.AddSeconds(-60);
                 var allRecords = await _fsql.Select<HisDataCheck>()
                     .Where(c =>
@@ -479,7 +481,8 @@ namespace Cola.Controllers
                 {
                     return Ok(new ApiResponse<object>(200, null, "未根据deviceIdList查询出HisDataCheck"));
                 }
-                // ================== 第二部分：处理数据转换 ==================
+
+                // ================== 第二部分：处理点检数据转换 ==================
                 var results = new List<CheckDataResult2>();
                 foreach (var closestRecord in closestRecords)
                 {
@@ -525,7 +528,16 @@ namespace Cola.Controllers
                             {
                                 if (keynames.Contains(checkPara.KeyName))
                                 {
-                                    checkDataItemDict[checkPara.KeyName] = prop.Value.ToObject<object>();
+                                    // checkDataItemDict[checkPara.KeyName] = prop.Value.ToObject<object>();
+                                    checkDataItemDict[checkPara.KeyName] = new AlarmItem
+                                    {
+                                        Valule = prop.Value.ToObject<string>(),
+                                        //IsAlarm= 1,
+                                        CheckStatus = 1,
+                                        CheckUser="cwq",
+                                        CheckText= "检查文本"
+                                    };
+
                                 }
                             }
                         }
@@ -543,7 +555,186 @@ namespace Cola.Controllers
                 return StatusCode(500, new ApiResponse<object>(500, null, $"服务器内部错误：{ex.Message}"));
             }
         }
-        [HttpGet("sharp", Name = "获取整点时间点检数据test")]
+        [HttpGet("sharp", Name = "获取整点时间点检数据/V3")]//这里没有获取deviceId列表 而是只取了一个deviceId
+        public async Task<IActionResult> GetSharpTimeCheckData3([FromQuery] int deviceId, [FromQuery] DateTime inputTime, [FromQuery] int shift)
+        {
+            try
+            {
+                _logger.LogInformation("开始获取设备 {DeviceId} 在 {InputTime} 的整点检查数据", deviceId, inputTime);
+                // 获取设备列表中的第一个设备当作deviceId，后续看客户需求
+                //var deviceIds = await _fsql.Select<DeviceType>()
+                //    .Where(n => n.Id == deviceId)
+                //    .FirstAsync(n => n.DeviceList);
+                //if (deviceIds == null)
+                //{
+                //    return Ok(new ApiResponse<object>(200, null, "deviceIds为null未找到数据"));
+
+                //}
+                //List<int> deviceIdList = deviceIds.Split(',')
+                //                  .Select(int.Parse)
+                //                  .ToList();
+                //if (deviceIdList.Count == 0)
+                //{
+                //    return Ok(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
+                //}
+                //deviceId = deviceIdList[0];
+                // ================== 第一部分：获取当日整点数据 ==================
+                // 1. 生成当日所有整点时间（00:00, 01:00,...,23:00）
+                var dayStart = inputTime.Date;
+
+                List<DateTime> hourlyPoints = new List<DateTime>();
+                if (shift == 0)
+                {
+                    hourlyPoints = Enumerable.Range(7, 12)
+                        .Select(h => dayStart.AddHours(h)) // 7:00 ~ 18:00
+                        .ToList();
+                }
+                // Shift 1: 晚7点至次日早7点（共12小时）
+                else if (shift == 1)
+                {
+                    hourlyPoints = Enumerable.Range(19, 5) // 当日19:00 ~ 23:00（5小时）
+                        .Select(h => dayStart.AddHours(h))
+                        .Concat(Enumerable.Range(0, 7) // 次日0:00 ~ 6:00（7小时）
+                            .Select(h => dayStart.AddDays(1).AddHours(h)))
+                        .ToList();
+                }
+                else
+                {
+                    hourlyPoints = Enumerable.Range(0, 24)
+                        .Select(h => dayStart.AddHours(h))
+                        .ToList();
+                }
+                // 2. 查询当天7点到第二天7点的所有数据
+                dayStart = inputTime.Date.AddHours(7);
+                var dayEnd = dayStart.AddDays(1);
+                var allRecords = await _fsql.Select<HisDataCheck>()
+                    .Where(c =>
+                        c.DeviceId == deviceId &&
+                        c.RecordTime >= dayStart &&
+                        c.RecordTime < dayEnd)
+                    .ToListAsync();
+                var allAlarms = await _fsql.Select<HisDataAlarm>()
+                    .Where(c =>
+                        c.DeviceId == deviceId &&
+                        c.RecordTime >= dayStart &&
+                        c.RecordTime < dayEnd)
+                    .ToListAsync();
+                // 3. 在本地处理数据，找到每个整点附近的数据（时间窗口 ±1 分钟）
+                var hourlyDatas = new List<HisDataCheck>();
+                var hourlyAlarms = new List<HisDataAlarm>();
+                var hourslyCheckWithAlarmDatas = new List<CheckWithAlarmData>();
+                foreach (var hour in hourlyPoints)
+                {
+                    var recordsInWindow = allRecords
+                        .Where(r => r.RecordTime.HasValue &&
+                        r.RecordTime.Value.Year == hour.Year &&
+                        r.RecordTime.Value.Month == hour.Month &&
+                        r.RecordTime.Value.Day == hour.Day &&
+                        r.RecordTime.Value.Hour == hour.Hour &&
+                        r.RecordTime.Value.Minute == hour.Minute
+                        )
+                        .FirstOrDefault();
+                    var alarmsInWindow = allAlarms
+                        .Where(r => r.RecordTime.HasValue &&
+                        r.RecordTime.Value.Year == hour.Year &&
+                        r.RecordTime.Value.Month == hour.Month &&
+                        r.RecordTime.Value.Day == hour.Day &&
+                        r.RecordTime.Value.Hour == hour.Hour &&
+                        r.RecordTime.Value.Minute == hour.Minute
+                        )
+                        .FirstOrDefault();
+                    if (recordsInWindow != null)
+                    {
+                        hourslyCheckWithAlarmDatas.Add(new CheckWithAlarmData
+                        {
+                            CheckData = recordsInWindow,
+                            AlarmData = alarmsInWindow,
+                            SharpTime = hour
+
+                        });
+                    }
+                }
+                // ================== 第二部分：处理点检数据转换 ===============
+                // ================== 第二部分：处理数据转换 ==================
+                // 1. 收集所有CheckPara的ID
+                var allCheckParaIds = hourslyCheckWithAlarmDatas
+                    .Where(r => r.CheckData.Data != null)
+                    .SelectMany(r => ((JObject)r.CheckData.Data).Properties().Select(p => int.Parse(p.Name)))
+                    .Distinct()
+                    .ToList();
+                // 2. 批量查询CheckPara
+                var checkParas = await _fsql.Select<CheckPara>()
+                    .Where(c => allCheckParaIds.Contains(c.Id))
+                    .ToDictionaryAsync(c => c.Id);
+                // 3. 获取去重后的keynames
+                var keynames = await _fsql.Select<CheckPara>()
+                    .Where(c => c.Checked == 1)
+                    .Distinct()
+                    .ToListAsync(c => c.KeyName);
+
+                // 4. 构建结果
+                var checkDataItemType = typeof(CheckDataItem);
+                var results = new List<CheckDataResult2>();
+                foreach (var hourlyData in hourslyCheckWithAlarmDatas)
+                {
+                    var resultItem = new CheckDataResult2
+                    {
+                        Id = hourlyData.CheckData.Id,
+                        DeviceId = hourlyData.CheckData.DeviceId,
+                        LineId = hourlyData.CheckData.LineId,
+                        RecipeId = hourlyData.CheckData.RecipeId,
+                        RecordTime = hourlyData.SharpTime?.ToString("HH:mm"),
+                        HourCheckValid=hourlyData.AlarmData?.HourCheckValid!=null? hourlyData.AlarmData?.HourCheckValid:null,
+                        HourCheckStatus = hourlyData.AlarmData?.HourCheckStatus != null ? hourlyData.AlarmData?.HourCheckStatus : null,
+                        HourCheckTime = hourlyData.AlarmData?.HourCheckTime.ToString() != null ? hourlyData.AlarmData?.HourCheckTime.ToString() : null,
+                        AlarmId = hourlyData.AlarmData?.Id != null ? hourlyData.AlarmData?.Id : null,
+                    };
+                    if (hourlyData.CheckData != null)
+                    {
+                        var dataDict = (JObject)hourlyData.CheckData.Data;
+                        var alarmDict = (JObject)hourlyData.AlarmData?.Data;
+                        dynamic checkDataItem = new ExpandoObject();
+                        var checkDataItemDict = (IDictionary<string, object>)checkDataItem;
+
+                        foreach (var keyname in keynames)
+                        {
+                            checkDataItemDict[keyname] = null; // Initialize with null or any default value
+                        }
+
+                        foreach (var prop in dataDict.Properties())
+                        {
+                            var checkParaId = int.Parse(prop.Name);
+                            if (checkParas.TryGetValue(checkParaId, out var checkPara))
+                            {
+                                if (keynames.Contains(checkPara.KeyName))
+                                {
+                                    var alarmData = alarmDict != null && alarmDict.ContainsKey(prop.Name) ? (JObject)alarmDict[prop.Name] : null;
+                                    checkDataItemDict[checkPara.KeyName] = new AlarmItem
+                                    {
+                                        Valule = prop.Value.ToObject<string>(),
+                                        //AlarmId = alarmData != null ? alarmData["id"].ToObject<int>() : null,
+                                        //IsAlarm = 1,
+                                        CheckStatus = alarmData != null ? alarmData["check_status"].ToObject<int>() : null,
+                                        CheckUser = alarmData != null ? alarmData["check_user"].ToObject<string>() : null,
+                                        CheckText = alarmData != null ? alarmData["check_text"].ToObject<string>() : null
+                                    };
+                                }
+                            }
+                        }
+                        resultItem.Data = checkDataItem;
+                    }
+
+                    results.Add(resultItem);
+                }
+                return Ok(new ApiResponse<IEnumerable<CheckDataResult2>>(200, results, "成功"));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "获取设备 {DeviceId} 数据失败 | 输入时间：{InputTime}", deviceId, inputTime);
+                return StatusCode(500, new ApiResponse<object>(500, null, $"服务器内部错误：{ex.Message}"));
+            }
+        }
+        [HttpGet("sharp/V2", Name = "获取整点时间点检数据V2")]
         public async Task<IActionResult> GetSharpTimeCheckData2([FromQuery] int deviceId, [FromQuery] DateTime inputTime, [FromQuery] int shift)
         {
             try
@@ -620,6 +811,7 @@ namespace Cola.Controllers
                     }
                 }
 
+                // ================== 第二部分：处理点检数据转换 ===============
                 // ================== 第二部分：处理数据转换 ==================
                 // 1. 收集所有CheckPara的ID
                 var allCheckParaIds = hourlyDatas
@@ -749,16 +941,16 @@ namespace Cola.Controllers
             return Ok(new ApiResponse<IEnumerable<object>>(200, checkHeads, "成功"));
         }
 
-
         [HttpGet("deviceList", Name = "设备列表")]
         public async Task<IActionResult> GetDeviceList()
         {
             try
             {
-                var devicelist = await _fsql.Select<DeviceType>()
-                    .Where(c => c.Report == 1)
-                    .ToListAsync(c=> new{ c.Id,c.Name});
-                    return Ok(new ApiResponse<IEnumerable<object>>(200, devicelist, "成功"));
+                var  deviceList = await _fsql.Select<DeviceInfo>()
+                    .Where(DeviceInfo => DeviceInfo.Reported != null)
+                    .OrderBy(DeviceInfo => DeviceInfo.Reported)
+                    .ToListAsync(c => new { c.Id, c.Name });
+                return Ok(new ApiResponse<IEnumerable<object>>(200, deviceList, "成功"));
             }
             catch (Exception ex)
             {
@@ -1010,25 +1202,32 @@ namespace Cola.Controllers
         //}
 
         [HttpGet("Export/Juice", Name = "导出果汁excel数据")]
-        public async Task<IActionResult> ExportToExcel2([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime, [FromQuery] int shift)
+        public async Task<IActionResult> ExportToExcel2([FromQuery][Required] int deviceTypeId, [FromQuery] DateTime inputTime, [FromQuery] int shift)
         {
             try
             {
-                var deviceType = await _fsql.Select<DeviceType>()
-               .Where(n => n.Id == deviceTypeId)
-               .FirstAsync();
-                if (deviceType == null)
-                {
-                    return Ok(new ApiResponse<object>(200, null, "deviceIds为null未找到数据"));
-                }
-                List<int> deviceIdList = deviceType.DeviceList.Split(',')
-                                  .Select(int.Parse)
-                                  .ToList();
+                // var deviceType = await _fsql.Select<DeviceType>()
+                //.Where(n => n.Id == deviceTypeId)
+                //.FirstAsync();
+                // if (deviceType == null)
+                // {
+                //     return Ok(new ApiResponse<object>(200, null, "deviceIds为null未找到数据"));
+                // }
+                // List<int> deviceIdList = deviceType.DeviceList.Split(',')
+                //                   .Select(int.Parse)
+                //                   .ToList();
+                // if (deviceIdList.Count == 0)
+                // {
+                //     return Ok(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
+                // }
+                var device = await _fsql.Select<DeviceInfo>()
+                                .Where(n => n.Id == deviceTypeId)
+                                .FirstAsync();
+                var deviceIdList =await GetDeviceGroupbyDeviceId((int)device.Reported);
                 if (deviceIdList.Count == 0)
                 {
                     return Ok(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
                 }
-
                 var excelDataList = await GetSharpTimeForExcel(deviceIdList, inputTime, shift);
 
                 if (excelDataList != null)
@@ -1042,8 +1241,8 @@ namespace Cola.Controllers
                     {
                         templatePath = Path.Combine(Directory.GetCurrentDirectory(), "Template", "果肉杀菌在线混合记录表模板_夜班.xlsx");
                     }
-                    var excelBytes = ExcelHelper.ExportCheckDataToExcel(templatePath, excelDataList, inputTime,deviceType.Name);
-                    string fileName = $"{deviceType.Name}在线混合记录表.xlsx";
+                    var excelBytes = ExcelHelper.ExportCheckDataToExcel(templatePath, excelDataList, inputTime, device.Name);
+                    string fileName = $"{device.Name}在线混合记录表.xlsx";
                     return File(excelBytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
                 }
                 else
@@ -1057,6 +1256,19 @@ namespace Cola.Controllers
                 return StatusCode(500, new ApiResponse<object>(500, null, $"服务器内部错误：{ex.Message}"));
             }
         }
+
+        //[HttpPost("sharpconfirm/", Name = "整点确认")]
+        //public async Task<IActionResult> PostSharpConfirm([FromQuery][Required] int alarmId)
+        //{
+        //    //
+        //}
+        //[HttpPost("alarmreason/", Name = "报警原因录入")]
+        //public async Task<IActionResult> PostAlarmReason([FromQuery][Required] int deviceTypeId, [FromQuery] DateTime inputTime, [FromQuery] int shift)
+        //{
+
+        //}
+
+
         private async Task<List<HisDataCheck>> GetHourlyData(List<int> deviceIds, DateTime inputTime, int shift)
         {
             var dayStart = inputTime.Date;
@@ -1216,5 +1428,13 @@ namespace Cola.Controllers
             }
         }
 
+        private async Task<List<int>> GetDeviceGroupbyDeviceId(int deviceId)
+        {
+            var deviceList = await _fsql.Select<DeviceInfo>()
+                    .Where(DeviceInfo => DeviceInfo.ReportGroup == deviceId)
+                    .OrderBy(DeviceInfo => DeviceInfo.Id)
+                    .ToListAsync(c =>  c.Id);
+            return deviceList;
+        }
     }
 }
