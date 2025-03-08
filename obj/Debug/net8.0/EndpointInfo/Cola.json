@@ -590,6 +590,19 @@
           }
         }
       }
+    },
+    "/api/State/DeviceColor": {
+      "get": {
+        "tags": [
+          "State"
+        ],
+        "operationId": "获取状态对应的颜色",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
     }
   },
   "components": {

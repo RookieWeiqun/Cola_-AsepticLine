@@ -18,5 +18,6 @@
         //public int? StopId { get; set; }
         public string? StopReason { get; set; }
         public int? Capacity { get; set; }
+        public short? IsStop { get; set; }
     }
 }

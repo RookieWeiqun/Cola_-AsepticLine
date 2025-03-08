@@ -341,6 +341,17 @@
   },
   {
     "ContainingType": "Cola.Controllers.StateController",
+    "Method": "GetStateColorList",
+    "RelativePath": "api/State/DeviceColor",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "EndpointName": "\u83B7\u53D6\u72B6\u6001\u5BF9\u5E94\u7684\u989C\u8272"
+  },
+  {
+    "ContainingType": "Cola.Controllers.StateController",
     "Method": "GetReportDataByLastNHours",
     "RelativePath": "api/State/last-n-hours",
     "HttpMethod": "GET",

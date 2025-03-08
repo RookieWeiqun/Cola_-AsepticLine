@@ -114,7 +114,9 @@ namespace Cola.Controllers
                         DeviceStatus = deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Name,
                         Formula = recipeInfoList.TryGetValue(stateData.RecipeId.ToString(), out var recipeName) ? recipeName : null,
                         StopReason = stateData.StopId.HasValue && stopReasonList.TryGetValue(stateData.StopId.Value, out var stopReason) ? stopReason : stateData.StopDef,
-                        Capacity = stateData.DeviceInfo.Capacity == 0 ? 0 : stateData.DeviceInfo.Capacity
+                        Capacity = stateData.DeviceInfo.Capacity == 0 ? 0 : stateData.DeviceInfo.Capacity,
+                        IsStop = deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Caused==1? deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Caused:0,
+
                     };
 
                     if (stateData.Data != null)
@@ -237,7 +239,8 @@ namespace Cola.Controllers
                         DeviceStatus = deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Name,
                         Formula = recipeInfoList.TryGetValue(stateData.RecipeId.ToString(), out var recipeName) ? recipeName : null,
                         StopReason = stateData.StopId.HasValue && stopReasonList.TryGetValue(stateData.StopId.Value, out var stopReason) ? stopReason : stateData.StopDef,
-                        Capacity = stateData.DeviceInfo.Capacity == 0 ? 0 : stateData.DeviceInfo.Capacity
+                        Capacity = stateData.DeviceInfo.Capacity == 0 ? 0 : stateData.DeviceInfo.Capacity,
+                        IsStop = deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Caused == 1 ? deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Caused : 0,
                     };
 
                     if (stateData.Data != null)
@@ -378,7 +381,8 @@ namespace Cola.Controllers
                         DeviceStatus = deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Name,
                         Formula = recipeInfoList.TryGetValue(stateData.RecipeId.ToString(), out var recipeName) ? recipeName : null,
                         StopReason = stateData.StopId.HasValue && stopReasonList.TryGetValue(stateData.StopId.Value, out var stopReason) ? stopReason : stateData.StopDef,
-                        Capacity = stateData.DeviceInfo.Capacity == 0 ? 0 : stateData.DeviceInfo.Capacity
+                        Capacity = stateData.DeviceInfo.Capacity == 0 ? 0 : stateData.DeviceInfo.Capacity,
+                        IsStop = deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Caused == 1 ? deviceStateList.FirstOrDefault(ds => ds.Value == stateData.StateId)?.Caused : 0,
                     };
 
                     if (stateData.Data != null)
@@ -493,6 +497,23 @@ namespace Cola.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "获取停机原因列表失败");
+                return StatusCode(500, new ApiResponse<object>(500, null, "服务器内部错误"));
+            }
+        }
+        [HttpGet("DeviceColor", Name = "获取状态对应的颜色")]
+        public async Task<IActionResult> GetStateColorList()
+        {
+            try
+            {
+                _logger.LogInformation("开始获取设备状态颜色列表");
+                // 1. 查询所有停机原因
+                var stateColors = await _fsql.Select<DeviceState>()
+                    .ToListAsync(n => new { n.Name,n.Color});
+                return Ok(new ApiResponse<IEnumerable<object>>(200, stateColors, "成功"));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "获取设备状态颜色列表失败");
                 return StatusCode(500, new ApiResponse<object>(500, null, "服务器内部错误"));
             }
         }
