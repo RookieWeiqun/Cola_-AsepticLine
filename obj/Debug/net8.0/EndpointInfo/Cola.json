@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Check/currunt/previous": {
+    "/api/Check/currunt/V1": {
       "get": {
         "tags": [
           "Check"
@@ -36,7 +36,7 @@
         }
       }
     },
-    "/api/Check/sharp/previous": {
+    "/api/Check/sharp/V1": {
       "get": {
         "tags": [
           "Check"
@@ -67,7 +67,7 @@
         }
       }
     },
-    "/api/Check/currunt": {
+    "/api/Check/currunt/V2": {
       "get": {
         "tags": [
           "Check"
@@ -98,12 +98,43 @@
         }
       }
     },
-    "/api/Check/currunt/V3": {
+    "/api/Check/currunt": {
       "get": {
         "tags": [
           "Check"
         ],
         "operationId": "获取当前时间点检数据/V3",
+        "parameters": [
+          {
+            "name": "deviceTypeId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "inputTime",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Check/currunt/V4": {
+      "get": {
+        "tags": [
+          "Check"
+        ],
+        "operationId": "获取当前时间点检数据/V4",
         "parameters": [
           {
             "name": "deviceTypeId",
@@ -284,6 +315,82 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Check/SharpConfirm": {
+      "post": {
+        "tags": [
+          "Check"
+        ],
+        "operationId": "整点确认",
+        "parameters": [
+          {
+            "name": "alarmId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "confirmTime",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "CheckUser",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Check/AlarmReason": {
+      "post": {
+        "tags": [
+          "Check"
+        ],
+        "operationId": "报警原因录入",
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AlarmReasonInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AlarmReasonInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AlarmReasonInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AlarmReasonInput"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Success"
@@ -487,6 +594,28 @@
   },
   "components": {
     "schemas": {
+      "AlarmReasonInput": {
+        "type": "object",
+        "properties": {
+          "alarmId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "checkParamId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "alarmReason": {
+            "type": "string",
+            "nullable": true
+          },
+          "checkUser": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "StopReasonInput": {
         "type": "object",
         "properties": {

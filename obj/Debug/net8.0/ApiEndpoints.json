@@ -1,6 +1,23 @@
 [
   {
     "ContainingType": "Cola.Controllers.CheckController",
+    "Method": "PostAlarmReason",
+    "RelativePath": "api/Check/AlarmReason",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "Cola.Model.AlarmReasonInput",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "\u62A5\u8B66\u539F\u56E0\u5F55\u5165"
+  },
+  {
+    "ContainingType": "Cola.Controllers.CheckController",
     "Method": "GetCheckParasByDeviceId",
     "RelativePath": "api/Check/CheckParas",
     "HttpMethod": "GET",
@@ -23,14 +40,14 @@
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
-    "Method": "GetCurrentTimeCheckData2",
+    "Method": "GetCurrentTimeCheckData3",
     "RelativePath": "api/Check/currunt",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "deviceId",
+        "Name": "deviceTypeId",
         "Type": "System.Int32",
         "IsRequired": false
       },
@@ -41,12 +58,12 @@
       }
     ],
     "ReturnTypes": [],
-    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V2"
+    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V3"
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
     "Method": "GetCurrentTimeCheckData",
-    "RelativePath": "api/Check/currunt/previous",
+    "RelativePath": "api/Check/currunt/V1",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -67,8 +84,30 @@
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
-    "Method": "GetCurrentTimeCheckData3",
-    "RelativePath": "api/Check/currunt/V3",
+    "Method": "GetCurrentTimeCheckData2",
+    "RelativePath": "api/Check/currunt/V2",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "deviceId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "inputTime",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V2"
+  },
+  {
+    "ContainingType": "Cola.Controllers.CheckController",
+    "Method": "GetCurrentTimeCheckData4",
+    "RelativePath": "api/Check/currunt/V4",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -85,7 +124,7 @@
       }
     ],
     "ReturnTypes": [],
-    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V3"
+    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V4"
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
@@ -155,7 +194,7 @@
   {
     "ContainingType": "Cola.Controllers.CheckController",
     "Method": "GetSharpTimeCheckData",
-    "RelativePath": "api/Check/sharp/previous",
+    "RelativePath": "api/Check/sharp/V1",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -200,6 +239,33 @@
     ],
     "ReturnTypes": [],
     "EndpointName": "\u83B7\u53D6\u6574\u70B9\u65F6\u95F4\u70B9\u68C0\u6570\u636EV2"
+  },
+  {
+    "ContainingType": "Cola.Controllers.CheckController",
+    "Method": "PostSharpConfirm",
+    "RelativePath": "api/Check/SharpConfirm",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "alarmId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "confirmTime",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "CheckUser",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "\u6574\u70B9\u786E\u8BA4"
   },
   {
     "ContainingType": "Cola.Controllers.ReportController",

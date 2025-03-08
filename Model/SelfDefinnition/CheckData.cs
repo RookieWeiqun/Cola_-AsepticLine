@@ -84,4 +84,12 @@ namespace Cola.Model
         public HisDataAlarm? AlarmData { get; set; } = new HisDataAlarm();
         public DateTime? SharpTime { get; set; }
     }
+    public class AlarmReasonInput
+    {
+        public int AlarmId { get; set; }
+        public int CheckParamId { get; set; }
+        public string AlarmReason { get; set; }
+        public string? CheckUser { get; set; }
+
+    }
 }
