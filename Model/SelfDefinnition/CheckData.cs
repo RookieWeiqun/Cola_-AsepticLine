@@ -71,7 +71,7 @@ namespace Cola.Model
     }
     public class AlarmItem
     {
-        public int? AlarmId { get; set; }
+        public int? CheckParamId { get; set; }
         public string? Valule { get; set; }
         //public int? IsAlarm { get; set; }
         public int? CheckStatus { get; set; }

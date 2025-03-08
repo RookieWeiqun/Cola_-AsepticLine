@@ -829,7 +829,7 @@ namespace Cola.Controllers
                                     checkDataItemDict[checkPara.KeyName] = new AlarmItem
                                     {
                                         Valule = prop.Value.ToObject<string>(),
-                                        //AlarmId = alarmData != null ? alarmData["id"].ToObject<int>() : null,
+                                        CheckParamId = checkPara.Id,
                                         //IsAlarm = 1,
                                         CheckStatus = alarmData != null ? alarmData["check_status"].ToObject<int>() : null,
                                         CheckUser = alarmData != null ? alarmData["check_user"].ToObject<string>() : null,
