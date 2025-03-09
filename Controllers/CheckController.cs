@@ -1003,16 +1003,20 @@ namespace Cola.Controllers
         public async Task<IActionResult> GetCheckParasByDeviceId([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime)
         {
             //处理deviceId
-            var deviceIds = await _fsql.Select<DeviceType>()
-              .Where(n => n.Id == deviceTypeId)
-              .FirstAsync(n => n.DeviceList);
-            if (deviceIds == null)
-            {
-                return Ok(new ApiResponse<object>(200, null, "deviceIds为null未找到数据"));
-            }
-            List<int> deviceIdList = deviceIds.Split(',')
-                              .Select(int.Parse)
-                              .ToList();
+            //var deviceIds = await _fsql.Select<DeviceType>()
+            //  .Where(n => n.Id == deviceTypeId)
+            //  .FirstAsync(n => n.DeviceList);    
+            //if (deviceIds == null)
+            //{
+            //    return Ok(new ApiResponse<object>(200, null, "deviceIds为null未找到数据"));
+            //}
+            //List<int> deviceIdList = deviceIds.Split(',')
+            //                  .Select(int.Parse)
+            //                  .ToList();
+            var device = await _fsql.Select<DeviceInfo>()
+                        .Where(n => n.Id == deviceTypeId)
+                        .FirstAsync();
+            var deviceIdList =await GetDeviceGroupbyDeviceId((int)device.Reported);
             if (deviceIdList.Count == 0)
             {
                 return Ok(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
