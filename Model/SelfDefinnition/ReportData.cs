@@ -24,6 +24,7 @@
         public float Temperature { get; set; } 
         public float LiquidLevel { get; set; } 
         public int? Capacity { get; set; }
+        public string? AliasName { get; set; }
 
     }
 

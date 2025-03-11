@@ -124,11 +124,12 @@ namespace Cola.Extensions
                 }
             }
         }
-        public static byte[] ExportCheckDataToExcel(string templatePath, List<ExcelData> excelList, DateTime inputTime,string title)
+        public static byte[] ExportCheckDataToExcel(string templatePath, List<ExcelData> excelList, List<ExcelAlarmData> alarmDataList, DateTime inputTime, string title)
         {
             // Load the existing Excel template
             using (var fileStream = new FileStream(templatePath, FileMode.Open, FileAccess.Read))
             {
+                // ================== 第一部分：sheet0 ==================
                 var workbook = new XSSFWorkbook(fileStream);
                 var sheet = workbook.GetSheetAt(0); // Assuming the data is in the first sheet
 
@@ -136,7 +137,13 @@ namespace Cola.Extensions
                 sheet.GetRow(0).GetCell(0).SetCellValue(title);
                 sheet.GetRow(1).GetCell(3).SetCellValue( inputTime.ToString("yyyy-MM-dd"));
                 //sheet.GetRow(1).GetCell(15).SetCellValue(shift);
-
+                var borderedCellStyle = workbook.CreateCellStyle();
+                borderedCellStyle.Alignment = HorizontalAlignment.Center;
+                borderedCellStyle.VerticalAlignment = VerticalAlignment.Center;
+                borderedCellStyle.BorderTop = BorderStyle.Thin;
+                borderedCellStyle.BorderBottom = BorderStyle.Thin;
+                borderedCellStyle.BorderLeft = BorderStyle.Thin;
+                borderedCellStyle.BorderRight = BorderStyle.Thin;
                 // Find the row to start adding data (after the headers)
                 int startRow = 3; // Assuming the headers are in the first 3 rows
 
@@ -175,36 +182,36 @@ namespace Cola.Extensions
                 foreach (var excelData in excelList)
                 {
                     var row = sheet.CreateRow(startRow++);
-                    var cellStyle = workbook.CreateCellStyle();
-                    cellStyle.Alignment = HorizontalAlignment.Center;
-                    cellStyle.VerticalAlignment = VerticalAlignment.Center;
+                    //var cellStyle = workbook.CreateCellStyle();
+                    //cellStyle.Alignment = HorizontalAlignment.Center;
+                    //cellStyle.VerticalAlignment = VerticalAlignment.Center;
 
                     var cell0 = row.CreateCell(0);
                     cell0.SetCellValue(excelData.DeviceName);
-                    cell0.CellStyle = cellStyle;
+                    cell0.CellStyle = borderedCellStyle;
 
                     var cell1 = row.CreateCell(1);
                     cell1.SetCellValue(excelData.ProjectDescription);
-                    cell1.CellStyle = cellStyle;
+                    cell1.CellStyle = borderedCellStyle;
 
                     var cell2 = row.CreateCell(2);
                     cell2.SetCellValue(excelData.ReferenceValue);
-                    cell2.CellStyle = cellStyle;
+                    cell2.CellStyle = borderedCellStyle;
 
                     var cell3 = row.CreateCell(3);
                     cell3.SetCellValue(excelData.Unit);
-                    cell3.CellStyle = cellStyle;
+                    cell3.CellStyle = borderedCellStyle;
 
                     var cell4 = row.CreateCell(4);
                     cell4.SetCellValue(excelData.ProjectName);
-                    cell4.CellStyle = cellStyle;
+                    cell4.CellStyle = borderedCellStyle;
 
                     int cellIndex = 6; // Assuming time-based values start from the 6th column
                     foreach (var timeValue in excelData.TimeValues)
                     {
                         var cell = row.CreateCell(cellIndex++);
                         cell.SetCellValue(timeValue.Value);
-                        cell.CellStyle = cellStyle;
+                        cell.CellStyle = borderedCellStyle;
                     }
 
                     if (currentDeviceName == null)
@@ -226,6 +233,35 @@ namespace Cola.Extensions
                 if (mergeStartRow < startRow - 1)
                 {
                     sheet.AddMergedRegion(new CellRangeAddress(mergeStartRow, startRow - 1, 0, 0));
+                }
+
+                // ================== 第二部分：sheet2 ==================
+                // Write alarmDataList to the second row
+                var alarmSheet = workbook.GetSheetAt(1); // Assuming the alarm data is in the second sheet
+                int alarmStartRow = 1; // Start writing from the second row
+
+                foreach (var alarmData in alarmDataList)
+                {
+                    var row = alarmSheet.CreateRow(alarmStartRow++);
+                    var cellStyle = workbook.CreateCellStyle();
+                    cellStyle.Alignment = HorizontalAlignment.Center;
+                    cellStyle.VerticalAlignment = VerticalAlignment.Center;
+
+                    var cell0 = row.CreateCell(0);
+                    cell0.SetCellValue(alarmData.DeviceName);
+                    cell0.CellStyle = cellStyle;
+
+                    var cell1 = row.CreateCell(1);
+                    cell1.SetCellValue(alarmData.CheckItem);
+                    cell1.CellStyle = cellStyle;
+
+                    var cell2 = row.CreateCell(2);
+                    cell2.SetCellValue(alarmData.SharpTime);
+                    cell2.CellStyle = cellStyle;
+
+                    var cell3 = row.CreateCell(3);
+                    cell3.SetCellValue(alarmData.Remark);
+                    cell3.CellStyle = cellStyle;
                 }
 
                 // Save the updated workbook to a memory stream

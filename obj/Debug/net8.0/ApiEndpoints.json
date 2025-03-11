@@ -166,6 +166,28 @@
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
+    "Method": "GetAlarmReason",
+    "RelativePath": "api/Check/GetAlarmReason",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "alarmId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "checkParamId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "\u62A5\u8B66\u539F\u56E0\u67E5\u8BE2"
+  },
+  {
+    "ContainingType": "Cola.Controllers.CheckController",
     "Method": "GetSharpTimeCheckData3",
     "RelativePath": "api/Check/sharp",
     "HttpMethod": "GET",
@@ -239,6 +261,33 @@
     ],
     "ReturnTypes": [],
     "EndpointName": "\u83B7\u53D6\u6574\u70B9\u65F6\u95F4\u70B9\u68C0\u6570\u636EV2"
+  },
+  {
+    "ContainingType": "Cola.Controllers.CheckController",
+    "Method": "GetSharpTimeCheckData4",
+    "RelativePath": "api/Check/sharp/V4",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "deviceTypeId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "inputTime",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "shift",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "\u83B7\u53D6\u6574\u70B9\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V4"
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",

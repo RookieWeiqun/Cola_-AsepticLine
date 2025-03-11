@@ -15,4 +15,11 @@
         public Dictionary<string, string> TimeValues { get; set; } = new Dictionary<string, string>();
 
     }
+    public class ExcelAlarmData
+    {
+        public string? DeviceName { get; set; }
+        public string? CheckItem { get; set; }
+        public string? SharpTime { get; set; }
+        public string? Remark { get; set; }
+    }
 }

@@ -147,6 +147,7 @@ namespace Cola.Controllers
                                 }
                             }
                             reportDataItem.Name = historyimeData.DeviceInfo.Name;
+                            reportDataItem.AliasName=historyimeData.DeviceInfo.AliasName;
                             if (recipeInfoList.TryGetValue(historyimeData.RecipeId.ToString(), out var recipeName))
                             {
                                 reportDataItem.Formula = recipeName;
@@ -288,7 +289,8 @@ namespace Cola.Controllers
                                 }
                             }
                             reportDataItem.Name= realtimeData.DeviceInfo.Name;
-                            if(recipeInfoList.TryGetValue(realtimeData.RecipeId.ToString(), out var recipeName))
+                            reportDataItem.AliasName = realtimeData.DeviceInfo.AliasName;
+                            if (recipeInfoList.TryGetValue(realtimeData.RecipeId.ToString(), out var recipeName))
                             {
                                 reportDataItem.Formula = recipeName;
                             }

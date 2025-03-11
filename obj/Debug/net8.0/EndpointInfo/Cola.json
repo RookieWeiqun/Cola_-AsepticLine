@@ -160,6 +160,45 @@
         }
       }
     },
+    "/api/Check/sharp/V4": {
+      "get": {
+        "tags": [
+          "Check"
+        ],
+        "operationId": "获取整点时间点检数据/V4",
+        "parameters": [
+          {
+            "name": "deviceTypeId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "inputTime",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "shift",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Check/sharp": {
       "get": {
         "tags": [
@@ -391,6 +430,39 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Check/GetAlarmReason": {
+      "post": {
+        "tags": [
+          "Check"
+        ],
+        "operationId": "报警原因查询",
+        "parameters": [
+          {
+            "name": "alarmId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "checkParamId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success"

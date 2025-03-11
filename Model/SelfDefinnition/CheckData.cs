@@ -67,7 +67,6 @@ namespace Cola.Model
 
         public int? DeviceId { get; set; }
 
-
     }
     public class AlarmItem
     {
