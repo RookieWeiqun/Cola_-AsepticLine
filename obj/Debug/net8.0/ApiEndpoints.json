@@ -40,7 +40,7 @@
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
-    "Method": "GetCurrentTimeCheckData3",
+    "Method": "GetCurrentTimeCheckData4",
     "RelativePath": "api/Check/currunt",
     "HttpMethod": "GET",
     "IsController": true,
@@ -58,7 +58,7 @@
       }
     ],
     "ReturnTypes": [],
-    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V3"
+    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V4"
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
@@ -106,8 +106,8 @@
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
-    "Method": "GetCurrentTimeCheckData4",
-    "RelativePath": "api/Check/currunt/V4",
+    "Method": "GetCurrentTimeCheckData3",
+    "RelativePath": "api/Check/currunt/V3",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -124,7 +124,7 @@
       }
     ],
     "ReturnTypes": [],
-    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V4"
+    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V3"
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
@@ -168,7 +168,7 @@
     "ContainingType": "Cola.Controllers.CheckController",
     "Method": "GetAlarmReason",
     "RelativePath": "api/Check/GetAlarmReason",
-    "HttpMethod": "POST",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -188,14 +188,14 @@
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
-    "Method": "GetSharpTimeCheckData3",
+    "Method": "GetSharpTimeCheckData4",
     "RelativePath": "api/Check/sharp",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "deviceId",
+        "Name": "deviceTypeId",
         "Type": "System.Int32",
         "IsRequired": false
       },
@@ -211,7 +211,7 @@
       }
     ],
     "ReturnTypes": [],
-    "EndpointName": "\u83B7\u53D6\u6574\u70B9\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V3"
+    "EndpointName": "\u83B7\u53D6\u6574\u70B9\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V4"
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
@@ -264,14 +264,14 @@
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
-    "Method": "GetSharpTimeCheckData4",
-    "RelativePath": "api/Check/sharp/V4",
+    "Method": "GetSharpTimeCheckData3",
+    "RelativePath": "api/Check/sharp/V3",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "deviceTypeId",
+        "Name": "deviceId",
         "Type": "System.Int32",
         "IsRequired": false
       },
@@ -287,7 +287,7 @@
       }
     ],
     "ReturnTypes": [],
-    "EndpointName": "\u83B7\u53D6\u6574\u70B9\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V4"
+    "EndpointName": "\u83B7\u53D6\u6574\u70B9\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V3"
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",

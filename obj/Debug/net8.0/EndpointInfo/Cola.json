@@ -98,7 +98,7 @@
         }
       }
     },
-    "/api/Check/currunt": {
+    "/api/Check/currunt/V3": {
       "get": {
         "tags": [
           "Check"
@@ -129,7 +129,7 @@
         }
       }
     },
-    "/api/Check/currunt/V4": {
+    "/api/Check/currunt": {
       "get": {
         "tags": [
           "Check"
@@ -160,7 +160,7 @@
         }
       }
     },
-    "/api/Check/sharp/V4": {
+    "/api/Check/sharp": {
       "get": {
         "tags": [
           "Check"
@@ -199,7 +199,7 @@
         }
       }
     },
-    "/api/Check/sharp": {
+    "/api/Check/sharp/V3": {
       "get": {
         "tags": [
           "Check"
@@ -438,7 +438,7 @@
       }
     },
     "/api/Check/GetAlarmReason": {
-      "post": {
+      "get": {
         "tags": [
           "Check"
         ],

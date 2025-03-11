@@ -423,7 +423,7 @@ namespace Cola.Controllers
             }
         }
 
-        [HttpGet("currunt", Name = "获取当前时间点检数据/V3")]  // 先只查询一个设备，后续看客户需求
+        [HttpGet("currunt/V3", Name = "获取当前时间点检数据/V3")]  // 先只查询一个设备，后续看客户需求
         public async Task<IActionResult> GetCurrentTimeCheckData3([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime)
         {
             try
@@ -536,7 +536,7 @@ namespace Cola.Controllers
             }
         }
 
-        [HttpGet("currunt/V4", Name = "获取当前时间点检数据/V4")]
+        [HttpGet("currunt", Name = "获取当前时间点检数据/V4")]
         public async Task<IActionResult> GetCurrentTimeCheckData4([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime)
         {
             try
@@ -653,7 +653,7 @@ namespace Cola.Controllers
 
                     results.Add(resultItem);
                 }
-
+                results.OrderBy(c => c.DeviceId);
                 return Ok(new ApiResponse<IEnumerable<CheckDataResult2>>(200, results, "成功"));
             }
             catch (Exception ex)
@@ -662,7 +662,7 @@ namespace Cola.Controllers
                 return StatusCode(500, new ApiResponse<object>(500, null, $"服务器内部错误：{ex.Message}"));
             }
         }
-        [HttpGet("sharp/V4", Name = "获取整点时间点检数据/V4")]//获取并处理deviceId列表
+        [HttpGet("sharp", Name = "获取整点时间点检数据/V4")]//获取并处理deviceId列表
         public async Task<IActionResult> GetSharpTimeCheckData4([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime, [FromQuery] int shift)
         {
             try
@@ -833,6 +833,7 @@ namespace Cola.Controllers
 
                     results.Add(resultItem);
                 }
+                results = results.OrderBy(c => c.DeviceId).ToList();
                 return Ok(new ApiResponse<IEnumerable<CheckDataResult2>>(200, results, "成功"));
             }
             catch (Exception ex)
@@ -841,7 +842,7 @@ namespace Cola.Controllers
                 return StatusCode(500, new ApiResponse<object>(500, null, $"服务器内部错误：{ex.Message}"));
             }
         }
-        [HttpGet("sharp", Name = "获取整点时间点检数据/V3")]//这里没有获取deviceId列表 而是只取了一个deviceId
+        [HttpGet("sharp/V3", Name = "获取整点时间点检数据/V3")]//这里没有获取deviceId列表 而是只取了一个deviceId
         public async Task<IActionResult> GetSharpTimeCheckData3([FromQuery] int deviceId, [FromQuery] DateTime inputTime, [FromQuery] int shift)
         {
             try
@@ -1784,7 +1785,18 @@ namespace Cola.Controllers
                     .ToListAsync();
 
                 var excelDataList = new List<ExcelData>();
-                var res = hourlyDatas.Where(n => n.DeviceId == 9).ToList();
+                // Fetch the current value at inputTime
+                var currentRecords = await _fsql.Select<HisDataCheck>()
+                    .Where(c =>
+                        deviceIds.Contains(c.DeviceId.Value) &&
+                        c.RecordTime.HasValue &&
+                        c.RecordTime.Value.Year == inputTime.Year &&
+                        c.RecordTime.Value.Month == inputTime.Month &&
+                        c.RecordTime.Value.Day == inputTime.Day &&
+                        c.RecordTime.Value.Hour == inputTime.Hour &&
+                        c.RecordTime.Value.Minute == inputTime.Minute)
+                    .OrderByDescending(c => c.RecordTime)
+                    .ToListAsync();
                 foreach (var hourlyData in hourlyDatas)
                 {
                     var dataJson = JsonConvert.SerializeObject(hourlyData.Data);
@@ -1812,7 +1824,8 @@ namespace Cola.Controllers
                                     ProjectDescription = checkPara.AliasName,
                                     ReferenceValue = recipeDetailList.FirstOrDefault(r => r.RecipeId == hourlyData.RecipeId && r.CheckParaId == checkPara.Id)?.Lower ?? "null",
                                     Unit = checkPara.Unit,
-                                    ProjectName = checkPara.Name
+                                    ProjectName = checkPara.Name,
+                                    CurrentValue = currentRecords.FirstOrDefault(c => c.DeviceId == checkPara.DeviceId)?.Data[checkPara.Id.ToString()]?.ToString() // Store the current value
                                 };
                                 if (prop.Key == "MixerStep")
                                 {

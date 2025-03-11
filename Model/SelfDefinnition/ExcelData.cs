@@ -12,6 +12,7 @@
 
         public string? ProjectName { get; set; }
         // Dictionary to store time-based values
+        public string? CurrentValue { get; set; } // Add this property
         public Dictionary<string, string> TimeValues { get; set; } = new Dictionary<string, string>();
 
     }
