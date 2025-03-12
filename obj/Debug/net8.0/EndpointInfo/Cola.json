@@ -369,12 +369,15 @@
         "operationId": "整点确认",
         "parameters": [
           {
-            "name": "alarmId",
+            "name": "alarmIdList",
             "in": "query",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              }
             }
           },
           {

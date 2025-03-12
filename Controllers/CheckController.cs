@@ -1538,26 +1538,31 @@ namespace Cola.Controllers
         }
 
         [HttpPost("SharpConfirm", Name = "整点确认")]
-        public async Task<IActionResult> PostSharpConfirm([FromQuery][Required] int alarmId, [FromQuery] DateTime? confirmTime, [FromQuery] string CheckUser)
+        public async Task<IActionResult> PostSharpConfirm([FromQuery][Required] List<long> alarmIdList, [FromQuery] DateTime? confirmTime, [FromQuery] string CheckUser)
         {
             // 首先判断hourcheckvalid是否为1，为1代表不可写入，不唯一对HisDataAlarm进行写入操作包括HourCheckStatus变为1，HourCheckTime为confirmTime，如果为空则为当前时间，HourCheckUser先写死为：“cwq"
-            var alarm = await _fsql.Select<HisDataAlarm>()
-                .Where(n => n.Id == alarmId)
-                .FirstAsync();
-            if (alarm == null)
+            var alarms = await _fsql.Select<HisDataAlarm>()
+                .Where(n => alarmIdList.Contains(n.Id))
+                .ToListAsync();
+
+            if (alarms == null || alarms.Count == 0)
             {
-                return Ok(new ApiResponse<object>(200, null, "alarm为null未找到数据"));
+                return Ok(new ApiResponse<object>(200, null, "未找到数据"));
             }
-            if (alarm.HourCheckValid == 0)
+
+            foreach (var alarm in alarms)
             {
-                return Ok(new ApiResponse<object>(200, null, "HourCheckValid为0，不可写入"));
+                if (alarm.HourCheckValid == 0)
+                {
+                    return Ok(new ApiResponse<object>(200, null, $"HourCheckValid为0，不可写入 (AlarmId: {alarm.Id})"));
+                }
+                alarm.HourCheckStatus = 1;
+                alarm.HourCheckTime = confirmTime ?? DateTime.Now;
+                alarm.HourCheckUser = !string.IsNullOrEmpty(CheckUser) ? CheckUser : "null";
             }
-            alarm.HourCheckStatus = 1;
-            alarm.HourCheckTime = confirmTime ?? DateTime.Now;
-            alarm.HourCheckUser = !string.IsNullOrEmpty(CheckUser)? CheckUser:"null";
 
             await _fsql.Update<HisDataAlarm>()
-                .SetSource(alarm)
+                .SetSource(alarms)
                 .ExecuteAffrowsAsync();
 
             return Ok(new ApiResponse<object>(200, null, "确认成功"));

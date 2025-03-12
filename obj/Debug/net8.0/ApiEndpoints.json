@@ -298,8 +298,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "alarmId",
-        "Type": "System.Int32",
+        "Name": "alarmIdList",
+        "Type": "System.Collections.Generic.List\u00601[[System.Int64, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       },
       {
