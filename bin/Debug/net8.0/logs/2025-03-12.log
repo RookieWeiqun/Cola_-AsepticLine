@@ -30,3 +30,35 @@
 2025-03-12 13:27:12.2081 INFO Executed action Cola.Controllers.CheckController.PostSharpConfirm (Cola) in 1567.4998ms 
 2025-03-12 13:27:12.2081 INFO Executed endpoint 'Cola.Controllers.CheckController.PostSharpConfirm (Cola)' 
 2025-03-12 13:27:12.2081 INFO Request finished HTTP/2 POST https://localhost:7086/api/Check/SharpConfirm?alarmIdList=4855&alarmIdList=4857&CheckUser=%E6%9B%B9%E7%BB%B4%E7%BE%A4 - 200 49 application/json;+charset=utf-8 1655.8149ms 
+2025-03-12 15:00:00.4188 INFO Now listening on: https://localhost:7086 
+2025-03-12 15:00:00.4234 INFO Now listening on: http://localhost:5064 
+2025-03-12 15:00:00.4589 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-12 15:00:00.4589 INFO Hosting environment: Development 
+2025-03-12 15:00:00.4589 INFO Content root path: D:\cwq\MyCode\Cola_ AsepticLine\Cola 
+2025-03-12 15:00:00.8780 INFO Request starting HTTP/2 GET https://localhost:7086/swagger - - - 
+2025-03-12 15:00:01.0206 INFO Request finished HTTP/2 GET https://localhost:7086/swagger - 301 0 - 147.4432ms 
+2025-03-12 15:00:01.0206 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - - - 
+2025-03-12 15:00:01.0799 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - 200 - text/html;charset=utf-8 53.1708ms 
+2025-03-12 15:00:01.0799 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - - - 
+2025-03-12 15:00:01.0799 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - - - 
+2025-03-12 15:00:01.0799 INFO Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 
+2025-03-12 15:00:01.0799 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - - - 
+2025-03-12 15:00:01.0799 INFO Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 
+2025-03-12 15:00:01.0950 INFO Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript;+charset=utf-8 11.1141ms 
+2025-03-12 15:00:01.1222 INFO Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2025-03-12 15:00:01.1222 INFO Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2025-03-12 15:00:01.1251 INFO Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2025-03-12 15:00:01.1251 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui.css - 200 143943 text/css 42.2056ms 
+2025-03-12 15:00:01.1251 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 42.0696ms 
+2025-03-12 15:00:01.1251 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 41.6188ms 
+2025-03-12 15:00:01.1460 INFO Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - 200 - text/javascript;+charset=UTF-8 61.9086ms 
+2025-03-12 15:00:01.2755 INFO Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 
+2025-03-12 15:00:01.2821 INFO Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 6.8461ms 
+2025-03-12 15:00:36.3492 INFO Request starting HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceTypeId=7&inputTime=2025-03-11 - - - 
+2025-03-12 15:00:36.3705 INFO Executing endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData4 (Cola)' 
+2025-03-12 15:00:36.3930 INFO Route matched with {action = "GetCurrentTimeCheckData4", controller = "Check"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentTimeCheckData4(Int32, System.DateTime) on controller Cola.Controllers.CheckController (Cola). 
+2025-03-12 15:00:37.1724 INFO 开始获取设备 7 在 03/11/2025 00:00:00 的检查数据 
+2025-03-12 15:00:37.8701 INFO Executing OkObjectResult, writing value of type 'Cola.Model.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Cola.Model.CheckDataResult2, Cola, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-12 15:00:37.9263 INFO Executed action Cola.Controllers.CheckController.GetCurrentTimeCheckData4 (Cola) in 1530.1679ms 
+2025-03-12 15:00:37.9263 INFO Executed endpoint 'Cola.Controllers.CheckController.GetCurrentTimeCheckData4 (Cola)' 
+2025-03-12 15:00:37.9263 INFO Request finished HTTP/2 GET https://localhost:7086/api/Check/currunt?deviceTypeId=7&inputTime=2025-03-11 - 200 1776 application/json;+charset=utf-8 1578.0646ms 

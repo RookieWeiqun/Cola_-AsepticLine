@@ -511,7 +511,7 @@ namespace Cola.Controllers
                                     // checkDataItemDict[checkPara.KeyName] = prop.Value.ToObject<object>();
                                     checkDataItemDict[checkPara.KeyName] = new AlarmItem
                                     {
-                                        Valule = prop.Value.ToObject<string>(),
+                                        Value = prop.Value.ToObject<string>(),
                                         //IsAlarm= 1,
                                         CheckStatus = 1,
                                         CheckUser = "cwq",
@@ -536,7 +536,7 @@ namespace Cola.Controllers
             }
         }
 
-        [HttpGet("currunt", Name = "获取当前时间点检数据/V4")]
+        [HttpGet("currunt/V4", Name = "获取当前时间点检数据/V4")] //查询多个设备
         public async Task<IActionResult> GetCurrentTimeCheckData4([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime)
         {
             try
@@ -609,7 +609,7 @@ namespace Cola.Controllers
                         .ToListAsync(c => c.KeyName);
                     // 4. 构建结果
                     var resultItem = new CheckDataResult2
-                    {
+                    {   
                         Id = closestRecord.Id,
                         DeviceId = closestRecord.DeviceId,
                         LineId = closestRecord.LineId,
@@ -635,16 +635,16 @@ namespace Cola.Controllers
                                 if (keynames.Contains(checkPara.KeyName))
                                 {
                                     // checkDataItemDict[checkPara.KeyName] = prop.Value.ToObject<object>();
-                                    checkDataItemDict[checkPara.KeyName] = new AlarmItem
-                                    {
-                                        Valule = prop.Value.ToObject<string>(),
-                                        //IsAlarm= 1,
-                                        CheckParamId = checkPara.Id,
-                                        CheckStatus = 1,
-                                        CheckUser="cwq",
-                                        CheckText= "检查文本"
-                                    };
-
+                                    //checkDataItemDict[checkPara.KeyName] = new AlarmItem
+                                    //{
+                                    //    Valule = prop.Value.ToObject<string>(),
+                                    //    //IsAlarm= 1,
+                                    //    CheckParamId = checkPara.Id,
+                                    //    CheckStatus = 1,
+                                    //    CheckUser="cwq",
+                                    //    CheckText= "检查文本"
+                                    //};
+                                    checkDataItemDict[checkPara.KeyName] = prop.Value.ToObject<string>();
                                 }
                             }
                         }
@@ -662,7 +662,285 @@ namespace Cola.Controllers
                 return StatusCode(500, new ApiResponse<object>(500, null, $"服务器内部错误：{ex.Message}"));
             }
         }
-        [HttpGet("sharp", Name = "获取整点时间点检数据/V4")]//获取并处理deviceId列表
+ 
+
+        [HttpGet("sharp", Name = "获取整点时间点检数据/V5")]//查询不依能赖于keynames字段
+        public async Task<IActionResult> GetSharpTimeCheckData5([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime, [FromQuery] int shift)
+        {
+            try
+            {
+                _logger.LogInformation("开始获取设备 {DeviceId} 在 {InputTime} 的检查数据", deviceTypeId, inputTime);
+                var device = await _fsql.Select<DeviceInfo>()
+               .Where(n => n.Id == deviceTypeId)
+               .FirstAsync();
+                var deviceIdList = await GetDeviceGroupbyDeviceId((int)device.Reported);
+                if (deviceIdList.Count == 0)
+                {
+                    return Ok(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
+                }
+                // ================== 第一部分：获取当日整点数据 ==================
+                // 1. 生成当日所有整点时间（00:00, 01:00,...,23:00）
+                var dayStart = inputTime.Date;
+
+                List<DateTime> hourlyPoints = new List<DateTime>();
+                if (shift == 0)
+                {
+                    hourlyPoints = Enumerable.Range(7, 12)
+                        .Select(h => dayStart.AddHours(h)) // 7:00 ~ 18:00
+                        .ToList();
+                }
+                // Shift 1: 晚7点至次日早7点（共12小时）
+                else if (shift == 1)
+                {
+                    hourlyPoints = Enumerable.Range(19, 5) // 当日19:00 ~ 23:00（5小时）
+                        .Select(h => dayStart.AddHours(h))
+                        .Concat(Enumerable.Range(0, 7) // 次日0:00 ~ 6:00（7小时）
+                            .Select(h => dayStart.AddDays(1).AddHours(h)))
+                        .ToList();
+                }
+                else
+                {
+                    hourlyPoints = Enumerable.Range(0, 24)
+                        .Select(h => dayStart.AddHours(h))
+                        .ToList();
+                }
+                // 2. 查询当天7点到第二天7点的所有数据
+                dayStart = inputTime.Date.AddHours(7);
+                var dayEnd = dayStart.AddDays(1);
+                var allRecords = await _fsql.Select<HisDataCheck>()
+                    .Where(c =>
+                        deviceIdList.Contains(c.DeviceId.Value) &&
+                        c.RecordTime >= dayStart &&
+                        c.RecordTime < dayEnd)
+                    .ToListAsync();
+                // 按设备分组
+                var recordsByDevice = allRecords
+                    .GroupBy(c => c.DeviceId.Value)
+                    .ToDictionary(g => g.Key, g => g.ToList());
+                var allAlarms = await _fsql.Select<HisDataAlarm>()
+                    .Where(c =>
+                        deviceIdList.Contains(c.DeviceId.Value) &&
+                        c.RecordTime >= dayStart &&
+                        c.RecordTime < dayEnd)
+                    .ToListAsync();
+                var alarmsByDevice = allAlarms
+                    .GroupBy(c => c.DeviceId.Value)
+                    .ToDictionary(g => g.Key, g => g.ToList());
+                // 3. 在本地处理数据，找到每个整点附近的数据
+                var hourslyCheckWithAlarmDatas = new List<CheckWithAlarmData>();
+                foreach (var hour in hourlyPoints)
+                {
+                    foreach (var deviceId in deviceIdList)
+                    {
+                        var recordsInWindow = recordsByDevice.TryGetValue(deviceId, out var deviceRecords) ?
+                            deviceRecords
+                                .Where(r => r.RecordTime.HasValue &&
+                                            r.RecordTime.Value.Year == hour.Year &&
+                                            r.RecordTime.Value.Month == hour.Month &&
+                                            r.RecordTime.Value.Day == hour.Day &&
+                                            r.RecordTime.Value.Hour == hour.Hour &&
+                                            r.RecordTime.Value.Minute == hour.Minute)
+                                .FirstOrDefault() : null;
+
+                        var alarmsInWindow = alarmsByDevice.TryGetValue(deviceId, out var deviceAlarms) ?
+                            deviceAlarms
+                                .Where(r => r.RecordTime.HasValue &&
+                                            r.RecordTime.Value.Year == hour.Year &&
+                                            r.RecordTime.Value.Month == hour.Month &&
+                                            r.RecordTime.Value.Day == hour.Day &&
+                                            r.RecordTime.Value.Hour == hour.Hour &&
+                                            r.RecordTime.Value.Minute == hour.Minute)
+                                .FirstOrDefault() : null;
+
+                        if (recordsInWindow != null)
+                        {
+                            hourslyCheckWithAlarmDatas.Add(new CheckWithAlarmData
+                            {
+                                CheckData = recordsInWindow,
+                                AlarmData = alarmsInWindow,
+                                SharpTime = hour
+                            });
+                        }
+                    }
+                }
+                // ================== 第二部分：处理点检数据转换 ===============
+                // 1. 收集所有CheckPara的ID
+                var allCheckParaIds = hourslyCheckWithAlarmDatas
+                    .Where(r => r.CheckData.Data != null)
+                    .SelectMany(r => ((JObject)r.CheckData.Data).Properties().Select(p => int.Parse(p.Name)))
+                    .Distinct()
+                    .ToList();
+                // 2. 批量查询CheckPara
+                var checkParas = await _fsql.Select<CheckPara>()
+                    .Where(c => allCheckParaIds.Contains(c.Id))
+                     .ToListAsync();
+
+                // 4. 构建结果
+                var checkDataItemType = typeof(CheckDataItem);
+                var results = new List<CheckDataResult2>();
+                foreach (var hourlyData in hourslyCheckWithAlarmDatas)
+                {
+                    var resultItem = new CheckDataResult2
+                    {
+                        Id = hourlyData.CheckData.Id,
+                        DeviceId = hourlyData.CheckData.DeviceId,
+                        LineId = hourlyData.CheckData.LineId,
+                        RecipeId = hourlyData.CheckData.RecipeId,
+                        RecordTime = hourlyData.SharpTime?.ToString("HH:mm"),
+                        HourCheckValid = hourlyData.AlarmData?.HourCheckValid != null ? hourlyData.AlarmData?.HourCheckValid : null,
+                        HourCheckStatus = hourlyData.AlarmData?.HourCheckStatus != null ? hourlyData.AlarmData?.HourCheckStatus : null,
+                        HourCheckTime = hourlyData.AlarmData?.HourCheckTime.ToString() != null ? hourlyData.AlarmData?.HourCheckTime.ToString() : null,
+                        AlarmId = hourlyData.AlarmData?.Id != null ? hourlyData.AlarmData?.Id : null,
+                    };
+                    if (hourlyData.CheckData != null)
+                    {
+                        var dataDict = (JObject)hourlyData.CheckData.Data;
+                        var alarmDict = (JObject)hourlyData.AlarmData?.Data;
+                        dynamic checkDataItem = new ExpandoObject();
+                        var checkDataItemDict = (IDictionary<string, object>)checkDataItem;
+
+                        foreach (var prop in dataDict.Properties())
+                        {
+                            var checkParaId = int.Parse(prop.Name);
+                            var checkPara = checkParas.FirstOrDefault(c => c.Id == checkParaId);
+                            if (checkPara != null)
+                            {
+                                var alarmData = alarmDict != null && alarmDict.ContainsKey(prop.Name) ? (JObject)alarmDict[prop.Name] : null;
+                                // 使用 CheckPara.No 作为键值
+                                var key =checkPara.No.ToString();
+                                checkDataItemDict[key] = new AlarmItem
+                                {
+                                    Value = prop.Value.ToObject<string>(),
+                                    CheckParamId = checkPara.Id,
+                                    //IsAlarm = 1,
+                                    CheckStatus = alarmData != null ? alarmData["check_status"].ToObject<int>() : null,
+                                    CheckUser = alarmData != null ? alarmData["check_user"].ToObject<string>() : null,
+                                    CheckText = alarmData != null ? alarmData["check_text"].ToObject<string>() : null
+                                };
+                            }
+                        }
+                        resultItem.Data = checkDataItem;
+                    }
+
+                    results.Add(resultItem);
+                }
+                results = results.OrderBy(c => c.DeviceId).ToList();
+                return Ok(new ApiResponse<IEnumerable<CheckDataResult2>>(200, results, "成功"));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "获取设备 {DeviceId} 数据失败 | 输入时间：{InputTime}", deviceTypeId, inputTime);
+                return StatusCode(500, new ApiResponse<object>(500, null, $"服务器内部错误：{ex.Message}"));
+            }
+        }
+        [HttpGet("currunt", Name = "获取当前时间点检数据/V5")] //查询不依能赖于keynames字段
+        public async Task<IActionResult> GetCurrentTimeCheckData5([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime)
+        {
+            try
+            {
+                _logger.LogInformation("开始获取设备 {DeviceId} 在 {InputTime} 的检查数据", deviceTypeId, inputTime);
+                var device = await _fsql.Select<DeviceInfo>()
+                 .Where(n => n.Id == deviceTypeId)
+                 .FirstAsync();
+                var deviceIdList = await GetDeviceGroupbyDeviceId((int)device.Reported);
+                if (deviceIdList.Count == 0)
+                {
+                    return Ok(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
+                }
+
+                // ================== 第一部分：获取当前时间的点检记录 ==================
+                var startTime = inputTime.AddSeconds(-60);
+                var allRecords = await _fsql.Select<HisDataCheck>()
+                    .Where(c =>
+                        deviceIdList.Contains(c.DeviceId.Value) &&
+                        c.RecordTime > startTime &&
+                        c.RecordTime <= inputTime)
+                    .Include(c => c.DeviceInfo)
+                    .OrderByDescending(c => c.RecordTime)
+                    .ToListAsync();
+                // 按设备分组
+                var recordsByDevice = allRecords
+                    .GroupBy(c => c.DeviceId.Value)
+                    .ToDictionary(g => g.Key, g => g.ToList());
+                // 找到每个设备与 inputTime 最接近的记录
+                var closestRecords = new List<HisDataCheck>();
+
+                foreach (var deviceId in deviceIdList)
+                {
+                    if (recordsByDevice.TryGetValue(deviceId, out var deviceRecords))
+                    {
+                        var closestRecord = deviceRecords
+                            .OrderBy(c => Math.Abs((c.RecordTime - inputTime).Value.Ticks))
+                            .FirstOrDefault();
+
+                        if (closestRecord != null)
+                        {
+                            closestRecords.Add(closestRecord);
+                        }
+                    }
+                }
+
+                if (closestRecords.Count == 0)
+                {
+                    return Ok(new ApiResponse<object>(200, null, "未根据deviceIdList查询出HisDataCheck"));
+                }
+
+                // ================== 第二部分：处理点检数据转换 ==================
+                var results = new List<CheckDataResult2>();
+                foreach (var closestRecord in closestRecords)
+                {
+                    // 1. 收集所有CheckPara的ID
+                    var allCheckParaIds = ((JObject)closestRecord.Data)
+                        .Properties()
+                        .Select(p => int.Parse(p.Name))
+                        .Distinct()
+                        .ToList();
+                    // 2. 批量查询CheckPara
+                    var checkParas = await _fsql.Select<CheckPara>()
+                        .Where(c => allCheckParaIds.Contains(c.Id))
+                        .ToListAsync();
+                    // 4. 构建结果
+                    var resultItem = new CheckDataResult2
+                    {
+                        Id = closestRecord.Id,
+                        DeviceId = closestRecord.DeviceId,
+                        LineId = closestRecord.LineId,
+                        RecipeId = closestRecord.RecipeId,
+                        RecordTime = closestRecord.RecordTime?.ToString(),
+                    };
+                    if (closestRecord.Data != null)
+                    {
+                        var dataDict = (JObject)closestRecord.Data;
+                        dynamic checkDataItem = new ExpandoObject();
+                        var checkDataItemDict = (IDictionary<string, object>)checkDataItem;
+
+                        foreach (var prop in dataDict.Properties())
+                        {
+                            var checkParaId = int.Parse(prop.Name);
+                            var checkPara = checkParas.FirstOrDefault(c => c.Id == checkParaId);
+                            if (checkPara != null)
+                                {
+                                    // 使用 deviceId 和 no 作为键值
+                                    var key =checkPara.No.ToString();
+                                    checkDataItemDict[key] = prop.Value.ToObject<string>();
+                                }
+                            
+                        }
+                        resultItem.Data = checkDataItem;
+                    }
+
+                    results.Add(resultItem);
+                }
+                results.OrderBy(c => c.DeviceId);
+                return Ok(new ApiResponse<IEnumerable<CheckDataResult2>>(200, results, "成功"));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "获取设备 {DeviceId} 数据失败 | 输入时间：{InputTime}", deviceTypeId, inputTime);
+                return StatusCode(500, new ApiResponse<object>(500, null, $"服务器内部错误：{ex.Message}"));
+            }
+        }
+        [HttpGet("sharp/V4", Name = "获取整点时间点检数据/V4")]//获取并处理deviceId列表
         public async Task<IActionResult> GetSharpTimeCheckData4([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime, [FromQuery] int shift)
         {
             try
@@ -818,7 +1096,7 @@ namespace Cola.Controllers
                                     var alarmData = alarmDict != null && alarmDict.ContainsKey(prop.Name) ? (JObject)alarmDict[prop.Name] : null;
                                     checkDataItemDict[checkPara.KeyName] = new AlarmItem
                                     {
-                                        Valule = prop.Value.ToObject<string>(),
+                                        Value = prop.Value.ToObject<string>(),
                                         CheckParamId = checkPara.Id,
                                         //IsAlarm = 1,
                                         CheckStatus = alarmData != null ? alarmData["check_status"].ToObject<int>() : null,
@@ -998,7 +1276,7 @@ namespace Cola.Controllers
                                     var alarmData = alarmDict != null && alarmDict.ContainsKey(prop.Name) ? (JObject)alarmDict[prop.Name] : null;
                                     checkDataItemDict[checkPara.KeyName] = new AlarmItem
                                     {
-                                        Valule = prop.Value.ToObject<string>(),
+                                        Value = prop.Value.ToObject<string>(),
                                         CheckParamId = checkPara.Id,
                                         //IsAlarm = 1,
                                         CheckStatus = alarmData != null ? alarmData["check_status"].ToObject<int>() : null,
@@ -1194,9 +1472,6 @@ namespace Cola.Controllers
             // ================== 第一部分：获取表头数据 ==================
             var dayStart = inputTime.Date.AddHours(7);
             var dayEnd = dayStart.AddDays(1);
-            //获取设备7和9的点检项
-            var recipeDetailList = await _fsql.Select<RecipeDetailInfo>()
-                .ToListAsync();
             //获取当前时间的记录来获取recipe_id
             var allRecords = await _fsql.Select<HisDataCheck>()
              .Where(c =>
@@ -1219,7 +1494,7 @@ namespace Cola.Controllers
                var item = new CheckHeadItem
                 {
                     ProjectDescription = name.AliasName,
-                    ReferenceValue = recipeDetailList.FirstOrDefault(r => r.RecipeId == recipeId && r.CheckParaId == name.Id)?.Lower ?? "null",
+                    ReferenceValue = name.LimitDesc ?? "null",
                     Unit = name.Unit,
                     ProjectName = name.Name,
                     Keyname = name.KeyName,
@@ -1780,9 +2055,6 @@ namespace Cola.Controllers
                     .Where(c => allCheckParaIds.Contains(c.Id))
                     .ToListAsync();
 
-                var recipeDetailList = await _fsql.Select<RecipeDetailInfo>()
-                    .ToListAsync();
-
                 var deviceStepList = (await _fsql.Select<DeviceStep>()
                     .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
 
@@ -1816,8 +2088,9 @@ namespace Cola.Controllers
                         {
                             var existingExcelData = excelDataList.FirstOrDefault(e =>
                                 e.DeviceName == deviceList.Where(n => n.Id == checkPara.DeviceId).FirstOrDefault().Name &&
-                                e.ProjectDescription == checkPara.AliasName &&
-                                e.ReferenceValue == (recipeDetailList.FirstOrDefault(r => r.RecipeId == hourlyData.RecipeId && r.CheckParaId == checkPara.Id)?.Lower ?? "null") &&
+                                e.ProjectDescription == checkPara.Name &&
+                                  //e.ReferenceValue == (recipeDetailList.FirstOrDefault(r => r.RecipeId == hourlyData.RecipeId && r.CheckParaId == checkPara.Id)?.Lower ?? "null") &&
+                                e.ReferenceValue == (checkPara.LimitDesc ?? "null") &&
                                 e.Unit == checkPara.Unit &&
                                 e.ProjectName == checkPara.Name);
 
@@ -1826,13 +2099,13 @@ namespace Cola.Controllers
                                 var excelData = new ExcelData
                                 {
                                     DeviceName = deviceList.Where(n=>n.Id== checkPara.DeviceId).FirstOrDefault().Name,
-                                    ProjectDescription = checkPara.AliasName,
-                                    ReferenceValue = recipeDetailList.FirstOrDefault(r => r.RecipeId == hourlyData.RecipeId && r.CheckParaId == checkPara.Id)?.Lower ?? "null",
+                                    ProjectDescription = checkPara.Name,
+                                    ReferenceValue = checkPara.LimitDesc ?? "null",
                                     Unit = checkPara.Unit,
                                     ProjectName = checkPara.Name,
                                     CurrentValue = currentRecords.FirstOrDefault(c => c.DeviceId == checkPara.DeviceId)?.Data[checkPara.Id.ToString()]?.ToString() // Store the current value
                                 };
-                                if (prop.Key == "MixerStep")
+                                if (checkPara.KeyName == "MixerStep")
                                 {
                                     var mixerStepId = prop.Value.ToObject<int>();
                                     if (deviceStepList.TryGetValue(mixerStepId, out var mixerStepName))
@@ -1848,7 +2121,7 @@ namespace Cola.Controllers
                             }
                             else
                             {
-                                if (prop.Key == "MixerStep")
+                                if (checkPara.KeyName == "MixerStep")
                                 {
                                     var mixerStepId = prop.Value.ToObject<int>();
                                     if (deviceStepList.TryGetValue(mixerStepId, out var mixerStepName))

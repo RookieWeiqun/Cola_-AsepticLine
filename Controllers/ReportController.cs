@@ -69,7 +69,7 @@ namespace Cola.Controllers
                         .ToListAsync();
                 var cleanStateList = await _fsql.Select<CleanState>()
                         .ToListAsync();
-                var blendStateList = await _fsql.Select<BlendState>()
+                var blendStateList = await _fsql.Select<BlendStep>()
                         .ToListAsync();
                 // 4.2 获取Device_type列表
                 var deviceTypeList = (await _fsql.Select<DeviceType>()
@@ -210,7 +210,7 @@ namespace Cola.Controllers
                        .ToListAsync();
                 var cleanStateList = await _fsql.Select<CleanState>()
                         .ToListAsync();
-                var blendStateList = await _fsql.Select<BlendState>()
+                var blendStateList = await _fsql.Select<BlendStep>()
                         .ToListAsync();
                 // 4.2 获取Device_type列表
                 var deviceTypeList = (await _fsql.Select<DeviceType>()

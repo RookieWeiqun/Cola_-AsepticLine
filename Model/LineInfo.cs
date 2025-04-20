@@ -23,6 +23,12 @@ namespace Cola.Model {
 		[JsonProperty, Column(Name = "alias_name", StringLength = 50, IsNullable = false)]
 		public string AliasName { get; set; }
 
+		[JsonProperty, Column(Name = "brand_id")]
+		public short? BrandId { get; set; }
+
+		[JsonProperty, Column(Name = "enabled")]
+		public short? Enabled { get; set; }
+
 		[JsonProperty, Column(Name = "name", StringLength = 50, IsNullable = false)]
 		public string Name { get; set; }
 

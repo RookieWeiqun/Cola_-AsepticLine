@@ -40,7 +40,7 @@
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
-    "Method": "GetCurrentTimeCheckData4",
+    "Method": "GetCurrentTimeCheckData5",
     "RelativePath": "api/Check/currunt",
     "HttpMethod": "GET",
     "IsController": true,
@@ -58,7 +58,7 @@
       }
     ],
     "ReturnTypes": [],
-    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V4"
+    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V5"
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
@@ -128,6 +128,28 @@
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
+    "Method": "GetCurrentTimeCheckData4",
+    "RelativePath": "api/Check/currunt/V4",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "deviceTypeId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "inputTime",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "\u83B7\u53D6\u5F53\u524D\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V4"
+  },
+  {
+    "ContainingType": "Cola.Controllers.CheckController",
     "Method": "GetDeviceList",
     "RelativePath": "api/Check/deviceList",
     "HttpMethod": "GET",
@@ -188,7 +210,7 @@
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
-    "Method": "GetSharpTimeCheckData4",
+    "Method": "GetSharpTimeCheckData5",
     "RelativePath": "api/Check/sharp",
     "HttpMethod": "GET",
     "IsController": true,
@@ -211,7 +233,7 @@
       }
     ],
     "ReturnTypes": [],
-    "EndpointName": "\u83B7\u53D6\u6574\u70B9\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V4"
+    "EndpointName": "\u83B7\u53D6\u6574\u70B9\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V5"
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",
@@ -288,6 +310,33 @@
     ],
     "ReturnTypes": [],
     "EndpointName": "\u83B7\u53D6\u6574\u70B9\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V3"
+  },
+  {
+    "ContainingType": "Cola.Controllers.CheckController",
+    "Method": "GetSharpTimeCheckData4",
+    "RelativePath": "api/Check/sharp/V4",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "deviceTypeId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "inputTime",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "shift",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "\u83B7\u53D6\u6574\u70B9\u65F6\u95F4\u70B9\u68C0\u6570\u636E/V4"
   },
   {
     "ContainingType": "Cola.Controllers.CheckController",

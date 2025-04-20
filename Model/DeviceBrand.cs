@@ -14,10 +14,10 @@ using Npgsql.LegacyPostgis;
 
 namespace Cola.Model {
 
-	[JsonObject(MemberSerialization.OptIn), Table(Name = "blend_state", DisableSyncStructure = true)]
-	public partial class BlendState {
+	[JsonObject(MemberSerialization.OptIn), Table(Name = "device_brand", DisableSyncStructure = true)]
+	public partial class DeviceBrand {
 
-		[JsonProperty, Column(Name = "id", IsPrimary = true, IsIdentity = true, InsertValueSql = "nextval('blend_state_id_seq'::regclass)")]
+		[JsonProperty, Column(Name = "id", IsPrimary = true, IsIdentity = true, InsertValueSql = "nextval('device_brand_id_seq'::regclass)")]
 		public int Id { get; set; }
 
 		[JsonProperty, Column(Name = "description", StringLength = -2)]
@@ -25,9 +25,6 @@ namespace Cola.Model {
 
 		[JsonProperty, Column(Name = "name", StringLength = 20)]
 		public string Name { get; set; }
-
-		[JsonProperty, Column(Name = "value")]
-		public short? Value { get; set; }
 
 	}
 

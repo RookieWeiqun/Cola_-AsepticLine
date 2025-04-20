@@ -14,7 +14,7 @@ using Npgsql.LegacyPostgis;
 
 namespace Cola.Model {
 
-	[JsonObject(MemberSerialization.OptIn), Table(Name = "check_para", DisableSyncStructure = false)]
+	[JsonObject(MemberSerialization.OptIn), Table(Name = "check_para", DisableSyncStructure = true)]
 	public partial class CheckPara {
 
 		[JsonProperty, Column(Name = "id", IsPrimary = true, IsIdentity = true, InsertValueSql = "nextval('check_para_id_seq'::regclass)")]
@@ -28,9 +28,6 @@ namespace Cola.Model {
 
 		[JsonProperty, Column(Name = "checked")]
 		public short? Checked { get; set; }
-
-		[JsonProperty, Column(Name = "counted")]
-		public short? Counted { get; set; }
 
 		[JsonProperty, Column(Name = "device_id")]
 		public int? DeviceId { get; set; }
@@ -56,6 +53,8 @@ namespace Cola.Model {
         [JsonProperty, Column(Name = "key_name")]
         public string KeyName { get; set; }
 
+        [JsonProperty, Column(Name = "limit_desc", StringLength = 50)]
+        public string LimitDesc { get; set; }
     }
 
 }

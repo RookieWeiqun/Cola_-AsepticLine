@@ -129,7 +129,7 @@
         }
       }
     },
-    "/api/Check/currunt": {
+    "/api/Check/currunt/V4": {
       "get": {
         "tags": [
           "Check"
@@ -161,6 +161,76 @@
       }
     },
     "/api/Check/sharp": {
+      "get": {
+        "tags": [
+          "Check"
+        ],
+        "operationId": "获取整点时间点检数据/V5",
+        "parameters": [
+          {
+            "name": "deviceTypeId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "inputTime",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "shift",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Check/currunt": {
+      "get": {
+        "tags": [
+          "Check"
+        ],
+        "operationId": "获取当前时间点检数据/V5",
+        "parameters": [
+          {
+            "name": "deviceTypeId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "inputTime",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Check/sharp/V4": {
       "get": {
         "tags": [
           "Check"
