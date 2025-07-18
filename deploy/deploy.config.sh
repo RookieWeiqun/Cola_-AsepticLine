@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # 实际部署配置
-REMOTE_HOST="192.168.1.199"        # 实际服务器IP,局域网IP
-REMOTE_USER="owner"                # 实际用户名
+REMOTE_HOST="192.168.1.177"        # 实际服务器IP,局域网IP
+REMOTE_USER="ezan"                # 实际用户名
 REMOTE_PORT="22"                   # SSH 端口
-REMOTE_PATH="/home/owner/dotnet/cola_-aseptic-line2"      # 实际部署路径
+REMOTE_PATH="/home/ezan/envapp/cola"      # 实际部署路径
 DOCKER_IMAGE_NAME="dotnet-app"       # 实际镜像名称
 DOCKER_CONTAINER_NAME="dotnet-app:latest" # 实际容器名称
 APP_PORT=8080                      # 实际应用端口

@@ -537,7 +537,7 @@ namespace Cola.Controllers
         }
 
         [HttpGet("currunt/V4", Name = "获取当前时间点检数据/V4")] //查询多个设备
-        public async Task<IActionResult> GetCurrentTimeCheckData4([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime)
+        public async Task<IActionResult> GetCurrentTimeCheckData4([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime, [FromQuery] int lineId)
         {
             try
             {
@@ -545,7 +545,7 @@ namespace Cola.Controllers
                 var device = await _fsql.Select<DeviceInfo>()
                  .Where(n => n.Id == deviceTypeId)
                  .FirstAsync();
-                var deviceIdList = await GetDeviceGroupbyDeviceId((int)device.Reported);
+                var deviceIdList = await GetDeviceGroupbyDeviceId((int)device.Reported, lineId);
                 if (deviceIdList.Count == 0)
                 {
                     return Ok(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
@@ -665,7 +665,7 @@ namespace Cola.Controllers
  
 
         [HttpGet("sharp", Name = "获取整点时间点检数据/V5")]//查询不依能赖于keynames字段
-        public async Task<IActionResult> GetSharpTimeCheckData5([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime, [FromQuery] int shift)
+        public async Task<IActionResult> GetSharpTimeCheckData5([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime, [FromQuery] int shift, [FromQuery] int? lineId = null)
         {
             try
             {
@@ -673,7 +673,7 @@ namespace Cola.Controllers
                 var device = await _fsql.Select<DeviceInfo>()
                .Where(n => n.Id == deviceTypeId)
                .FirstAsync();
-                var deviceIdList = await GetDeviceGroupbyDeviceId((int)device.Reported);
+                var deviceIdList = await GetDeviceGroupbyDeviceId((int)device.Reported,lineId);
                 if (deviceIdList.Count == 0)
                 {
                     return Ok(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
@@ -834,7 +834,7 @@ namespace Cola.Controllers
             }
         }
         [HttpGet("currunt", Name = "获取当前时间点检数据/V5")] //查询不依能赖于keynames字段
-        public async Task<IActionResult> GetCurrentTimeCheckData5([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime)
+        public async Task<IActionResult> GetCurrentTimeCheckData5([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime, [FromQuery] int? lineId=null)
         {
             try
             {
@@ -842,7 +842,7 @@ namespace Cola.Controllers
                 var device = await _fsql.Select<DeviceInfo>()
                  .Where(n => n.Id == deviceTypeId)
                  .FirstAsync();
-                var deviceIdList = await GetDeviceGroupbyDeviceId((int)device.Reported);
+                var deviceIdList = await GetDeviceGroupbyDeviceId((int)device.Reported, lineId);
                 if (deviceIdList.Count == 0)
                 {
                     return Ok(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
@@ -941,7 +941,7 @@ namespace Cola.Controllers
             }
         }
         [HttpGet("sharp/V4", Name = "获取整点时间点检数据/V4")]//获取并处理deviceId列表
-        public async Task<IActionResult> GetSharpTimeCheckData4([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime, [FromQuery] int shift)
+        public async Task<IActionResult> GetSharpTimeCheckData4([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime, [FromQuery] int shift, [FromQuery] int lineId)
         {
             try
             {
@@ -949,7 +949,7 @@ namespace Cola.Controllers
                 var device = await _fsql.Select<DeviceInfo>()
                .Where(n => n.Id == deviceTypeId)
                .FirstAsync();
-                var deviceIdList = await GetDeviceGroupbyDeviceId((int)device.Reported);
+                var deviceIdList = await GetDeviceGroupbyDeviceId((int)device.Reported,lineId);
                 if (deviceIdList.Count == 0)
                 {
                     return Ok(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
@@ -1448,7 +1448,7 @@ namespace Cola.Controllers
         }
 
         [HttpGet("CheckParas", Name = "通过设备Id获取点检列表")]
-        public async Task<IActionResult> GetCheckParasByDeviceId([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime)
+        public async Task<IActionResult> GetCheckParasByDeviceId([FromQuery] int deviceTypeId, [FromQuery] DateTime inputTime, [FromQuery] int? lineId=null)
         {
             //处理deviceId
             //var deviceIds = await _fsql.Select<DeviceType>()
@@ -1464,7 +1464,7 @@ namespace Cola.Controllers
             var device = await _fsql.Select<DeviceInfo>()
                         .Where(n => n.Id == deviceTypeId)
                         .FirstAsync();
-            var deviceIdList =await GetDeviceGroupbyDeviceId((int)device.Reported);
+            var deviceIdList =await GetDeviceGroupbyDeviceId((int)device.Reported,lineId);
             if (deviceIdList.Count == 0)
             {
                 return Ok(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
@@ -1497,7 +1497,7 @@ namespace Cola.Controllers
                     ReferenceValue = name.LimitDesc ?? "null",
                     Unit = name.Unit,
                     ProjectName = name.Name,
-                    Keyname = name.KeyName,
+                    Keyname = name.No,
                     DeviceId=name.DeviceId
                 };
                    
@@ -1508,12 +1508,12 @@ namespace Cola.Controllers
         }
 
         [HttpGet("deviceList", Name = "设备列表")]
-        public async Task<IActionResult> GetDeviceList()
+        public async Task<IActionResult> GetDeviceList([FromQuery][Required] int lineID)
         {
             try
             {
                 var  deviceList = await _fsql.Select<DeviceInfo>()
-                    .Where(DeviceInfo => DeviceInfo.Reported != null)
+                    .Where(DeviceInfo => DeviceInfo.Reported != null && DeviceInfo.LineId==lineID)
                     .OrderBy(DeviceInfo => DeviceInfo.Reported)
                     .ToListAsync(c => new { c.Id, c.Name });
                 return Ok(new ApiResponse<IEnumerable<object>>(200, deviceList, "成功"));
@@ -1521,6 +1521,21 @@ namespace Cola.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "获取设别列表失败");
+                return StatusCode(500, new ApiResponse<object>(500, null, $"服务器内部错误：{ex.Message}"));
+            }
+        }
+        [HttpGet("lineInfoList", Name = "获取产线列表")]
+        public async Task<IActionResult> GetLineInfoList()
+        {
+            try
+            {
+                var lineInfoList = await _fsql.Select <LineInfo>()
+                    .ToListAsync(c => new { c.Id, c.AliasName });
+                return Ok(new ApiResponse<IEnumerable<object>>(200, lineInfoList, "成功"));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "获取产线列表失败");
                 return StatusCode(500, new ApiResponse<object>(500, null, $"服务器内部错误：{ex.Message}"));
             }
         }
@@ -1768,14 +1783,14 @@ namespace Cola.Controllers
         //}
 
         [HttpGet("Export/Juice", Name = "导出果汁excel数据")]
-        public async Task<IActionResult> ExportToExcel2([FromQuery][Required] int deviceTypeId, [FromQuery] DateTime inputTime, [FromQuery] int shift)
+        public async Task<IActionResult> ExportToExcel2([FromQuery][Required] int deviceTypeId, [FromQuery] DateTime inputTime, [FromQuery] int shift, [FromQuery] int lineId)
         {
             try
             {
                 var device = await _fsql.Select<DeviceInfo>()
                                 .Where(n => n.Id == deviceTypeId)
                                 .FirstAsync();
-                var deviceIdList =await GetDeviceGroupbyDeviceId((int)device.Reported);
+                var deviceIdList =await GetDeviceGroupbyDeviceId((int)device.Reported, lineId);
                 if (deviceIdList.Count == 0)
                 {
                     return Ok(new ApiResponse<object>(200, null, "deviceIdList为null未找到数据"));
@@ -1999,6 +2014,8 @@ namespace Cola.Controllers
                     c.RecordTime >= dayStart &&
                     c.RecordTime < dayEnd)
                 .ToListAsync();
+            //alarmRecord包含了所有的整点的报警记录（有的列没有报警信息），需排除
+            alarmRecords=alarmRecords.Where(n=>n.Data != null && n.Data.ToString() != "{}").ToList();
             // 按DeviceId分组记录
             var recordsByDevice = alarmRecords
                 .GroupBy(c => c.DeviceId.Value)
@@ -2169,7 +2186,8 @@ namespace Cola.Controllers
                     .ToListAsync();
 
                 var excelDataList = new List<ExcelAlarmData>();
-                var res = hourlyDatas.Where(n => n.DeviceId == 9).ToList();
+                //var res = hourlyDatas.Where(n => n.DeviceId == 9).ToList();
+                var res = hourlyDatas.Where(n => deviceIds.Contains((int)n.DeviceId)).ToList();
                 foreach (var hourlyData in hourlyDatas)
                 {
                     var dataDict = (JObject)hourlyData.Data;
@@ -2183,7 +2201,7 @@ namespace Cola.Controllers
                         {
                             var existingExcelData = excelDataList.FirstOrDefault(e =>
                                 e.DeviceName == deviceList.FirstOrDefault(n => n.Id == checkPara.DeviceId)?.Name &&
-                                e.CheckItem == checkPara.AliasName &&
+                                e.CheckItem == checkPara.Name &&
                                 e.SharpTime == hourlyData.RecordTime?.ToString("HH:mm"));
 
                             if (existingExcelData == null)
@@ -2191,7 +2209,7 @@ namespace Cola.Controllers
                                 var excelData = new ExcelAlarmData
                                 {
                                     DeviceName = deviceList.FirstOrDefault(n => n.Id == checkPara.DeviceId)?.Name,
-                                    CheckItem = checkPara.AliasName,
+                                    CheckItem = checkPara.Name,
                                     SharpTime = hourlyData.RecordTime?.ToString("HH:mm"),
                                     Remark = checkData["check_text"]?.ToString()
                                 };
@@ -2214,13 +2232,25 @@ namespace Cola.Controllers
             }
         }
 
-        private async Task<List<int>> GetDeviceGroupbyDeviceId(int deviceId)
+        private async Task<List<int>> GetDeviceGroupbyDeviceId(int deviceId,int? lineId)
         {
-            var deviceList = await _fsql.Select<DeviceInfo>()
+            if (lineId == null)
+            {
+                var deviceList = await _fsql.Select<DeviceInfo>()
                     .Where(DeviceInfo => DeviceInfo.ReportGroup == deviceId)
                     .OrderBy(DeviceInfo => DeviceInfo.Id)
-                    .ToListAsync(c =>  c.Id);
-            return deviceList;
+                    .ToListAsync(c => c.Id);
+                return deviceList;
+            }
+            else
+            {
+                var deviceList = await _fsql.Select<DeviceInfo>()
+                .Where(DeviceInfo => DeviceInfo.ReportGroup == deviceId && DeviceInfo.LineId == lineId)
+                .OrderBy(DeviceInfo => DeviceInfo.Id)
+                .ToListAsync(c => c.Id);
+                return deviceList;
+            }
+        
         }
     }
 }

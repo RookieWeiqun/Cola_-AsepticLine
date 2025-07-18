@@ -22,7 +22,7 @@ namespace Cola.Controllers
             _mapper = mapper;
         }
         [HttpGet("history", Name = "GetHistoryTimeReport")]
-        public async Task<IActionResult> GetReportDataByInputTime([FromQuery][Required] DateTime? inputTime)
+        public async Task<IActionResult> GetReportDataByInputTime([FromQuery][Required] DateTime? inputTime, [FromQuery] int lineID)
         {
             if (!inputTime.HasValue)
             {
@@ -64,6 +64,12 @@ namespace Cola.Controllers
                     .Where(c => allCheckParaIds.Contains(c.Id))
                     .ToDictionaryAsync(c => c.Id);
                 // 4. 构建结果
+                // 4.3 获取device_step列表
+                var deviceStepList = (await _fsql.Select<DeviceStep, LineInfo>()
+                    .LeftJoin((a, b) => a.BrandId == b.BrandId)
+                    .Where((a, b) => b.Id == lineID)
+                    .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
+ 
                 // 4.1 获取状态列表
                 var deviceStateList = await _fsql.Select<DeviceState>()
                         .ToListAsync();
@@ -75,9 +81,9 @@ namespace Cola.Controllers
                 var deviceTypeList = (await _fsql.Select<DeviceType>()
                  .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
                 var results = new List<RealtimeDataResult>();
-                // 4.3 获取device_step列表
-                var deviceStepList = (await _fsql.Select<DeviceStep>()
-                    .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
+      
+                //var deviceStepList = (await _fsql.Select<DeviceStep>()
+                //    .ToListAsync()).ToDictionary(dt => dt.Id, dt => dt.Name);
                 // 4.4 获取recipe_info列表
                 var recipeInfoList = (await _fsql.Select<RecipeInfo>()
                .ToListAsync()).ToDictionary(dt => dt.Sku, dt => dt.Name);

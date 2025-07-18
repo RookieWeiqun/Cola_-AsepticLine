@@ -56,12 +56,6 @@ D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\scopedcss\bundle\Cola.styl
 D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\staticwebassets.build.json
 D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\staticwebassets.development.json
 D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\staticwebassets\msbuild.Cola.Microsoft.AspNetCore.StaticWebAssets.props
-D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\staticwebassets\msbuild.Cola.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\staticwebassets\msbuild.build.Cola.props
-D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Cola.props
-D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Cola.props
-D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\staticwebassets.pack.json
 D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\Cola.csproj.Up2Date
 D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\Cola.dll
@@ -69,3 +63,8 @@ D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\refint\Cola.dll
 D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\Cola.pdb
 D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\Cola.genruntimeconfig.cache
 D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\ref\Cola.dll
+D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\rjimswa.dswa.cache.json
+D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+D:\cwq\MyCode\Cola_ AsepticLine\Cola\obj\Debug\net8.0\staticwebassets.build.json.cache

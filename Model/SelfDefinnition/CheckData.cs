@@ -63,7 +63,7 @@ namespace Cola.Model
 
         public string? ProjectName { get; set; }
 
-        public string? Keyname { get; set; }
+        public int? Keyname { get; set; }
 
         public int? DeviceId { get; set; }
 

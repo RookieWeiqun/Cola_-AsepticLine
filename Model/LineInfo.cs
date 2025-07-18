@@ -35,6 +35,6 @@ namespace Cola.Model {
 		[JsonProperty, Column(Name = "no")]
 		public short No { get; set; }
 
-	}
+    }
 
 }
